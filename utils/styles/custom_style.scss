@@ -11,26 +11,29 @@
 	transform: translateZ(0);
 	
 	display:flex;	
-	
+	gap: 5px;
 	height:50px;
 	
 	box-shadow: 0 -2px 5px -2px #333;
-	background-color:#fff;
+	background-color:#ffffff;
+
+	cursor: pointer;
 }	
-	.bottom-nav-item{
-		flex-grow:1;
-		text-align:center;
-		font-size:12px;
+.bottom-nav-item{
+	flex-grow:1;
+	text-align:center;
+	font-size:12px;
 		
-		display:flex;
-		flex-direction:column;
-		justify-content:center;
-	}
-	/*.bottom-nav-item{
-		//dev
-		color:red;
-	}*/
-	.bottom-nav-item-content{ 
-		display:flex;
-		flex-direction:column;		
-	}
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+.bottom-nav-item-content{ 
+	display:flex;
+	flex-direction:column;
+	
+	font-size: 25px;
+}
+.red {
+	color: red;
+}
