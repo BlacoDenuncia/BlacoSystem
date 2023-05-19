@@ -19,8 +19,18 @@ class Boletim_controller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
+	public function determineCurrentPage(){
+		$current_page = "boletim";
+		return $current_page;
+	}
 	public function index()
 	{
-        $this->load->view('welcome_message');
+		$page = $this->determineCurrentPage();
+		$current_page = array(
+			'current_page' => $page
+		);
+        $this->template->write_view('content', 'teste.html', $current_page, FALSE,);
+        $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
+        $this->template->render();
 	}
 }

@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Index_controller extends CI_Controller {
-
+	
 	/**
 	 * Index Page for this controller.
 	 *
@@ -19,10 +19,20 @@ class Index_controller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
+
+	//Determina a página atual manualmente
+	public function determineCurrentPage(){
+		$current_page = "index";
+		return $current_page;
+	}
 	public function index()
 	{
-        $this->template->write_view('content', 'teste.html', "", FALSE);
-        $this->template->write_view('menu', 'usuarios/menu_user', "", FALSE);
+		$page = $this->determineCurrentPage();
+		$current_page = array(
+			'current_page' => $page
+		);
+        $this->template->write_view('content', 'teste.html', $current_page, FALSE,);
+        $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
         $this->template->render();
 	}
 }
