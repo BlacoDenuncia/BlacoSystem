@@ -27,12 +27,34 @@ class Index_controller extends CI_Controller {
 	}
 	public function index()
 	{
+		//configurações de página
 		$page = $this->determineCurrentPage();
 		$current_page = array(
 			'current_page' => $page
 		);
-        $this->template->write_view('content', 'teste.html', $current_page, FALSE,);
-        $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
-        $this->template->render();
+        
+		//comparar tipo de login e carrega views adequadas
+		if ($this->session->userdata('logged_in')) {
+            
+            $session_data = $this->session->userdata('logged_in');
+            $perfil = $session_data['perfil'];
+            $acessos = $session_data['acessos'];
+            if(($perfil=="admin")){           
+                $this->template->write_view('content', 'teste.html', $current_page, FALSE);
+        		$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
+        		$this->template->render();
+            }else{
+                //usuário comum logado
+                $this->template->write_view('content', 'teste.html', $current_page, FALSE);
+        		$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
+        		$this->template->render();
+            }
+            
+        } else {
+			//usuário não logado
+            $this->template->write_view('content', 'teste.html', $current_page, FALSE);
+        	$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
+        	$this->template->render();
+        }
 	}
 }
