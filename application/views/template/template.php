@@ -21,9 +21,8 @@
         1 - classe responsiva principal
         2 - content
         3 - menu
-        Fazer estrutura normal completa, depois separar e substituir por echo no local
     -->
-    <div class="container-fluid">
+    <div class="container-fluid no-padding no-overlap">
         <?php 
             echo $content;    
         ?>
@@ -31,6 +30,10 @@
             echo $menu;
         ?>
     </div>
+
+    <!--importa scripts após carregamento da página-->
+    <script src="<?php echo base_url();?>utils/js/jquery.min.js"></script>
     <script src="<?php echo base_url();?>utils/js/custom_script.js"></script>
+    
 </body>
 </html>
