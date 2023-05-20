@@ -1,39 +1,137 @@
-
-.bottom-nav{
-	position:fixed;
-	bottom:0;
-	left:0;
-	right:0;
-	z-index:1000;
-	
-	//give nav it's own compsite layer
-	will-change:transform;
+/* Estilos para a barra de navegação inferior*/
+.bottom-nav {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	will-change: transform;
 	transform: translateZ(0);
-	
-	display:flex;	
+	display: flex;
 	gap: 5px;
-	height:50px;
-	
+	height: 50px;
 	box-shadow: 0 -2px 5px -2px #333;
-	background-color:#ffffff;
-
+	background-color: #ffffff;
 	cursor: pointer;
-}	
-.bottom-nav-item{
-	flex-grow:1;
-	text-align:center;
-	font-size:12px;
-		
-	display:flex;
-	flex-direction:column;
-	justify-content:center;
 }
-.bottom-nav-item-content{ 
-	display:flex;
-	flex-direction:column;
-	
+/*Estilos para os itens da barra de navegação inferior*/
+.bottom-nav-item {
+	flex-grow: 1;
+	text-align: center;
+	font-size: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.bottom-nav-item-content {
+	display: flex;
+	flex-direction: column;
 	font-size: 25px;
 }
-.active, .active:hover{
+/* Estilos para elementos ativos */
+.active {
 	color: red;
+	transition: color 1.5s ease;
+
+}
+.active:hover{
+	color: #530101;
+}
+.main-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+/*Estilos para evitar sobreposição do menu e contents */
+.no-overlap {
+	margin-bottom: 50px;
+}
+
+.content-item {
+	background-color: blue;
+	display: flex;
+	flex-direction: row;
+	width: 80%;
+}
+
+.no-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+/* Estilos para a seção de conteúdos*/
+.conteudos {
+	width: 95%;
+	margin: 10px auto;
+}
+
+.conteudos h3 {
+	text-align: center;
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+}
+
+.conteudos-item {
+	background-color: #000000;
+	margin-bottom: 20px;
+	border: 1px solid #242424;
+	border-radius: 5px;
+	color: #ffffff;
+}
+
+.conteudos-item .conteudos-title {
+	cursor: pointer;
+	padding: 20px;
+	transition: transform 0.4s ease-in-out;
+}
+
+.conteudos-item .conteudos-title.active-title {
+	background-color: #7a7a7a;
+	color: #ffffff;
+}
+
+.conteudos-item .conteudos-title h3 {
+	font-weight: 700;
+	margin: 0;
+	font-size: 18px;
+	display: flex;
+	justify-content: space-between;
+	font-weight: bold;
+}
+
+.conteudos-item .conteudos-title i.bi-chevron-down {
+	transform: rotate(0);
+	transition: 0.4s;
+}
+
+.conteudos-item .conteudos-title i.bi-chevron-down.chevron-top {
+	transform: rotate(-180deg);
+	color: #fa5019;
+}
+
+.conteudos-item .conteudos-content {
+	display: none;
+	line-height: 1.7;
+	padding: 20px;
+	background-color: #ffffff;
+	border-radius: 0 0 5px 5px;
+	color: #100e34;
+}
+
+.conteudos-item .conteudos-content.active {
+	display: block;
+}
+
+.conteudos-item .conteudos-content p {
+	margin: 0;
+	font-family: "Nunito Sans", sans-serif;
+	font-size: 16px;
+}
+
+.page-title {
+	text-align: center;
+	margin-top: 30px;
+}
+.page-title-header{
+	font-size: 50px;
 }
