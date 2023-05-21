@@ -1,4 +1,8 @@
 /* Estilos para a barra de navegação inferior*/
+#map-container {
+	width: 100%;
+	height: calc(100vh - 50px);
+}
 .centered-container {
 	display: flex;
 	flex-direction: column;

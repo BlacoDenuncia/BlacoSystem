@@ -53,7 +53,7 @@ class Index_controller extends CI_Controller {
             
         } else {
 			//usuário não logado
-            $this->template->write_view('content', 'usuarios/erros/indisponivel_view', $current_page, FALSE);
+            $this->template->write_view('content', 'usuarios/mapas/mapa_provisorio', $current_page, FALSE);
         	$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
         	$this->template->render();
         }
