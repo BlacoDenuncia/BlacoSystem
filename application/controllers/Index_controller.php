@@ -39,20 +39,21 @@ class Index_controller extends CI_Controller {
             $session_data = $this->session->userdata('logged_in');
             $perfil = $session_data['perfil'];
             $acessos = $session_data['acessos'];
-            if(($perfil=="admin")){           
-                $this->template->write_view('content', 'teste.html', $current_page, FALSE);
+            if(($perfil=="admin")){          
+				//admin logado 
+                $this->template->write_view('content', 'usuarios/erros/indisponivel_view', $current_page, FALSE);
         		$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
         		$this->template->render();
             }else{
                 //usuário comum logado
-                $this->template->write_view('content', 'teste.html', $current_page, FALSE);
+                $this->template->write_view('content', 'usuarios/erros/indisponivel_view', $current_page, FALSE);
         		$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
         		$this->template->render();
             }
             
         } else {
 			//usuário não logado
-            $this->template->write_view('content', 'teste.html', $current_page, FALSE);
+            $this->template->write_view('content', 'usuarios/erros/indisponivel_view', $current_page, FALSE);
         	$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
         	$this->template->render();
         }

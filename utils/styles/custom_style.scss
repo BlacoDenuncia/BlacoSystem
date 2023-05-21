@@ -1,4 +1,27 @@
 /* Estilos para a barra de navegação inferior*/
+.centered-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 10px;
+	min-height: 80vh;
+}
+.centered-container-top{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-align: center;
+}
+.emoji {
+	font-size: 40px;
+	margin-right: 5px;
+}
+.centered-container-text{
+	margin: 15px;
+	text-align: center;
+}
+
 .bottom-nav {
 	position: fixed;
 	bottom: 0;
