@@ -1,8 +1,9 @@
-/* Estilos para a barra de navegação inferior*/
+/* Estilos para a barra de navegação inferior */
 #map-container {
 	width: 100%;
 	height: calc(100vh - 50px);
 }
+
 .centered-container {
 	display: flex;
 	flex-direction: column;
@@ -11,17 +12,20 @@
 	margin-top: 10px;
 	min-height: 80vh;
 }
-.centered-container-top{
+
+.centered-container-top {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	text-align: center;
 }
+
 .emoji {
 	font-size: 40px;
 	margin-right: 5px;
 }
-.centered-container-text{
+
+.centered-container-text {
 	margin: 15px;
 	text-align: center;
 }
@@ -41,7 +45,8 @@
 	background-color: #ffffff;
 	cursor: pointer;
 }
-/*Estilos para os itens da barra de navegação inferior*/
+
+/* Estilos para os itens da barra de navegação inferior */
 .bottom-nav-item {
 	flex-grow: 1;
 	text-align: center;
@@ -56,20 +61,23 @@
 	flex-direction: column;
 	font-size: 25px;
 }
-.bottom-nav-item-content p{
+
+.bottom-nav-item-content p {
 	font-size: 10px;
 	margin-bottom: 1px;
 }
-.bottom-nav-item-content a{
+
+.bottom-nav-item-content a {
 	text-decoration: none;
 }
+
 /* Estilos para elementos ativos */
 .active {
 	color: red;
 	transition: color 1.5s ease;
-
 }
-.active:hover{
+
+.active:hover {
 	color: #530101;
 }
 
@@ -78,7 +86,8 @@
 	flex-direction: column;
 	justify-content: center;
 }
-/*Estilos para evitar sobreposição do menu e contents */
+
+/* Estilos para evitar sobreposição do menu e conteúdos */
 .no-overlap {
 	margin-bottom: 50px;
 }
@@ -94,7 +103,8 @@
 	padding-left: 0;
 	padding-right: 0;
 }
-/* Estilos para a seção de conteúdos*/
+
+/* Estilos para a seção de conteúdos */
 .conteudos {
 	width: 95%;
 	margin: 10px auto;
@@ -167,6 +177,7 @@
 	text-align: center;
 	margin-top: 30px;
 }
-.page-title-header{
+
+.page-title-header {
 	font-size: 50px;
 }
