@@ -1,97 +1,114 @@
-//checa internet antes do carregamento total da página
+// Função para verificar a conexão com a internet antes do carregamento total da página
 function checkInternetConnection() {
-    /*$.ajax({
-      url: 'https://blaco-teste.000webhostapp.com/', // Replace with your own URL or API endpoint
-      dataType: 'jsonp',
-      timeout: 10000, // Adjust timeout value as needed
-      success: function() {
-        console.log('Connected to the internet');
-        // Perform additional actions or enable online functionality
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        console.log('Not connected to the internet');
-        // Display the modal
-        $('#myModal').modal('show');
-      }
-    });*/
-    if (navigator.onLine) {
-        console.log('Connected to the internet');
-        // Perform additional actions or enable online functionality
-      } else {
-        console.log('Not connected to the internet');
-        // Display the modal
-        $('#modalDesconectado').modal('show');
+  /*$.ajax({
+    url: 'https://blaco-teste.000webhostapp.com/', // Substitua pela sua própria URL ou endpoint da API
+    dataType: 'jsonp',
+    timeout: 10000, // Ajuste o valor de tempo limite conforme necessário
+    success: function() {
+      console.log('Conectado à internet');
+      // Realize ações adicionais ou habilite funcionalidades online
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log('Não conectado à internet');
+      // Exiba o modal
+      $('#myModal').modal('show');
     }
+  });*/
+
+  // Verifica se o navegador está online
+  if (navigator.onLine) {
+    console.log('Conectado à internet');
+    // Realize ações adicionais ou habilite funcionalidades online
+  } else {
+    console.log('Não conectado à internet');
+    // Exiba o modal
+    $('#modalDesconectado').modal('show');
+  }
 }
 
-
 $(document).ready(function () {
-    // Recebe a URL da página atual
-    var currentPageUrl = window.location.href;
+  // Recebe a URL da página atual
+  var currentPageUrl = window.location.href;
 
-    // Define as URLs das páginas que não precisam de acesso à internet
-    var offlinePages = [
+  // Define as URLs das páginas que não precisam de acesso à internet
+  var offlinePages = [
     'https://blaco-teste.000webhostapp.com/Conteudo_controller'
   ];
 
-  // Checa se a página atual é uma das páginas do array
+  // Verifica se a página atual está na lista de páginas offline
   var isOfflinePage = offlinePages.includes(currentPageUrl);
 
-  // Se a página não é offline checa a conexão com a internet
+  // Se a página não é offline, verifica a conexão com a internet
   if (!isOfflinePage) {
     checkInternetConnection();
   }
 
-    // Listen for online and offline events
-    $(window).on('online', function() {
-        console.log('Connected to the internet');
-    // Perform additional actions or enable online functionality
-    });
+  // Ouve eventos de online e offline
+  $(window).on('online', function() {
+    console.log('Conectado à internet');
+    // Realize ações adicionais ou habilite funcionalidades online
+  });
 
-    $(window).on('offline', function() {
-        if (!isOfflinePage) {
-            console.log('Not connected to the internet');
-            // Display the modal
-            $('#modalDesconectado').modal('show');
-          }
-        
-    });
+  $(window).on('offline', function() {
+    if (!isOfflinePage) {
+      console.log('Não conectado à internet');
+      // Exiba o modal
+      $('#modalDesconectado').modal('show');
+    }
+  });
 
-    $('#btnChecaInternet').click(function() {
-        checkInternetConnection();
-    });
+  // Ouve o clique no botão de verificar conexão com a internet
+  $('#btnChecaInternet').click(function() {
+    checkInternetConnection();
+  });
 
-//Função para expandir cards de conteudos
-    $(".conteudos-title").click(function (e) {
-        // Recebe o valor do atributo data-tab do elemento clicado
-        var conteudositem = $(this).attr("data-tab");
-        
-        // Alterna o conteudo do elemento associado ao valor data-tab e faz um "slide"
-        $("#" + conteudositem)
-            .slideToggle()
-            .parent()
-            .siblings()
-            .find(".conteudos-content")
-            .slideUp();
-  
-        // Adicionar, no elemento clicado, a classe active-title
-        $(this).toggleClass("active-title");
-        
-        // Remove a classe active-title de outros elementos .conteudos-title
-        $("#" + conteudositem)
-            .parent()
-            .siblings()
-            .find(".conteudos-title")
-            .removeClass("active-title");
-  
-        // Adiciona a classe chevron-top no elemento <i> no item que foi clicado
-        $("i.bi-chevron-down", this).toggleClass("chevron-top");
-        
-        // Remove a classe chevron-top dos elementos com a classe .conteudos-title
-        $("#" + conteudositem)
-            .parent()
-            .siblings()
-            .find(".conteudos-title i.bi-chevron-down")
-            .removeClass("chevron-top");
-    });
+  // Inicialmente, oculta os campos de testemunhas
+  $("#camposTestemunhas").hide();
+
+  // Alterna a exibição dos campos de testemunhas com base no estado da caixa de seleção
+  $("#temTestemunhas").change(function() {
+    if (this.checked) {
+      $("#camposTestemunhas").show("slow");
+      // Habilita os campos de testemunhas
+      $("#nomeTestemunha, #numeroTestemunha, #emailTestemunha").prop("disabled", false);
+    } else {
+      $("#camposTestemunhas").hide(2000);
+      // Desabilita os campos de testemunhas e limpa seus valores
+      $("#nomeTestemunha, #numeroTestemunha, #emailTestemunha").prop("disabled", true).val("");
+    }
+  });
+
+  // Função para expandir os cards de conteúdo
+  $(".conteudos-title").click(function (e) {
+    // Recebe o valor do atributo data-tab do elemento clicado
+    var conteudositem = $(this).attr("data-tab");
+
+    // Alterna o conteúdo do elemento associado ao valor data-tab e faz um "slide"
+    $("#" + conteudositem)
+      .slideToggle()
+      .parent()
+      .siblings()
+      .find(".conteudos-content")
+      .slideUp();
+
+    // Adiciona a classe active-title ao elemento clicado
+    $(this).toggleClass("active-title");
+
+    // Remove a classe active-title de outros elementos .conteudos-title
+    $("#" + conteudositem)
+      .parent()
+      .siblings()
+      .find(".conteudos-title")
+      .removeClass("active-title");
+
+    // Adiciona a classe chevron-top no elemento <i> no item que foi clicado
+    $("i.bi-chevron-down", this).toggleClass("chevron-top");
+
+    // Remove a classe chevron-top dos elementos com a classe .conteudos-title
+    $("#" + conteudositem)
+      .parent()
+      .siblings()
+      .find(".conteudos-title i.bi-chevron-down")
+      .removeClass("chevron-top");
+  });
 });

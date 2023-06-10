@@ -29,7 +29,7 @@ class Boletim_controller extends CI_Controller {
 		$current_page = array(
 			'current_page' => $page
 		);
-        $this->template->write_view('content', 'usuarios/erros/indisponivel_view', $current_page, FALSE,);
+        $this->template->write_view('content', 'usuarios/boletim/boletim_view', $current_page, FALSE,);
         $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
         $this->template->render();
 	}
