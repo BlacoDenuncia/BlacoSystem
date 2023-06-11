@@ -40,7 +40,7 @@
       </div>
       <div class="row">
          <div class="form-group form-button col-md-2">
-            <button type="button" class="btn btn-danger btn-sm" id="btnRecebeLocalizacao"><i class="bi bi-geo-alt-fill"></i>Localização atual</button>
+            <button type="button" class="btn btn-danger btn-sm btnRecebeLocalizacao" id="btnRecebeLocalizacao"><i class="bi bi-geo-alt-fill"></i>Localização atual</button>
          </div>
          <div class="form-group col-md-2">
             <label class="form-label" for="bairro">Bairro</label>
