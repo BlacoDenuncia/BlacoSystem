@@ -14,7 +14,7 @@
       <script src="<?php echo base_url();?>utils/js/bootstrap.bundle.min.js"></script>
       <title>Blaco - Denuncie</title>
    </head>
-   <body class="full-width">
+   <body>
       <!--
          1 - classe responsiva principal
          2 - content
