@@ -187,7 +187,7 @@
 	margin: 0 auto;
 }
 
-.modal-footer {
+.form-footer, .modal-footer {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	display: flex;

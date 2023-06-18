@@ -5,28 +5,31 @@
    </div>
    <form>
       <div class="row">
-         <div class="form-group col-md-5">
+         <div class="form-group col-md-10">
             <label class="form-label" for="nome">Nome</label>
             <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" required>
          </div>
-         <div class="form-group col-md-1">
+         <div class="form-group col-md-2">
             <label class="form-label" for="idade">Idade</label>
             <input type="number" class="form-control" id="idade" name="idade" required>
          </div>
-         <div class="form-group col-md-3">
+      </div>
+      <br>
+      <div class="row">
+         <div class="form-group col-md-6">
             <label class="form-label" for="numContato">Telefone de contato</label>
             <input type="text" class="form-control" id="numContato" name="numContato" placeholder="Digite o seu número"
                required>
          </div>
-         <div class="form-group col-md-3">
+         <div class="form-group col-md-6">
             <label class="form-label" for="email">Email de contato</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu melhor email"
                required>
          </div>
       </div>
+      <br>
       <div class="row">
-
-         <div class="form-group col-md-3">
+      <div class="form-group col-md-6">
             <label class="form-label" for="generoVitima">Selecione seu gênero</label>
             <select class="form-control" id="generoVitima" name="generoVitima">
                <option value="A">A</option>
@@ -34,7 +37,7 @@
                <option value="C">C</option>
             </select>
          </div>
-         <div class="form-group col-md-3">
+         <div class="form-group col-md-6">
             <label class="form-label" for="etniaVitima">Etnia/Raça</label>
             <select class="form-control" id="etniaVitima" name="etniaVitima">
                <option value="A">A</option>
@@ -42,7 +45,10 @@
                <option value="C">C</option>
             </select>
          </div>
-         <div class="form-group col-md-3">
+      </div>
+      <br>
+      <div class="row">
+      <div class="form-group col-md-12">
             <label class="form-label" for="tipoViolencia">Tipo de violência</label>
             <select class="form-control" id="tipoViolencia" name="tipoViolencia">
                <option value="A">A</option>
@@ -50,12 +56,8 @@
                <option value="C">C</option>
             </select>
          </div>
-         <div class="form-group col-md-3">
-            <label class="form-label" for="profissaoVitima">Qual sua profissão?</label>
-            <input type="profissaoVitima" class="form-control" id="profissaoVitima" name="profissaoVitima"
-               placeholder="" required>
-         </div>
       </div>
+      <br>
       <div class="row">
          <div class="form-group col-md-6">
             <label class="form-label" for="descricaoAgressor">Descreva o agressor</label>
@@ -68,16 +70,28 @@
                placeholder="Descreva o que aconteceu" required></textarea>
          </div>
       </div>
+      <br>
       <div class="row">
          <div class="form-group form-button col-md-2">
             <button type="button" class="btn btn-danger btn-sm btnRecebeLocalizacao" id="btnRecebeLocalizacao"><i
                   class="bi bi-geo-alt-fill"></i>Localização atual</button>
          </div>
+         <div class="form-group col-md-4">
+            <label class="form-label" for="rua">Rua</label>
+            <input type="text" class="form-control" id="rua" name="rua" placeholder="Em que rua você estava?" required>
+         </div>
          <div class="form-group col-md-2">
+            <label class="form-label" for="numeroDoLocal">Número do local</label>
+            <input type="text" class="form-control" id="numeroDoLocal" name="numeroDoLocal"
+               placeholder="Número do estabelecimento" required>
+         </div>
+         <div class="form-group col-md-4">
             <label class="form-label" for="bairro">Bairro</label>
             <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Qual bairro?" required>
          </div>
-         <div class="form-group col-md-3">
+         
+         
+         <!--<div class="form-group col-md-2">
             <label class="form-label" for="cidade">Cidade</label>
             <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade em que ocorreu"
                required>
@@ -86,19 +100,18 @@
             <label class="form-label" for="estado">Estado</label>
             <input type="text" class="form-control" id="estado" name="estado" placeholder="Estado em que ocorreu"
                required>
-         </div>
-         <div class="form-group col-md-3">
-            <label class="form-label" for="rua">Rua</label>
-            <input type="text" class="form-control" id="rua" name="rua" placeholder="Em que rua você estava?" required>
-         </div>
+         </div>-->
+         
+         
       </div>
+      <br>
+      <!--<div class="row">
+      </div>-->
+      
+         
       <div class="row">
-         <div class="form-group col-md-2">
-            <label class="form-label" for="numeroDoLocal">Número do local</label>
-            <input type="text" class="form-control" id="numeroDoLocal" name="numeroDoLocal"
-               placeholder="Número do estabelecimento" required>
-         </div>
-         <div class="form-group col-md-4">
+         
+         <div class="form-group col-md-6">
             <label class="form-label" for="tipoEstabelecimento">Tipo do estabelecimento</label>
             <select class="form-control" id="tipoEstabelecimento" name="tipoEstabelecimento">
                <option value="Local público">Local Público</option>
@@ -110,7 +123,7 @@
                <option value="Shopping">Trabalho</option>
             </select>
          </div>
-         <div class="form-group col-md-4">
+         <div class="form-group col-md-6">
             <label class="form-label" for="nomeEstabelecimento">Nome do estabelecimento</label>
             <input type="text" class="form-control" id="nomeEstabelecimento" name="nomeEstabelecimento"
                placeholder="Exemplo: Nome da empressa, nome do comércio" required>
@@ -152,7 +165,8 @@
                placeholder="Tente encontrar uma única palavra, se possível." rows="5"></textarea>
          </div>
       </div>
-      <div class="modal-footer">
+      <!---->
+      <div class="form-footer">
          <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="aceitaDadosCheck" required>
             <label class="form-check-label" for="aceitaDadosCheck">Eu aceito a utilização dos meus dados para fins de
