@@ -1,45 +1,59 @@
 <div class="racismReport">
+   <!-- Loading -->
+   <div id="loading" style="display: none;">
+      <img id="imagemLoader" alt="Processando" src="<?php echo base_url();?>utils/img/carregando.gif" style="
+         width: 700px;
+         height: 700px;
+         margin-top: 10px; ">
+      <!--<p id="fraseLoader">Processando, aguarde...</p>-->
+   </div>
+   <!-- mensagens de erro e sucesso -->
+   <div class="alert alert-success" id="sucesso" role="alert" style="display:none;">
+      <span id="msg_sucesso">Sucesso!</span>
+   </div>
+   <div class="alert alert-danger" id="erro" role="alert" style="display:none;">
+      <span id="msg_erro">Erro!</span>
+   </div>
    <div class="page-title container">
       <h1 class="page-title-header"> Formulário de Denúncia </h1>
       <p class="page-title-text">Texto aqui Texto aqui Texto aqui</p>
    </div>
    <form>
+      <input type="hidden" name="data_hora_caso" id="data_hora_caso" value="">
       <div class="row">
          <div class="form-group col-md-10">
-            <label class="form-label" for="nome">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" required>
+            <label class="form-label" for="nome_vitima">Nome</label>
+            <input type="text" class="form-control" id="nome_vitima" name="nome_vitima" placeholder="Digite seu nome">
          </div>
          <div class="form-group col-md-2">
-            <label class="form-label" for="idade">Idade</label>
-            <input type="number" class="form-control" id="idade" name="idade" required>
+            <label class="form-label" for="idade_vitima">Idade</label>
+            <input type="number" class="form-control" id="idade_vitima" name="idade_vitima">
          </div>
       </div>
       <br>
       <div class="row">
          <div class="form-group col-md-6">
-            <label class="form-label" for="numContato">Telefone de contato</label>
-            <input type="text" class="form-control" id="numContato" name="numContato" placeholder="Digite o seu número"
-               required>
+            <label class="form-label" for="contato_vitima">Telefone de contato</label>
+            <input type="text" class="form-control" id="contato_vitima" name="contato_vitima" placeholder="Digite o seu número">
          </div>
          <div class="form-group col-md-6">
-            <label class="form-label" for="email">Email de contato</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu melhor email"
-               required>
+            <label class="form-label" for="email_vitima">Email de contato</label>
+            <input type="email" class="form-control" id="email_vitima" name="email_vitima" placeholder="Digite seu melhor email">
          </div>
       </div>
       <br>
       <div class="row">
       <div class="form-group col-md-6">
-            <label class="form-label" for="generoVitima">Selecione seu gênero</label>
-            <select class="form-control" id="generoVitima" name="generoVitima">
+            <label class="form-label" for="genero_vitima">Selecione seu gênero</label>
+            <select class="form-control" id="genero_vitima" name="genero_vitima">
                <option value="A">A</option>
                <option value="B">B</option>
                <option value="C">C</option>
             </select>
          </div>
          <div class="form-group col-md-6">
-            <label class="form-label" for="etniaVitima">Etnia/Raça</label>
-            <select class="form-control" id="etniaVitima" name="etniaVitima">
+            <label class="form-label" for="etnia_vitima">Etnia/Raça</label>
+            <select class="form-control" id="etnia_vitima" name="etnia_vitima">
                <option value="A">A</option>
                <option value="B">B</option>
                <option value="C">C</option>
@@ -49,8 +63,8 @@
       <br>
       <div class="row">
       <div class="form-group col-md-12">
-            <label class="form-label" for="tipoViolencia">Tipo de violência</label>
-            <select class="form-control" id="tipoViolencia" name="tipoViolencia">
+            <label class="form-label" for="tipo_violencia">Tipo de violência</label>
+            <select class="form-control" id="tipo_violencia" name="tipo_violencia">
                <option value="A">A</option>
                <option value="B">B</option>
                <option value="C">C</option>
@@ -60,14 +74,14 @@
       <br>
       <div class="row">
          <div class="form-group col-md-6">
-            <label class="form-label" for="descricaoAgressor">Descreva o agressor</label>
-            <textarea class="form-control" id="descricaoAgressor" name="descricaoAgressor" rows="5"
-               placeholder="Descreva com detalhes o agressor" required></textarea>
+            <label class="form-label" for="descricao_agressor">Descreva o agressor</label>
+            <textarea class="form-control" id="descricao_agressor" name="descricao_agressor" rows="5"
+               placeholder="Descreva com detalhes o agressor"></textarea>
          </div>
          <div class="form-group col-md-6">
-            <label class="form-label" for="descricaoCaso">Descreva o que ocorreu</label>
-            <textarea class="form-control" id="descricaoCaso" name="descricaoCaso" rows="5"
-               placeholder="Descreva o que aconteceu" required></textarea>
+            <label class="form-label" for="descricao_caso">Descreva o que ocorreu</label>
+            <textarea class="form-control" id="descricao_caso" name="descricao_caso" rows="5"
+               placeholder="Descreva o que aconteceu"></textarea>
          </div>
       </div>
       <br>
@@ -78,16 +92,16 @@
          </div>
          <div class="form-group col-md-4">
             <label class="form-label" for="rua">Rua</label>
-            <input type="text" class="form-control" id="rua" name="rua" placeholder="Em que rua você estava?" required>
+            <input type="text" class="form-control" id="rua" name="rua" placeholder="Em que rua você estava?">
          </div>
          <div class="form-group col-md-2">
             <label class="form-label" for="numeroDoLocal">Número do local</label>
             <input type="text" class="form-control" id="numeroDoLocal" name="numeroDoLocal"
-               placeholder="Número do estabelecimento" required>
+               placeholder="Número do estabelecimento">
          </div>
          <div class="form-group col-md-4">
             <label class="form-label" for="bairro">Bairro</label>
-            <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Qual bairro?" required>
+            <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Qual bairro?">
          </div>
          
          
@@ -112,8 +126,8 @@
       <div class="row">
          
          <div class="form-group col-md-6">
-            <label class="form-label" for="tipoEstabelecimento">Tipo do estabelecimento</label>
-            <select class="form-control" id="tipoEstabelecimento" name="tipoEstabelecimento">
+            <label class="form-label" for="tipo_estabelecimento">Tipo do estabelecimento</label>
+            <select class="form-control" id="tipo_estabelecimento" name="tipo_estabelecimento">
                <option value="Local público">Local Público</option>
                <option value="Empresa privada">Empresa privada</option>
                <option value="Shopping">Shopping</option>
@@ -124,9 +138,9 @@
             </select>
          </div>
          <div class="form-group col-md-6">
-            <label class="form-label" for="nomeEstabelecimento">Nome do estabelecimento</label>
-            <input type="text" class="form-control" id="nomeEstabelecimento" name="nomeEstabelecimento"
-               placeholder="Exemplo: Nome da empressa, nome do comércio" required>
+            <label class="form-label" for="nome_estabelecimento">Nome do estabelecimento</label>
+            <input type="text" class="form-control" id="nome_estabelecimento" name="nome_estabelecimento"
+               placeholder="Exemplo: Nome da empressa, nome do comércio">
          </div>
          
       </div>
@@ -140,41 +154,41 @@
          </div>
          <div class=" row form-group col-md-10" id="camposTestemunhas">
             <div class="form-group col-md-3">
-               <label class="form-label" for="nomeTestemunha">Witness Name</label>
-               <input type="text" class="form-control" id="nomeTestemunha" name="nomeTestemunha">
+               <label class="form-label" for="nome_testemunha">Witness Name</label>
+               <input type="text" class="form-control" id="nome_testemunha" name="nome_testemunha">
             </div>
             <div class="form-group col-md-3">
-               <label class="form-label" for="numeroTestemunha">Contato da testemunha</label>
-               <input type="text" class="form-control" id="numeroTestemunha" name="numeroTestemunha">
+               <label class="form-label" for="contato_testemunha">Contato da testemunha</label>
+               <input type="text" class="form-control" id="contato_testemunha" name="contato_testemunha">
             </div>
             <div class="form-group col-md-3">
-               <label class="form-label" for="emailTestemunha">Email da testemunha</label>
-               <input type="email" class="form-control" id="emailTestemunha" name="emailTestemunha">
+               <label class="form-label" for="email_testemunha">Email da testemunha</label>
+               <input type="email" class="form-control" id="email_testemunha" name="email_testemunha">
             </div>
          </div>
       </div>
       <div class="row">
          <div class="form-group col-md-6">
-            <label class="form-label" for="acoesTomadas">Ações tomadas</label>
-            <textarea class="form-control" id="acoesTomadas" name="acoesTomadas"
+            <label class="form-label" for="acoes_tomadas">Ações tomadas</label>
+            <textarea class="form-control" id="acoes_tomadas" name="acoes_tomadas"
                placeholder="O que você fez logo após o ocorrido?" rows="5"></textarea>
          </div>
          <div class="form-group col-md-6">
-            <label class="form-label" for="impactoEmocional">Como se sentiu?</label>
-            <textarea class="form-control" id="impactoEmocional" name="impactoEmocional"
+            <label class="form-label" for="impacto_emocional">Como se sentiu?</label>
+            <textarea class="form-control" id="impacto_emocional" name="impacto_emocional"
                placeholder="Tente encontrar uma única palavra, se possível." rows="5"></textarea>
          </div>
       </div>
       <!---->
       <div class="form-footer">
          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="aceitaDadosCheck" required>
+            <input type="checkbox" class="form-check-input" id="aceitaDadosCheck">
             <label class="form-check-label" for="aceitaDadosCheck">Eu aceito a utilização dos meus dados para fins de
                estatística ( Não divulgaremos seus dados pessoais )</label>
          </div>
          <div class="form-button">
             <div class="form-group">
-               <button type="button" class="btn btn-success btn-enviar" id="btn-enviar">
+               <button type="button" class="btn btn-success btnEnviarDenuncia" id="btnEnviarDenuncia">
                   <span class="bi bi-check" aria-hidden="true"></span> Enviar
                </button>
             </div>
