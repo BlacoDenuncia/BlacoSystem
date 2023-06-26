@@ -90,16 +90,11 @@
             <button type="button" class="btn btn-danger btn-sm btnRecebeLocalizacao" id="btnRecebeLocalizacao"><i
                   class="bi bi-geo-alt-fill"></i>Localização atual</button>
          </div>
-         <div class="form-group col-md-4">
+         <div class="form-group col-md-5">
             <label class="form-label" for="rua">Rua</label>
             <input type="text" class="form-control" id="rua" name="rua" placeholder="Em que rua você estava?">
          </div>
-         <div class="form-group col-md-2">
-            <label class="form-label" for="numeroDoLocal">Número do local</label>
-            <input type="text" class="form-control" id="numeroDoLocal" name="numeroDoLocal"
-               placeholder="Número do estabelecimento">
-         </div>
-         <div class="form-group col-md-4">
+         <div class="form-group col-md-5">
             <label class="form-label" for="bairro">Bairro</label>
             <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Qual bairro?">
          </div>
@@ -118,14 +113,10 @@
          
          
       </div>
-      <br>
-      <!--<div class="row">
-      </div>-->
-      
-         
+      <br>     
       <div class="row">
          
-         <div class="form-group col-md-6">
+         <div class="form-group col-md-12">
             <label class="form-label" for="tipo_estabelecimento">Tipo do estabelecimento</label>
             <select class="form-control" id="tipo_estabelecimento" name="tipo_estabelecimento">
                <option value="Local público">Local Público</option>
@@ -136,47 +127,6 @@
                <option value="Shopping">Escola</option>
                <option value="Shopping">Trabalho</option>
             </select>
-         </div>
-         <div class="form-group col-md-6">
-            <label class="form-label" for="nome_estabelecimento">Nome do estabelecimento</label>
-            <input type="text" class="form-control" id="nome_estabelecimento" name="nome_estabelecimento"
-               placeholder="Exemplo: Nome da empressa, nome do comércio">
-         </div>
-         
-      </div>
-      <div class="row" >
-      <div class="form-group col-md-2">
-            <label class="form-label" for="temTestemunhas">Houveram testemunhas?</label>
-            <div class="form-check">
-               <input type="checkbox" class="form-check-input" id="temTestemunhas" name="temTestemunhas">
-               <label class="form-check-label" for="temTestemunhas">Sim</label>
-            </div>
-         </div>
-         <div class=" row form-group col-md-10" id="camposTestemunhas">
-            <div class="form-group col-md-3">
-               <label class="form-label" for="nome_testemunha">Witness Name</label>
-               <input type="text" class="form-control" id="nome_testemunha" name="nome_testemunha">
-            </div>
-            <div class="form-group col-md-3">
-               <label class="form-label" for="contato_testemunha">Contato da testemunha</label>
-               <input type="text" class="form-control" id="contato_testemunha" name="contato_testemunha">
-            </div>
-            <div class="form-group col-md-3">
-               <label class="form-label" for="email_testemunha">Email da testemunha</label>
-               <input type="email" class="form-control" id="email_testemunha" name="email_testemunha">
-            </div>
-         </div>
-      </div>
-      <div class="row">
-         <div class="form-group col-md-6">
-            <label class="form-label" for="acoes_tomadas">Ações tomadas</label>
-            <textarea class="form-control" id="acoes_tomadas" name="acoes_tomadas"
-               placeholder="O que você fez logo após o ocorrido?" rows="5"></textarea>
-         </div>
-         <div class="form-group col-md-6">
-            <label class="form-label" for="impacto_emocional">Como se sentiu?</label>
-            <textarea class="form-control" id="impacto_emocional" name="impacto_emocional"
-               placeholder="Tente encontrar uma única palavra, se possível." rows="5"></textarea>
          </div>
       </div>
       <!---->

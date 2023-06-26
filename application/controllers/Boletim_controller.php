@@ -1,4 +1,3 @@
-
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -49,21 +48,14 @@ class Boletim_controller extends CI_Controller {
         $descricao_agressor = $this->input->post('descricao_agressor');
 		$descricao_caso = $this->input->post('descricao_caso');
         $rua  = $this->input->post('rua');
-        $numero_do_local = $this->input->post('numero_do_local');
         $bairro = $this->input->post('bairro');
 		$cidade = $this->input->post('cidade');
         $estado = $this->input->post('estado');
         $tipo_estabelecimento = $this->input->post('tipo_estabelecimento');
-        $nome_estabelecimento = $this->input->post('nome_estabelecimento');
-		$nome_testemunha = $this->input->post('nome_testemunha');
-        $contato_testemunha = $this->input->post('contato_testemunha');
-        $email_testemunha = $this->input->post('email_testemunha');
-        $acoes_tomadas = $this->input->post('acoes_tomadas');
-		$impacto_emocional = $this->input->post('impacto_emocional');
 
         $this->load->model('Boletim_model');
                
-        $inserir = $this->Boletim_model->registra_denuncia($id_denuncia, $data_hora_caso, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $numero_do_local, $bairro, $cidade, $estado, $tipo_estabelecimento, $nome_estabelecimento, $nome_testemunha, $contato_testemunha, $email_testemunha, $acoes_tomadas, $impacto_emocional);		
+        $inserir = $this->Boletim_model->registra_denuncia($id_denuncia, $data_hora_caso, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento);		
         if($inserir){
             
             $mensagem = array('tipo' => 'success');
