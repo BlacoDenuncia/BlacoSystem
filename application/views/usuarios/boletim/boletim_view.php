@@ -2,8 +2,8 @@
    <!-- Loading -->
    <div id="loading" style="display: none;">
       <img id="imagemLoader" alt="Processando" src="<?php echo base_url();?>utils/img/carregando.gif" style="
-         width: 700px;
-         height: 700px;
+         width: 100px;
+         height: 100px;
          margin-top: 10px; ">
       <!--<p id="fraseLoader">Processando, aguarde...</p>-->
    </div>

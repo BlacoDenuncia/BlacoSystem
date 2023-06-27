@@ -1,63 +1,66 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Boletim_controller extends CI_Controller {
+class Boletim_controller extends CI_Controller
+{
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/userguide3/general/urls.html
-	 */
-	public function determineCurrentPage(){
-		$current_page = "boletim";
-		return $current_page;
-	}
-	public function index()
-	{
-		$page = $this->determineCurrentPage();
-		$current_page = array(
-			'current_page' => $page
-		);
-        $this->template->write_view('content', 'usuarios/boletim/boletim_view', $current_page, FALSE,);
+    /**
+     * Index Page for this controller.
+     *
+     * Maps to the following URL
+     * 		http://example.com/index.php/welcome
+     *	- or -
+     * 		http://example.com/index.php/welcome/index
+     *	- or -
+     * Since this controller is set as the default controller in
+     * config/routes.php, it's displayed at http://example.com/
+     *
+     * So any other public methods not prefixed with an underscore will
+     * map to /index.php/welcome/<method_name>
+     * @see https://codeigniter.com/userguide3/general/urls.html
+     */
+    public function determineCurrentPage()
+    {
+        $current_page = "boletim";
+        return $current_page;
+    }
+    public function index()
+    {
+        $page = $this->determineCurrentPage();
+        $current_page = array(
+            'current_page' => $page
+        );
+        $this->template->write_view('content', 'usuarios/boletim/boletim_view', $current_page, FALSE, );
         $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
         $this->template->render();
-	}
-	function registrar_denuncia() {
+    }
+    function registrar_denuncia()
+    {
         //$idana = $this->input->post('idana');
-		//Recebe dados
-        
-		$id_denuncia = null;
-		$data_hora_caso = $this->input->post('data_hora_caso');
-        $nome_vitima  = $this->input->post('nome_vitima');
+        //Recebe dados
+
+        $id_denuncia = null;
+        $data_hora_caso = $this->input->post('data_hora_caso');
+        $nome_vitima = $this->input->post('nome_vitima');
         $idade_vitima = $this->input->post('idade_vitima');
-        $contato_vitima  = $this->input->post('contato_vitima');
+        $contato_vitima = $this->input->post('contato_vitima');
         $email_vitima = $this->input->post('email_vitima');
-		$genero_vitima = $this->input->post('genero_vitima');
+        $genero_vitima = $this->input->post('genero_vitima');
         $etnia_vitima = $this->input->post('etnia_vitima');
         $tipo_violencia = $this->input->post('tipo_violencia');
         $descricao_agressor = $this->input->post('descricao_agressor');
-		$descricao_caso = $this->input->post('descricao_caso');
-        $rua  = $this->input->post('rua');
+        $descricao_caso = $this->input->post('descricao_caso');
+        $rua = $this->input->post('rua');
         $bairro = $this->input->post('bairro');
-		$cidade = $this->input->post('cidade');
+        $cidade = $this->input->post('cidade');
         $estado = $this->input->post('estado');
         $tipo_estabelecimento = $this->input->post('tipo_estabelecimento');
 
         $this->load->model('Boletim_model');
-               
-        $inserir = $this->Boletim_model->registra_denuncia($id_denuncia, $data_hora_caso, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento);		
-        if($inserir){
-            
+
+        $inserir = $this->Boletim_model->registra_denuncia($id_denuncia, $data_hora_caso, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento);
+        if ($inserir) {
+
             $mensagem = array('tipo' => 'success');
             echo json_encode($mensagem);
             /*
@@ -71,9 +74,72 @@ class Boletim_controller extends CI_Controller {
             $log = new Logs();
             $log->inserirLog("turma",$idturma,$usuario." - ".$nome,"Cadastrou um índice de Turma para a unidade $unidade_educacional");            
             */
-        }else{
+        } else {
             $mensagem = array('tipo' => 'error'); //comentado errorL
             echo json_encode($mensagem);
+        }
+    }
+    public function enviar_email()
+    {
+        //Recebe dados do JS
+        $data_hora_caso = $this->input->post('data_hora_caso');
+        $nome_vitima = $this->input->post('nome_vitima');
+        $idade_vitima = $this->input->post('idade_vitima');
+        $contato_vitima = $this->input->post('contato_vitima');
+        $email_vitima = $this->input->post('email_vitima');
+        $genero_vitima = $this->input->post('genero_vitima');
+        $etnia_vitima = $this->input->post('etnia_vitima');
+        $tipo_violencia = $this->input->post('tipo_violencia');
+        $descricao_agressor = $this->input->post('descricao_agressor');
+        $descricao_caso = $this->input->post('descricao_caso');
+        $rua = $this->input->post('rua');
+        $bairro = $this->input->post('bairro');
+        $cidade = $this->input->post('cidade');
+        $estado = $this->input->post('estado');
+        $tipo_estabelecimento = $this->input->post('tipo_estabelecimento');
+
+        // Compõe a mensagem de email
+        $message = "Nome da vítima: $nome_vitima\n";
+        $message .= "Idade da vítima: $idade_vitima\n";
+        $message .= "Etnia da vítima: $etnia_vitima\n";
+        $message .= "Genero da vítima: $genero_vitima\n";
+        $message .= "Contato da vítima: $contato_vitima\n";
+        $message .= "Tipo de violência: $tipo_violencia\n";
+        $message .= "Descrição do agressor: $descricao_agressor\n";
+        $message .= "Descrição do caso: $descricao_caso\n";
+        $message .= "Tipo do estabelecimento: $tipo_estabelecimento\n";
+        $message .= "Rua: $rua\n";
+        $message .= "Bairro: $bairro\n";
+        $message .= "Cidade: $cidade\n";
+        $message .= "Estado: $estado\n";
+
+        // Configura os email, no caso tem que colocar os emails da BLACO
+        $headers = "From: sender@example.com\r\n";
+        $headers .= "Reply-To: sender@example.com\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion();
+
+        // Validate the email syntax
+        if (filter_var($email_vitima, FILTER_VALIDATE_EMAIL)) {
+            // Email syntax is valid
+            $to = $email_vitima;
+        } else {
+            // Email syntax is invalid
+            $response = array(
+                'status' => 'error',
+                'message' => 'Email inválido'
+            );
+            echo json_encode($response);
+        }
+
+        $subject = "Denúncia registrada";
+
+        // Use the mail() function to send the email
+        $enviaEmail = mail($to, $subject, $message, $headers);
+
+        if ($enviaEmail) {
+            echo "Email sent successfully!";
+        } else {
+            echo "Failed to send email.";
         }
     }
 }
