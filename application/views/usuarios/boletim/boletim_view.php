@@ -1,7 +1,7 @@
 <div class="racismReport">
    <!-- Loading -->
    <div id="loading" style="display: none;">
-      <img id="imagemLoader" alt="Processando" src="<?php echo base_url();?>utils/img/carregando.gif" style="
+      <img id="imagemLoader" alt="Processando" src="<?php echo base_url(); ?>utils/img/carregando.gif" style="
          width: 100px;
          height: 100px;
          margin-top: 10px; ">
@@ -34,16 +34,18 @@
       <div class="row">
          <div class="form-group col-md-6">
             <label class="form-label" for="contato_vitima">Telefone de contato</label>
-            <input type="text" class="form-control" id="contato_vitima" name="contato_vitima" placeholder="Digite o seu número">
+            <input type="text" class="form-control" id="contato_vitima" name="contato_vitima"
+               placeholder="Digite o seu número">
          </div>
          <div class="form-group col-md-6">
             <label class="form-label" for="email_vitima">Email de contato</label>
-            <input type="email" class="form-control" id="email_vitima" name="email_vitima" placeholder="Digite seu melhor email">
+            <input type="email" class="form-control" id="email_vitima" name="email_vitima"
+               placeholder="Digite seu melhor email">
          </div>
       </div>
       <br>
       <div class="row">
-      <div class="form-group col-md-6">
+         <div class="form-group col-md-6">
             <label class="form-label" for="genero_vitima">Selecione seu gênero</label>
             <select class="form-control" id="genero_vitima" name="genero_vitima">
                <option value="A">A</option>
@@ -62,7 +64,7 @@
       </div>
       <br>
       <div class="row">
-      <div class="form-group col-md-12">
+         <div class="form-group col-md-12">
             <label class="form-label" for="tipo_violencia">Tipo de violência</label>
             <select class="form-control" id="tipo_violencia" name="tipo_violencia">
                <option value="A">A</option>
@@ -98,8 +100,8 @@
             <label class="form-label" for="bairro">Bairro</label>
             <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Qual bairro?">
          </div>
-         
-         
+
+
          <!--<div class="form-group col-md-2">
             <label class="form-label" for="cidade">Cidade</label>
             <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade em que ocorreu"
@@ -110,12 +112,12 @@
             <input type="text" class="form-control" id="estado" name="estado" placeholder="Estado em que ocorreu"
                required>
          </div>-->
-         
-         
+
+
       </div>
-      <br>     
+      <br>
       <div class="row">
-         
+
          <div class="form-group col-md-12">
             <label class="form-label" for="tipo_estabelecimento">Tipo do estabelecimento</label>
             <select class="form-control" id="tipo_estabelecimento" name="tipo_estabelecimento">

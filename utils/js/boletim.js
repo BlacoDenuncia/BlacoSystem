@@ -5,6 +5,14 @@ $(document).ready(function () {
 	var dataHoraAtual = new Date().toISOString(); // Get the current date and time in ISO format
 	campoDataHora.value = dataHoraAtual;
 
+	// Verifica se o usuário permitiu usar os dados
+	var permiteDados = $("#aceitaDadosCheck");
+	var permiteDadosValor = false;
+	permiteDados.on("change", function () {
+		permiteDadosValor = this.checked;
+		console.log(permiteDadosValor)
+	});
+
 	//faz registro das denuncias de forma assincrona
 	$("#btnEnviarDenuncia").click(function () {
 		var id_denuncia = $("#id_denuncia").val();
@@ -70,6 +78,7 @@ $(document).ready(function () {
 					cidade: cidade,
 					estado: estado,
 					tipo_estabelecimento: tipo_estabelecimento,
+					permite_dados: permiteDadosValor,
 				},
 				beforeSend: function () {
 					$("#loading").show();
@@ -109,13 +118,16 @@ $(document).ready(function () {
 								cidade: cidade,
 								estado: estado,
 								tipo_estabelecimento: tipo_estabelecimento,
+								permite_dados: permiteDadosValor,
 							},
 							success: function (response) {
 								var json = $.parseJSON(response);
 								if (json.status === "error") {
 									// Tratar o erro de e-mail inválido
 									var errorMessage = json.message;
-									$("#msg_erro").html("O email digitado é inválido, a denúncia não será enviada para seu email!");
+									$("#msg_erro").html(
+										"O email digitado é inválido, a denúncia não será enviada para seu email!"
+									);
 									$("#erro").show("slow");
 									$("html, body").animate({ scrollTop: 0 }, "slow");
 									window.setTimeout(function () {

@@ -69,6 +69,6 @@
       <!--importa scripts após carregamento da página-->
       
       <script src="<?php echo base_url();?>utils/js/custom_script.js"></script>
-      <script src="<?php echo base_url();?>utils/js/boletim.js">
+      <script src="<?php echo base_url();?>utils/js/boletim.js"></script>
    </body>
 </html>

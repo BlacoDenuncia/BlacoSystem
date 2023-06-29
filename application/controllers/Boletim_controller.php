@@ -55,10 +55,11 @@ class Boletim_controller extends CI_Controller
         $cidade = $this->input->post('cidade');
         $estado = $this->input->post('estado');
         $tipo_estabelecimento = $this->input->post('tipo_estabelecimento');
+        $permite_dados = $this->input->post('permite_dados');
 
         $this->load->model('Boletim_model');
 
-        $inserir = $this->Boletim_model->registra_denuncia($id_denuncia, $data_hora_caso, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento);
+        $inserir = $this->Boletim_model->registra_denuncia($id_denuncia, $data_hora_caso, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento, $permite_dados);
         if ($inserir) {
 
             $mensagem = array('tipo' => 'success');
@@ -137,9 +138,9 @@ class Boletim_controller extends CI_Controller
         $enviaEmail = mail($to, $subject, $message, $headers);
 
         if ($enviaEmail) {
-            echo "Email sent successfully!";
+            echo "Email enviado com sucesso!";
         } else {
-            echo "Failed to send email.";
+            echo "Falha ao enviar o email.";
         }
     }
 }

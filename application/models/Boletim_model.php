@@ -8,7 +8,7 @@ class Boletim_model extends CI_Model {
         parent::__construct();
     }
 
-    function registra_denuncia($id_denuncia, $data_hora_caso, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento){
+    function registra_denuncia($id_denuncia, $data_hora_caso, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento, $permite_dados){
 							   	
         $arrayInsert = array(
             'id_denuncia' => $id_denuncia,
@@ -26,7 +26,8 @@ class Boletim_model extends CI_Model {
             'bairro' => $bairro,
             'cidade' => $cidade,
             'estado' => $estado,
-            'tipo_estabelecimento' => $tipo_estabelecimento
+            'tipo_estabelecimento' => $tipo_estabelecimento,
+            'permissao_uso_dados' => $permite_dados
         );
         $inserir = $this->db->insert(self::TABELA, $arrayInsert);		
     
