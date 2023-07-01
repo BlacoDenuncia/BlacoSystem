@@ -8,11 +8,11 @@ class Boletim_model extends CI_Model {
         parent::__construct();
     }
 
-    function registra_denuncia($id_denuncia, $data_hora_caso, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento, $permite_dados){
+    function registra_denuncia($id_denuncia, $data_hora_envio, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento, $permite_dados){
 							   	
         $arrayInsert = array(
             'id_denuncia' => $id_denuncia,
-            'data_hora_caso' => $data_hora_caso,
+            'data_hora_caso' => $data_hora_envio,
             'nome_vitima' => $nome_vitima,
             'idade_vitima' => $idade_vitima,
             'contato_vitima' => $contato_vitima,

@@ -40,7 +40,7 @@ class Boletim_controller extends CI_Controller
         //Recebe dados
 
         $id_denuncia = null;
-        $data_hora_caso = $this->input->post('data_hora_caso');
+        $data_hora_envio = $this->input->post('data_hora_envio');
         $nome_vitima = $this->input->post('nome_vitima');
         $idade_vitima = $this->input->post('idade_vitima');
         $contato_vitima = $this->input->post('contato_vitima');
@@ -59,7 +59,7 @@ class Boletim_controller extends CI_Controller
 
         $this->load->model('Boletim_model');
 
-        $inserir = $this->Boletim_model->registra_denuncia($id_denuncia, $data_hora_caso, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento, $permite_dados);
+        $inserir = $this->Boletim_model->registra_denuncia($id_denuncia, $data_hora_envio, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento, $permite_dados);
         if ($inserir) {
 
             $mensagem = array('tipo' => 'success');
@@ -83,7 +83,7 @@ class Boletim_controller extends CI_Controller
     public function enviar_email()
     {
         //Recebe dados do JS
-        $data_hora_caso = $this->input->post('data_hora_caso');
+        $data_hora_envio = $this->input->post('data_hora_envio');
         $nome_vitima = $this->input->post('nome_vitima');
         $idade_vitima = $this->input->post('idade_vitima');
         $contato_vitima = $this->input->post('contato_vitima');
