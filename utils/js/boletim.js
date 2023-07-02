@@ -9,7 +9,7 @@ $(document).ready(function () {
 	});
 
 	//mascaras para o form
-	$('#contato_vitima').mask('(00) 00000-0000');
+	$("#contato_vitima").mask("(00) 00000-0000");
 
 	//faz registro das denuncias de forma assincrona
 	$("#btnEnviarDenuncia").click(function () {
@@ -143,10 +143,14 @@ $(document).ready(function () {
 						},
 						success: function (response) {
 							var json = $.parseJSON(response);
-							if (json.tipo === "error") {
+							if (json.tipo === "email-invalido") {
+								$("#modalEmailInvalido").modal("show");
+								var emailDigitado = document.getElementById("emailDigitado");
+								emailDigitado.value = email_vitima;
+							} else if (json.tipo === "error") {
 								// Tratar o erro de e-mail inválido
 								$("#msg_erro").html(
-									"O email digitado é inválido, digite novamente seu email ou a denúncia não será enviada para seu email!"
+									"Ocorreu um erro ao enviar a denúncia para o seu email"
 								);
 								$("#erro").show("slow");
 								$("html, body").animate({ scrollTop: 0 }, "slow");
@@ -156,7 +160,7 @@ $(document).ready(function () {
 							} else {
 								// O e-mail é válido, continuar com o restante do código de sucesso
 								$("#msg_sucesso").html(
-									"Denuncia registrada com Sucesso! Em breve um orgão de segurança entrará em contato."
+									"Denuncia registrada com Sucesso! Cheque seu email para mais informações"
 								);
 								$("#sucesso").show("slow");
 								$("html, body").animate({ scrollTop: 0 }, "slow");

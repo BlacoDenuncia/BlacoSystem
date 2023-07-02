@@ -55,7 +55,7 @@ class Boletim_controller extends CI_Controller
         $cidade = $this->input->post('cidade');
         $estado = $this->input->post('estado');
         $tipo_estabelecimento = $this->input->post('tipo_estabelecimento');
-        $permite_dados = $this->input->post('permite_dados');
+        $permite_dados = ($this->input->post('permite_dados') === 'true') ? 1 : 0;
 
         $this->load->model('Boletim_model');
 
@@ -125,7 +125,7 @@ class Boletim_controller extends CI_Controller
             $to = $email_vitima;
         } else {
             // Email syntax is invalid
-            $mensagem = array('tipo' => 'error'); //comentado errorL
+            $mensagem = array('tipo' => 'email-invalido'); //comentado errorL
             echo json_encode($mensagem);
         }
 
