@@ -14,11 +14,16 @@ $(document).ready(function () {
 		var options = { timeZone: "America/Sao_Paulo" }; // Define o fuso horário do Brasil
 		var dataHoraBrasil = dataHoraAtual.toLocaleString("pt-BR", options); // Formata a data e hora no formato local do Brasil
 
-		console.log("Hora de envio no Brasil:", dataHoraBrasil);
+		var dataHoraFormatada = moment(
+			dataHoraBrasil,
+			"DD/MM/YYYY HH:mm:ss"
+		).format("YYYY-MM-DD HH:mm:ss");
+
+		console.log("Data e hora de envio no Brasil:", dataHoraFormatada);
 
 		// Você também pode armazenar a hora em um campo oculto no formulário para enviá-la como parte dos dados do formulário, por exemplo:
 		var campoDataHora = document.getElementById("data_hora_envio");
-		campoDataHora.value = dataHoraBrasil;
+		campoDataHora.value = dataHoraFormatada;
 
 		var id_denuncia = $("#id_denuncia").val();
 		var data_hora_envio = $("#data_hora_envio").val();
@@ -102,58 +107,6 @@ $(document).ready(function () {
 						window.setTimeout(function () {
 							$("#sucesso").hide(1000);
 						}, 3000);
-
-						// manda dados pro email
-						$.ajax({
-							url: "Boletim_controller/enviar_email", // Path to your PHP script for sending email
-							type: "POST",
-							data: {
-								data_hora_envio: data_hora_envio,
-								nome_vitima: nome_vitima,
-								idade_vitima: idade_vitima,
-								contato_vitima: contato_vitima,
-								email_vitima: email_vitima,
-								genero_vitima: genero_vitima,
-								etnia_vitima: etnia_vitima,
-								tipo_violencia: tipo_violencia,
-								descricao_agressor: descricao_agressor,
-								descricao_caso: descricao_caso,
-								rua: rua,
-								bairro: bairro,
-								cidade: cidade,
-								estado: estado,
-								tipo_estabelecimento: tipo_estabelecimento,
-								permite_dados: permiteDadosValor,
-							},
-							success: function (response) {
-								var json = $.parseJSON(response);
-								if (json.status === "error") {
-									// Tratar o erro de e-mail inválido
-									var errorMessage = json.message;
-									$("#msg_erro").html(
-										"O email digitado é inválido, a denúncia não será enviada para seu email!"
-									);
-									$("#erro").show("slow");
-									$("html, body").animate({ scrollTop: 0 }, "slow");
-									window.setTimeout(function () {
-										$("#erro").hide(1000);
-									}, 3000);
-								} else {
-									// O e-mail é válido, continuar com o restante do código de sucesso
-									$("#msg_sucesso").html(
-										"Denuncia registrada com Sucesso! Em breve um orgão de segurança entrará em contato."
-									);
-									$("#sucesso").show("slow");
-									$("html, body").animate({ scrollTop: 0 }, "slow");
-									window.setTimeout(function () {
-										$("#sucesso").hide(1000);
-									}, 3000);
-								}
-							},
-							error: function (xhr, status, error) {
-								console.log(error); // Optional: Log the error, if any
-							},
-						});
 					} else {
 						$("#msg_erro").html("Falha ao registrar a denuncia!");
 						$("#erro").show("slow");
@@ -162,6 +115,56 @@ $(document).ready(function () {
 							$("#erro").hide(1000);
 						}, 3000);
 					}
+					// manda dados pro email
+					$.ajax({
+						url: "Boletim_controller/enviar_email", // Path to your PHP script for sending email
+						type: "POST",
+						data: {
+							data_hora_envio: data_hora_envio,
+							nome_vitima: nome_vitima,
+							idade_vitima: idade_vitima,
+							contato_vitima: contato_vitima,
+							email_vitima: email_vitima,
+							genero_vitima: genero_vitima,
+							etnia_vitima: etnia_vitima,
+							tipo_violencia: tipo_violencia,
+							descricao_agressor: descricao_agressor,
+							descricao_caso: descricao_caso,
+							rua: rua,
+							bairro: bairro,
+							cidade: cidade,
+							estado: estado,
+							tipo_estabelecimento: tipo_estabelecimento,
+							permite_dados: permiteDadosValor,
+						},
+						success: function (response) {
+							var json = $.parseJSON(response);
+							if (json.tipo === "error") {
+								// Tratar o erro de e-mail inválido
+								$("#msg_erro").html(
+									"O email digitado é inválido, digite novamente seu email ou a denúncia não será enviada para seu email!"
+								);
+								$("#erro").show("slow");
+								$("html, body").animate({ scrollTop: 0 }, "slow");
+								window.setTimeout(function () {
+									$("#erro").hide(1000);
+								}, 3000);
+							} else {
+								// O e-mail é válido, continuar com o restante do código de sucesso
+								$("#msg_sucesso").html(
+									"Denuncia registrada com Sucesso! Em breve um orgão de segurança entrará em contato."
+								);
+								$("#sucesso").show("slow");
+								$("html, body").animate({ scrollTop: 0 }, "slow");
+								window.setTimeout(function () {
+									$("#sucesso").hide(1000);
+								}, 3000);
+							}
+						},
+						error: function (xhr, status, error) {
+							console.log(error); // Optional: Log the error, if any
+						},
+					});
 				},
 			});
 		}

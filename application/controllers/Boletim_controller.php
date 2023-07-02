@@ -125,11 +125,8 @@ class Boletim_controller extends CI_Controller
             $to = $email_vitima;
         } else {
             // Email syntax is invalid
-            $response = array(
-                'status' => 'error',
-                'message' => 'Email inválido'
-            );
-            echo json_encode($response);
+            $mensagem = array('tipo' => 'error'); //comentado errorL
+            echo json_encode($mensagem);
         }
 
         $subject = "Denúncia registrada";
@@ -138,9 +135,11 @@ class Boletim_controller extends CI_Controller
         $enviaEmail = mail($to, $subject, $message, $headers);
 
         if ($enviaEmail) {
-            echo "Email enviado com sucesso!";
+            $mensagem = array('tipo' => 'success'); //comentado errorL
+            echo json_encode($mensagem);
         } else {
-            echo "Falha ao enviar o email.";
+            $mensagem = array('tipo' => 'error'); //comentado errorL
+            echo json_encode($mensagem);
         }
     }
 }

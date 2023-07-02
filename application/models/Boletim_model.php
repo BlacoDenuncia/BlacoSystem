@@ -12,7 +12,7 @@ class Boletim_model extends CI_Model {
 							   	
         $arrayInsert = array(
             'id_denuncia' => $id_denuncia,
-            'data_hora_caso' => $data_hora_envio,
+            'data_hora_envio' => $data_hora_envio,
             'nome_vitima' => $nome_vitima,
             'idade_vitima' => $idade_vitima,
             'contato_vitima' => $contato_vitima,
