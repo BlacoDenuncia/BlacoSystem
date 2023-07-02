@@ -18,6 +18,7 @@ function checkInternetConnection() {
   // Verifica se o navegador está online
   if (navigator.onLine) {
     console.log('Conectado à internet');
+    $('#modalDesconectado').modal('hide');
     // Realize ações adicionais ou habilite funcionalidades online
   } else {
     console.log('Não conectado à internet');
