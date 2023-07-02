@@ -8,8 +8,12 @@ $(document).ready(function () {
 		console.log(permiteDadosValor);
 	});
 
+	//mascaras para o form
+	$('#contato_vitima').mask('(00) 00000-0000');
+
 	//faz registro das denuncias de forma assincrona
 	$("#btnEnviarDenuncia").click(function () {
+		//configurações de data e hora
 		var dataHoraAtual = new Date(); // Obtém a data e hora atual
 		var options = { timeZone: "America/Sao_Paulo" }; // Define o fuso horário do Brasil
 		var dataHoraBrasil = dataHoraAtual.toLocaleString("pt-BR", options); // Formata a data e hora no formato local do Brasil
