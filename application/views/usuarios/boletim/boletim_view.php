@@ -19,7 +19,7 @@
       <p class="page-title-text">Texto aqui Texto aqui Texto aqui</p>
    </div>
    <form>
-      <input type="hidden" name="data_hora_caso" id="data_hora_envio" value="">
+      <input type="hidden" name="data_hora_envio" id="data_hora_envio" value="">
       <div class="row">
          <div class="form-group col-md-10">
             <label class="form-label" for="nome_vitima">Nome</label>

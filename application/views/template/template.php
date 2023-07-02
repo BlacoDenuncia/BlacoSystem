@@ -13,6 +13,7 @@
       <!-- Load external JavaScript -->
       <script src="<?php echo base_url();?>utils/js/bootstrap.bundle.min.js"></script>
       <script src="<?php echo base_url();?>utils/js/jquery.min.js"></script>
+      <script src="<?php echo base_url();?>utils/js/moment.js"></script>
       <title>Blaco - Denuncie</title>
    </head>
    <body>
@@ -67,7 +68,6 @@
          </div>
       </div>
       <!--importa scripts após carregamento da página-->
-      
       <script src="<?php echo base_url();?>utils/js/custom_script.js"></script>
       <script src="<?php echo base_url();?>utils/js/boletim.js"></script>
    </body>
