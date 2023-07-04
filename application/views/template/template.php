@@ -47,7 +47,7 @@
                   </p>
                </div>
                <div class="modal-footer">
-                  <button id="btnChecaInternet" type="button" class="btn btn-secondary" data-bs-dismiss="modal">TENTAR
+                  <button id="btnChecaInternet" type="button" class="btn btn-secondary">TENTAR
                      NOVAMENTE</button>
                </div>
             </div>
@@ -77,26 +77,37 @@
                <div class="modal-header">
                   <i class="bi bi-wifi-off"></i>
                   <h5 class="modal-title">Email inválido</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" id="btn-close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
+                  <!-- mensagens de erro e sucesso do modal -->
+                  <div class="alert alert-success" id="sucesso-modal" role="alert" style="display:none;">
+                     <span id="msg_sucesso_modal">Sucesso!</span>
+                  </div>
+                  <div class="alert alert-danger" id="erro-modal" role="alert" style="display:none;">
+                     <span id="msg_erro_modal">Erro!</span>
+                  </div>
                   <p>Tivemos problemas ao enviar os dados da denúncia ao seu email. Verifique se o email abaixo é o
                      correto.</p>
                   <p id="emailDigitado"></p>
                   <form>
-                     <div class="form-group col-md-6">
-                        <label class="form-label" for="email_atual_vitima"> Digite o email correto abaixo, ou feche este aviso caso não queira um registro </label>
+                     <div class="form-group col-md-12">
+                        <label class="form-label" for="email_atual_vitima"> Digite o email correto abaixo, ou feche este
+                           aviso caso não queira um registro </label>
                         <input type="email" class="form-control" id="email_atual_vitima" name="email_atual_vitima"
                            placeholder="Digite novamente seu email">
                      </div>
                   </form>
                </div>
                <div class="modal-footer">
-                  <button id="btnEnviaEmail" type="button" class="btn btn-secondary" data-bs-dismiss="modal">TENTAR
+                  <button id="btnEnviarEmail" type="button" class="btn btn-danger">TENTAR
                      NOVAMENTE</button>
                </div>
+
             </div>
          </div>
+
+
          <!--error modal-->
          <div class="modal" id="errorModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">

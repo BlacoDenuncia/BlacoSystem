@@ -34,6 +34,19 @@ class Boletim_controller extends CI_Controller
         $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
         $this->template->render();
     }
+    function validar_email()
+    {
+        $email_vitima = $this->input->post('email_vitima');
+        if (filter_var($email_vitima, FILTER_VALIDATE_EMAIL)) {
+            // Email syntax is valid
+            $mensagem = array('tipo' => 'email-valido'); //comentado errorL
+            echo json_encode($mensagem);
+        } else {
+            // Email syntax is invalid
+            $mensagem = array('tipo' => 'email-invalido'); //comentado errorL
+            echo json_encode($mensagem);
+        }
+    }
     function registrar_denuncia()
     {
         //$idana = $this->input->post('idana');
@@ -123,23 +136,24 @@ class Boletim_controller extends CI_Controller
         if (filter_var($email_vitima, FILTER_VALIDATE_EMAIL)) {
             // Email syntax is valid
             $to = $email_vitima;
+            $subject = "Denúncia registrada";
+
+            // Use the mail() function to send the email
+            $enviaEmail = mail($to, $subject, $message, $headers);
+
+            if ($enviaEmail) {
+                $mensagem = array('tipo' => 'success'); //comentado errorL
+                echo json_encode($mensagem);
+            } else {
+                $mensagem = array('tipo' => 'error'); //comentado errorL
+                echo json_encode($mensagem);
+            }
         } else {
             // Email syntax is invalid
             $mensagem = array('tipo' => 'email-invalido'); //comentado errorL
             echo json_encode($mensagem);
         }
 
-        $subject = "Denúncia registrada";
 
-        // Use the mail() function to send the email
-        $enviaEmail = mail($to, $subject, $message, $headers);
-
-        if ($enviaEmail) {
-            $mensagem = array('tipo' => 'success'); //comentado errorL
-            echo json_encode($mensagem);
-        } else {
-            $mensagem = array('tipo' => 'error'); //comentado errorL
-            echo json_encode($mensagem);
-        }
     }
 }
