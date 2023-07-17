@@ -1,8 +1,7 @@
-
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Index_controller extends CI_Controller {
+class Mapa_controller extends CI_Controller {
 	
 	/**
 	 * Index Page for this controller.
@@ -22,7 +21,7 @@ class Index_controller extends CI_Controller {
 
 	//Determina a página atual manualmente
 	public function determineCurrentPage(){
-		$current_page = "index";
+		$current_page = "mapa";
 		return $current_page;
 	}
 	public function index()
@@ -46,14 +45,14 @@ class Index_controller extends CI_Controller {
         		$this->template->render();
             }else{
                 //usuário comum logado
-                $this->template->write_view('content', 'usuarios/index_view', $current_page, FALSE);
+                $this->template->write_view('content', 'usuarios/mapas/mapa_provisorio', $current_page, FALSE);
         		$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
         		$this->template->render();
             }
             
         } else {
 			//usuário não logado
-            $this->template->write_view('content', 'usuarios/index_view', $current_page, FALSE);
+            $this->template->write_view('content', 'usuarios/mapas/mapa_provisorio', $current_page, FALSE);
         	$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
         	$this->template->render();
         }
