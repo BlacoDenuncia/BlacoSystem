@@ -26,9 +26,12 @@
          3 - menu
          -->
    <div class="container-fluid no-padding no-overlap">
-      <?php
-      echo $content;
-      ?>
+      <div class="content container-fluid">
+         <?php
+         echo $content;
+         ?>
+      </div>
+
       <?php
       echo $menu;
       ?>
@@ -77,7 +80,8 @@
                <div class="modal-header">
                   <i class="bi bi-wifi-off"></i>
                   <h5 class="modal-title">Email inválido</h5>
-                  <button type="button" id="btn-close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" id="btn-close" class="btn-close" data-bs-dismiss="modal"
+                     aria-label="Close"></button>
                </div>
                <div class="modal-body">
                   <!-- mensagens de erro e sucesso do modal -->
