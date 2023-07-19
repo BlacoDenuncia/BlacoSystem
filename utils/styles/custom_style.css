@@ -29,7 +29,7 @@
 	margin: 15px;
 	text-align: center;
 }
-.content{
+.content {
 	background-color: #1c1c1c;
 	min-height: calc(100vh - 50px);
 }
@@ -101,7 +101,9 @@
 	flex-direction: row;
 	width: 80%;
 }
-
+.didatic {
+	padding: 10px;
+}
 .no-padding {
 	padding-left: 0;
 	padding-right: 0;
