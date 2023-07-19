@@ -1,4 +1,8 @@
 /* Estilos para a barra de navegação inferior */
+body {
+	color: #ffffff;
+}
+
 #map-container {
 	width: 100%;
 	height: calc(100vh - 50px);
@@ -111,22 +115,15 @@
 
 /* Estilos para a seção de conteúdos */
 .conteudos {
-	width: 95%;
 	margin: 10px auto;
 }
 
-.conteudos h3 {
-	text-align: center;
-	font-family: "Roboto", sans-serif;
-	font-weight: bold;
-}
-
 .conteudos-item {
-	background-color: #000000;
+	background-color: #ececec;
 	margin-bottom: 20px;
-	border: 1px solid #242424;
+	border: 1.5px solid #ff470f;
 	border-radius: 40px;
-	color: #ffffff;
+	color: #000000;
 }
 
 .conteudos-item .conteudos-title {
@@ -135,40 +132,54 @@
 	transition: transform 0.4s ease-in-out;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 }
 
 .conteudos-item .conteudos-title.active-title {
-	background-color: #7a7a7a;
-	color: #ffffff;
+	background-color: #ececec;
+	color: #fa5019;
+	text-decoration: underline;
 	border-top-left-radius: 40px;
 	border-top-right-radius: 40px;
 }
 
 .conteudos-item .conteudos-title h3 {
-	font-weight: 700;
 	margin: 0;
+	padding: 0 0 0 10px;
 	font-size: 18px;
-	display: flex;
+	text-align: center;
 	justify-content: space-between;
-	font-weight: bold;
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+
+	transition: font-size 0.3s ease;
+}
+.conteudos-item .conteudos-title:hover h3 {
+	transform: translateX(1%);
+}
+.conteudos-item .conteudos-title:hover h3 {
+	font-size: 20px;
 }
 
 .conteudos-item .conteudos-title i.bi-chevron-down {
 	transform: rotate(0);
 	transition: 0.4s;
+	padding: 0 10px 0 0;
 }
 
 .conteudos-item .conteudos-title i.bi-chevron-down.chevron-top {
 	transform: rotate(-180deg);
-	color: #fa5019;
+	text-decoration: none;
 }
 
 .conteudos-item .conteudos-content {
 	display: none;
 	line-height: 1.7;
 	padding: 20px;
-	background-color: #ffffff;
+	background-color: #ececec;
+	/*background: radial-gradient(at bottom left, #ffffff, transparent),
+		linear-gradient(to right, #ffffff, #ff0000);
+	background-blend-mode: normal, multiply;*/
 	border-radius: 0 0 40px 40px;
 	color: #100e34;
 }
@@ -189,7 +200,14 @@
 }
 
 .page-title-header {
-	font-size: 50px;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 900;
+	font-size: 2em;
+}
+.page-title-text {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	font-size: 1em;
 }
 .racismReport {
 	padding: 10px;
@@ -218,4 +236,10 @@
 }
 .btnRecebeLocalizacao {
 	border-radius: 10px;
+}
+.card{
+	background-color: #e1e1e1;
+}
+.form-control{
+	border: 1px solid #ccc;
 }

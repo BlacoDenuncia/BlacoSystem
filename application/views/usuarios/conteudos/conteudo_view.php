@@ -6,15 +6,14 @@
             adipisci velit..."</p>
     </div>
 
-    <div class="container faq">
-        <div class="container">
+    <div class="container-fluid faq">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="conteudos">
                         <div class="conteudos-item">
                             <div class="conteudos-title" data-tab="item1">
-                                <h3>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur,
-                                    adipisci velit..." <i class="bi bi-chevron-down"></i></h3>
+                                <h3>"Neque porro " </h3><i class="bi bi-chevron-down"></i>
                             </div>
                             <div class="conteudos-content" id="item1">
                                 <p>
@@ -32,7 +31,7 @@
                         <div class="conteudos-item">
                             <div class="conteudos-title" data-tab="item2">
                                 <h3>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur,
-                                    adipisci velit..." <i class="bi bi-chevron-down"></i></h3>
+                                    adipisci velit..." </h3><i class="bi bi-chevron-down"></i>
                             </div>
                             <div class="conteudos-content" id="item2">
                                 <p>
@@ -50,7 +49,7 @@
                         <div class="conteudos-item">
                             <div class="conteudos-title" data-tab="item3">
                                 <h3>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur,
-                                    adipisci velit..." <i class="bi bi-chevron-down"></i></h3>
+                                    adipisci velit..." </h3><i class="bi bi-chevron-down"></i>
                             </div>
                             <div class="conteudos-content" id="item3">
                                 <p>
