@@ -237,9 +237,84 @@ body {
 .btnRecebeLocalizacao {
 	border-radius: 10px;
 }
-.card{
+.card {
 	background-color: #e1e1e1;
 }
-.form-control{
+.form-control {
 	border: 1px solid #ccc;
+}
+.blaco-icon {
+	font-size: 25px;
+}
+.blurred-text {
+	color: transparent;
+	animation: unblur-text 2s ease forwards;
+}
+
+@keyframes unblur-text {
+	0% {
+		color: transparent;
+	}
+
+	100% {
+		color: #ffffff;
+	}
+}
+
+.title-user-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	overflow: hidden;
+	padding: 10px 10px 0 10px;
+	font-size: 25px;
+}
+
+.user-icon {
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+}
+.background-1 {
+	background-color: #fa5517;
+}
+.home-links {
+	margin-top: 5px;
+}
+
+.home-links .page-title-text {
+	text-align: center;
+}
+
+.user-icon:hover {
+	transform: scale(1.1);
+}
+
+.medium-div {
+	flex: 1;
+	height: 120px;
+	max-width: 300px;
+	margin: 10px;
+	border-radius: 30px;
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0 1px 2px #fa5019;
+	transition: transform 0.2s ease;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.medium-div:hover {
+	transform: scale(1.05);
+}
+
+.blaco {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
 }
