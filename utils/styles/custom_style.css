@@ -13,7 +13,6 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin-top: 10px;
 	min-height: 80vh;
 }
 
@@ -243,7 +242,7 @@ body {
 .form-control {
 	border: 1px solid #ccc;
 }
-.blaco-icon {
+.user-icon {
 	font-size: 25px;
 }
 .blurred-text {
@@ -277,11 +276,8 @@ body {
 	height: 40px;
 	margin-right: 10px;
 }
-.background-1 {
-	background-color: #fa5517;
-}
 .home-links {
-	margin-top: 5px;
+	margin-top: 50px;
 }
 
 .home-links .page-title-text {
@@ -294,7 +290,7 @@ body {
 
 .medium-div {
 	flex: 1;
-	height: 120px;
+	height: 150px;
 	max-width: 300px;
 	margin: 10px;
 	border-radius: 30px;
@@ -311,10 +307,51 @@ body {
 
 .medium-div:hover {
 	transform: scale(1.05);
+	font-size: 20px;
 }
-
+#intro-text {
+	font-size: 20px;
+	animation: unblur-text 2s ease forwards;
+}
 .blaco {
 	display: flex;
 	flex-wrap: nowrap;
 	align-items: center;
+}
+.link-card-text {
+	font-size: 18px;
+	font-weight: 500;
+}
+.medium-div a {
+	text-decoration: none;
+}
+.medium-div .text-white {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.orange-text {
+	color: #fa5019;
+	font-weight: 500;
+	animation: unblur-orange-text 2s ease forwards;
+}
+
+@keyframes unblur-orange-text {
+	0% {
+		color: transparent;
+	}
+
+	100% {
+		color: #fa5019;
+	}
+}
+.recent-news{
+	margin-top: 40px;
+	text-align: center;
+}
+.recent-news h3{
+	font-size: 20px;
+	text-decoration: underline;
 }
