@@ -242,6 +242,9 @@ body {
 .form-control {
 	border: 1px solid #ccc;
 }
+.form-control.input-error {
+	border: 1px solid red;
+}
 .user-icon {
 	font-size: 25px;
 }
@@ -296,7 +299,7 @@ body {
 	border-radius: 30px;
 	background-size: cover;
 	background-position: center;
-	box-shadow: 0 1px 2px #fa5019;
+	box-shadow: 0 1px 2px #303030;
 	transition: transform 0.2s ease;
 	text-align: center;
 	display: flex;
@@ -307,6 +310,7 @@ body {
 
 .medium-div:hover {
 	transform: scale(1.05);
+	box-shadow: 0 1px 2px #fa5019;
 	font-size: 20px;
 }
 #intro-text {
@@ -347,11 +351,11 @@ body {
 		color: #fa5019;
 	}
 }
-.recent-news{
+.recent-news {
 	margin-top: 40px;
 	text-align: center;
 }
-.recent-news h3{
+.recent-news h3 {
 	font-size: 20px;
 	text-decoration: underline;
 }

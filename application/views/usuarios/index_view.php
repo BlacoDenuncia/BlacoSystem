@@ -12,7 +12,7 @@
                 transforme!</span></p>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-6 medium-div">
+        <div class="col-md-6 medium-div" style="">
             <a href="Boletim_controller" class="text-white">
                 <div class="link-card-text">
                     Denuncie agora!
