@@ -180,7 +180,7 @@ $(document).ready(function () {
 
 
 				if (tipo === "error") {
-					("#msg_erro").html(
+					$("#msg_erro").html(
 						"Ocorreu um erro do servidor ao registrar sua denúncia"
 					);
 					$("#erro").show("slow");
