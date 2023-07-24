@@ -137,10 +137,13 @@
                </div>
                <!---->
                <div class="form-footer">
-               <label class="form-label" style="text-align: justify; color: red;"> Informações enviadas serão enviadas para um orgão de segurança e, dados não pessoais, utilizadas para fins estatísticos e de pesquisa. Elas não serão compartilhadas publicamente</label>
+                  <label class="form-label" style="text-align: justify; color: red;"> Informações enviadas serão
+                     enviadas para um orgão de segurança e, dados não pessoais, utilizadas para fins estatísticos e de
+                     pesquisa. Elas não serão compartilhadas publicamente</label>
                   <div class="form-group form-check">
                      <input type="checkbox" class="form-check-input" id="aceitaDadosCheck">
-                     <label class="form-check-label" for="aceitaDadosCheck">Eu aceito a utilização dos dados da minha denúncia</label>
+                     <label class="form-check-label" for="aceitaDadosCheck">Eu aceito a utilização dos dados da minha
+                        denúncia</label>
                   </div>
                   <div class="form-button">
                      <div class="form-group">

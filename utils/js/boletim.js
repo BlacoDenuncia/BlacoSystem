@@ -11,6 +11,33 @@ $(document).ready(function () {
 	//mascaras para o form
 	$("#contato_vitima").mask("(00) 00000-0000");
 
+	function verificarCamposVazios() {
+		var camposObrigatorios = [
+			"#nome_vitima",
+			"#idade_vitima",
+			"#contato_vitima",
+			"#email_vitima",
+			"#tipo_violencia",
+			"#descricao_agressor",
+			"#descricao_caso",
+			"#rua",
+			/*"#numero_do_local",*/
+			"#bairro",
+			/*"#cidade",
+			"#estado",*/
+		];
+		for (var i = 0; i < camposObrigatorios.length; i++) {
+			var campo = camposObrigatorios[i];
+			var valorCampo = $(campo).val();
+			console.log(valorCampo);
+			if (valorCampo.trim() === "") {
+				$(campo).addClass("input-error"); // Adiciona a classe para a borda vermelha
+			} else {
+				$(campo).removeClass("input-error"); // Remove a classe, caso tenha sido preenchido
+			}
+		}
+	}
+
 	//faz registro das denuncias de forma assincrona
 	$("#btnEnviarDenuncia").click(function () {
 		//configurações de data e hora
@@ -47,30 +74,17 @@ $(document).ready(function () {
 		var estado = $("#estado").val();
 		var tipo_estabelecimento = $("#tipo_estabelecimento").val();
 
-		if (
-			nome_vitima == "" ||
-			idade_vitima == "" ||
-			contato_vitima == "" ||
-			email_vitima == "" ||
-			tipo_violencia == "" ||
-			descricao_agressor == "" ||
-			descricao_caso == "" ||
-			rua == "" ||
-			numero_do_local == "" ||
-			bairro == "" ||
-			cidade == "" ||
-			estado == ""
-		) {
+		verificarCamposVazios(); // Chama a função para verificar campos vazios
+		var camposVazios = $(".input-error");
+		if (camposVazios.length > 0) {
 			$("#msg_erro").html(
-				"Por favor preencha todos os campos com borda colorida pois são essenciais para te ajudar! Caso o botão de localização não tenha funcionado digite manualmente"
+				"Por favor, preencha todos os campos em vermelho, pois são essenciais para te ajudar! Caso o botão de localização não tenha funcionado, digite manualmente."
 			);
 			$("#erro").show("slow");
 			$("html, body").animate({ scrollTop: 0 }, "slow");
 			window.setTimeout(function () {
 				$("#erro").hide(1000);
 			}, 3000);
-
-			//-------fazer função que deixa os campos obrigatórios com borda vermelha-------//
 		} else {
 			$.ajax({
 				url: "Boletim_controller/validar_email", // Path to your PHP script for sending email
