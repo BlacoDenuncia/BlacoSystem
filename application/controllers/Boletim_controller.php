@@ -93,6 +93,7 @@ class Boletim_controller extends CI_Controller
             echo json_encode($mensagem);
         }
     }
+
     public function enviar_email()
     {
         //Recebe dados do JS
@@ -132,28 +133,17 @@ class Boletim_controller extends CI_Controller
         $headers .= "Reply-To: sender@example.com\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
 
-        // Validate the email syntax
-        if (filter_var($email_vitima, FILTER_VALIDATE_EMAIL)) {
-            // Email syntax is valid
-            $to = $email_vitima;
-            $subject = "Denúncia registrada";
+        $to = $email_vitima;
+        $subject = "Denúncia registrada";
 
-            // Use the mail() function to send the email
-            $enviaEmail = mail($to, $subject, $message, $headers);
-
-            if ($enviaEmail) {
-                $mensagem = array('tipo' => 'success'); //comentado errorL
-                echo json_encode($mensagem);
-            } else {
-                $mensagem = array('tipo' => 'error'); //comentado errorL
-                echo json_encode($mensagem);
-            }
+        // Use the mail() function to send the email
+        $enviaEmail = mail($to, $subject, $message, $headers);
+        if ($enviaEmail) {
+            $mensagem = array('tipo' => 'success'); //comentado errorL
+            echo json_encode($mensagem);
         } else {
-            // Email syntax is invalid
-            $mensagem = array('tipo' => 'email-invalido'); //comentado errorL
+            $mensagem = array('tipo' => 'error'); //comentado errorL
             echo json_encode($mensagem);
         }
-
-
     }
 }
