@@ -27,7 +27,6 @@ $(document).ready(function () {
 		];
 		camposObrigatorios.forEach(function (campo) {
 			var valorCampo = $(campo).val().trim();
-			console.log(valorCampo);
 			$(campo).toggleClass("input-error", valorCampo === "");
 		});
 	}
@@ -103,7 +102,6 @@ $(document).ready(function () {
 		var dataHoraFormatada = moment(dataHoraBrasil, "DD/MM/YYYY HH:mm:ss").format(
 			"YYYY-MM-DD HH:mm:ss"
 		);
-		console.log("Data e hora de envio no Brasil:", dataHoraFormatada);
 
 		// Armazena a hora em um campo oculto no formulário
 		$("#data_hora_envio").val(dataHoraFormatada);
@@ -197,7 +195,7 @@ $(document).ready(function () {
 
 				$("html, body").animate({ scrollTop: 0 }, "slow");
 				window.setTimeout(function () {
-					$("#sucesso-modal, #erro-modal").hide(1000);
+					$("#sucesso, #erro").hide(1000);
 					$("#btn-close").click();
 				}, 3000);
 			},
