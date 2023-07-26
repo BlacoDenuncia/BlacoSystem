@@ -21,12 +21,19 @@ class Login_model extends CI_Model
             . "u.email as email_user, u.telefone as telefone_user, u.observacoes as bio_user "
             . "FROM usuarios u "
             . "JOIN login l ON u.idusuario = l.usuario "
-            . "WHERE u.email = ? AND l.senha = ?";
+            . "WHERE u.email = ?";
 
-        $query = $this->db->query($sql, array($email, $senha));
+        $query = $this->db->query($sql, array($email));
 
         if ($this->db->affected_rows() > 0) {
-            return $query->result();
+            $result = $query->row();
+            $senhaHashedBD = $result->senha_hashed;
+            
+            if (password_verify($senha, $senhaHashedBD)) {
+                return $result;
+            } else {
+                return false;
+            }
         } else {
             return false;
 
