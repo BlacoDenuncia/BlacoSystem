@@ -9,6 +9,9 @@ class Cadastro_controller extends CI_Controller
     function index()
     {
         $page = $this->determineCurrentPage();
+        $current_page = array(
+			'current_page' => $page
+		);
         if ($this->session->userdata('logged_in')) {
 			
 			$user_data = $this->session->userdata('logged_in');
@@ -35,8 +38,8 @@ class Cadastro_controller extends CI_Controller
 			$this->template->write_view('menu', 'usuarios/menu_user', $data, FALSE);
 			$this->template->render();
 		}else{
-			$this->template->write_view('content', 'usuarios/conta/cadastro_view', $page, FALSE);
-			$this->template->write_view('menu', 'usuarios/menu_user', $page, FALSE);
+			$this->template->write_view('content', 'usuarios/conta/cadastro_view', $current_page, FALSE);
+			$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
 			$this->template->render();
 		}
     }

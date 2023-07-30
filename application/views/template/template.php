@@ -11,11 +11,17 @@
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/bootstrap-icons.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/custom_style.css">
+   <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/bootstrap-datepicker.min.css">
+
    <!-- Load external JavaScript -->
    <script src="<?php echo base_url(); ?>utils/js/bootstrap.bundle.min.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/jquery.min.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/moment.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/jquery.mask.min.js"></script>
+   <script src="<?php echo base_url(); ?>utils/js/bootstrap-datepicker.min.js"></script>
+   <script>
+      var base_url = "<?php echo base_url(); ?>";
+   </script>
    <title>Blaco - Denuncie</title>
 </head>
 
@@ -134,6 +140,7 @@
    <!--importa scripts após carregamento da página-->
    <script src="<?php echo base_url(); ?>utils/js/custom_script.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/boletim.js"></script>
+   <script src="<?php echo base_url(); ?>utils/js/login_user.js"></script>
 </body>
 
 </html>

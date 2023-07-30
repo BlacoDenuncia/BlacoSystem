@@ -1,3 +1,7 @@
+<script>
+   var isLoggedIn = <?php echo $this->session->userdata('logged_in') ? 'true' : 'false'; ?>;
+   var userData = <?php echo json_encode($this->session->userdata('logged_in')); ?>;
+</script>
 <div class="racismReport container">
    <!-- Loading -->
    <div id="loading" style="display: none;">
@@ -23,6 +27,7 @@
          <div class="card-body p-3">
             <form>
                <input type="hidden" name="data_hora_envio" id="data_hora_envio" value="">
+               <input type="hidden" name="id_usuario" id="id_usuario" value="">
                <div class="row">
                   <div class="form-group col-md-10">
                      <label class="form-label" for="nome_vitima">Nome</label>
@@ -159,6 +164,28 @@
                   </div>
                </div>
             </form>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="modal fade" id="fillModal" tabindex="-1" role="dialog" aria-labelledby="fillModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="fillModalLabel">Você é a vítima?</h5>
+         </div>
+         <div class="modal-body">
+            <p>Caso seja a vítima você deseja preencher os campos com seus dados de login?</p>
+         </div>
+         <div class="modal-footer">
+            <div class="row">
+               <div class="form-group form-button col-md-6"> <button type="button" class="btn btn-secondary"
+                     id="btnDismissFill" data-dismiss="modal">Não,
+                     obrigado!</button></div>
+               <div class="form-group form-button col-md-6"> <button type="button" class="btn btn-primary"
+                     id="btnFillForm">Preencher formulário</button></div>
+
+            </div>
          </div>
       </div>
    </div>

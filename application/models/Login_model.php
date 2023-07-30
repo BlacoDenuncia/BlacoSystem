@@ -18,7 +18,8 @@ class Login_model extends CI_Model
     {
         $sql = " SELECT *, u.*, l.senha as senha_hashed, u.nome as nome_user, "
             . "u.data_nascimento as data_nasc_user, "
-            . "u.email as email_user, u.telefone as telefone_user, u.observacoes as bio_user "
+            . "u.email as email_user, u.telefone as telefone_user, u.observacoes as bio_user, "
+            . "u.perfil as perfil "
             . "FROM usuarios u "
             . "JOIN login l ON u.idusuario = l.usuario "
             . "WHERE u.email = ?";

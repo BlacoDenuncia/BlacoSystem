@@ -1,8 +1,9 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Mapa_controller extends CI_Controller {
-	
+class Mapa_controller extends CI_Controller
+{
+
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,7 +21,8 @@ class Mapa_controller extends CI_Controller {
 	 */
 
 	//Determina a página atual manualmente
-	public function determineCurrentPage(){
+	public function determineCurrentPage()
+	{
 		$current_page = "mapa";
 		return $current_page;
 	}
@@ -31,30 +33,11 @@ class Mapa_controller extends CI_Controller {
 		$current_page = array(
 			'current_page' => $page
 		);
-        
-		//comparar tipo de login e carrega views adequadas
-		if ($this->session->userdata('logged_in')) {
-            
-            $session_data = $this->session->userdata('logged_in');
-            $perfil = $session_data['perfil'];
-            $acessos = $session_data['acessos'];
-            if(($perfil=="admin")){          
-				//admin logado 
-                $this->template->write_view('content', 'usuarios/erros/indisponivel_view', $current_page, FALSE);
-        		$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
-        		$this->template->render();
-            }else{
-                //usuário comum logado
-                $this->template->write_view('content', 'usuarios/mapas/mapa_provisorio', $current_page, FALSE);
-        		$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
-        		$this->template->render();
-            }
-            
-        } else {
-			//usuário não logado
-            $this->template->write_view('content', 'usuarios/mapas/mapa_provisorio', $current_page, FALSE);
-        	$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
-        	$this->template->render();
-        }
+
+
+		//usuário comum logado
+		$this->template->write_view('content', 'usuarios/mapas/mapa_provisorio', $current_page, FALSE);
+		$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
+		$this->template->render();
 	}
 }

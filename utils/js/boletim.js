@@ -10,6 +10,37 @@ $(document).ready(function () {
 	//mascaras para o form
 	$("#contato_vitima").mask("(00) 00000-0000");
 
+	$('#btnDismissFill').on('click', function () {
+		$('#fillModal').modal('hide');
+	});
+	
+	if (isLoggedIn) {
+		$('#fillModal').modal('show');
+	}
+
+	$('#btnFillForm').on('click', function () {
+		if (userData) {
+			$('#id_usuario').val(userData.idusuario);
+			$('#nome_vitima').val(userData.nome);
+			var idade = calculateAge(userData.data_nascimento);
+			$('#idade_vitima').val(idade);
+			$('#contato_vitima').val(userData.telefone);
+			$('#email_vitima').val(userData.email);
+		}
+		$('#fillModal').modal('hide');
+	});
+
+	function calculateAge(dateOfBirth) {
+		var today = new Date();
+		var birthDate = new Date(dateOfBirth);
+		var age = today.getFullYear() - birthDate.getFullYear();
+		var month = today.getMonth() - birthDate.getMonth();
+		if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+			age--;
+		}
+		return age;
+	}
+
 	function verificarCamposVazios() {
 		var camposObrigatorios = [
 			"#nome_vitima",
@@ -119,6 +150,7 @@ $(document).ready(function () {
 			}, 3000);
 			return;
 		}
+		var id_usuario = $("#id_usuario").val();
 		var id_denuncia = $("#id_denuncia").val();
 		var data_hora_envio = $("#data_hora_envio").val();
 		var nome_vitima = $("#nome_vitima").val();
@@ -139,6 +171,7 @@ $(document).ready(function () {
 		var permiteDadosValor = $("#aceitaDadosCheck").prop("checked");
 
 		var requestData = {
+			id_usuario: id_usuario,
 			id_denuncia: id_denuncia,
 			data_hora_envio: data_hora_envio,
 			nome_vitima: nome_vitima,

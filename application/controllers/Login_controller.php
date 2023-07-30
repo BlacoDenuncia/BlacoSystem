@@ -23,36 +23,39 @@ class Login_controller extends CI_Controller
     function index()
     {
         $page = $this->determineCurrentPage();
-		if ($this->session->userdata('logged_in')) {
-			
-			$user_data = $this->session->userdata('logged_in');
+        $current_page = array(
+			'current_page' => $page
+		);
+        if ($this->session->userdata('logged_in')) {
 
-			
-			$idusuario = $user_data['idusuario'];
-			$nome = $user_data['nome'];
-			$data_nascimento = $user_data['data_nascimento'];
-			$email = $user_data['email'];
-			$telefone = $user_data['telefone'];
-			$observacoes = $user_data['observacoes'];
+            $user_data = $this->session->userdata('logged_in');
 
-			$data = array(
-				'idusuario' => $idusuario,
-				'nome' => $nome,
-				'data_nascimento' => $data_nascimento,
-				'email' => $email,
-				'telefone' => $telefone,
-				'observacoes' => $observacoes,
-				'current_page' => $this->determineCurrentPage()
-			);
 
-			$this->template->write_view('content', 'usuarios/conta/perfil_view', $data, FALSE);
-			$this->template->write_view('menu', 'usuarios/menu_user', $data, FALSE);
-			$this->template->render();
-		}else{
-			$this->template->write_view('content', 'usuarios/conta/login_view', $page, FALSE);
-			$this->template->write_view('menu', 'usuarios/menu_user', $page, FALSE);
-			$this->template->render();
-		}
+            $idusuario = $user_data['idusuario'];
+            $nome = $user_data['nome'];
+            $data_nascimento = $user_data['data_nascimento'];
+            $email = $user_data['email'];
+            $telefone = $user_data['telefone'];
+            $observacoes = $user_data['observacoes'];
+
+            $data = array(
+                'idusuario' => $idusuario,
+                'nome' => $nome,
+                'data_nascimento' => $data_nascimento,
+                'email' => $email,
+                'telefone' => $telefone,
+                'observacoes' => $observacoes,
+                'current_page' => $this->determineCurrentPage()
+            );
+
+            $this->template->write_view('content', 'usuarios/conta/perfil_view', $data, FALSE);
+            $this->template->write_view('menu', 'usuarios/menu_user', $data, FALSE);
+            $this->template->render();
+        } else {
+            $this->template->write_view('content', 'usuarios/conta/login_view', $current_page, FALSE);
+            $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
+            $this->template->render();
+        }
     }
 
 
@@ -60,17 +63,18 @@ class Login_controller extends CI_Controller
     {
         $email = $this->input->post('email');
         $senha = $this->input->post('senha');
-        
+
         $this->load->model('login_model');
 
         $acesso = $this->login_model->verifica_login($email, $senha);
         if ($acesso) {
-            $this->setupSessionData($acesso);
+            $user_id = $acesso->idusuario;
+            $this->load->model('conta_model');
+            $user_photo_url = $this->conta_model->get_user_photo_url($user_id);
+            $this->setupSessionData($acesso, $user_photo_url);
 
             $mensagem = array('tipo' => 'sucess');
             echo json_encode($mensagem);
-
-            redirect('http://localhost/blaco/conta_controller');
         } else {
 
             $mensagem = array('tipo' => 'error');
@@ -78,20 +82,7 @@ class Login_controller extends CI_Controller
         }
     }
 
-    public function logout()
-    {
-        $session_data = $this->session->userdata('logged_in');
-        $perfil = $session_data['perfil'];
-        $this->session->sess_destroy();
-
-        if ($perfil != "admin") {
-            redirect("login_controller");
-        } else {
-            redirect("login_controller");
-        }
-    }
-
-    private function setupSessionData($acesso)
+    private function setupSessionData($acesso, $user_photo_url)
     {
 
         $sess_array = array(
@@ -101,6 +92,8 @@ class Login_controller extends CI_Controller
             'email' => $acesso->email_user,
             'telefone' => $acesso->telefone_user,
             'observacoes' => $acesso->bio_user,
+            'perfil' => $acesso->perfil,
+            'photo_path' => $user_photo_url,
         );
         $this->session->set_userdata('logged_in', $sess_array);
     }

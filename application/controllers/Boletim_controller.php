@@ -27,6 +27,9 @@ class Boletim_controller extends CI_Controller
     public function index()
     {
         $page = $this->determineCurrentPage();
+        $current_page = array(
+			'current_page' => $page
+		);
         if ($this->session->userdata('logged_in')) {
 			
 			$user_data = $this->session->userdata('logged_in');
@@ -53,8 +56,8 @@ class Boletim_controller extends CI_Controller
 			$this->template->write_view('menu', 'usuarios/menu_user', $data, FALSE);
 			$this->template->render();
 		}else{
-			$this->template->write_view('content', 'usuarios/boletim/boletim_view', $page, FALSE);
-			$this->template->write_view('menu', 'usuarios/menu_user', $page, FALSE);
+			$this->template->write_view('content', 'usuarios/boletim/boletim_view', $current_page, FALSE);
+			$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
 			$this->template->render();
 		}
     }
@@ -75,7 +78,7 @@ class Boletim_controller extends CI_Controller
     {
         //$idana = $this->input->post('idana');
         //Recebe dados
-
+        $id_usuario = $this->input->post('id_usuario');
         $id_denuncia = null;
         $data_hora_envio = $this->input->post('data_hora_envio');
         $nome_vitima = $this->input->post('nome_vitima');
@@ -96,7 +99,7 @@ class Boletim_controller extends CI_Controller
 
         $this->load->model('Boletim_model');
 
-        $inserir = $this->Boletim_model->registra_denuncia($id_denuncia, $data_hora_envio, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento, $permite_dados);
+        $inserir = $this->Boletim_model->registra_denuncia($id_usuario, $id_denuncia, $data_hora_envio, $nome_vitima, $idade_vitima, $contato_vitima, $email_vitima, $genero_vitima, $etnia_vitima, $tipo_violencia, $descricao_agressor, $descricao_caso, $rua, $bairro, $cidade, $estado, $tipo_estabelecimento, $permite_dados);
         if ($inserir) {
 
             $mensagem = array('tipo' => 'success');
