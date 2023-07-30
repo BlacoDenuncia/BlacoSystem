@@ -7,6 +7,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
    <!-- Load custom styles -->
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/bootstrap.min.css">
+   <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/app.css" >
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/font-awesome.min.css">
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/bootstrap-icons.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -138,6 +139,7 @@
       </div>
    </div>
    <!--importa scripts após carregamento da página-->
+   <script src="<?php echo base_url(); ?>utils/js/app.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/custom_script.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/boletim.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/login_user.js"></script>
