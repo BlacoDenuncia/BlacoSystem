@@ -40,11 +40,11 @@ class Planilhas_controller extends CI_Controller
         }
 
     }
-    public function generate_excel()
+    public function generate_geral_excel()
     {
 
         $this->load->model('Admin_model');
-        $data = $this->Admin_model->gerar_planilhas();
+        $data = $this->Admin_model->gerar_planilha_geral();
 
         
         $spreadsheet = new Spreadsheet();

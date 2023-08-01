@@ -1,7 +1,7 @@
 <div class="container">
     <div class="planilhas-links">
-        <a class="btn btn-secondary" id="btnGerarPlanilha">
-            <i class="bi bi-clock-history"></i> Gerar planilha de denúncias
+        <a class="btn btn-secondary" id="btnGerarPlanilhaGeral">
+            <i class="bi bi-clock-history"></i> Gerar planilha de TODAS as denúncias
         </a>
     </div>
 </div>
