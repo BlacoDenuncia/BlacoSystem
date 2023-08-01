@@ -6,8 +6,8 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
    <!-- Load custom styles -->
+   <!--<link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/app.css">-->
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/bootstrap.min.css">
-   <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/app.css" >
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/font-awesome.min.css">
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/bootstrap-icons.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
