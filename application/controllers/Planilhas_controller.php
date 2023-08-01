@@ -46,11 +46,11 @@ class Planilhas_controller extends CI_Controller
         $this->load->model('Admin_model');
         $data = $this->Admin_model->gerar_planilha_geral();
 
-        
+
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
 
-       
+
         $headers = array(
             'ID Denuncia',
             'ID Usuário',
@@ -105,9 +105,71 @@ class Planilhas_controller extends CI_Controller
     }
 
     // Function to get column letter based on column index (e.g., 1 -> 'A', 2 -> 'B', ...)
+    
+    public function generate_excel_with_permission()
+    {
+        $this->load->model('Admin_model');
+        $data = $this->Admin_model->gerar_planilhas_permitidas();
+
+        if (empty($data)) {
+            
+            echo json_encode(array('status' => 'error', 'message' => 'No data with permission found.'));
+            return;
+        }
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $headers = array(
+            'ID Denuncia',
+            'ID Usuário',
+            'Data/Hora Envio',
+            'Nome da Vítima',
+            'Idade da Vítima',
+            'Contato da Vítima',
+            'Email da Vítima',
+            'Gênero da Vítima',
+            'Etnia da Vítima',
+            'Bairro',
+            'Cidade',
+            'Rua',
+            'Estado',
+            'Tipo de Violência',
+            'Descrição do Caso',
+            'Descrição do Agressor',
+            'Tipo de Estabelecimento',
+            'Permissão Uso de Dados'
+        );
+
+        $columnIndex = 1;
+        foreach ($headers as $header) {
+            $cellAddress = $this->getColumnLetter($columnIndex) . '1';
+            $sheet->setCellValue($cellAddress, $header);
+            $columnIndex++;
+        }
+
+        $row = 2;
+        foreach ($data as $row_data) {
+            $columnIndex = 1;
+            foreach ($row_data as $cellValue) {
+                $cellAddress = $this->getColumnLetter($columnIndex) . $row;
+                $sheet->setCellValue($cellAddress, $cellValue);
+                $columnIndex++;
+            }
+            $row++;
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="boletim_data_with_permission.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('php://output');
+
+        exit();
+    }
     private function getColumnLetter($columnIndex)
     {
         return chr(65 + ($columnIndex - 1));
     }
-
 }
