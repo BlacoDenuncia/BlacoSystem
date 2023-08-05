@@ -1,7 +1,10 @@
+<link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/bootstrap-datepicker.min.css">
+<script src="<?php echo base_url(); ?>utils/js/bootstrap-datepicker.min.js"></script>
 <script>
    var isLoggedIn = <?php echo $this->session->userdata('logged_in') ? 'true' : 'false'; ?>;
    var userData = <?php echo json_encode($this->session->userdata('logged_in')); ?>;
 </script>
+
 <div class="racismReport container">
    <!-- Loading -->
    <div id="loading" style="display: none;">
