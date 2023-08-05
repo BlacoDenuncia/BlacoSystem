@@ -4,7 +4,6 @@ body {
 }
 
 #map-container {
-	width: 98vw;
 	height: calc(100vh - 50px);
 }
 

@@ -7,7 +7,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
    <!-- Load custom styles -->
    <!--<link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/app.css">-->
-   <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/twbs/bootstrap-icons/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/twbs/bootstrap-icons/font/bootstrap-icons.min.css">
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/bootstrap.min.css">
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/custom_style.css">
    <!-- Load external JavaScript -->
@@ -29,7 +29,7 @@
          3 - menu
          -->
    <div class="container-fluid no-padding no-overlap">
-      <div class="content container-fluid">
+      <div id="content" class="content container-fluid">
          <?php
          echo $content;
          ?>
@@ -135,7 +135,7 @@
       </div>
    </div>
    <!--importa scripts após carregamento da página-->
-   <script src="<?php echo base_url(); ?>utils/js/app.js"></script>
+   <!--<script src="<?php echo base_url(); ?>utils/js/app.js"></script>-->
    <script src="<?php echo base_url(); ?>utils/js/custom_script.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/boletim.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/login_user.js"></script>
