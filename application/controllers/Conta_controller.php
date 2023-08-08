@@ -22,8 +22,12 @@ class Conta_controller extends CI_Controller
             $user_data = $this->session->userdata('logged_in');
 
             if ($user_data['perfil'] === 'admin') {
-                $this->template->write_view('content', 'usuarios/conta/perfil_view', /*$data,*/ FALSE);
-                $this->template->write_view('menu', 'usuarios/menu_user', /*$data*/ FALSE);
+                $page = "dashboard";
+                $current_page = array(
+                    'current_page' => $page
+                );
+                $this->template->write_view('content', 'admin/dashboard_view', $current_page, FALSE);
+                $this->template->write_view('menu', 'admin/admin_menu', $current_page, FALSE);
                 $this->template->render();
             } else {
                 $idusuario = $user_data['idusuario'];

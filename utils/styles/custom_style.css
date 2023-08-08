@@ -448,3 +448,14 @@ body {
 .modal {
 	color: #1c1c1c;
 }
+.planilhas-links{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+	align-items: center;
+	min-height: calc(100vh - 50px);
+}
+.planilhas-links .btn{
+	width: 70%;
+}
