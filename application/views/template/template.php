@@ -10,12 +10,6 @@
    <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/twbs/bootstrap-icons/font/bootstrap-icons.min.css">
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/bootstrap.min.css">
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/custom_style.css">
-   <!-- Load external JavaScript -->
-   <script src="<?php echo base_url(); ?>utils/js/bootstrap.bundle.min.js"></script>
-   <script src="<?php echo base_url(); ?>utils/js/jquery.min.js"></script>
-   <script src="<?php echo base_url(); ?>utils/js/moment.js"></script>
-   <script src="<?php echo base_url(); ?>utils/js/jquery.mask.min.js"></script>
-
    <script>
       var base_url = "<?php echo base_url(); ?>";
    </script>
@@ -23,11 +17,7 @@
 </head>
 
 <body>
-   <!--
-         1 - classe responsiva principal
-         2 - content
-         3 - menu
-         -->
+   
    <div class="container-fluid no-padding no-overlap">
       <div id="content" class="content container-fluid">
          <?php
@@ -38,7 +28,7 @@
       <?php
       echo $menu;
       ?>
-      <!--modal de conxão com internet-->
+      
       <div id="modalDesconectado" class="modal fade" tabindex="-1" role="dialog">
          <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -58,7 +48,7 @@
                </div>
             </div>
          </div>
-         <!--error modal-->
+         
          <div class="modal" id="errorModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                <div class="modal-content">
@@ -76,7 +66,7 @@
             </div>
          </div>
       </div>
-      <!--modal email invalido-->
+
       <div id="modalEmailInvalido" class="modal fade" tabindex="-1" role="dialog">
          <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -87,7 +77,6 @@
                      aria-label="Close"></button>
                </div>
                <div class="modal-body">
-                  <!-- mensagens de erro e sucesso do modal -->
                   <div class="alert alert-success" id="sucesso-modal" role="alert" style="display:none;">
                      <span id="msg_sucesso_modal">Sucesso!</span>
                   </div>
@@ -115,7 +104,6 @@
          </div>
 
 
-         <!--error modal-->
          <div class="modal" id="errorModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                <div class="modal-content">
@@ -135,6 +123,11 @@
       </div>
    </div>
    <!--importa scripts após carregamento da página-->
+
+   <!-- Load external JavaScript -->
+   <script src="<?php echo base_url(); ?>utils/js/bootstrap.bundle.min.js"></script>
+   <script src="<?php echo base_url(); ?>utils/js/jquery.min.js"></script>
+   <script src="<?php echo base_url(); ?>utils/js/jquery.mask.min.js"></script>
    <!--<script src="<?php echo base_url(); ?>utils/js/app.js"></script>-->
    <script src="<?php echo base_url(); ?>utils/js/custom_script.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/boletim.js"></script>
