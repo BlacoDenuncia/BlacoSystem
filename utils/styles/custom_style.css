@@ -1,4 +1,16 @@
-/* Estilos para a barra de navegação inferior */
+.tab-content{
+	margin-top: 10px;
+}
+.nav-link {
+	color: #ff470f; 
+}
+.nav-link:hover{
+	color: #ff470f; 
+}
+.nav-item.active{
+	color: #fa5019;
+}
+
 body {
 	color: #ffffff;
 }

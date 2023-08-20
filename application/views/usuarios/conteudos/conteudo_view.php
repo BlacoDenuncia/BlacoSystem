@@ -14,13 +14,13 @@
                <div id="tabConteudos" class="container">
                   <ul class="nav-tabs nav justify-content-center d-flex" id="myTabs">
                      <li class="nav-item">
-                        <a href="#tabA" data-toggle="tab" class="nav-link">Itens A</a>
+                        <a href="#tabA" data-toggle="tab" class="nav-link">A</a>
                      </li>
                      <li class="nav-item">
-                        <a href="#tabB" data-toggle="tab" class="nav-link">Itens B</a>
+                        <a href="#tabB" data-toggle="tab" class="nav-link">B</a>
                      </li>
                      <li class="nav-item">
-                        <a href="#tabC" data-toggle="tab" class="nav-link">Itens C</a>
+                        <a href="#tabC" data-toggle="tab" class="nav-link">C</a>
                      </li>
                   </ul>
                   <div class="tab-content">
@@ -28,13 +28,13 @@
 
                         <!--COPIAR AQUI-->
                         <div class="conteudos-item">
-                           <div class="conteudos-title" data-tab="item1">
+                           <div class="conteudos-title" data-tab="item1A">
                               <h3>Título</h3>
                               <i class="bi bi-chevron-down"></i>
                            </div>
-                           <div class="conteudos-content" id="item1">
+                           <div class="conteudos-content" id="item1A">
                               <p>
-                                 Conteúdo
+                                 Conteúdo A
                               </p>
                            </div>
                         </div>
@@ -45,13 +45,13 @@
                      <div id="tabB" class="tab-pane container">
                         <!--COPIAR AQUI-->
                         <div class="conteudos-item">
-                           <div class="conteudos-title" data-tab="item1">
+                           <div class="conteudos-title" data-tab="item1B">
                               <h3>Título</h3>
                               <i class="bi bi-chevron-down"></i>
                            </div>
-                           <div class="conteudos-content" id="item1">
+                           <div class="conteudos-content" id="item1B">
                               <p>
-                                 Conteúdo
+                                 Conteúdo B
                               </p>
                            </div>
                         </div>
@@ -62,13 +62,13 @@
                      <div id="tabC" class="tab-pane container">
                         <!--COPIAR AQUI-->
                         <div class="conteudos-item">
-                           <div class="conteudos-title" data-tab="item1">
+                           <div class="conteudos-title" data-tab="item1C">
                               <h3>Título</h3>
                               <i class="bi bi-chevron-down"></i>
                            </div>
-                           <div class="conteudos-content" id="item1">
+                           <div class="conteudos-content" id="item1C">
                               <p>
-                                 Conteúdo
+                                 Conteúdo C
                               </p>
                            </div>
                         </div>
