@@ -42,13 +42,45 @@
                         <!--se precisar copiar o de cima e colar-->
 
                      </div>
-                     <div id="tabB" class="tab-pane container">Conteúdo sobre cachorros</div>
-                     <div id="tabC" class="tab-pane container">Conteúdo sobre penguins</div>
+                     <div id="tabB" class="tab-pane container">
+                        <!--COPIAR AQUI-->
+                        <div class="conteudos-item">
+                           <div class="conteudos-title" data-tab="item1">
+                              <h3>Título</h3>
+                              <i class="bi bi-chevron-down"></i>
+                           </div>
+                           <div class="conteudos-content" id="item1">
+                              <p>
+                                 Conteúdo
+                              </p>
+                           </div>
+                        </div>
+                        <!--ACABA-->
+                        <!--se precisar copiar o de cima e colar-->
+
+                     </div>
+                     <div id="tabC" class="tab-pane container">
+                        <!--COPIAR AQUI-->
+                        <div class="conteudos-item">
+                           <div class="conteudos-title" data-tab="item1">
+                              <h3>Título</h3>
+                              <i class="bi bi-chevron-down"></i>
+                           </div>
+                           <div class="conteudos-content" id="item1">
+                              <p>
+                                 Conteúdo
+                              </p>
+                           </div>
+                        </div>
+                        <!--ACABA-->
+                        <!--se precisar copiar o de cima e colar-->
+
+                     </div>
                   </div>
                </div>
             </div>
          </div>
       </div>
    </div>
-   
+
 </div>
