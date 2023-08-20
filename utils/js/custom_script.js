@@ -28,7 +28,15 @@ function checkInternetConnection() {
 }
 
 $(document).ready(function () {
-  
+  $('#myTabs a[data-toggle="tab"]').on('click', function (e) {
+    e.preventDefault();
+    
+    $('#myTabs li.nav-item').removeClass('active');
+    
+    $(this).parent().addClass('active');
+    
+    $(this).tab('show');
+});
   // Recebe a URL da página atual
   var currentPageUrl = window.location.href;
 
