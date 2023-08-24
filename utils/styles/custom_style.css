@@ -334,6 +334,9 @@ body {
 	flex-wrap: nowrap;
 	align-items: center;
 }
+#blaco-logo{
+	width: 50px;
+}
 .link-card-text {
 	font-size: 18px;
 	font-weight: 500;
