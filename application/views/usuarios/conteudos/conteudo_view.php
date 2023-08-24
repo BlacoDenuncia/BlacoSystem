@@ -2,8 +2,7 @@
 <div class="didatic container-fluid">
    <div class="page-title container">
       <h1 class="page-title-header"> Página Didática </h1>
-      <p class="page-title-text">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur,
-         adipisci velit..."
+      <p class="page-title-text">"Pequena descrição"
       </p>
    </div>
    <div class="faq">
