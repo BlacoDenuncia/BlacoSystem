@@ -1,6 +1,6 @@
 <div class="title-user-container">
     <div class="blaco">
-        <img class="blaco-logo" id="blaco-logo" href="">
+        <img class="blaco-logo" id="blaco-logo" src="<?php echo base_url();?>utils/img/logo_blaco_white.svg">
         <h1 class="blurred-text">BLACO</h1>
     </div>
 
@@ -44,7 +44,4 @@
             </a>
         </div>
     </div>
-</div>
-<div class="recent-news">
-    <h3 class="blurred-text">Notícias e Atualizações (Em breve) &#8595;</h3>
 </div>
