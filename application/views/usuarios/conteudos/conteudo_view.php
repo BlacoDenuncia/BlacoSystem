@@ -2,8 +2,7 @@
 <div class="didatic container-fluid">
    <div class="page-title container">
       <h1 class="page-title-header"> Página Didática </h1>
-      <p class="page-title-text">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur,
-         adipisci velit..."
+      <p class="page-title-text">"Aba didatica"
       </p>
    </div>
    <div class="faq">
@@ -80,7 +79,7 @@
                         <!--COPIAR AQUI-->
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item1B">
-                              <h3>Título</h3>
+                              <h3>lais </h3>
                               <i class="bi bi-chevron-down"></i>
                            </div>
                            <div class="conteudos-content" id="item1B">
