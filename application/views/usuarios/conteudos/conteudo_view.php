@@ -41,7 +41,7 @@
                         <!--se precisar copiar o de cima e colar-->
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item2A">
-                              <h3>O que é racismo</h3>
+                              <h3>O QUE É RACISMO</h3>
                               <i class="bi bi-chevron-down"></i>
                            </div>
                            <div class="conteudos-content" id="item2A">
@@ -61,7 +61,7 @@
                         </div>
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item3A">
-                              <h3>O que é discriminação racial</h3>
+                              <h3>O QUE É DISCRIMINAÇÃO RACIAL</h3>
                               <i class="bi bi-chevron-down"></i>
                            </div>
                            <div class="conteudos-content" id="item3A">
@@ -79,12 +79,13 @@
                         <!--COPIAR AQUI-->
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item1B">
-                              <h3>lais </h3>
+                              <h3>CRIME DE RACISMO E INJÚRIA RACIAL </h3>
                               <i class="bi bi-chevron-down"></i>
                            </div>
                            <div class="conteudos-content" id="item1B">
                               <p>
-                                 Conteúdo B
+                                 O crime de racismo atinge uma coletividade indeterminada de indivíduos, discriminando toda a integridade de uma raça. A injúria racial consiste em ofender a honra de alguém valendo-se de elementos referentes
+											à raça, cor, etnia, religião ou origem.
                               </p>
                            </div>
                         </div>
@@ -107,6 +108,67 @@
                         </div>
                         <!--ACABA-->
                         <!--se precisar copiar o de cima e colar-->
+								
+								  <!--COPIAR AQUI-->
+                        <div class="conteudos-item">
+                           <div class="conteudos-title" data-tab="item1D">
+                              <h3>RACISMO NA CONSTITUIÇÃO DA REPÚBLICA </h3>
+                              <i class="bi bi-chevron-down"></i>
+                           </div>
+                           <div class="conteudos-content" id="item1D">
+                              <p>
+                                 Artigo 5 Todos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no país a inviolabilidade do direito à vida, à liberdade, à igualdade, à
+											segurança e à propriedade, nos termos seguintes:
+                              </p>
+										<p>
+											XLII - a prática do racismo constitui crime inafiançável e imprescritível, sujeito à pena de reclusão, nos termos da lei. 
+										</p>
+										<h4>iNJÚRIA NO CÓDIGO PENAL </h4>
+										<P>
+											Artigo 140 - injuriar alguém, ofendendo - lhe a dignidade ou o decoro:
+											Pena - detenção, de um a seis meses, ou multa. 
+										</P>
+                           </div>
+                        </div>
+                        <!--ACABA-->
+								
+								  <!--COPIAR AQUI-->
+                        <div class="conteudos-item">
+                           <div class="conteudos-title" data-tab="item1E">
+                              <h3>COMO IDENTIFICAR O CRIME DE RACISMO </h3>
+                              <i class="bi bi-chevron-down"></i>
+                           </div>
+                           <div class="conteudos-content" id="item1E">
+                              <p>
+                                  É comum a prática racista camuflar-se em situações cotidianas ou formas de brincadeira. A pessoa racista age de maneira preconceituosa, mas não admite seu preconceito. Evidente ou não, a vítima tem o direito de 
+											denunciar qualque forma ultraje, constrangimento e humilhação.
+                              </p>
+										<p>Principais ações do agressor:</p>
+										<P>. Apelidar de acordo com as características físicas a partir de elementos de cor e etnia da vitíma;  </P>
+                           </div>
+									<p>. Inferiorizar as caracteísticas estéticas da etnia em questão; </p>
+									<p>. Considerar a vítima inferior intelectualmente, podendo até negar-lhe determinados cargos no emprego, por exemplo; </p>
+									<p>. Ofender verbal ou fisicamente a vítima;</p>
+									<p>. Desprezar os costumes, hábitos e tradições de etnia;</p>
+									<p>. Duvidar, sem provas, da honestidade e competência da vítima; </p>
+									<p>. REcusar-se a prestar serviços a pessoas de diferentes etnias. </p>
+                        </div>
+                        <!--ACABA-->
+								  <!--COPIAR AQUI-->
+                        <div class="conteudos-item">
+                           <div class="conteudos-title" data-tab="item1f">
+                              <h3>POVOS, COMUNIDADES E TERRITÓRIO</h3>
+                              <i class="bi bi-chevron-down"></i>
+                           </div>
+                           <div class="conteudos-content" id="item1f">
+										<h4>POPULAÇÃO NEGRA</h4>
+                              <p>
+                                 O conjunto de pessoas que se autodeclaram pretas e pardas, conforme o quesito cor ou raça usado pela Fundação Instituto Brasileiro de Geografia e Estatísticas (IBGE), ou que adotam autodefinição análoga 
+											(Estatuto da Igualdade Racial- Lei n 12.288, de 20 de julho de 2010, Artigo 10, IV). 
+                              </p>
+                           </div>
+                        </div>
+                        <!--ACABA-->
 
                      </div>
                   </div>
