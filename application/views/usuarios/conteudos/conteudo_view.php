@@ -39,6 +39,40 @@
                         </div>
                         <!--ACABA-->
                         <!--se precisar copiar o de cima e colar-->
+								
+                        <!--COPIAR AQUI-->
+                        <div class="conteudos-item">
+                           <div class="conteudos-title" data-tab="item1A">
+                              <h3>Controle Social</h3>
+                              <i class="bi bi-chevron-down"></i>
+                           </div>
+                           <div class="conteudos-content" id="item1A">
+                              <p>
+                                 É um princípio democrático que estabelece formas de participação popular
+											e cidadã na formulação, implementação, monitoramento e fiscalização das
+											políticas públicas.
+                              </p>
+                           </div>
+                        </div>
+                        <!--ACABA-->
+                        <!--se precisar copiar o de cima e colar-->
+								
+                        <!--COPIAR AQUI-->
+                        <div class="conteudos-item">
+                           <div class="conteudos-title" data-tab="item1A">
+                              <h3>Conselhos Municipais</h3>
+                              <i class="bi bi-chevron-down"></i>
+                           </div>
+                           <div class="conteudos-content" id="item1A">
+                              <p>
+                                 São dispositivos consultivos e de ingração entre governo e
+											sociedade que possibilitam a participação, aos cidadãos, na
+											criação de políticas públicas.
+                              </p>
+                           </div>
+                        </div>
+                        <!--ACABA-->
+                        <!--se precisar copiar o de cima e colar-->
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item2A">
                               <h3>O QUE É RACISMO</h3>
