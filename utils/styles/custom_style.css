@@ -474,3 +474,14 @@ body {
 .planilhas-links .btn{
 	width: 70%;
 }
+.floating-button {
+    
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
