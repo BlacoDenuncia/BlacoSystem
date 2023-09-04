@@ -108,9 +108,7 @@
                               </p>
                            </div>
                         </div>
-                     </div>
-                     <div id="tabB" class="tab-pane container">
-                        <!--COPIAR AQUI-->
+			        <!--COPIAR AQUI-->
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item1B">
                               <h3>CRIME DE RACISMO E INJÚRIA RACIAL </h3>
@@ -124,26 +122,8 @@
                            </div>
                         </div>
                         <!--ACABA-->
-                        <!--se precisar copiar o de cima e colar-->
 
-                     </div>
-                     <div id="tabC" class="tab-pane container">
-                        <!--COPIAR AQUI-->
-                        <div class="conteudos-item">
-                           <div class="conteudos-title" data-tab="item1C">
-                              <h3>Título</h3>
-                              <i class="bi bi-chevron-down"></i>
-                           </div>
-                           <div class="conteudos-content" id="item1C">
-                              <p>
-                                 Conteúdo C
-                              </p>
-                           </div>
-                        </div>
-                        <!--ACABA-->
-                        <!--se precisar copiar o de cima e colar-->
-								
-								  <!--COPIAR AQUI-->
+			     			  <!--COPIAR AQUI-->
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item1D">
                               <h3>RACISMO NA CONSTITUIÇÃO DA REPÚBLICA </h3>
@@ -203,6 +183,30 @@
                            </div>
                         </div>
                         <!--ACABA-->
+                     </div>
+			
+                     <div id="tabB" class="tab-pane container">
+                  
+                        <!--se precisar copiar o de cima e colar-->
+
+                     </div>
+                     <div id="tabC" class="tab-pane container">
+                        <!--COPIAR AQUI-->
+                        <div class="conteudos-item">
+                           <div class="conteudos-title" data-tab="item1C">
+                              <h3>Título</h3>
+                              <i class="bi bi-chevron-down"></i>
+                           </div>
+                           <div class="conteudos-content" id="item1C">
+                              <p>
+                                 Conteúdo C
+                              </p>
+                           </div>
+                        </div>
+                        <!--ACABA-->
+                        <!--se precisar copiar o de cima e colar-->
+								
+					
 
                      </div>
                   </div>
