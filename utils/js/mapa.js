@@ -29,9 +29,48 @@ $(document).ready(function () {
                     userMarker = new google.maps.Marker({
                         position: userLocation,
                         map: map,
-                        icon:customMarkerIcon
+                        icon: customMarkerIcon
                     });
 
+                    const delegacias = [
+                        {
+                            nome: "1ª Delegacia Regional",
+                            lat: -19.91272795882549,
+                            lng: -44.08217423723668
+                        },
+                        {
+                            nome: "Delegacia 2",
+                            lat: -19.9250,
+                            lng: -44.0350
+                        },
+                        // Adicione mais delegacias conforme necessário
+                    ];
+
+                    // Itere pelo array de delegacias e crie marcadores para cada uma
+                    delegacias.forEach(delegacia => {
+                        const marker = new google.maps.Marker({
+                            position: { lat: delegacia.lat, lng: delegacia.lng },
+                            map: map,
+                            title: delegacia.nome
+                            // Outras opções personalizadas, como ícone personalizado, podem ser adicionadas aqui
+                        });
+                        const infoWindow = new google.maps.InfoWindow({
+                            content: `
+                              <div>
+                                <h4 class="text-dark" >${delegacia.nome}</h4>
+                                <button onclick="showRoute('${delegacia.lat}', '${delegacia.lng}')">Obter Rotas</button>
+                              </div>
+                            `
+                        });
+
+                        marker.addListener("click", () => {
+                            infoWindow.open(map, marker);
+                        });
+                    });
+                    function showRoute(lat, lng) {
+                        const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+                        window.open(mapsUrl, "_blank");
+                    }
                     // Definir o centro do mapa para a localização do usuário
                     map.setCenter(userLocation);
                 },

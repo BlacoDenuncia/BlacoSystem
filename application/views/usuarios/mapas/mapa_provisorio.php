@@ -5,5 +5,5 @@
 <div id="map-container"></div>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="floating-container">
-  <div id="centerButton" class="floating-button">+</div>
+  <div id="centerButton" class="floating-button"><i class="bi bi-compass"></i></div>
 </div>
