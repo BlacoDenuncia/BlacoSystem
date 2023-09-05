@@ -35,13 +35,53 @@ $(document).ready(function () {
                     const delegacias = [
                         {
                             nome: "1ª Delegacia Regional",
-                            lat: -19.91272795882549,
-                            lng: -44.08217423723668
+                            lat: -19.91335,
+                            lng: -44.08175
                         },
                         {
-                            nome: "Delegacia 2",
-                            lat: -19.9250,
-                            lng: -44.0350
+                            nome: "2° Depart. Policia Civil Contagem", 
+                            lat: -19.91640,
+                            lng: -44.08091
+                        },
+                        {
+                            nome: "3ª Delegacia de Polícia Civil", 
+                            lat: -19.92390,
+                            lng: -44.08278
+                        }, 
+                        {
+                            nome: "Delegacia Especializada de Atendimento à Mulher de Contagem-MG", 
+                            lat: -19.9340237,
+                            lng: -44.0458075
+                        }, 
+                        {
+                            nome: "2ª Delegacia de Polícia Civil de Contagem", 
+                            lat: -19.93377, 
+                            lng: -44.04438
+                        },
+                        {
+                            nome: "4° Delegacia Distrital de Contagem", 
+                            lat: -19.96057, 
+                            lng: -44.05667
+                        },
+                        {
+                            nome: "1ª Delegacia Regional de Polícia Civil de Contagem", 
+                            lat: -19.96094,
+                            lng: -44.02917
+                        },
+                        {
+                            nome: "7a Delegacia de Polícia Civil", 
+                            lat: -19.8969478,
+                            lng: -44.0464237
+                        },
+                        {
+                            nome: "1° Delegacia de Policia Civil de Contagem", 
+                            lat: -19.874866, 
+                            lng: -44.020987
+                        },
+                        {
+                            nome: "5° Delegacia de Policia Civil de Contagem", 
+                            lat: -19.827738,
+                            lng: -44.150117
                         },
                         // Adicione mais delegacias conforme necessário
                     ];
