@@ -1,7 +1,7 @@
 function showRoute(lat, lng) {
     const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
     window.open(mapsUrl, "_blank");
-} 
+}
 $(document).ready(function () {
 
     function initMap() {
@@ -36,6 +36,54 @@ $(document).ready(function () {
                         map: map,
                         icon: customMarkerIcon
                     });
+
+                    // Função para atualizar a barra superior com informações da delegacia mais próxima
+                    function updateNearestPoliceInfo(nearestDelegacia) {
+                        const nearestNameElement = document.getElementById('nearest-name');
+                        const viewOnMapsButton = document.getElementById('view-on-maps');
+
+                        nearestNameElement.textContent = nearestDelegacia.nome;
+                        viewOnMapsButton.addEventListener('click', function () {
+                            const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${nearestDelegacia.lat},${nearestDelegacia.lng}`;
+                            window.open(mapsUrl, "_blank");
+                        });
+                    }
+
+                    // Função para calcular a delegacia mais próxima com base na localização do usuário
+                    function findNearestPolice(userLocation, delegacias) {
+                        let nearestDelegacia;
+                        let nearestDistance = Number.MAX_VALUE;
+
+                        delegacias.forEach(delegacia => {
+                            const distance = calculateDistance(userLocation, { lat: delegacia.lat, lng: delegacia.lng });
+
+                            if (distance < nearestDistance) {
+                                nearestDelegacia = delegacia;
+                                nearestDistance = distance;
+                            }
+                        });
+
+                        return nearestDelegacia;
+                    }
+
+                    // Função para calcular a distância entre duas coordenadas (em km)
+                    function calculateDistance(location1, location2) {
+                        const lat1 = location1.lat;
+                        const lng1 = location1.lng;
+                        const lat2 = location2.lat;
+                        const lng2 = location2.lng;
+
+                        const R = 6371; // Raio da Terra em quilômetros
+                        const dLat = (lat2 - lat1) * (Math.PI / 180);
+                        const dLng = (lng2 - lng1) * (Math.PI / 180);
+                        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                            Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+                            Math.sin(dLng / 2) * Math.sin(dLng / 2);
+                        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                        const distance = R * c;
+
+                        return distance; // Distância em quilômetros
+                    }
 
                     const delegacias = [
                         {
@@ -112,6 +160,11 @@ $(document).ready(function () {
                             infoWindow.open(map, marker);
                         });
                     });
+                    // Encontre a delegacia mais próxima
+                    const nearestDelegacia = findNearestPolice(userLocation, delegacias);
+
+                    // Atualize as informações na barra superior
+                    updateNearestPoliceInfo(nearestDelegacia);
 
                     // Definir o centro do mapa para a localização do usuário
                     map.setCenter(userLocation);
