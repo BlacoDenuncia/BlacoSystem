@@ -1,4 +1,9 @@
+function showRoute(lat, lng) {
+    const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+    window.open(mapsUrl, "_blank");
+} 
 $(document).ready(function () {
+
     function initMap() {
         const mapOptions = {
             center: { lat: -19.9318, lng: -44.0530 }, // Coordenadas do centro do mapa (Contagem, MG)
@@ -39,47 +44,47 @@ $(document).ready(function () {
                             lng: -44.08175
                         },
                         {
-                            nome: "2° Depart. Policia Civil Contagem", 
+                            nome: "2° Depart. Policia Civil Contagem",
                             lat: -19.91640,
                             lng: -44.08091
                         },
                         {
-                            nome: "3ª Delegacia de Polícia Civil", 
+                            nome: "3ª Delegacia de Polícia Civil",
                             lat: -19.92390,
                             lng: -44.08278
-                        }, 
+                        },
                         {
-                            nome: "Delegacia Especializada de Atendimento à Mulher de Contagem-MG", 
+                            nome: "Delegacia Especializada de Atendimento à Mulher de Contagem-MG",
                             lat: -19.9340237,
                             lng: -44.0458075
-                        }, 
+                        },
                         {
-                            nome: "2ª Delegacia de Polícia Civil de Contagem", 
-                            lat: -19.93377, 
+                            nome: "2ª Delegacia de Polícia Civil de Contagem",
+                            lat: -19.93377,
                             lng: -44.04438
                         },
                         {
-                            nome: "4° Delegacia Distrital de Contagem", 
-                            lat: -19.96057, 
+                            nome: "4° Delegacia Distrital de Contagem",
+                            lat: -19.96057,
                             lng: -44.05667
                         },
                         {
-                            nome: "1ª Delegacia Regional de Polícia Civil de Contagem", 
+                            nome: "1ª Delegacia Regional de Polícia Civil de Contagem",
                             lat: -19.96094,
                             lng: -44.02917
                         },
                         {
-                            nome: "7a Delegacia de Polícia Civil", 
+                            nome: "7a Delegacia de Polícia Civil",
                             lat: -19.8969478,
                             lng: -44.0464237
                         },
                         {
-                            nome: "1° Delegacia de Policia Civil de Contagem", 
-                            lat: -19.874866, 
+                            nome: "1° Delegacia de Policia Civil de Contagem",
+                            lat: -19.874866,
                             lng: -44.020987
                         },
                         {
-                            nome: "5° Delegacia de Policia Civil de Contagem", 
+                            nome: "5° Delegacia de Policia Civil de Contagem",
                             lat: -19.827738,
                             lng: -44.150117
                         },
@@ -107,10 +112,7 @@ $(document).ready(function () {
                             infoWindow.open(map, marker);
                         });
                     });
-                    function showRoute(lat, lng) {
-                        const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
-                        window.open(mapsUrl, "_blank");
-                    }
+
                     // Definir o centro do mapa para a localização do usuário
                     map.setCenter(userLocation);
                 },
