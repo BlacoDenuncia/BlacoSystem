@@ -1,4 +1,71 @@
 $(document).ready(function () {
+	// Função para preencher os campos de endereço com base na geolocalização
+    function preencherEnderecoComGeolocalizacao() {
+		
+        if (navigator.geolocation) {
+			
+            navigator.geolocation.getCurrentPosition(function (position) {
+                const latlng = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                // Inicializa o serviço de geocodificação
+                const geocoder = new google.maps.Geocoder();
+
+                geocoder.geocode({
+                    'location': latlng
+                }, function (results, status) {
+                    if (status === 'OK') {
+						
+                        if (results[0]) {
+							
+                            // Extrai os componentes do endereço
+                            const addressComponents = results[1].address_components;
+                            let rua = "";
+                            let bairro = "";
+                            let cidade = "";
+                            let estado = "";
+
+                            // Itera pelos componentes para preencher os campos
+                            $.each(addressComponents, function (index, component) {
+                                const types = component.types;
+
+                                if (types.includes('route')) {
+                                    rua = component.long_name;
+                                } else if (types.includes('sublocality_level_1')) {
+                                    bairro = component.long_name;
+                                } else if (types.includes('locality') || types.includes("administrative_area_level_2")) {
+                                    cidade = component.long_name;
+                                } else if (types.includes('administrative_area_level_1')) {
+                                    estado = component.short_name;
+                                }
+                            });
+
+                            // Preenche os campos do formulário com os valores obtidos
+                            $('#rua').val(rua);
+                            $('#bairro').val(bairro);
+                            $('#cidade').val(cidade);
+                            $('#estado').val(estado);
+							console.log(results)
+                        } else {
+                            console.error('Nenhum resultado encontrado para a geolocalização.');
+                        }
+                    } else {
+                        console.error('Geocodificação falhou devido a: ' + status);
+                    }
+                });
+            }, function (error) {
+                console.error("Erro ao obter a localização do usuário:", error);
+            });
+        } else {
+            console.error("Geolocalização não suportada pelo navegador.");
+        }
+    }
+
+    // Adiciona um ouvinte de evento ao botão para receber a localização
+    $('#btnRecebeLocalizacao').on('click', preencherEnderecoComGeolocalizacao);
+
 	// Verifica se o usuário permitiu usar os dados
 	var permiteDados = $("#aceitaDadosCheck");
 	var permiteDadosValor = false;
