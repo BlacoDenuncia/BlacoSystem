@@ -103,8 +103,8 @@ $(document).ready(function () {
                         },
                         {
                             nome: "Delegacia Especializada de Atendimento à Mulher de Contagem-MG",
-                            lat: -19.9340237,
-                            lng: -44.0458075
+                            lat: -19.93410,
+                            lng: -44.04569
                         },
                         {
                             nome: "2ª Delegacia de Polícia Civil de Contagem",
