@@ -120,8 +120,8 @@ $(document).ready(function () {
 			"#rua",
 			/*"#numero_do_local",*/
 			"#bairro",
-			/*"#cidade",
-			"#estado",*/
+			"#cidade",
+			"#estado",
 		];
 		camposObrigatorios.forEach(function (campo) {
 			var valorCampo = $(campo).val().trim();

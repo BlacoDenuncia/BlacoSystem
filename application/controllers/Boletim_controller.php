@@ -104,17 +104,6 @@ class Boletim_controller extends CI_Controller
 
             $mensagem = array('tipo' => 'success');
             echo json_encode($mensagem);
-            /*
-            //registra o log da ação
-            $result = $this->Turmas_model->busca_ultimo_id();
-            $idturma = $result[0]->max_id;       
-            $session_data = $this->session->userdata('logged_in');
-            $usuario = $session_data["idpessoa"];
-            $nome = $session_data["nome"];        
-            require_once(APPPATH."libraries/Logs.php");
-            $log = new Logs();
-            $log->inserirLog("turma",$idturma,$usuario." - ".$nome,"Cadastrou um índice de Turma para a unidade $unidade_educacional");            
-            */
         } else {
             $mensagem = array('tipo' => 'error'); //comentado errorL
             echo json_encode($mensagem);
@@ -156,8 +145,8 @@ class Boletim_controller extends CI_Controller
         $message .= "Estado: $estado\n";
 
         // Configura os email, no caso tem que colocar os emails da BLACO
-        $headers = "From: sender@example.com\r\n";
-        $headers .= "Reply-To: sender@example.com\r\n";
+        $headers = "From: suporte@blaco.com.br\r\n";
+        $headers .= "Reply-To: suporte@blaco.com.br\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
 
         $to = $email_vitima;
