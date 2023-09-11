@@ -47,7 +47,6 @@ $(document).ready(function () {
                             $('#bairro').val(bairro);
                             $('#cidade').val(cidade);
                             $('#estado').val(estado);
-							console.log(results)
                         } else {
                             console.error('Nenhum resultado encontrado para a geolocalização.');
                         }
@@ -71,7 +70,6 @@ $(document).ready(function () {
 	var permiteDadosValor = false;
 	permiteDados.on("change", function () {
 		permiteDadosValor = this.checked;
-		console.log(permiteDadosValor);
 	});
 
 	//mascaras para o form
