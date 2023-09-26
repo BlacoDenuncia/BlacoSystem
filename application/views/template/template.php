@@ -39,7 +39,7 @@
                </div>
                <div class="modal-body">
                   <p>Por favor verifique sua conexão com a internet e tente novamente.
-                     Enquanto isso, que tal acessar a <a href="Conteudo_controller"> área didática?</a>
+                     Enquanto isso, que tal acessar a <a href="../usuarios/conteudos/conteudo_view.html"> área didática?</a>
                   </p>
                </div>
                <div class="modal-footer">
