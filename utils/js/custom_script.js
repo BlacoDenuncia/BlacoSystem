@@ -34,7 +34,7 @@ $(document).ready(function () {
 
   // Define as URLs das páginas que não precisam de acesso à internet
   var offlinePages = [
-    'https://blaco-teste.000webhostapp.com/Conteudo_controller'
+    'https://blaco.com.br/Conteudo_controller'
   ];
 
   // Verifica se a página atual está na lista de páginas offline
