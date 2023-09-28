@@ -2,8 +2,7 @@
 <div class="didatic container-fluid">
    <div class="page-title container">
       <h1 class="page-title-header"> Página Didática </h1>
-      <p class="page-title-text">"Aba didatica"
-      </p>
+      <p class="page-title-text">"Aba didatica"</p>
    </div>
    <div class="faq">
       <div class="row">
