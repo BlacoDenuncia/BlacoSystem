@@ -146,7 +146,7 @@ class Boletim_controller extends CI_Controller
         $mail->addAddress($email_vitima, $nome_vitima);
 
         $mail->isHTML(TRUE);
-        $mail->Subject = 'Denúncia Registrada';
+        $mail->Subject = 'Denuncia Registrada';
 
         $emailBody = '<html><body>';
         $emailBody .= '<h1>Detalhes da Denúncia</h1>';
