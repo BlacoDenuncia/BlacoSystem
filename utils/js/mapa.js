@@ -3,6 +3,7 @@ function showRoute(lat, lng) {
     window.open(mapsUrl, "_blank");
 }
 $(document).ready(function () {
+    $("#content-div").addClass("no-padding");
 
     function initMap() {
         const mapOptions = {

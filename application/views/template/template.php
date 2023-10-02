@@ -33,7 +33,7 @@
          3 - menu
          -->
    <div class="container-fluid no-padding no-overlap">
-      <div class="content container-fluid">
+      <div class="content container-fluid" id="content-div">
          <?php
          echo $content;
          ?>
