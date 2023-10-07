@@ -5,6 +5,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Fazer denúncias de racismo online, buscar delegacias mais próximas e o que fazer em casos de racismo">
    <!-- Load custom styles -->
    <!--<link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/app.css">-->
 
@@ -136,7 +137,7 @@
    <!--<script src="<?php echo base_url(); ?>utils/js/app.js"></script>-->
    <script src="<?php echo base_url(); ?>utils/js/custom_script.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/boletim.js"></script>
-   
+   <script src="<?php echo base_url(); ?>utils/js/login_user.js"></script>
 </body>
 
 </html>
