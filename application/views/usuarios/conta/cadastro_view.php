@@ -1,6 +1,7 @@
 <script src="<?php echo base_url(); ?>utils/js/moment.js"></script>
 <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/bootstrap-datepicker.min.css">
 <script src="<?php echo base_url(); ?>utils/js/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo base_url(); ?>utils/js/login_user.js"></script>
 
 <main class="d-flex">
     <div class="container d-flex flex-column">
