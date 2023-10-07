@@ -1,6 +1,6 @@
 <div class="title-user-container">
     <div class="blaco">
-        <img class="blaco-logo" id="blaco-logo" href="">
+        <img class="blaco-logo" alt="Logotipo BLACO" id="blaco-logo" href="" width="50" height="50">
         <h1 class="blurred-text">BLACO</h1>
     </div>
 
