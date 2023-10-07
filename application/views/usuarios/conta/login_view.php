@@ -1,4 +1,3 @@
-<script src="<?php echo base_url(); ?>utils/js/login_user.js"></script>
 <!-- mensagens de erro e sucesso -->
 <div class="alert alert-success" id="sucesso" role="alert" style="display:none;">
     <span id="msg_sucesso">Sucesso!</span>
