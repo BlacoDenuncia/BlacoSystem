@@ -13,7 +13,12 @@
    </style>
    
    <script>
-      var base_url = "<?php echo base_url(); ?>";
+      document.addEventListener("DOMContentLoaded", function() {
+         var base_url = "<?php echo base_url(); ?>";
+         /*var urlPagConteudos = base_url + "application/views/usuarios/conteudos/conteudo_view.html";
+         var linkMenuConteudos = document.getElementById("conteudos-menu-link");
+         linkMenuConteudos.href = urlPagConteudos;*/
+      });
    </script>
    <title>Blaco - Denuncie</title>
 </head>
