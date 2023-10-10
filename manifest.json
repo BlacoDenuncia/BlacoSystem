@@ -5,8 +5,8 @@
     "background_color": "#1c1c1c",
     "display": "standalone",
     "orientation": "portrait",
-    "scope": "/",
-    "start_url": "/",
+    "scope": "/blaco/",
+    "start_url": "/blaco/Index_controller",
     "icons": [
         {
             "src": "utils/img/blaco-48-48.png",
