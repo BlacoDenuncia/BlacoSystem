@@ -24,15 +24,39 @@ function checkInternetConnection() {
     console.log('Não conectado à internet');
     // Exiba o modal
     $('#modalDesconectado').modal('show');
-
-    document.getElementById("link-offline-conteudos").addEventListener("click", function (event) {
-      event.preventDefault();
-      window.location.href = '/conteudos_view.html';
-    });
   }
 }
 
 $(document).ready(function () {
+
+  var currentPageUrl = window.location.href;
+  if (currentPageUrl === 'http://localhost/blaco/Index_controller' || 'https://blaco.com.br/Index_controller') {
+    window.addEventListener('beforeinstallprompt', (event) => {
+
+      $('#installModal').modal('show');
+      let deferredPrompt = event;
+
+      $('#installButton').click(() => {
+
+        deferredPrompt.prompt();
+
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('A instalação foi aceita.');
+          } else {
+            console.log('A instalação foi recusada.');
+          }
+          $('#installModal').modal('hide');
+        });
+      });
+    });
+
+    // Verifique se o aplicativo já foi instalado
+    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+      $('#installModal').modal('hide');
+    }
+  }
+
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () =>
@@ -40,9 +64,11 @@ $(document).ready(function () {
         .then(registration => console.log('Service Worker registered'))
         .catch(err => 'SW registration failed'));
   }
-  
-  // Recebe a URL da página atual
-  var currentPageUrl = window.location.href;
+
+  /*$('#link-offline-conteudos').click(function() {
+    console.log("aqui estou")
+    window.location.href = '/conteudos_view.html';
+  });*/
 
   // Define as URLs das páginas que não precisam de acesso à internet
   var offlinePages = [
@@ -58,12 +84,12 @@ $(document).ready(function () {
   }
 
   // Ouve eventos de online e offline
-  $(window).on('online', function() {
+  $(window).on('online', function () {
     console.log('Conectado à internet');
     // Realize ações adicionais ou habilite funcionalidades online
   });
 
-  $(window).on('offline', function() {
+  $(window).on('offline', function () {
     if (!isOfflinePage) {
       console.log('Não conectado à internet');
       // Exiba o modal
@@ -72,7 +98,7 @@ $(document).ready(function () {
   });
 
   // Ouve o clique no botão de verificar conexão com a internet
-  $('#btnChecaInternet').click(function() {
+  $('#btnChecaInternet').click(function () {
     checkInternetConnection();
   });
 

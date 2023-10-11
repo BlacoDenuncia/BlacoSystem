@@ -55,6 +55,29 @@
             </div>
          </div>
       </div>
+      <div id="installModal" class="modal fade" tabindex="-1" role="dialog">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+               <i class="bi bi-download"></i>
+                  <h5 class="modal-title">Instale o app BLACO</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <p>Instalar o aplicativo na tela inicial só traz benefícios! 
+                  </p>
+                  <ul id="listaInstallModal">
+                     <li>Execução mais rápida do aplicativo</li>
+                     <li>Recursos sem precisar de conexão com a internet </li>
+                     <li>Notificações e notícias relevantes</li>
+                  </ul>
+               </div>
+               <div class="modal-footer">
+                  <button id="installButton" type="button" class="btn btn-danger">Instalar na tela inicial</button>
+               </div>
+            </div>
+         </div>
+      </div>
 
       <div id="modalEmailInvalido" class="modal fade" tabindex="-1" role="dialog">
          <div class="modal-dialog modal-dialog-centered" role="document">

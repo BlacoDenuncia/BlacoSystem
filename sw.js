@@ -15,7 +15,8 @@ self.addEventListener('install', event => {
                     '/blaco/utils/js/bootstrap-datepicker.min.js',
                     '/blaco/utils/js/boletim.js',
                     '/blaco/utils/js/admin.js',
-                    './conteudo_view.html'
+                    './conteudo_view.html',
+
                 ]);
             })
             .then(() => {
@@ -49,12 +50,13 @@ async function cacheFirst(request) {
 
 async function networkFirst(request) {
     const dynamicCache = await caches.open('blaco-dynamic');
+    
     try {
         const networkResponse = await fetch(request);
         dynamicCache.put(request, networkResponse.clone());
         return networkResponse;
     } catch (err) {
         const cachedResponse = await dynamicCache.match(request);
-        return cachedResponse || await caches.match('./conteudo_view.html');
+        return cachedResponse || await caches.match('/blaco/conteudo_view.html');
     }
 }
