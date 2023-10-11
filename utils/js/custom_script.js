@@ -24,6 +24,11 @@ function checkInternetConnection() {
     console.log('Não conectado à internet');
     // Exiba o modal
     $('#modalDesconectado').modal('show');
+
+    document.getElementById("link-offline-conteudos").addEventListener("click", function (event) {
+      event.preventDefault();
+      window.location.href = '/conteudos_view.html';
+    });
   }
 }
 
