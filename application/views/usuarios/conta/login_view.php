@@ -12,9 +12,9 @@
                 <div class="d-table-cell align-middle">
 
                     <div class="text-center mt-4">
-                        <h1 class="h2">Welcome back!</h1>
+                        <h1 class="h2">Faça seu login</h1>
                         <p class="lead">
-                            Sign in to your account to continue
+                            Entre na sua conta para ver denúncias antigas e atualizar seus dados
                         </p>
                     </div>
 
@@ -25,30 +25,30 @@
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
                                         <input class="form-control form-control" type="email" id="email" name="email"
-                                            placeholder="Enter your email" />
+                                            placeholder="Digite seu email" />
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Senha</label>
                                         <input class="form-control form-control" type="password" id="senha"
-                                            name="senha" placeholder="Enter your password" />
+                                            name="senha" placeholder="Digite sua senha" />
                                     </div>
-                                    <div>
+                                    <!--<div>
                                         <div class="form-check align-items-center">
                                             <input id="customControlInline" type="checkbox" class="form-check-input"
                                                 value="remember-me" name="remember-me" checked>
                                             <label class="form-check-label text-small"
                                                 for="customControlInline">Remember me</label>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="d-grid gap-2 mt-3">
-                                        <a id="btnFazerLogin" class="btn btn-primary ">Sign in</a>
+                                        <a id="btnFazerLogin" class="btn btn-primary ">Entrar</a>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                     <div class="text-center mb-3">
-                        Don't have an account? <a href="cadastro_controller">Sign up</a>
+                        Não tem uma conta? <a href="cadastro_controller">Fazer cadastro</a>
                     </div>
                 </div>
             </div>

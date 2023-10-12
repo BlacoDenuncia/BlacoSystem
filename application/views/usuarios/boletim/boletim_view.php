@@ -1,6 +1,7 @@
 <script src="<?php echo base_url(); ?>utils/js/moment.js"></script>
 <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/bootstrap-datepicker.min.css">
 <script src="<?php echo base_url(); ?>utils/js/bootstrap-datepicker.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAILX5C4EmC9jNJrQfi-UhqkudL_TtHVW8&libraries=places"></script>
 <script>
    var isLoggedIn = <?php echo $this->session->userdata('logged_in') ? 'true' : 'false'; ?>;
    var userData = <?php echo json_encode($this->session->userdata('logged_in')); ?>;
@@ -105,28 +106,24 @@
                      <button type="button" class="btn btn-danger btn-sm btnRecebeLocalizacao"
                         id="btnRecebeLocalizacao"><i class="bi bi-geo-alt-fill"></i>Localização atual</button>
                   </div>
-                  <div class="form-group col-md-5">
+                  <div class="form-group col-md-3">
                      <label class="form-label" for="rua">Rua</label>
                      <input type="text" class="form-control" id="rua" name="rua" placeholder="Em que rua você estava?">
                   </div>
-                  <div class="form-group col-md-5">
+                  <div class="form-group col-md-3">
                      <label class="form-label" for="bairro">Bairro</label>
                      <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Qual bairro?">
                   </div>
-
-
-                  <!--<div class="form-group col-md-2">
-            <label class="form-label" for="cidade">Cidade</label>
-            <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade em que ocorreu"
-               required>
-         </div>
-         <div class="form-group col-md-2">
-            <label class="form-label" for="estado">Estado</label>
-            <input type="text" class="form-control" id="estado" name="estado" placeholder="Estado em que ocorreu"
-               required>
-         </div>-->
-
-
+                  <div class="form-group col-md-2">
+                     <label class="form-label" for="cidade">Cidade</label>
+                     <input type="text" class="form-control" id="cidade" name="cidade"
+                        placeholder="Cidade em que ocorreu" required>
+                  </div>
+                  <div class="form-group col-md-2">
+                     <label class="form-label" for="estado">Estado</label>
+                     <input type="text" class="form-control" id="estado" name="estado"
+                        placeholder="Estado em que ocorreu" required>
+                  </div>
                </div>
                <br>
                <div class="row">

@@ -28,7 +28,16 @@ function checkInternetConnection() {
 }
 
 $(document).ready(function () {
-
+  $('#myTabs a[data-toggle="tab"]').on('click', function (e) {
+    e.preventDefault();
+    
+    $('#myTabs li.nav-item').removeClass('active');
+    
+    $(this).parent().addClass('active');
+    
+    $(this).tab('show');
+});
+  // Recebe a URL da página atual
   var currentPageUrl = window.location.href;
   if (currentPageUrl === 'http://localhost/blaco/Index_controller' || 'https://blaco.com.br/Index_controller') {
     window.addEventListener('beforeinstallprompt', (event) => {

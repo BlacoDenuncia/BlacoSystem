@@ -28,38 +28,38 @@ class Boletim_controller extends CI_Controller
     {
         $page = $this->determineCurrentPage();
         $current_page = array(
-			'current_page' => $page
-		);
+            'current_page' => $page
+        );
         if ($this->session->userdata('logged_in')) {
-			
-			$user_data = $this->session->userdata('logged_in');
 
-			
-			$idusuario = $user_data['idusuario'];
-			$nome = $user_data['nome'];
-			$data_nascimento = $user_data['data_nascimento'];
-			$email = $user_data['email'];
-			$telefone = $user_data['telefone'];
-			$observacoes = $user_data['observacoes'];
+            $user_data = $this->session->userdata('logged_in');
 
-			$data = array(
-				'idusuario' => $idusuario,
-				'nome' => $nome,
-				'data_nascimento' => $data_nascimento,
-				'email' => $email,
-				'telefone' => $telefone,
-				'observacoes' => $observacoes,
-				'current_page' => $this->determineCurrentPage()
-			);
 
-			$this->template->write_view('content', 'usuarios/boletim/boletim_view', $data, FALSE);
-			$this->template->write_view('menu', 'usuarios/menu_user', $data, FALSE);
-			$this->template->render();
-		}else{
-			$this->template->write_view('content', 'usuarios/boletim/boletim_view', $current_page, FALSE);
-			$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
-			$this->template->render();
-		}
+            $idusuario = $user_data['idusuario'];
+            $nome = $user_data['nome'];
+            $data_nascimento = $user_data['data_nascimento'];
+            $email = $user_data['email'];
+            $telefone = $user_data['telefone'];
+            $observacoes = $user_data['observacoes'];
+
+            $data = array(
+                'idusuario' => $idusuario,
+                'nome' => $nome,
+                'data_nascimento' => $data_nascimento,
+                'email' => $email,
+                'telefone' => $telefone,
+                'observacoes' => $observacoes,
+                'current_page' => $this->determineCurrentPage()
+            );
+
+            $this->template->write_view('content', 'usuarios/boletim/boletim_view', $data, FALSE);
+            $this->template->write_view('menu', 'usuarios/menu_user', $data, FALSE);
+            $this->template->render();
+        } else {
+            $this->template->write_view('content', 'usuarios/boletim/boletim_view', $current_page, FALSE);
+            $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
+            $this->template->render();
+        }
     }
     function validar_email()
     {
@@ -104,17 +104,6 @@ class Boletim_controller extends CI_Controller
 
             $mensagem = array('tipo' => 'success');
             echo json_encode($mensagem);
-            /*
-            //registra o log da ação
-            $result = $this->Turmas_model->busca_ultimo_id();
-            $idturma = $result[0]->max_id;       
-            $session_data = $this->session->userdata('logged_in');
-            $usuario = $session_data["idpessoa"];
-            $nome = $session_data["nome"];        
-            require_once(APPPATH."libraries/Logs.php");
-            $log = new Logs();
-            $log->inserirLog("turma",$idturma,$usuario." - ".$nome,"Cadastrou um índice de Turma para a unidade $unidade_educacional");            
-            */
         } else {
             $mensagem = array('tipo' => 'error'); //comentado errorL
             echo json_encode($mensagem);
@@ -123,6 +112,19 @@ class Boletim_controller extends CI_Controller
 
     public function enviar_email()
     {
+        $this->load->library('phpmailer_lib');
+        /* PHPMailer object */
+        $mail = $this->phpmailer_lib->load();
+
+        /* SMTP configuration */
+        $mail->isSMTP();
+        $mail->Host = 'smtp.hostinger.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'suporte@blaco.com.br';
+        $mail->Password = 'BLACO.252863.suporte';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+
         //Recebe dados do JS
         $data_hora_envio = $this->input->post('data_hora_envio');
         $nome_vitima = $this->input->post('nome_vitima');
@@ -140,36 +142,40 @@ class Boletim_controller extends CI_Controller
         $estado = $this->input->post('estado');
         $tipo_estabelecimento = $this->input->post('tipo_estabelecimento');
 
-        // Compõe a mensagem de email
-        $message = "Nome da vítima: $nome_vitima\n";
-        $message .= "Idade da vítima: $idade_vitima\n";
-        $message .= "Etnia da vítima: $etnia_vitima\n";
-        $message .= "Genero da vítima: $genero_vitima\n";
-        $message .= "Contato da vítima: $contato_vitima\n";
-        $message .= "Tipo de violência: $tipo_violencia\n";
-        $message .= "Descrição do agressor: $descricao_agressor\n";
-        $message .= "Descrição do caso: $descricao_caso\n";
-        $message .= "Tipo do estabelecimento: $tipo_estabelecimento\n";
-        $message .= "Rua: $rua\n";
-        $message .= "Bairro: $bairro\n";
-        $message .= "Cidade: $cidade\n";
-        $message .= "Estado: $estado\n";
+        $mail->setFrom('suporte@blaco.com.br', 'BLACO Suporte');
+        $mail->addAddress($email_vitima, $nome_vitima);
 
-        // Configura os email, no caso tem que colocar os emails da BLACO
-        $headers = "From: sender@example.com\r\n";
-        $headers .= "Reply-To: sender@example.com\r\n";
-        $headers .= "X-Mailer: PHP/" . phpversion();
+        $mail->isHTML(TRUE);
+        $mail->Subject = 'Denúncia Registrada';
 
-        $to = $email_vitima;
-        $subject = "Denúncia registrada";
+        $emailBody = '<html><body>';
+        $emailBody .= '<h1>Detalhes da Denúncia</h1>';
+        $emailBody .= '<p><strong>Data e Hora do Envio:</strong> ' . $data_hora_envio . '</p>';
+        $emailBody .= '<p><strong>Nome da Vítima:</strong> ' . $nome_vitima . '</p>';
+        $emailBody .= '<p><strong>Idade da Vítima:</strong> ' . $idade_vitima . '</p>';
+        $emailBody .= '<p><strong>Contato da Vítima:</strong> ' . $contato_vitima . '</p>';
+        $emailBody .= '<p><strong>Email da Vítima:</strong> ' . $email_vitima . '</p>';
+        $emailBody .= '<p><strong>Gênero da Vítima:</strong> ' . $genero_vitima . '</p>';
+        $emailBody .= '<p><strong>Etnia da Vítima:</strong> ' . $etnia_vitima . '</p>';
+        $emailBody .= '<p><strong>Tipo de Violência:</strong> ' . $tipo_violencia . '</p>';
+        $emailBody .= '<p><strong>Descrição do Agressor:</strong> ' . $descricao_agressor . '</p>';
+        $emailBody .= '<p><strong>Descrição do Caso:</strong> ' . $descricao_caso . '</p>';
+        $emailBody .= '<p><strong>Rua:</strong> ' . $rua . '</p>';
+        $emailBody .= '<p><strong>Bairro:</strong> ' . $bairro . '</p>';
+        $emailBody .= '<p><strong>Cidade:</strong> ' . $cidade . '</p>';
+        $emailBody .= '<p><strong>Estado:</strong> ' . $estado . '</p>';
+        $emailBody .= '<p><strong>Tipo do Estabelecimento:</strong> ' . $tipo_estabelecimento . '</p>';
+        $emailBody .= '</body></html>';
+
+        // Assign the email body
+        $mail->Body = $emailBody;
 
         // Use the mail() function to send the email
-        $enviaEmail = mail($to, $subject, $message, $headers);
-        if ($enviaEmail) {
-            $mensagem = array('tipo' => 'success'); //comentado errorL
+        if (!$mail->send()) {
+            $mensagem = array('tipo' => 'error'); //comentado errorL
             echo json_encode($mensagem);
         } else {
-            $mensagem = array('tipo' => 'error'); //comentado errorL
+            $mensagem = array('tipo' => 'success'); //comentado errorL
             echo json_encode($mensagem);
         }
     }
