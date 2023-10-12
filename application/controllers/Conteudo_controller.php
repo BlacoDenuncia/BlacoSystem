@@ -28,7 +28,7 @@ class Conteudo_controller extends CI_Controller {
 		$current_page = array(
 			'current_page' => $page
 		);
-        $this->template->write_view('content', 'usuarios/conteudos/conteudo_view', $current_page, FALSE,);
+        $this->template->write_view('content', 'usuarios/conteudos/conteudo_view.html', $current_page, FALSE,);
         $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
         $this->template->render();
 	}
