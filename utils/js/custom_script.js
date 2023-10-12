@@ -39,7 +39,7 @@ $(document).ready(function () {
 });
   // Recebe a URL da página atual
   var currentPageUrl = window.location.href;
-  if (currentPageUrl === 'http://localhost/blaco/Index_controller' || 'https://blaco.com.br/Index_controller') {
+  if (currentPageUrl === 'http://localhost/blaco/Index_controller' || currentPageUrl === 'https://blaco.com.br/Index_controller') {
     window.addEventListener('beforeinstallprompt', (event) => {
 
       $('#installModal').modal('show');
