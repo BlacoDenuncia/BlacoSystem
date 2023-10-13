@@ -60,10 +60,10 @@ $(document).ready(function () {
       });
     });
 
-    // Verifique se o aplicativo já foi instalado
+/*    // Verifique se o aplicativo já foi instalado
     if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
       $('#installModal').modal('hide');
-    }
+    }*/
   }
 
 
