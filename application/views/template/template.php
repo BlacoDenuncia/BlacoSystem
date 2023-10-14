@@ -136,8 +136,8 @@
    </div>
 
    <!--importa scripts após carregamento da página-->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" data-local-href="<?php echo base_url();?>vendor/twbs/bootstrap-icons/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" data-local-href="<?php echo base_url();?>utils/styles/bootstrap.min.css">
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/custom_style.css">
    <link rel="stylesheet" href="<?php echo base_url(); ?>utils/styles/bootstrap-datepicker.min.css">
 
@@ -150,8 +150,8 @@
    <script src="<?php echo base_url(); ?>utils/js/mapa.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/boletim.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/login_user.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" data-local-src="<?php echo base_url();?>utils/js/moment.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" data-local-src="<?php echo base_url();?>utils/js/bootstrap-datepicker.min.js"></script>
 </body>
 
 </html>

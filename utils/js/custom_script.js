@@ -28,15 +28,40 @@ function checkInternetConnection() {
 }
 
 $(document).ready(function () {
+
+  if (!navigator.onLine) {
+    console.log("Ai que delícia")
+    // Se estiver offline, atualize os atributos src/href
+    // para apontar para os arquivos locais
+    $('script').each(function () {
+      var originalSrc = $(this).attr('src');
+      var localSrc = $(this).attr('data-local-src'); // Obtenha o valor do atributo 'data-local-src'
+
+      if (localSrc && !navigator.onLine) {
+        console.log("Come minha xota")
+        $(this).attr('src', localSrc); // Se o atributo 'data-local-src' existir e o usuário estiver offline, substitua 'src' pelo valor local
+      }
+    });
+
+    $('link').each(function () {
+      var originalHref = $(this).attr('href');
+      var localHref = $(this).attr('data-local-href');
+      if (localHref && !navigator.onLine) {
+        console.log("A ppk tá molhadinha te esperando seu pauzudo")
+        $(this).attr('href', localHref); // Se o atributo 'data-local-src' existir e o usuário estiver offline, substitua 'src' pelo valor local
+      }
+    });
+  }
+
   $('#myTabs a[data-toggle="tab"]').on('click', function (e) {
     e.preventDefault();
-    
+
     $('#myTabs li.nav-item').removeClass('active');
-    
+
     $(this).parent().addClass('active');
-    
+
     $(this).tab('show');
-});
+  });
   // Recebe a URL da página atual
   var currentPageUrl = window.location.href;
   if (currentPageUrl === 'http://localhost/blaco/Index_controller' || 'https://blaco.com.br/Index_controller') {
@@ -60,10 +85,10 @@ $(document).ready(function () {
       });
     });
 
-/*    // Verifique se o aplicativo já foi instalado
-    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-      $('#installModal').modal('hide');
-    }*/
+    /*    // Verifique se o aplicativo já foi instalado
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+          $('#installModal').modal('hide');
+        }*/
   }
 
 
