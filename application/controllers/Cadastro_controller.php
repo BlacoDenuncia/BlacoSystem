@@ -53,7 +53,8 @@ class Cadastro_controller extends CI_Controller
             'nome' => $this->input->post('nome'),
             'email' => $this->input->post('email'),
             'telefone' => $this->input->post('telefone'),
-            'data_nascimento' => $this->convertDateFormat($this->input->post('data_nascimento'))
+            'data_nascimento' => $this->convertDateFormat($this->input->post('data_nascimento')),
+            'perfil' => 'user',
         );
         $senha = password_hash($this->input->post('senha'), PASSWORD_DEFAULT);
 
@@ -64,7 +65,6 @@ class Cadastro_controller extends CI_Controller
             $data_login = array(
                 'usuario' => $usuario_id,
                 'senha' => $senha,
-                'perfil' => 'user',
             );
 
             $login_id = $this->login_model->cadastrar_login($data_login);

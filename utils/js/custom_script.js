@@ -28,13 +28,86 @@ function checkInternetConnection() {
 }
 
 $(document).ready(function () {
-  
+
+  if (!navigator.onLine) {
+    console.log("Ai que delícia")
+    // Se estiver offline, atualize os atributos src/href
+    // para apontar para os arquivos locais
+    $('script').each(function () {
+      var originalSrc = $(this).attr('src');
+      var localSrc = $(this).attr('data-local-src'); // Obtenha o valor do atributo 'data-local-src'
+
+      if (localSrc && !navigator.onLine) {
+        console.log("Come minha xota")
+        $(this).attr('src', localSrc); // Se o atributo 'data-local-src' existir e o usuário estiver offline, substitua 'src' pelo valor local
+      }
+    });
+
+    $('link').each(function () {
+      var originalHref = $(this).attr('href');
+      var localHref = $(this).attr('data-local-href');
+      if (localHref && !navigator.onLine) {
+        console.log("A ppk tá molhadinha te esperando seu pauzudo")
+        $(this).attr('href', localHref); // Se o atributo 'data-local-src' existir e o usuário estiver offline, substitua 'src' pelo valor local
+      }
+    });
+  }
+
+  $('#myTabs a[data-toggle="tab"]').on('click', function (e) {
+    e.preventDefault();
+
+    $('#myTabs li.nav-item').removeClass('active');
+
+    $(this).parent().addClass('active');
+
+    $(this).tab('show');
+  });
   // Recebe a URL da página atual
   var currentPageUrl = window.location.href;
+  if (currentPageUrl === 'http://localhost/blaco/Index_controller' || currentPageUrl === 'https://blaco.com.br/Index_controller') {
+    window.addEventListener('beforeinstallprompt', (event) => {
+
+      $('#installModal').modal('show');
+      let deferredPrompt = event;
+
+      $('#installButton').click(() => {
+
+        deferredPrompt.prompt();
+
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('A instalação foi aceita.');
+          } else {
+            console.log('A instalação foi recusada.');
+          }
+          $('#installModal').modal('hide');
+        });
+      });
+    });
+
+    /*    // Verifique se o aplicativo já foi instalado
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+          $('#installModal').modal('hide');
+        }*/
+  }
+
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () =>
+    /*navigator.serviceWorker.register('/sw.js')*/
+      navigator.serviceWorker.register('/blaco/sw.js')
+        .then(registration => console.log('Service Worker registered'))
+        .catch(err => 'SW registration failed'));
+  }
+
+  /*$('#link-offline-conteudos').click(function() {
+    console.log("aqui estou")
+    window.location.href = '/conteudos_view.html';
+  });*/
 
   // Define as URLs das páginas que não precisam de acesso à internet
   var offlinePages = [
-    'https://blaco-teste.000webhostapp.com/Conteudo_controller'
+    'https://blaco.com.br/Conteudo_controller'
   ];
 
   // Verifica se a página atual está na lista de páginas offline
@@ -46,12 +119,12 @@ $(document).ready(function () {
   }
 
   // Ouve eventos de online e offline
-  $(window).on('online', function() {
+  $(window).on('online', function () {
     console.log('Conectado à internet');
     // Realize ações adicionais ou habilite funcionalidades online
   });
 
-  $(window).on('offline', function() {
+  $(window).on('offline', function () {
     if (!isOfflinePage) {
       console.log('Não conectado à internet');
       // Exiba o modal
@@ -60,7 +133,7 @@ $(document).ready(function () {
   });
 
   // Ouve o clique no botão de verificar conexão com a internet
-  $('#btnChecaInternet').click(function() {
+  $('#btnChecaInternet').click(function () {
     checkInternetConnection();
   });
 
