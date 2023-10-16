@@ -15,7 +15,7 @@ Requisitos:
     git clone https://github.com/seu-usuario/nome-do-repositorio.git
 ```
 
-- Importe o arquivo SQL fornecido [(database.sql)] (https://drive.google.com/file/d/1v49QwXoZaxDWzsL65ROBhYXhFi5aLLjQ/view?usp=sharing)para criar o banco de dados.
+- Importe o arquivo SQL fornecido [(database.sql)] (https://drive.google.com/file/d/1v49QwXoZaxDWzsL65ROBhYXhFi5aLLjQ/view?usp=sharing) para criar o banco de dados.
 - Configure as credenciais do banco de dados no arquivo application/config/database.php.
 
 Uso:
@@ -50,4 +50,5 @@ Contribuição:
 *Se desejar contribuir para o projeto, siga as diretrizes de contribuição no arquivo CONTRIBUTING.md.*
 
 Resolução de Problemas:
+
 *Em caso de problemas ou dúvidas, entre em contato com nossa equipe de suporte em suporte@blaco.com.br*
