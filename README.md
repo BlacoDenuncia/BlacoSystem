@@ -11,9 +11,9 @@ Requisitos:
     Banco de dados MySQL.
 
     Clone o repositório do aplicativo do GitHub:
-'''bash
+```bash
     git clone https://github.com/seu-usuario/nome-do-repositorio.git
-'''
+```
 
     Importe o arquivo SQL fornecido (database.sql) para criar o banco de dados.
 
