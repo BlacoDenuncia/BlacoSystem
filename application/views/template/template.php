@@ -25,7 +25,7 @@
 <body>
    
    <div class="container-fluid no-padding no-overlap">
-      <div id="content" class="content container-fluid">
+      <div id="content" class="no-padding content container-fluid">
          <?php
          echo $content;
          ?>
