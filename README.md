@@ -1,7 +1,7 @@
 # BlacoSystem
 Visão Geral:
 
-Este aplicativo é uma plataforma de denúncia ao racismo, desenvolvida usando as linguagens JavaScript, PHP por meio dos frameworks jQuery e PHP. O projeto é inicialmente um website convertido em uma Progressive Web App (PWA). Ele permite que os usuários relatem incidentes de racismo de forma rápida e fornece uma interface para a gestão de denúncias.
+Este aplicativo é uma plataforma de denúncia ao racismo, desenvolvida usando as linguagens JavaScript, PHP por meio dos frameworks jQuery e Codeigniter. O projeto é inicialmente um website convertido em uma Progressive Web App (PWA). Ele permite que os usuários relatem incidentes de racismo de forma rápida e fornece uma interface para a gestão de denúncias.
 
 Instalação:
 
