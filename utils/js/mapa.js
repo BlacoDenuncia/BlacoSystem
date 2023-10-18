@@ -90,7 +90,8 @@ $(document).ready(function () {
                         {
                             nome: "1ª Delegacia Regional",
                             lat: -19.91335,
-                            lng: -44.08175
+                            lng: -44.08175,
+                            icon: markerPolice,
                         },
                         {
                             nome: "2° Depart. Policia Civil Contagem",
@@ -145,7 +146,7 @@ $(document).ready(function () {
                         const marker = new google.maps.Marker({
                             position: { lat: delegacia.lat, lng: delegacia.lng },
                             map: map,
-                            title: delegacia.nome
+                            title: delegacia.nome,
                             // Outras opções personalizadas, como ícone personalizado, podem ser adicionadas aqui
                         });
                         const infoWindow = new google.maps.InfoWindow({
