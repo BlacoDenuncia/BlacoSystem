@@ -1,4 +1,22 @@
 # BlacoSystem
+
+
+COMO DENUNCIAR
+
+• Ligar para a Polícia Militar pelo telefone 190 (ligação gratuita). Caso as agressões-verbal ou fisica - estejam acontecendo no ato da denúncia, ligar imediatamente para a polícia.
+
+Registrar um boletim de ocorrência (B.O.). O boletim deve ser feito em qualquer delegacia ou nas especializadas em crimes raciais e de intolerância, registrando por crime de injuria racial (Artigo 140 Código Penal) ou racismo (Artigos 3º ao 20 da Lei nº 7716/1989). É possível indicar e/ou apresentar provas que sustentam o B.O., como testemunhas, gravações e documentos.
+
+discriminação sofrida, que caracteriza como crime de racismo, conste no boletim de ocorrência. • Procurar o Ministério Público que pode ser acionado com o boletim de
+
+Exigir que a
+
+injúria racial ou
+
+ocorrência (B.O.) em mãos ou através do Disque 100. O anonimato é
+
+sempre garantido.
+
 Visão Geral:
 
 Este aplicativo é uma plataforma de denúncia ao racismo, desenvolvida usando as linguagens JavaScript, PHP por meio dos frameworks jQuery e Codeigniter. O projeto é inicialmente um website convertido em uma Progressive Web App (PWA). Ele permite que os usuários relatem incidentes de racismo de forma rápida e fornece uma interface para a gestão de denúncias.
