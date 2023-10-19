@@ -37,6 +37,26 @@
                         </div>
                         <!--ACABA-->
                         <!--se precisar copiar o de cima e colar-->
+<!--COPIAR AQUI-->
+                        <div class="conteudos-item">
+                           <div class="conteudos-title" data-tab="item1Z">
+                              <h3>COMO DENUNCIAR</h3>
+                              <i class="bi bi-chevron-down"></i>
+                           </div>
+                           <div class="conteudos-content" id="item1A">
+                              <p>
+                                 <ul>
+												<li> Ligar para a Polícia Militar pelo telefone 190 (ligação gratuita). Caso as agressões-verbal ou fisica - estejam acontecendo no ato da denúncia, ligar imediatamente para a polícia.</li>
+												<li> Registrar um boletim de ocorrência (B.O.). O boletim deve ser feito em qualquer delegacia ou nas especializadas em crimes raciais e de intolerância, registrando por crime de injuria racial (Artigo 140 Código Penal)
+													ou racismo (Artigos 3º ao 20 da Lei nº 7716/1989). É possível indicar e/ou apresentar provas que sustentam o B.O., como testemunhas, gravações e documentos.</li>
+												<li> Exigir que a discriminação sofrida, que caracteriza como crime de racismo, conste no boletim de ocorrência.</li>
+												<li> Procurar o Ministério Público que pode ser acionado com o boletim de injúria racial ou ocorrência (B.O.) em mãos ou através do Disque 100. O anonimato é sempre garantido.</li></li>
+											</ul>
+                              </p>
+                           </div>
+                        </div>
+                        <!--ACABA-->
+
                         <!--COPIAR AQUI-->
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item1H">
