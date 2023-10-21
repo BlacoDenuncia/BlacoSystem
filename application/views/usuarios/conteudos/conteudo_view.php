@@ -226,6 +226,36 @@
                            </div>
                         </div>
                         <!--ACABA-->
+								    <!--COPIAR AQUI-->
+                        <div class="conteudos-item">
+                           <div class="conteudos-title" data-tab="item1f">
+                              <h3>POVOS, COMUNIDADES E TERRITÓRIO</h3>
+                              <i class="bi bi-chevron-down"></i>
+                           </div>
+                           <div class="conteudos-content" id="item1f">
+                              <h4>POVOS E COMUNIDADES TRADICIONAIS</h4>
+                              <p>
+                                Grupos culturalmente diferenciados 
+											que se reconhecem como tais e possuem formas próprias de organização social, ocupando territórios e utilizando recursos naturais como condição para sua reprodução,
+											cultural, social, religiosa, ancestral e econômica, (Lei n° 21.147, de 14 de jeneiro de 2014, Artigo 2° ,| - Política Estadual para o Desenvolvimento Sustentável dis Povos e Comunidades Tradicionais de Minas Gerais).
+                              </p>
+                           </div>
+                        </div>
+                        <!--ACABA-->
+								    <!--COPIAR AQUI-->
+                        <div class="conteudos-item">
+                           <div class="conteudos-title" data-tab="item1f">
+                              <h3>POVOS, COMUNIDADES E TERRITÓRIO</h3>
+                              <i class="bi bi-chevron-down"></i>
+                           </div>
+                           <div class="conteudos-content" id="item1f">
+                              <h4>TERRITÓRIO TRADICIONALMENTE OCUPADO</h4>
+                              <p>
+                                Espaços necessários à reprodução cultural, social e econômica dos povos e comunidades tradicionais, de forma permanente ou temporária. (Lei n°21.147, de 14 de janeiro de 2014, Artigo 2°, Decreto 6040, 7 de fevereiro de 2007).
+                              </p>
+                           </div>
+                        </div>
+                        <!--ACABA-->
 
                      </div>
 
