@@ -91,7 +91,7 @@ $(document).ready(function () {
                             nome: "1ª Delegacia Regional",
                             lat: -19.91335,
                             lng: -44.08175,
-                            icon: markerPolice,
+                            
                         },
                         {
                             nome: "2° Depart. Policia Civil Contagem",
@@ -169,7 +169,7 @@ $(document).ready(function () {
                     updateNearestPoliceInfo(nearestDelegacia);
 
                     // Definir o centro do mapa para a localização do usuário
-                    map.setCenter(userLocation);
+                    map.panTo(userMarker.getPosition());
                 },
                 function (error) {
                     console.error("Erro ao obter a localização do usuário:", error);
