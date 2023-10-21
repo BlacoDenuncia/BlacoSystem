@@ -150,6 +150,7 @@
    <script src="<?php echo base_url(); ?>utils/js/mapa.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/boletim.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/login_user.js"></script>
+   <script src="<?php echo base_url(); ?>utils/js/admin.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" data-local-src="<?php echo base_url();?>utils/js/moment.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" data-local-src="<?php echo base_url();?>utils/js/bootstrap-datepicker.min.js"></script>
 </body>
