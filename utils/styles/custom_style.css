@@ -14,9 +14,11 @@
 body {
 	color: #ffffff;
 }
+#listaInstallModal{
+	margin: 5px;
+}
 
 #map-container {
-	width: 100%;
 	height: calc(100vh - 50px);
 }
 
@@ -81,7 +83,7 @@ body {
 }
 
 .bottom-nav-item-content p {
-	font-size: 10px;
+	font-size: 12px;
 	margin-bottom: 1px;
 }
 
@@ -281,7 +283,7 @@ body {
 	justify-content: space-between;
 	flex-wrap: nowrap;
 	overflow: hidden;
-	padding: 10px 10px 0 10px;
+	padding: 10px 2px 0 2px;
 	font-size: 25px;
 }
 
@@ -293,6 +295,7 @@ body {
 }
 .home-links {
 	margin-top: 50px;
+	padding: 5px;
 }
 
 .home-links .page-title-text {
@@ -531,7 +534,7 @@ html, body {
   height: 100px;
   bottom: 0;
   left: 0;
-  margin: 35px 25px;
+  margin: 35px 5px;
 }
 
 .floating-container:hover .floating-button {
@@ -601,4 +604,7 @@ html, body {
 	padding: 5px 10px;
 	border-radius: 5px;
 	cursor: pointer;
+}
+.report-form{
+	color: #1c1c1c;
 }

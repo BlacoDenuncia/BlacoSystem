@@ -1,8 +1,10 @@
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAILX5C4EmC9jNJrQfi-UhqkudL_TtHVW8&libraries=places"></script>
 <script>
    var isLoggedIn = <?php echo $this->session->userdata('logged_in') ? 'true' : 'false'; ?>;
    var userData = <?php echo json_encode($this->session->userdata('logged_in')); ?>;
 </script>
+
 <div class="racismReport container">
    <!-- Loading -->
    <div id="loading" style="display: none;">
@@ -58,17 +60,17 @@
                   <div class="form-group col-md-6">
                      <label class="form-label" for="genero_vitima">Selecione seu gênero</label>
                      <select class="form-control" id="genero_vitima" name="genero_vitima">
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
+                        <option value="A">Masculino</option>
+                        <option value="B">Feminino</option>
+                        <option value="C">Outro</option>
                      </select>
                   </div>
                   <div class="form-group col-md-6">
                      <label class="form-label" for="etnia_vitima">Etnia/Raça</label>
                      <select class="form-control" id="etnia_vitima" name="etnia_vitima">
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
+                        <option value="A">Negro</option>
+                        <option value="B">Branco</option>
+                        <option value="C">Pardo</option>
                      </select>
                   </div>
                </div>
@@ -77,9 +79,9 @@
                   <div class="form-group col-md-12">
                      <label class="form-label" for="tipo_violencia">Tipo de violência</label>
                      <select class="form-control" id="tipo_violencia" name="tipo_violencia">
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
+                        <option value="A">Xingamentos Ofensivos</option>
+                        <option value="B">Violência Física</option>
+                        <option value="C">Discriminação / Privação de direitos</option>
                      </select>
                   </div>
                </div>
@@ -130,10 +132,10 @@
                         <option value="Local público">Local Público</option>
                         <option value="Empresa privada">Empresa privada</option>
                         <option value="Shopping">Shopping</option>
-                        <option value="Shopping">Em casa</option>
-                        <option value="Shopping">Estádio de futebol</option>
-                        <option value="Shopping">Escola</option>
-                        <option value="Shopping">Trabalho</option>
+                        <option value="Em casa">Em casa</option>
+                        <option value="Estádio de futebol">Estádio de futebol</option>
+                        <option value="Escola">Escola</option>
+                        <option value="Trabalho">Trabalho</option>
                      </select>
                   </div>
                </div>

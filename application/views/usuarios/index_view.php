@@ -1,17 +1,19 @@
 <div class="title-user-container">
     <div class="blaco">
-        <img class="blaco-logo" id="blaco-logo" src="<?php echo base_url();?>utils/img/logo_blaco_white.svg">
+        <img class="blaco-logo" alt="Logotipo BLACO" id="blaco-logo" width="50" height="50"
+            src="<?php echo base_url(); ?>utils/img/logo_blaco_white.svg">
         <h1 class="blurred-text">BLACO</h1>
     </div>
 
-    <a href="Conta_controller" class="text-white user-icon"><i class="bi bi-person-circle user-icon"></i></a>
+    <a href="Conta_controller" class="text-white user-icon" aria-label="Perfil Usuario"><i
+            class="bi bi-person-circle user-icon"></i></a>
 </div>
 <div class="home-links">
-    <div class="row" id="intro-text">
+    <div class="row" id="intro-text no-padding">
         <p class="page-title-text">Unidos contra o racismo: <span class="orange-text">denuncie, lute e
                 transforme!</span></p>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="margin-left: 0px; margin-right: 0px;">
         <div class="col-md-6 medium-div" style="">
             <a href="Boletim_controller" class="text-white">
                 <div class="link-card-text">
@@ -28,7 +30,7 @@
         </div>
     </div>
 
-    <div class="row justify-content-center align-items-center">
+    <div class="row justify-content-center " style="margin-left: 0px; margin-right: 0px;">
         <div class="col-md-6 medium-div">
             <a href="Mapa_controller" class="text-white">
                 <div class="link-card-text">
