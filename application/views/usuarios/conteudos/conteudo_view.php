@@ -78,10 +78,26 @@
                                  e reduzir as desigualdades raciais (...), bem como exercer o controle
                                  social sobre as políticas de promoção da igualdade racial desenvolvidas
                                  pelo Município.
-
+                                 </p>
                               <h5>Competêcias do COMPIR</h5>
-
-                              </p>
+                              <ul>
+												<li>Representar comunidades negras, indígenas e ciganas perante os poderes
+												poderes públicos;</li>
+												<li>Poropor políticas públicas; </li>
+												<li>Propor ações que promovam capacitação social, proficional, política, cultural
+												das populações vulneráveis ao preconceito racial e étnico;</li>
+												<li>Acompanhar, fiscalizar e divulgar leis e projetos;</li>
+												<li>Receber orientações, solicitações e sugestões de entidades;</li>
+												<li>Promover a articulação e integração dos programas de governo;/li>
+												<li>Receber, encaminhar acompanhar denúncias e queixas de ameaças
+												e violações de direitos;</li>
+												<li>Organizar a realização da conferência municipal de promoção da
+												igualdade racial;</li>
+												<li>Assegurar o cumprimento dos direitos e das garantias constitucionais 
+												e legais;</li>
+												<li>Participar da elaboração e acompanhar a execução do PPA, LDO,LOA.</li>
+											</ul>
+                              
                            </div>
                         </div>
                         <!--ACABA-->
@@ -223,32 +239,12 @@
                                  que adotam autodefinição análoga
                                  (Estatuto da Igualdade Racial- Lei n° 12.288, de 20 de julho de 2010, Artigo 10, IV).
                               </p>
-                           </div>
-                        </div>
-                        <!--ACABA-->
-								    <!--COPIAR AQUI-->
-                        <div class="conteudos-item">
-                           <div class="conteudos-title" data-tab="item1f">
-                              <h3>POVOS, COMUNIDADES E TERRITÓRIO</h3>
-                              <i class="bi bi-chevron-down"></i>
-                           </div>
-                           <div class="conteudos-content" id="item1f">
                               <h4>POVOS E COMUNIDADES TRADICIONAIS</h4>
                               <p>
                                 Grupos culturalmente diferenciados 
 											que se reconhecem como tais e possuem formas próprias de organização social, ocupando territórios e utilizando recursos naturais como condição para sua reprodução,
 											cultural, social, religiosa, ancestral e econômica, (Lei n° 21.147, de 14 de jeneiro de 2014, Artigo 2° ,| - Política Estadual para o Desenvolvimento Sustentável dis Povos e Comunidades Tradicionais de Minas Gerais).
                               </p>
-                           </div>
-                        </div>
-                        <!--ACABA-->
-								    <!--COPIAR AQUI-->
-                        <div class="conteudos-item">
-                           <div class="conteudos-title" data-tab="item1f">
-                              <h3>POVOS, COMUNIDADES E TERRITÓRIO</h3>
-                              <i class="bi bi-chevron-down"></i>
-                           </div>
-                           <div class="conteudos-content" id="item1f">
                               <h4>TERRITÓRIO TRADICIONALMENTE OCUPADO</h4>
                               <p>
                                 Espaços necessários à reprodução cultural, social e econômica dos povos e comunidades tradicionais, de forma permanente ou temporária. (Lei n°21.147, de 14 de janeiro de 2014, Artigo 2°, Decreto 6040, 7 de fevereiro de 2007).
