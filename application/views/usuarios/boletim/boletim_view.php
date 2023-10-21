@@ -23,7 +23,7 @@
    </div>
    <div class="page-title container">
       <h1 class="page-title-header"> Formulário de Denúncia </h1>
-      <p class="page-title-text">Texto aqui Texto aqui Texto aqui</p>
+      <p class="page-title-text">Preencha esse formulário de forma rápida e encaminhe sua denúncia</p>
    </div>
    <div class="report-form">
       <div class="card" style="border-radius: 1rem;">

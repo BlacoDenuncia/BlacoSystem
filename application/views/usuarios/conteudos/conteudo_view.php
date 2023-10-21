@@ -2,7 +2,7 @@
 <div class="didatic container-fluid">
    <div class="page-title container">
       <h1 class="page-title-header"> Página Didática </h1>
-      <p class="page-title-text">"Aba didatica"</p>
+      <p class="page-title-text">Nessa aba trouxemos conceitos, leis existentes no Código Penal e direitos garantidos na constituição que podem te ajudar!</p>
    </div>
    <div class="faq">
       <div class="row">
@@ -12,51 +12,18 @@
                <div id="tabConteudos" class="container">
                   <ul class="nav-tabs nav justify-content-center d-flex" id="myTabs">
                      <li class="nav-item">
-                        <a href="#tabA" data-toggle="tab" class="nav-link">A</a>
+                        <a href="#tabA" data-toggle="tab" class="nav-link">O Que É ...</a>
                      </li>
                      <li class="nav-item">
-                        <a href="#tabB" data-toggle="tab" class="nav-link">B</a>
+                        <a href="#tabB" data-toggle="tab" class="nav-link">Como Denunciar</a>
                      </li>
                      <li class="nav-item">
-                        <a href="#tabC" data-toggle="tab" class="nav-link">C</a>
+                        <a href="#tabC" data-toggle="tab" class="nav-link">Crime / Leis</a>
                      </li>
                   </ul>
                   <div class="tab-content">
                      <div id="tabA" class="tab-pane container">
-                        <!--COPIAR AQUI-->
-                        <div class="conteudos-item">
-                           <div class="conteudos-title" data-tab="item1A">
-                              <h3>Título</h3>
-                              <i class="bi bi-chevron-down"></i>
-                           </div>
-                           <div class="conteudos-content" id="item1A">
-                              <p>
-                                 Conteúdo A
-                              </p>
-                           </div>
-                        </div>
-                        <!--ACABA-->
-                        <!--se precisar copiar o de cima e colar-->
-<!--COPIAR AQUI-->
-                        <div class="conteudos-item">
-                           <div class="conteudos-title" data-tab="item1Z">
-                              <h3>COMO DENUNCIAR</h3>
-                              <i class="bi bi-chevron-down"></i>
-                           </div>
-                           <div class="conteudos-content" id="item1A">
-                              <p>
-                                 <ul>
-												<li> Ligar para a Polícia Militar pelo telefone 190 (ligação gratuita). Caso as agressões-verbal ou fisica - estejam acontecendo no ato da denúncia, ligar imediatamente para a polícia.</li>
-												<li> Registrar um boletim de ocorrência (B.O.). O boletim deve ser feito em qualquer delegacia ou nas especializadas em crimes raciais e de intolerância, registrando por crime de injuria racial (Artigo 140 Código Penal)
-													ou racismo (Artigos 3º ao 20 da Lei nº 7716/1989). É possível indicar e/ou apresentar provas que sustentam o B.O., como testemunhas, gravações e documentos.</li>
-												<li> Exigir que a discriminação sofrida, que caracteriza como crime de racismo, conste no boletim de ocorrência.</li>
-												<li> Procurar o Ministério Público que pode ser acionado com o boletim de injúria racial ou ocorrência (B.O.) em mãos ou através do Disque 100. O anonimato é sempre garantido.</li></li>
-											</ul>
-                              </p>
-                           </div>
-                        </div>
-                        <!--ACABA-->
-
+                        
                         <!--COPIAR AQUI-->
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item1H">
@@ -98,26 +65,26 @@
                                  e reduzir as desigualdades raciais (...), bem como exercer o controle
                                  social sobre as políticas de promoção da igualdade racial desenvolvidas
                                  pelo Município.
-                                 </p>
+                              </p>
                               <h5>Competêcias do COMPIR</h5>
                               <ul>
-												<li>Representar comunidades negras, indígenas e ciganas perante os poderes
-												poderes públicos;</li>
-												<li>Poropor políticas públicas; </li>
-												<li>Propor ações que promovam capacitação social, proficional, política, cultural
-												das populações vulneráveis ao preconceito racial e étnico;</li>
-												<li>Acompanhar, fiscalizar e divulgar leis e projetos;</li>
-												<li>Receber orientações, solicitações e sugestões de entidades;</li>
-												<li>Promover a articulação e integração dos programas de governo;/li>
-												<li>Receber, encaminhar acompanhar denúncias e queixas de ameaças
-												e violações de direitos;</li>
-												<li>Organizar a realização da conferência municipal de promoção da
-												igualdade racial;</li>
-												<li>Assegurar o cumprimento dos direitos e das garantias constitucionais 
-												e legais;</li>
-												<li>Participar da elaboração e acompanhar a execução do PPA, LDO,LOA.</li>
-											</ul>
-                              
+                                 <li>Representar comunidades negras, indígenas e ciganas perante os poderes
+                                    poderes públicos;</li>
+                                 <li>Poropor políticas públicas; </li>
+                                 <li>Propor ações que promovam capacitação social, proficional, política, cultural
+                                    das populações vulneráveis ao preconceito racial e étnico;</li>
+                                 <li>Acompanhar, fiscalizar e divulgar leis e projetos;</li>
+                                 <li>Receber orientações, solicitações e sugestões de entidades;</li>
+                                 <li>Promover a articulação e integração dos programas de governo;/li>
+                                 <li>Receber, encaminhar acompanhar denúncias e queixas de ameaças
+                                    e violações de direitos;</li>
+                                 <li>Organizar a realização da conferência municipal de promoção da
+                                    igualdade racial;</li>
+                                 <li>Assegurar o cumprimento dos direitos e das garantias constitucionais
+                                    e legais;</li>
+                                 <li>Participar da elaboração e acompanhar a execução do PPA, LDO,LOA.</li>
+                              </ul>
+
                            </div>
                         </div>
                         <!--ACABA-->
@@ -160,6 +127,11 @@
                            </div>
                         </div>
                         <!--COPIAR AQUI-->
+
+                        <!--ACABA-->
+                        <!--se precisar copiar o de cima e colar-->
+                     </div>
+                     <div id="tabC" class="tab-pane container">
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item1B">
                               <h3>CRIME DE RACISMO E INJÚRIA RACIAL </h3>
@@ -174,26 +146,6 @@
                               </p>
                            </div>
                         </div>
-                        <!--ACABA-->
-                        <!--se precisar copiar o de cima e colar-->
-                     </div>
-                     <div id="tabC" class="tab-pane container">
-                        <!--COPIAR AQUI-->
-                        <div class="conteudos-item">
-                           <div class="conteudos-title" data-tab="item1C">
-                              <h3>Título</h3>
-                              <i class="bi bi-chevron-down"></i>
-                           </div>
-                           <div class="conteudos-content" id="item1C">
-                              <p>
-                                 Conteúdo C
-                              </p>
-                           </div>
-                        </div>
-                        <!--ACABA-->
-                        <!--se precisar copiar o de cima e colar-->
-                        <!--COPIAR AQUI-->
-
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item1D">
                               <h3>RACISMO NA CONSTITUIÇÃO DA REPÚBLICA </h3>
@@ -261,13 +213,18 @@
                               </p>
                               <h4>POVOS E COMUNIDADES TRADICIONAIS</h4>
                               <p>
-                                Grupos culturalmente diferenciados 
-											que se reconhecem como tais e possuem formas próprias de organização social, ocupando territórios e utilizando recursos naturais como condição para sua reprodução,
-											cultural, social, religiosa, ancestral e econômica, (Lei n° 21.147, de 14 de jeneiro de 2014, Artigo 2° ,| - Política Estadual para o Desenvolvimento Sustentável dis Povos e Comunidades Tradicionais de Minas Gerais).
+                                 Grupos culturalmente diferenciados
+                                 que se reconhecem como tais e possuem formas próprias de organização social, ocupando
+                                 territórios e utilizando recursos naturais como condição para sua reprodução,
+                                 cultural, social, religiosa, ancestral e econômica, (Lei n° 21.147, de 14 de jeneiro de
+                                 2014, Artigo 2° ,| - Política Estadual para o Desenvolvimento Sustentável dis Povos e
+                                 Comunidades Tradicionais de Minas Gerais).
                               </p>
                               <h4>TERRITÓRIO TRADICIONALMENTE OCUPADO</h4>
                               <p>
-                                Espaços necessários à reprodução cultural, social e econômica dos povos e comunidades tradicionais, de forma permanente ou temporária. (Lei n°21.147, de 14 de janeiro de 2014, Artigo 2°, Decreto 6040, 7 de fevereiro de 2007).
+                                 Espaços necessários à reprodução cultural, social e econômica dos povos e comunidades
+                                 tradicionais, de forma permanente ou temporária. (Lei n°21.147, de 14 de janeiro de
+                                 2014, Artigo 2°, Decreto 6040, 7 de fevereiro de 2007).
                               </p>
                            </div>
                         </div>
@@ -277,7 +234,33 @@
 
                      <div id="tabB" class="tab-pane container">
 
-                        <!--se precisar copiar o de cima e colar-->
+                        <div class="conteudos-item">
+                           <div class="conteudos-title" data-tab="item1Z">
+                              <h3>COMO DENUNCIAR</h3>
+                              <i class="bi bi-chevron-down"></i>
+                           </div>
+                           <div class="conteudos-content" id="item1Z">
+                              <p>
+                              <ul>
+                                 <li> Ligar para a Polícia Militar pelo telefone 190 (ligação gratuita). Caso as
+                                    agressões-verbal ou fisica - estejam acontecendo no ato da denúncia, ligar
+                                    imediatamente para a polícia.</li>
+                                 <li> Registrar um boletim de ocorrência (B.O.). O boletim deve ser feito em qualquer
+                                    delegacia ou nas especializadas em crimes raciais e de intolerância, registrando por
+                                    crime de injuria racial (Artigo 140 Código Penal)
+                                    ou racismo (Artigos 3º ao 20 da Lei nº 7716/1989). É possível indicar e/ou
+                                    apresentar provas que sustentam o B.O., como testemunhas, gravações e documentos.
+                                 </li>
+                                 <li> Exigir que a discriminação sofrida, que caracteriza como crime de racismo, conste
+                                    no boletim de ocorrência.</li>
+                                 <li> Procurar o Ministério Público que pode ser acionado com o boletim de injúria
+                                    racial ou ocorrência (B.O.) em mãos ou através do Disque 100. O anonimato é sempre
+                                    garantido.</li>
+                                 </li>
+                              </ul>
+                              </p>
+                           </div>
+                        </div>
 
                      </div>
                      <div id="tabC" class="tab-pane container">
