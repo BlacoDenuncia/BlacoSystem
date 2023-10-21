@@ -13,7 +13,7 @@ Requisitos:
 
 - Clone o repositório do aplicativo do GitHub:
 ```bash
-    git clone https://github.com/seu-usuario/nome-do-repositorio.git
+    git clone https://github.com/BlacoDenuncia/BlacoSystem.git
 ```
 
 - Importe o arquivo SQL fornecido [(database.sql)] (https://drive.google.com/file/d/1v49QwXoZaxDWzsL65ROBhYXhFi5aLLjQ/view?usp=sharing) para criar o banco de dados.
