@@ -40,7 +40,7 @@
                         <!--COPIAR AQUI-->
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item1H">
-                              <h3>Controle Social</h3>
+                              <h3>CONTROLE SOCIAL</h3>
                               <i class="bi bi-chevron-down"></i>
                            </div>
                            <div class="conteudos-content" id="item1H">
@@ -56,7 +56,7 @@
                         <!--COPIAR AQUI-->
                         <div class="conteudos-item">
                            <div class="conteudos-title" data-tab="item1G">
-                              <h3>Conselhos Municipais</h3>
+                              <h3>CONSELHOS MUNICIPAIS</h3>
                               <i class="bi bi-chevron-down"></i>
                            </div>
                            <div class="conteudos-content" id="item1G">
