@@ -8,4 +8,3 @@
         </a>
     </div>
 </div>
-<script src="<?php echo base_url();?>utils/js/admin.js"></script>

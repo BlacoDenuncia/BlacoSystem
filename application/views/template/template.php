@@ -12,12 +12,7 @@
    </style>
    
    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-         var base_url = "<?php echo base_url(); ?>";
-         /*var urlPagConteudos = base_url + "application/views/usuarios/conteudos/conteudo_view.html";
-         var linkMenuConteudos = document.getElementById("conteudos-menu-link");
-         linkMenuConteudos.href = urlPagConteudos;*/
-      });
+      var base_url = "<?php echo base_url(); ?>"; 
    </script>
    <title>Blaco - Denuncie</title>
 </head>
@@ -25,7 +20,7 @@
 <body>
    
    <div class="container-fluid no-padding no-overlap">
-      <div id="content" class="content container-fluid">
+      <div id="content" class="no-padding content container-fluid">
          <?php
          echo $content;
          ?>
@@ -150,6 +145,7 @@
    <script src="<?php echo base_url(); ?>utils/js/mapa.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/boletim.js"></script>
    <script src="<?php echo base_url(); ?>utils/js/login_user.js"></script>
+   <script src="<?php echo base_url(); ?>utils/js/admin.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" data-local-src="<?php echo base_url();?>utils/js/moment.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" data-local-src="<?php echo base_url();?>utils/js/bootstrap-datepicker.min.js"></script>
 </body>
