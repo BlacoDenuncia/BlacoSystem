@@ -2,39 +2,39 @@
     "name": "BLACO - Denuncie casos de Racismo",
     "short_name": "BLACO",
     "theme_color": "#fa5019",
-    "background_color": "#1c1c1c",
+    "background_color": "#fa5019",
     "display": "standalone",
     "orientation": "portrait",
     "scope": "/",
     "start_url": "/Index_controller",
     "icons": [
         {
-            "src": "utils/img/blaco-48-48.png",
+            "src": "utils/img/android-launchericon-48-48.png",
             "sizes": "48x48",
             "type": "image/png"
         },
         {
-          "src": "utils/img/blaco-72-72.png",
+          "src": "utils/img/android-launchericon-72-72.png",
           "sizes": "72x72",
           "type": "image/png"
         },
         {
-          "src": "utils/img/blaco-96-96.png",
+          "src": "utils/img/android-launchericon-96-96.png",
           "sizes": "96x96",
           "type": "image/png"
         },
         {
-          "src": "utils/img/blaco-144-144.png",
+          "src": "utils/img/android-launchericon-144-144.png",
           "sizes": "144x144",
           "type": "image/png"
         },
         {
-          "src": "utils/img/blaco-192-192.png",
+          "src": "utils/img/android-launchericon-192-192.png",
           "sizes": "192x192",
           "type": "image/png"
         },
         {
-          "src": "utils/img/blaco-512-512.png",
+          "src": "utils/img/android-launchericon-512-512.png",
           "sizes": "512x512",
           "type": "image/png"
         }
