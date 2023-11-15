@@ -52,11 +52,11 @@ class Boletim_controller extends CI_Controller
                 'current_page' => $this->determineCurrentPage()
             );
 
-            $this->template->write_view('content', 'usuarios/boletim/boletim_view', $data, FALSE);
+            $this->template->write_view('content', 'usuarios/boletim/chat_denuncia_view', $data, FALSE);
             $this->template->write_view('menu', 'usuarios/menu_user', $data, FALSE);
             $this->template->render();
         } else {
-            $this->template->write_view('content', 'usuarios/boletim/boletim_view', $current_page, FALSE);
+            $this->template->write_view('content', 'usuarios/boletim/chat_denuncia_view', $current_page, FALSE);
             $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
             $this->template->render();
         }
