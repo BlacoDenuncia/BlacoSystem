@@ -665,19 +665,19 @@ html, body {
   /* Targeted styling for just user messages */
   .user-message {
 	margin-top: 1rem;
-	text-align: left;
-	background: #100e34;
-	color: white;
-	float: left;
+	text-align: right;
+	background: #e1e1e1;
+	color: black;
+	float: right;
   }
   
   /* Targeted styling for just bot messages */
   .bot-reply {
-	text-align: right;
-	background: #e1e1e1;
+	text-align: left;
+	background: #100e34;
 	margin-top: 1rem;
-	float: right;
-	color: black;
+	float: left;
+	color: white;
 	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   }
   
