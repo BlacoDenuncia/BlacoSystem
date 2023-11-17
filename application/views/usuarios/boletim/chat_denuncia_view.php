@@ -26,22 +26,8 @@
             <div id="header">
                 Denuncie agora!
             </div>
-            <div id="body">
+            <div class="body" id="body">
                 <!-- This section will be dynamically inserted from JavaScript -->
-                <div id="messageValue" hidden></div>
-                <div class="botSection">
-                    <div class="messages bot-reply">
-
-                    </div>
-                    <div class="seperator"></div>
-                </div>
-                <div class="userSection">
-                    <div class="messages user-message">
-
-                    </div>
-                    <div class="seperator"></div>
-                </div>
-                
             </div>
 
             <div id="inputArea">
