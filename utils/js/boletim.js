@@ -1,69 +1,69 @@
 $(document).ready(function () {
 	// Função para preencher os campos de endereço com base na geolocalização
-    function preencherEnderecoComGeolocalizacao() {
-		
-        if (navigator.geolocation) {
-			
-            navigator.geolocation.getCurrentPosition(function (position) {
-                const latlng = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
+	function preencherEnderecoComGeolocalizacao() {
 
-                // Inicializa o serviço de geocodificação
-                const geocoder = new google.maps.Geocoder();
+		if (navigator.geolocation) {
 
-                geocoder.geocode({
-                    'location': latlng
-                }, function (results, status) {
-                    if (status === 'OK') {
-						
-                        if (results[0]) {
-							
-                            // Extrai os componentes do endereço
-                            const addressComponents = results[1].address_components;
-                            let rua = "";
-                            let bairro = "";
-                            let cidade = "";
-                            let estado = "";
+			navigator.geolocation.getCurrentPosition(function (position) {
+				const latlng = {
+					lat: position.coords.latitude,
+					lng: position.coords.longitude
+				};
 
-                            // Itera pelos componentes para preencher os campos
-                            $.each(addressComponents, function (index, component) {
-                                const types = component.types;
+				// Inicializa o serviço de geocodificação
+				const geocoder = new google.maps.Geocoder();
 
-                                if (types.includes('route')) {
-                                    rua = component.long_name;
-                                } else if (types.includes('sublocality_level_1')) {
-                                    bairro = component.long_name;
-                                } else if (types.includes('locality') || types.includes("administrative_area_level_2")) {
-                                    cidade = component.long_name;
-                                } else if (types.includes('administrative_area_level_1')) {
-                                    estado = component.short_name;
-                                }
-                            });
+				geocoder.geocode({
+					'location': latlng
+				}, function (results, status) {
+					if (status === 'OK') {
 
-                            // Preenche os campos do formulário com os valores obtidos
-                            $('#rua').val(rua);
-                            $('#bairro').val(bairro);
-                            $('#cidade').val(cidade);
-                            $('#estado').val(estado);
-                        } else {
-                            console.error('Nenhum resultado encontrado para a geolocalização.');
-                        }
-                    } else {
-                        console.error('Geocodificação falhou devido a: ' + status);
-                    }
-                });
-            }, function (error) {
-                console.error("Erro ao obter a localização do usuário:", error);
-            });
-        } else {
-            console.error("Geolocalização não suportada pelo navegador.");
-        }
-    }
+						if (results[0]) {
 
-    // Adiciona um ouvinte de evento ao botão para receber a localização
-    $('#btnRecebeLocalizacao').on('click', preencherEnderecoComGeolocalizacao);
+							// Extrai os componentes do endereço
+							const addressComponents = results[1].address_components;
+							let rua = "";
+							let bairro = "";
+							let cidade = "";
+							let estado = "";
+
+							// Itera pelos componentes para preencher os campos
+							$.each(addressComponents, function (index, component) {
+								const types = component.types;
+
+								if (types.includes('route')) {
+									rua = component.long_name;
+								} else if (types.includes('sublocality_level_1')) {
+									bairro = component.long_name;
+								} else if (types.includes('locality') || types.includes("administrative_area_level_2")) {
+									cidade = component.long_name;
+								} else if (types.includes('administrative_area_level_1')) {
+									estado = component.short_name;
+								}
+							});
+
+							// Preenche os campos do formulário com os valores obtidos
+							$('#rua').val(rua);
+							$('#bairro').val(bairro);
+							$('#cidade').val(cidade);
+							$('#estado').val(estado);
+						} else {
+							console.error('Nenhum resultado encontrado para a geolocalização.');
+						}
+					} else {
+						console.error('Geocodificação falhou devido a: ' + status);
+					}
+				});
+			}, function (error) {
+				console.error("Erro ao obter a localização do usuário:", error);
+			});
+		} else {
+			console.error("Geolocalização não suportada pelo navegador.");
+		}
+	}
+
+	// Adiciona um ouvinte de evento ao botão para receber a localização
+	$('#btnRecebeLocalizacao').on('click', preencherEnderecoComGeolocalizacao);
 
 	// Verifica se o usuário permitiu usar os dados
 	var permiteDados = $("#aceitaDadosCheck");
@@ -78,7 +78,7 @@ $(document).ready(function () {
 	$('#btnDismissFill').on('click', function () {
 		$('#fillModal').modal('hide');
 	});
-	
+
 	if (isLoggedIn) {
 		$('#fillModal').modal('show');
 	}
@@ -311,5 +311,91 @@ $(document).ready(function () {
 			$("#btnEnviarDenuncia").prop("disabled", false);
 		}, 6000);
 	});
+
+	var chatContainer = $('#report-chat');
+	var userInput = $('#userInput');
+	var submitAnswersButton = $('#submitAnswers');
+	var messageNumber = 1;
+	var respostasUser = [];
+	// Variáveis para armazenar respostas
+	var v1, v2, v3;
+
+	// Função para exibir mensagens do usuário
+	function showUserMessage(message) {
+		$('.user-message').append('<div class="message user">' + message + '</div>');
+	}
+
+	// Função para exibir mensagens do chatbot
+	function showBotReply(mensagem) {
+		$('.bot-reply').append('<div class="message bot">' + mensagem + '</div>');
+		window.setTimeout(function () {
+			$('#send').prop('disabled', false);;
+		}, 1000);
+	}
+
+	// Função para buscar mensagens iniciais
+	function fetchMessages(messageNumber) {
+		var numeroMensagemData = {
+			messageNumber: messageNumber,
+		};
+		$.ajax({
+			type: 'POST',
+			url: 'Boletim_controller/buscar_mensagens',
+			data: numeroMensagemData,
+			success: function (response) {
+				var json = $.parseJSON(response);
+				var mensagem = json.tipo;
+				showBotReply(mensagem);
+			}
+		});
+	}
+
+	// Função para enviar mensagem do usuário e obter resposta do chatbot
+	function sendMessageToChatbot(userMessage) {
+		showUserMessage(userMessage);
+		respostasUser[messageNumber] = userMessage;
+		// Incrementar o número da mensagem
+		messageNumber++;
+		// Limpar a caixa de entrada do usuário
+		userInput.val('');
+		fetchMessages(messageNumber);
+	}
+
+	// Função para manipular o clique no botão de envio
+	$('#send').on('click', function () {
+		var userMessage = userInput.val();
+
+		if (userMessage.trim() !== '') {
+			sendMessageToChatbot(userMessage);
+		}
+	});
+
+	// Função para permitir a pressionar a tecla Enter para enviar a mensagem
+	userInput.keypress(function (event) {
+		if (event.which === 13) {
+			sendButton.click();
+		}
+	});
+
+	// Função para enviar todas as respostas para o backend
+	submitAnswersButton.on('click', function () {
+		// Enviar respostas para o backend
+		$.ajax({
+			type: 'POST',
+			url: '<?= base_url("boletim_controller/registrar_respostas"); ?>',
+			data: {
+				v1: v1,
+				v2: v2,
+				v3: v3
+			},
+			success: function (response) {
+				// Tratar resposta do backend, se necessário
+				console.log(response);
+			}
+		});
+	});
+
+	// Inicializar o chatbot
+	fetchMessages(messageNumber);
 
 });
