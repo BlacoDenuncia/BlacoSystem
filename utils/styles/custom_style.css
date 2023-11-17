@@ -640,6 +640,8 @@ html, body {
 	height: 75%;
 	background-color: #F3F4F6;
 	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
   }
   
   /* Style container for user messages */
@@ -650,7 +652,7 @@ html, body {
   /* Seperates user message from bot reply */
   .seperator {
 	width: 100%;
-	height: 50px;
+	height: 10px;
   }
   
   /* General styling for all messages */
@@ -716,4 +718,8 @@ html, body {
 	border: none;
 	border-radius: 6px;
 	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  #seletores-mensagens{
+	height: 200px;
+	background-color: #100e34;
   }

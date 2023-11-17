@@ -21,7 +21,7 @@
     <div class="alert alert-danger" id="erro" role="alert" style="display:none;">
         <span id="msg_erro">Erro!</span>
     </div>
-    <div id="report-chat" class="container-fluid no-padding">
+    <div id="report-chat" class="container no-padding">
         <div id="container">
             <div id="header">
                 Denuncie agora!
@@ -31,7 +31,7 @@
             </div>
 
             <div id="inputArea">
-                <input type="text" name="messages" id="userInput" placeholder="Responda aqui" required>
+                <input type="text" name="messages" id="userInput" placeholder="Responda aqui">
                 <button id="send" value="Send" disabled>Enviar</button>
             </div>
         </div>
