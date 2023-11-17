@@ -61,6 +61,27 @@ class Boletim_controller extends CI_Controller
             $this->template->render();
         }
     }
+    function buscar_mensagens()
+    {
+        // Obter o valor da mensagem enviado pelo usuário
+        $mensagem_numero = $this->input->post('messageNumber');
+
+        $mensagens = [
+            1 => 'Mensagem 1...',
+            2 => 'Mensagem 2...',
+            3 => 'Mensagem 3...',
+            // Adicione mais mensagens conforme necessário
+        ];
+
+        // Verificar se o número está presente nas mensagens
+        if (isset($mensagens[$mensagem_numero])) {
+            $mensagem = array('tipo' => $mensagens[$mensagem_numero]); //comentado errorL
+            echo json_encode($mensagem);
+        } else {
+            $mensagem = array('tipo' => 'error'); //comentado errorL
+            echo json_encode($mensagem);
+        }
+    }
     function validar_email()
     {
         $email_vitima = $this->input->post('email_vitima');
