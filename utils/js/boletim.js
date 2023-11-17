@@ -322,12 +322,12 @@ $(document).ready(function () {
 
 	// Função para exibir mensagens do usuário
 	function showUserMessage(message) {
-		$('.user-message').append('<div class="message user">' + message + '</div>');
+		$('.body').append('<div class="userSection">' + '<div class="messages user-message">' + message + '</div>' + '<div class="seperator"></div>' + '</div>');
 	}
 
 	// Função para exibir mensagens do chatbot
 	function showBotReply(mensagem) {
-		$('.bot-reply').append('<div class="message bot">' + mensagem + '</div>');
+		$('.body').append('<div class="botSection">' + '<div class="messages bot-reply ">' + mensagem + '</div>' + '<div class="seperator"></div>' + '</div>');
 		window.setTimeout(function () {
 			$('#send').prop('disabled', false);;
 		}, 1000);
