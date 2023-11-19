@@ -412,14 +412,7 @@ $(document).ready(function () {
 	// Função para manipular o clique no botão de envio
 	$('#send').on('click', function () {
 		if (messageNumber === 1) {
-			var userMessage = $("#nome_vitima").val();
-			//Após isso  
-			//Fazer lógica de condicionais nas mensagens executando funções especificas, ex: uma perguinnta quer usar a localização atual? 
-			//Localização atual sim ou não? se sim, exibir botão, se não exibir cada uma das mensagens e inputs
-			//condicionais a serem feitas: testemunha ou vítima? Anonimo ou não?
-			//Juntar funções do vhat com a de enviar denuncia
-			//Adicionar animação e transição para mensagens do bot
-			//Testes finais
+			var userMessage = $("#nome_vitima").val();  
 		} else if (messageNumber === 2) {
 			var userMessage = $("#idade_vitima").val();
 		} else if (messageNumber === 3) {
