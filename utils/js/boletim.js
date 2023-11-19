@@ -320,6 +320,53 @@ $(document).ready(function () {
 	// Variáveis para armazenar respostas
 	var v1, v2, v3;
 
+	function exibirInput() {
+		// Oculta todos os inputs com uma animação de fadeOut
+		$('.answerInput').fadeOut(300);
+
+		// Mostra o input apropriado com uma animação de fadeIn
+		if (messageNumber === 1) {
+			$('#nome_vitima').fadeIn(300);
+			//Após isso verificar na função de clique no botão como pegar os ids do elemento ativo e o valor correto. 
+			//Fazer lógica de condicionais nas mensagens executando funções especificas, ex: uma perguinnta quer usar a localização atual? 
+			//Localização atual sim ou não? se sim, exibir botão, se não exibir cada uma das mensagens e inputs
+			//condicionais a serem feitas: testemunha ou vítima? Anonimo ou não?
+			//Juntar funções do vhat com a de enviar denuncia
+			//Adicionar animação e transição para mensagens do bot
+			//Testes finais
+		} else if (messageNumber === 2) {
+			$('#idade_vitima').fadeIn(300);
+		} else if (messageNumber === 3) {
+			$('#contato_vitima').fadeIn(300);
+		} else if (messageNumber === 4) {
+			$('#email_vitima').fadeIn(300);
+		} else if (messageNumber === 5) {
+			$('#genero_vitima').fadeIn(300);
+		} else if (messageNumber === 6) {
+			$('#etnia_vitima').fadeIn(300);
+		} else if (messageNumber === 7) {
+			$('#tipo_violencia').fadeIn(300);
+		} else if (messageNumber === 8) {
+			$('#descricao_agressor').fadeIn(300);
+		} else if (messageNumber === 9) {
+			$('#descricao_caso').fadeIn(300);
+		} else if (messageNumber === 10) {
+			$('#btnRecebeLocalizacao').fadeIn(300);
+		} else if (messageNumber === 11) {
+			$('#rua').fadeIn(300);
+		} else if (messageNumber === 12) {
+			$('#bairro').fadeIn(300);
+		} else if (messageNumber === 13) {
+			$('#cidade').fadeIn(300);
+		} else if (messageNumber === 14) {
+			$('#estado').fadeIn(300);
+		} else if (messageNumber === 15) {
+			$('#tipo_estabelecimento').fadeIn(300);
+		} else {
+			$('.answerInput').fadeOut(300);
+		}
+	}
+
 	// Função para exibir mensagens do usuário
 	function showUserMessage(message) {
 		$('.body').append('<div class="userSection">' + '<div class="messages user-message">' + message + '</div>' + '<div class="seperator"></div>' + '</div>');
@@ -328,6 +375,7 @@ $(document).ready(function () {
 	// Função para exibir mensagens do chatbot
 	function showBotReply(mensagem) {
 		$('.body').append('<div class="botSection">' + '<div class="messages bot-reply ">' + mensagem + '</div>' + '<div class="seperator"></div>' + '</div>');
+		exibirInput();
 		window.setTimeout(function () {
 			$('#send').prop('disabled', false);;
 		}, 1000);
