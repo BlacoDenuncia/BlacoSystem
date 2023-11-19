@@ -411,7 +411,46 @@ $(document).ready(function () {
 
 	// Função para manipular o clique no botão de envio
 	$('#send').on('click', function () {
-		var userMessage = userInput.val();
+		if (messageNumber === 1) {
+			var userMessage = $("#nome_vitima").val();
+			//Após isso  
+			//Fazer lógica de condicionais nas mensagens executando funções especificas, ex: uma perguinnta quer usar a localização atual? 
+			//Localização atual sim ou não? se sim, exibir botão, se não exibir cada uma das mensagens e inputs
+			//condicionais a serem feitas: testemunha ou vítima? Anonimo ou não?
+			//Juntar funções do vhat com a de enviar denuncia
+			//Adicionar animação e transição para mensagens do bot
+			//Testes finais
+		} else if (messageNumber === 2) {
+			var userMessage = $("#idade_vitima").val();
+		} else if (messageNumber === 3) {
+			var userMessage = $("#contato_vitima").val();
+		} else if (messageNumber === 4) {
+			var userMessage = $("#email_vitima").val();
+		} else if (messageNumber === 5) {
+			var userMessage = $("#genero_vitima").val();
+		} else if (messageNumber === 6) {
+			var userMessage = $("#etnia_vitima").val();
+		} else if (messageNumber === 7) {
+			var userMessage = $("#tipo_violencia").val();
+		} else if (messageNumber === 8) {
+			var userMessage = $("#descricao_agressor").val();
+		} else if (messageNumber === 9) {
+			var userMessage = $("#descricao_caso").val();
+		} else if (messageNumber === 10) {
+			var userMessage = $("#rua").val();
+		} else if (messageNumber === 11) {
+			var userMessage = $("#numero_do_local").val();
+		} else if (messageNumber === 12) {
+			var userMessage = $("#bairro").val();
+		} else if (messageNumber === 13) {
+			var userMessage = $("#cidade").val();
+		} else if (messageNumber === 14) {
+			var userMessage = $("#estado").val();
+		} else if (messageNumber === 15) {
+			var userMessage = $("#tipo_estabelecimento").val();
+		} else {
+			alert("Erro ao enviar");
+		}
 
 		if (userMessage.trim() !== '') {
 			sendMessageToChatbot(userMessage);
