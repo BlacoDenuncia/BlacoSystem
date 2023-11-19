@@ -31,7 +31,56 @@
             </div>
 
             <div id="inputArea">
-                <input type="text" name="messages" id="userInput" placeholder="Responda aqui">
+                <input type="hidden" name="data_hora_envio" id="data_hora_envio" value="">
+                <input type="hidden" name="id_usuario" id="id_usuario" value="">
+                <input type="text" class="form-control answerInput" id="nome_vitima" name="nome_vitima"
+                    placeholder="Digite seu nome">
+                <input type="number" class="form-control answerInput" id="idade_vitima" name="idade_vitima">
+                <input type="text" class="form-control answerInput" id="contato_vitima" name="contato_vitima"
+                    placeholder="Digite o seu número">
+                <input type="email" class="form-control answerInput" id="email_vitima" name="email_vitima"
+                    placeholder="Digite seu melhor email">
+                <select class="form-control answerInput" id="genero_vitima" name="genero_vitima">
+                    <option value="A">Masculino</option>
+                    <option value="B">Feminino</option>
+                    <option value="C">Outro</option>
+                </select>
+                <select class="form-control answerInput" id="etnia_vitima" name="etnia_vitima">
+                    <option value="A">Negro</option>
+                    <option value="B">Branco</option>
+                    <option value="C">Pardo</option>
+                </select>
+                <select class="form-control answerInput" id="tipo_violencia" name="tipo_violencia">
+                    <option value="A">Xingamentos Ofensivos</option>
+                    <option value="B">Violência Física</option>
+                    <option value="C">Discriminação / Privação de direitos</option>
+                </select>
+                <input type="text" class="form-control answerInput" id="descricao_agressor" name="descricao_agressor"
+                    placeholder="Descreva com detalhes o agressor"></input>
+                <input type="text" class="form-control answerInput" id="descricao_caso" name="descricao_caso"
+                    placeholder="Descreva o que aconteceu"></input>
+                <button type="button" class=" answerInput btn btn-danger btn-sm btnRecebeLocalizacao" id="btnRecebeLocalizacao"><i
+                        class="bi bi-geo-alt-fill"></i>Localização atual</button>
+                <input type="text" class="form-control answerInput" id="rua" name="rua" placeholder="Em que rua você estava?">
+                <input type="text" class="form-control answerInput" id="bairro" name="bairro" placeholder="Qual bairro?">
+                <input type="text" class="form-control answerInput" id="cidade" name="cidade" placeholder="Cidade em que ocorreu"
+                    required>
+                <input type="text" class="form-control answerInput" id="estado" name="estado" placeholder="Estado em que ocorreu"
+                    required>
+                <select class="form-control answerInput" id="tipo_estabelecimento" name="tipo_estabelecimento">
+                    <option value="Local público">Local Público</option>
+                    <option value="Empresa privada">Empresa privada</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Em casa">Em casa</option>
+                    <option value="Estádio de futebol">Estádio de futebol</option>
+                    <option value="Escola">Escola</option>
+                    <option value="Trabalho">Trabalho</option>
+                </select>
+
+
+
+
+
                 <button id="send" value="Send" disabled>Enviar</button>
             </div>
         </div>
