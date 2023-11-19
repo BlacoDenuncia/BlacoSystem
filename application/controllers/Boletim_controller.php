@@ -67,10 +67,29 @@ class Boletim_controller extends CI_Controller
         $mensagem_numero = $this->input->post('messageNumber');
 
         $mensagens = [
-            1 => 'Mensagem 1...',
-            2 => 'Mensagem 2...',
-            3 => 'Mensagem 3...',
-            // Adicione mais mensagens conforme necessário
+            1 => 'Olá, responda as perguntas a seguir para que possamos te ajudar com a denúncia. Garantimos a segurança 
+            dos dados e que dados pessoais não serão divulgados. </br> </br> De início, qual o seu nome?',
+            2 => 'Informe a sua idade:',
+            3 => 'Digite o numero do telefone de contato',
+            4 => 'Digite o email de contato: ( uma cópia da denuncia será enviada ao seu email )',
+            5 => 'Selecione o seu gênero:',
+            6 => 'Selecione a raça/cor que melhor te identifica:',
+            7 => 'Sobre a denúncia, qual o tipo de violência você considera ter sofrido? Selecione abaixo',
+            8 => 'Faça uma descrição das características do agressor:',
+            9 => 'Descreva com o máximo de detalhes o que ocorreu:',
+            10 => 'Informe a localização do ocorrido: Qual a rua?',
+            11 => 'Informe o bairro:',
+            12 => 'Informe a cidade',
+            13 => 'Informe o Estado',
+            14 => 'Qual o tipo do estabelecimento?',
+            15 => 'Informações enviadas serão enviadas para um orgão de segurança e, dados não pessoais, utilizadas para fins estatísticos e de pesquisa. Elas não serão compartilhadas publicamente </br></br> <input type="checkbox" class="form-check-input" id="aceitaDadosCheck">
+            <label class="form-check-label" for="aceitaDadosCheck">Eu aceito a utilização dos dados da minha
+               denúncia</label>',
+            16 => 'Chegamos ao fim! Ao contribuir com essa denúncia, orgãos públicos e privados podem ajudar de forma mais eficiente nos combate a desigualdades e preconceitos. </br></br> Encaminharemos a denúncia e a ajuda necessária entrará em contato',
+            17 => '<button type="button" class="btn btn-success btnEnviarDenuncia" id="btnEnviarDenuncia">
+            <span class="bi bi-check" aria-hidden="true"></span> Enviar
+         </button>',
+            
         ];
 
         // Verificar se o número está presente nas mensagens
