@@ -1,7 +1,9 @@
 $(document).ready(function () {
 	// Função para preencher os campos de endereço com base na geolocalização
-	function preencherEnderecoComGeolocalizacao() {
+	var btnLocal;
 
+	function preencherEnderecoComGeolocalizacao() {
+		btnLocal = true;
 		if (navigator.geolocation) {
 
 			navigator.geolocation.getCurrentPosition(function (position) {
@@ -47,6 +49,8 @@ $(document).ready(function () {
 							$('#bairro').val(bairro);
 							$('#cidade').val(cidade);
 							$('#estado').val(estado);
+
+							$("#send").click();
 						} else {
 							console.error('Nenhum resultado encontrado para a geolocalização.');
 						}
@@ -107,24 +111,42 @@ $(document).ready(function () {
 	}
 
 	function verificarCamposVazios() {
-		var camposObrigatorios = [
-			"#nome_vitima",
-			"#idade_vitima",
-			"#contato_vitima",
-			"#email_vitima",
-			"#tipo_violencia",
-			"#descricao_agressor",
-			"#descricao_caso",
-			"#rua",
-			/*"#numero_do_local",*/
-			"#bairro",
-			"#cidade",
-			"#estado",
-		];
-		camposObrigatorios.forEach(function (campo) {
-			var valorCampo = $(campo).val().trim();
-			$(campo).toggleClass("input-error", valorCampo === "");
-		});
+
+		if (tipoDenuncia == "anonima") {
+			var camposObrigatorios = [
+				"#tipo_violencia",
+				"#descricao_agressor",
+				"#descricao_caso",
+				"#rua",
+				/*"#numero_do_local",*/
+				"#bairro",
+				"#cidade",
+				"#estado",
+			];
+			camposObrigatorios.forEach(function (campo) {
+				var valorCampo = $(campo).val().trim();
+				$(campo).toggleClass("input-error", valorCampo === "");
+			});
+		} else {
+			var camposObrigatorios = [
+				"#nome_vitima",
+				"#idade_vitima",
+				"#contato_vitima",
+				"#email_vitima",
+				"#tipo_violencia",
+				"#descricao_agressor",
+				"#descricao_caso",
+				"#rua",
+				/*"#numero_do_local",*/
+				"#bairro",
+				"#cidade",
+				"#estado",
+			];
+			camposObrigatorios.forEach(function (campo) {
+				var valorCampo = $(campo).val().trim();
+				$(campo).toggleClass("input-error", valorCampo === "");
+			});
+		}
 	}
 	function enviarEmail(data, retryCount = 3, retryDelay = 5000) {
 		$.ajax({
@@ -316,139 +338,10 @@ $(document).ready(function () {
 	var userInput = $('#userInput');
 	var submitAnswersButton = $('#submitAnswers');
 	var messageNumber = 1;
-	var respostasUser = [];
+	var tipoDenuncia;
 	// Variáveis para armazenar respostas
 	var v1, v2, v3;
 
-	function exibirInput() {
-		// Oculta todos os inputs com uma animação de fadeOut
-		$('.answerInput').fadeOut(300);
-
-		// Mostra o input apropriado com uma animação de fadeIn
-		if (messageNumber === 1) {
-			$('#nome_vitima').fadeIn(300);
-			//Após isso verificar na função de clique no botão como pegar os ids do elemento ativo e o valor correto. 
-			//Fazer lógica de condicionais nas mensagens executando funções especificas, ex: uma perguinnta quer usar a localização atual? 
-			//Localização atual sim ou não? se sim, exibir botão, se não exibir cada uma das mensagens e inputs
-			//condicionais a serem feitas: testemunha ou vítima? Anonimo ou não?
-			//Juntar funções do vhat com a de enviar denuncia
-			//Adicionar animação e transição para mensagens do bot
-			//Testes finais
-		} else if (messageNumber === 2) {
-			$('#idade_vitima').fadeIn(300);
-		} else if (messageNumber === 3) {
-			$('#contato_vitima').fadeIn(300);
-		} else if (messageNumber === 4) {
-			$('#email_vitima').fadeIn(300);
-		} else if (messageNumber === 5) {
-			$('#genero_vitima').fadeIn(300);
-		} else if (messageNumber === 6) {
-			$('#etnia_vitima').fadeIn(300);
-		} else if (messageNumber === 7) {
-			$('#tipo_violencia').fadeIn(300);
-		} else if (messageNumber === 8) {
-			$('#descricao_agressor').fadeIn(300);
-		} else if (messageNumber === 9) {
-			$('#descricao_caso').fadeIn(300);
-		} else if (messageNumber === 10) {
-			$('#btnRecebeLocalizacao').fadeIn(300);
-		} else if (messageNumber === 11) {
-			$('#rua').fadeIn(300);
-		} else if (messageNumber === 12) {
-			$('#bairro').fadeIn(300);
-		} else if (messageNumber === 13) {
-			$('#cidade').fadeIn(300);
-		} else if (messageNumber === 14) {
-			$('#estado').fadeIn(300);
-		} else if (messageNumber === 15) {
-			$('#tipo_estabelecimento').fadeIn(300);
-		} else {
-			$('.answerInput').fadeOut(300);
-		}
-	}
-
-	// Função para exibir mensagens do usuário
-	function showUserMessage(message) {
-		$('.body').append('<div class="userSection">' + '<div class="messages user-message">' + message + '</div>' + '<div class="seperator"></div>' + '</div>');
-	}
-
-	// Função para exibir mensagens do chatbot
-	function showBotReply(mensagem) {
-		$('.body').append('<div class="botSection">' + '<div class="messages bot-reply ">' + mensagem + '</div>' + '<div class="seperator"></div>' + '</div>');
-		exibirInput();
-		window.setTimeout(function () {
-			$('#send').prop('disabled', false);;
-		}, 1000);
-	}
-
-	// Função para buscar mensagens iniciais
-	function fetchMessages(messageNumber) {
-		var numeroMensagemData = {
-			messageNumber: messageNumber,
-		};
-		$.ajax({
-			type: 'POST',
-			url: 'Boletim_controller/buscar_mensagens',
-			data: numeroMensagemData,
-			success: function (response) {
-				var json = $.parseJSON(response);
-				var mensagem = json.tipo;
-				showBotReply(mensagem);
-			}
-		});
-	}
-
-	// Função para enviar mensagem do usuário e obter resposta do chatbot
-	function sendMessageToChatbot(userMessage) {
-		showUserMessage(userMessage);
-		respostasUser[messageNumber] = userMessage;
-		// Incrementar o número da mensagem
-		messageNumber++;
-		// Limpar a caixa de entrada do usuário
-		userInput.val('');
-		fetchMessages(messageNumber);
-	}
-
-	// Função para manipular o clique no botão de envio
-	$('#send').on('click', function () {
-		if (messageNumber === 1) {
-			var userMessage = $("#nome_vitima").val();  
-		} else if (messageNumber === 2) {
-			var userMessage = $("#idade_vitima").val();
-		} else if (messageNumber === 3) {
-			var userMessage = $("#contato_vitima").val();
-		} else if (messageNumber === 4) {
-			var userMessage = $("#email_vitima").val();
-		} else if (messageNumber === 5) {
-			var userMessage = $("#genero_vitima").val();
-		} else if (messageNumber === 6) {
-			var userMessage = $("#etnia_vitima").val();
-		} else if (messageNumber === 7) {
-			var userMessage = $("#tipo_violencia").val();
-		} else if (messageNumber === 8) {
-			var userMessage = $("#descricao_agressor").val();
-		} else if (messageNumber === 9) {
-			var userMessage = $("#descricao_caso").val();
-		} else if (messageNumber === 10) {
-			var userMessage = $("#rua").val();
-		} else if (messageNumber === 11) {
-			var userMessage = $("#numero_do_local").val();
-		} else if (messageNumber === 12) {
-			var userMessage = $("#bairro").val();
-		} else if (messageNumber === 13) {
-			var userMessage = $("#cidade").val();
-		} else if (messageNumber === 14) {
-			var userMessage = $("#estado").val();
-		} else if (messageNumber === 15) {
-			var userMessage = $("#tipo_estabelecimento").val();
-		} else {
-			alert("Erro ao enviar");
-		}
-
-		if (userMessage.trim() !== '') {
-			sendMessageToChatbot(userMessage);
-		}
-	});
 
 	// Função para permitir a pressionar a tecla Enter para enviar a mensagem
 	userInput.keypress(function (event) {
@@ -475,7 +368,271 @@ $(document).ready(function () {
 		});
 	});
 
+	$('#send').on('click', function () {
+		if (tipoDenuncia === "anonima") {
+			if (messageNumber === 2) {
+				var userMessage = $("#genero_vitima").val();
+			} else if (messageNumber === 3) {
+				var userMessage = $("#etnia_vitima").val();
+			} else if (messageNumber === 4) {
+				var userMessage = $("#tipo_violencia").val();
+			} else if (messageNumber === 5) {
+				var userMessage = $("#descricao_agressor").val();
+			} else if (messageNumber === 6) {
+				var userMessage = $("#descricao_caso").val();
+			} else if (messageNumber === 7) {
+				if (btnLocal == true) {
+					var userMessage = "Use minha localização atual";
+				} else {
+					var userMessage = "Vou preencher manualmente";
+				}
+			} else if (messageNumber === 8) {
+				var userMessage = $("#rua").val();
+			} /*else if (messageNumber === 9) {
+				var userMessage = $("#numero_do_local").val();
+			}*/ else if (messageNumber === 9) {
+				var userMessage = $("#bairro").val();
+			} else if (messageNumber === 10) {
+				var userMessage = $("#cidade").val();
+			} else if (messageNumber === 11) {
+				var userMessage = $("#estado").val();
+			} else if (messageNumber === 12) {
+				var userMessage = $("#tipo_estabelecimento").val();
+			} else {
+				var userMessage = "Entendi";
+			}
+			if (userMessage.trim() !== '') {
+				sendMessageToChatbot(userMessage, tipoDenuncia);
+			}
+		} else {
+			if (messageNumber === 2) {
+				var userMessage = $("#nome_vitima").val();
+			} else if (messageNumber === 3) {
+				var userMessage = $("#idade_vitima").val();
+			} else if (messageNumber === 4) {
+				var userMessage = $("#contato_vitima").val();
+			} else if (messageNumber === 5) {
+				var userMessage = $("#email_vitima").val();
+			} else if (messageNumber === 6) {
+				var userMessage = $("#genero_vitima").val();
+			} else if (messageNumber === 7) {
+				var userMessage = $("#etnia_vitima").val();
+			} else if (messageNumber === 8) {
+				var userMessage = $("#tipo_violencia").val();
+			} else if (messageNumber === 9) {
+				var userMessage = $("#descricao_agressor").val();
+			} else if (messageNumber === 10) {
+				var userMessage = $("#descricao_caso").val();
+			} else if (messageNumber === 11) {
+				if (btnLocal == true) {
+					var userMessage = "Use minha localização atual";
+				} else {
+					var userMessage = "Vou preencher manualmente";
+				}
+			} else if (messageNumber === 12) {
+				var userMessage = $("#rua").val();
+			} /*else if (messageNumber === 13) {
+				var userMessage = $("#numero_do_local").val();
+			}*/ else if (messageNumber === 13) {
+				var userMessage = $("#bairro").val();
+			} else if (messageNumber === 14) {
+				var userMessage = $("#cidade").val();
+			} else if (messageNumber === 15) {
+				var userMessage = $("#estado").val();
+			} else if (messageNumber === 16) {
+				var userMessage = $("#tipo_estabelecimento").val();
+			} else {
+				var userMessage = "Entendi";
+			}
+			if (userMessage.trim() !== '') {
+				sendMessageToChatbot(userMessage, tipoDenuncia);
+			}
+		}
+
+	});
+
+	function fetchAnonMessages(messageNumber, tipoDenuncia) {
+		var numeroMensagemData = {
+			messageNumber: messageNumber,
+		};
+		$.ajax({
+			type: 'POST',
+			url: 'Boletim_controller/buscar_mensagens_anonimas',
+			data: numeroMensagemData,
+			success: function (response) {
+				var json = $.parseJSON(response);
+				var mensagem = json.tipo;
+				showBotReply(mensagem, tipoDenuncia);
+			}
+		});
+	}
+
+	function fetchComumMessages(messageNumber, tipoDenuncia) {
+		var numeroMensagemData = {
+			messageNumber: messageNumber,
+		};
+		$.ajax({
+			type: 'POST',
+			url: 'Boletim_controller/buscar_mensagens_comum',
+			data: numeroMensagemData,
+			success: function (response) {
+				var json = $.parseJSON(response);
+				var mensagem = json.tipo;
+				showBotReply(mensagem, tipoDenuncia);
+			}
+		});
+	}
+
+	function showUserMessage(message) {
+		$('.body').append('<div class="userSection">' + '<div class="messages user-message">' + message + '</div>' + '<div class="seperator"></div>' + '</div>');
+	}
+
+	function sendMessageToChatbot(userMessage, tipoDenuncia) {
+		showUserMessage(userMessage);
+
+		messageNumber++;
+		// Limpar a caixa de entrada do usuário
+		userInput.val('');
+		if (tipoDenuncia === "anonima") {
+			fetchAnonMessages(messageNumber, tipoDenuncia);
+		} else {
+			console.error(tipoDenuncia)
+			fetchComumMessages(messageNumber, tipoDenuncia);
+		}
+
+	}
+
+	$('.body').on('click', '#btnDenunciaAnonima', function () {
+		var userMessage = "Denúncia anônima";
+		tipoDenuncia = "anonima";
+		$('#btnDenunciaAnonima').addClass("disabled");
+		$('#btnDenunciaAnonima').prop('disabled', true);
+		$('#btnDenunciaComum').addClass("disabled");
+		$('#btnDenunciaComum').prop('disabled', true);
+		sendMessageToChatbot(userMessage, tipoDenuncia);
+	});
+
+	$('.body').on('click', '#btnDenunciaComum', function () {
+		var userMessage = "Denúncia comum";
+		tipoDenuncia = "comum";
+		$('#btnDenunciaAnonima').addClass("disabled");
+		$('#btnDenunciaAnonima').prop('disabled', true);
+		$('#btnDenunciaComum').addClass("disabled");
+		$('#btnDenunciaComum').prop('disabled', true);
+		sendMessageToChatbot(userMessage, tipoDenuncia);
+	});
+
+	function exibirInput(tipoDenuncia) {
+		// Oculta todos os inputs com uma animação de fadeOut
+		if (messageNumber !== 1) {
+			$('.answerInput').fadeOut(300);
+		}
+
+		if (tipoDenuncia === "anonima") {
+			if (messageNumber === 2) {
+				$('#genero_vitima').fadeIn(300);
+			} else if (messageNumber === 3) {
+				$('#etnia_vitima').fadeIn(300);
+			} else if (messageNumber === 4) {
+				$('#tipo_violencia').fadeIn(300);
+			} else if (messageNumber === 5) {
+				$('#descricao_agressor').fadeIn(300);
+			} else if (messageNumber === 6) {
+				$('#descricao_caso').fadeIn(300);
+			} else if (messageNumber === 7) {
+				$('#send').text('Não usar');
+				$('#btnRecebeLocalizacao').fadeIn(300);
+			} else if (messageNumber === 8) {
+				$('#send').text('Enviar');
+				$('#rua').fadeIn(300);
+			} else if (messageNumber === 9) {
+				$('#bairro').fadeIn(300);
+			} else if (messageNumber === 10) {
+				$('#cidade').fadeIn(300);
+			} else if (messageNumber === 11) {
+				$('#estado').fadeIn(300);
+			} else if (messageNumber === 12) {
+				$('#tipo_estabelecimento').fadeIn(300);
+			} else {
+				$('.answerInput').fadeOut(300);
+			}
+		} else {
+			if (messageNumber === 2) {
+				$('#nome_vitima').fadeIn(300);
+
+
+				// ex: se for denuncia anonima chamar função de denuncia anonima e no valor nome colocar anonimo as demais deixar vazio
+
+				/* a cada clique dividir o código em novas funções que vão chamar perguntas específicas*/
+
+				//condicionais a serem feitas: testemunha ou vítima?
+				// arrumar values de inputs de seleção
+				//Juntar funções do chat com a de enviar denuncia
+				//Adicionar animação e transição para mensagens do bot
+				//a cada nova mensagem abaixar a tela automatico
+				//Testes finais
+			} else if (messageNumber === 3) {
+				$('#idade_vitima').fadeIn(300);
+			} else if (messageNumber === 4) {
+				$('#contato_vitima').fadeIn(300);
+			} else if (messageNumber === 5) {
+				$('#email_vitima').fadeIn(300);
+			} else if (messageNumber === 6) {
+				$('#genero_vitima').fadeIn(300);
+			} else if (messageNumber === 7) {
+				$('#etnia_vitima').fadeIn(300);
+			} else if (messageNumber === 8) {
+				$('#tipo_violencia').fadeIn(300);
+			} else if (messageNumber === 9) {
+				$('#descricao_agressor').fadeIn(300);
+			} else if (messageNumber === 10) {
+				$('#descricao_caso').fadeIn(300);
+			} else if (messageNumber === 11) {
+				$('#send').text('Não usar');
+				$('#btnRecebeLocalizacao').fadeIn(300);
+			} else if (messageNumber === 12) {
+				$('#send').text('Enviar');
+				$('#rua').fadeIn(300);
+			} else if (messageNumber === 13) {
+				$('#bairro').fadeIn(300);
+			} else if (messageNumber === 14) {
+				$('#cidade').fadeIn(300);
+			} else if (messageNumber === 15) {
+				$('#estado').fadeIn(300);
+			} else if (messageNumber === 16) {
+				$('#tipo_estabelecimento').fadeIn(300);
+			} else {
+				$('.answerInput').fadeOut(300);
+			}
+		}
+		// Mostra o input apropriado com uma animação de fadeIn
+
+	}
+
+	function showBotReply(mensagem, tipoDenuncia) {
+		$('.body').append('<div class="botSection">' + '<div class="messages bot-reply ">' + mensagem + '</div>' + '<div class="seperator"></div>' + '</div>');
+		exibirInput(tipoDenuncia);
+		if (messageNumber !== 1) { $('#send').prop('disabled', false); }
+	}
+
+	function fetchFirstMessage(messageNumber) {
+		var numeroMensagemData = {
+			messageNumber: messageNumber,
+		};
+		$.ajax({
+			type: 'POST',
+			url: 'Boletim_controller/buscar_mensagem_inicial',
+			data: numeroMensagemData,
+			success: function (response) {
+				var json = $.parseJSON(response);
+				var mensagem = json.tipo;
+				$('#send').prop('disabled', true);
+				showBotReply(mensagem);
+			}
+		});
+	}
+
 	// Inicializar o chatbot
-	fetchMessages(messageNumber);
+	fetchFirstMessage(messageNumber);
 
 });

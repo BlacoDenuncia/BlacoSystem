@@ -41,19 +41,22 @@
                 <input type="email" class="form-control answerInput" id="email_vitima" name="email_vitima"
                     placeholder="Digite seu melhor email">
                 <select class="form-control answerInput" id="genero_vitima" name="genero_vitima">
-                    <option value="A">Masculino</option>
-                    <option value="B">Feminino</option>
-                    <option value="C">Outro</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Outro">Outro</option>
                 </select>
                 <select class="form-control answerInput" id="etnia_vitima" name="etnia_vitima">
-                    <option value="A">Negro</option>
-                    <option value="B">Branco</option>
-                    <option value="C">Pardo</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Branco">Branco</option>
+                    <option value="Pardo">Pardo</option>
+                    <option value="Indígena">Indígena</option>
+                    <option value="Asiático">Asiático</option>
                 </select>
                 <select class="form-control answerInput" id="tipo_violencia" name="tipo_violencia">
-                    <option value="A">Xingamentos Ofensivos</option>
-                    <option value="B">Violência Física</option>
-                    <option value="C">Discriminação / Privação de direitos</option>
+                    <option value="Xingamentos Ofensivos">Xingamentos Ofensivos</option>
+                    <option value="Violência Física">Violência Física</option>
+                    <option value="Discriminação">Discriminação</option>
+                    <option value="Privação de direitos">Privação de direitos</option>
                 </select>
                 <input type="text" class="form-control answerInput" id="descricao_agressor" name="descricao_agressor"
                     placeholder="Descreva com detalhes o agressor"></input>
@@ -71,7 +74,7 @@
                     <option value="Local público">Local Público</option>
                     <option value="Empresa privada">Empresa privada</option>
                     <option value="Shopping">Shopping</option>
-                    <option value="Em casa">Em casa</option>
+                    <option value="Casa">Em casa</option>
                     <option value="Estádio de futebol">Estádio de futebol</option>
                     <option value="Escola">Escola</option>
                     <option value="Trabalho">Trabalho</option>
@@ -81,7 +84,7 @@
 
 
 
-                <button id="send" value="Send" disabled>Enviar</button>
+                <button id="send" class=" btn " value="Send" disabled>Enviar</button>
             </div>
         </div>
     </div>

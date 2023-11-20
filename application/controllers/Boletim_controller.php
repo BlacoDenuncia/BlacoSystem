@@ -61,35 +61,90 @@ class Boletim_controller extends CI_Controller
             $this->template->render();
         }
     }
-    function buscar_mensagens()
+    function buscar_mensagem_inicial()
     {
         // Obter o valor da mensagem enviado pelo usuário
         $mensagem_numero = $this->input->post('messageNumber');
 
         $mensagens = [
             1 => 'Olá, responda as perguntas a seguir para que possamos te ajudar com a denúncia. Garantimos a segurança 
-            dos dados e que dados pessoais não serão divulgados. </br> </br> De início, qual o seu nome?',
-            2 => 'Informe a sua idade:',
-            3 => 'Digite o numero do telefone de contato',
-            4 => 'Digite o email de contato: ( uma cópia da denuncia será enviada ao seu email )',
-            5 => 'Selecione o seu gênero:',
-            6 => 'Selecione a raça/cor que melhor te identifica:',
-            7 => 'Sobre a denúncia, qual o tipo de violência você considera ter sofrido? Selecione abaixo',
-            8 => 'Faça uma descrição das características do agressor:',
-            9 => 'Descreva com o máximo de detalhes o que ocorreu:',
-            10 => 'Informe a localização do ocorrido: Qual a rua?',
-            11 => 'Informe o bairro:',
-            12 => 'Informe a cidade',
-            13 => 'Informe o Estado',
-            14 => 'Qual o tipo do estabelecimento?',
-            15 => 'Informações enviadas serão enviadas para um orgão de segurança e, dados não pessoais, utilizadas para fins estatísticos e de pesquisa. Elas não serão compartilhadas publicamente </br></br> <input type="checkbox" class="form-check-input" id="aceitaDadosCheck">
+            dos dados e que dados pessoais não serão divulgados. </br> </br> Deseja fazer a denuncia de forma anônima? </br> </br> 
+            <button type="button" class="btn btn-danger btnDenunciaAnonima" id="btnDenunciaAnonima"> <span class="bi bi-check" aria-hidden="true"></span> Sim </button>
+            <button type="button" class="btn btn-light btnDenunciaComum" id="btnDenunciaComum"> <span class="bi bi-ban-fill" aria-hidden="true"></span> Não </button>  ',
+        ];
+
+        // Verificar se o número está presente nas mensagens
+        if (isset($mensagens[$mensagem_numero])) {
+            $mensagem = array('tipo' => $mensagens[$mensagem_numero]); //comentado errorL
+            echo json_encode($mensagem);
+        } else {
+            $mensagem = array('tipo' => 'error'); //comentado errorL
+            echo json_encode($mensagem);
+        }
+    }
+    function buscar_mensagens_anonimas()
+    {
+        // Obter o valor da mensagem enviado pelo usuário
+        $mensagem_numero = $this->input->post('messageNumber');
+
+        $mensagens = [
+            2 => 'Selecione o seu gênero:',
+            3 => 'Selecione a raça/cor que melhor te identifica:',
+            4 => 'Sobre a denúncia, qual o tipo de violência você considera ter sofrido? Selecione abaixo',
+            5 => 'Faça uma descrição das características do agressor:',
+            6 => 'Descreva com o máximo de detalhes o que ocorreu:',
+            7 => 'Informe a localização do ocorrido. Deseja preencher com a localização atual? ',
+            8 => 'Qual a rua?',
+            9 => 'Informe o bairro:',
+            10 => 'Informe a cidade',
+            11 => 'Informe o Estado',
+            12 => 'Qual o tipo do estabelecimento?',
+            13 => 'Informações enviadas serão enviadas para um orgão de segurança e, dados não pessoais, utilizadas para fins estatísticos e de pesquisa. Elas não serão compartilhadas publicamente </br></br> <input type="checkbox" class="form-check-input" id="aceitaDadosCheck">
             <label class="form-check-label" for="aceitaDadosCheck">Eu aceito a utilização dos dados da minha
                denúncia</label>',
-            16 => 'Chegamos ao fim! Ao contribuir com essa denúncia, orgãos públicos e privados podem ajudar de forma mais eficiente nos combate a desigualdades e preconceitos. </br></br> Encaminharemos a denúncia e a ajuda necessária entrará em contato',
-            17 => '<button type="button" class="btn btn-success btnEnviarDenuncia" id="btnEnviarDenuncia">
+            14 => 'Chegamos ao fim! Ao contribuir com essa denúncia, orgãos públicos e privados podem ajudar de forma mais eficiente nos combate a desigualdades e preconceitos. </br></br> Encaminharemos a denúncia e a ajuda necessária entrará em contato',
+            15 => '<button type="button" class="btn btn-success btnEnviarDenuncia" id="btnEnviarDenuncia">
+            <span class="bi bi-check" aria-hidden="true"></span> Enviar
+            </button>',
+        ];
+
+        // Verificar se o número está presente nas mensagens
+        if (isset($mensagens[$mensagem_numero])) {
+            $mensagem = array('tipo' => $mensagens[$mensagem_numero]); //comentado errorL
+            echo json_encode($mensagem);
+        } else {
+            $mensagem = array('tipo' => 'error'); //comentado errorL
+            echo json_encode($mensagem);
+        }
+    }
+    function buscar_mensagens_comum()
+    {
+        // Obter o valor da mensagem enviado pelo usuário
+        $mensagem_numero = $this->input->post('messageNumber');
+
+        $mensagens = [
+            2 => 'Qual o seu nome completo?',
+            3 => 'Informe a sua idade:',
+            4 => 'Digite o numero do telefone de contato',
+            5 => 'Digite o email de contato: ( uma cópia da denuncia será enviada ao seu email )',
+            6 => 'Selecione o seu gênero:',
+            7 => 'Selecione a raça/cor que melhor te identifica:',
+            8 => 'Sobre a denúncia, qual o tipo de violência você considera ter sofrido? Selecione abaixo',
+            9 => 'Faça uma descrição das características do agressor:',
+            10 => 'Descreva com o máximo de detalhes o que ocorreu:',
+            11 => 'Informe a localização do ocorrido. Deseja preencher com a localização atual? ',
+            12 => 'Qual a rua?',
+            13 => 'Informe o bairro:',
+            14 => 'Informe a cidade',
+            15 => 'Informe o Estado',
+            16 => 'Qual o tipo do estabelecimento?',
+            17 => 'Informações enviadas serão enviadas para um orgão de segurança e, dados não pessoais, utilizadas para fins estatísticos e de pesquisa. Elas não serão compartilhadas publicamente </br></br> <input type="checkbox" class="form-check-input" id="aceitaDadosCheck">
+            <label class="form-check-label" for="aceitaDadosCheck">Eu aceito a utilização dos dados da minha
+               denúncia</label>',
+            18 => 'Chegamos ao fim! Ao contribuir com essa denúncia, orgãos públicos e privados podem ajudar de forma mais eficiente nos combate a desigualdades e preconceitos. </br></br> Encaminharemos a denúncia e a ajuda necessária entrará em contato',
+            19 => '<button type="button" class="btn btn-success btnEnviarDenuncia" id="btnEnviarDenuncia">
             <span class="bi bi-check" aria-hidden="true"></span> Enviar
          </button>',
-            
         ];
 
         // Verificar se o número está presente nas mensagens
