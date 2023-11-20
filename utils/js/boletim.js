@@ -1,3 +1,7 @@
+
+/* a cada clique dividir o código em novas funções que vão chamar perguntas específicas*/
+//condicionais a serem feitas: testemunha ou vítima?
+
 $(document).ready(function () {
 	// Função para preencher os campos de endereço com base na geolocalização
 	var btnLocal;
@@ -319,7 +323,7 @@ $(document).ready(function () {
 					window.setTimeout(function () {
 						$("btn-limpar").click();
 					}, 3000);
-					if(tipoDenuncia !== "anonima"){
+					if (tipoDenuncia !== "anonima") {
 						enviarEmail(data);
 					}
 				}
@@ -493,6 +497,7 @@ $(document).ready(function () {
 
 	function showUserMessage(message) {
 		$('.body').append('<div class="userSection">' + '<div class="messages user-message">' + message + '</div>' + '<div class="seperator"></div>' + '</div>');
+		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
 	}
 
 	function sendMessageToChatbot(userMessage, tipoDenuncia) {
@@ -582,16 +587,6 @@ $(document).ready(function () {
 		} else {
 			if (messageNumber === 2) {
 				$('#nome_vitima').fadeIn(300);
-
-
-				// ex: se for denuncia anonima chamar função de denuncia anonima e no valor nome colocar anonimo as demais deixar vazio
-				/* a cada clique dividir o código em novas funções que vão chamar perguntas específicas*/
-				//condicionais a serem feitas: testemunha ou vítima?
-				// arrumar values de inputs de seleção
-
-				//Adicionar animação e transição para mensagens do bot
-				//a cada nova mensagem abaixar a tela automatico
-				//Testes finais
 			} else if (messageNumber === 3) {
 				$('#idade_vitima').fadeIn(300);
 			} else if (messageNumber === 4) {

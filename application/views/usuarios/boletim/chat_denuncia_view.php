@@ -21,10 +21,10 @@
     <div class="alert alert-danger" id="erro" role="alert" style="display:none;">
         <span id="msg_erro">Erro!</span>
     </div>
-    <div id="report-chat" class="container no-padding">
+    <div id="report-chat" class="container-fluid no-padding">
         <div id="container">
             <div id="header">
-                Denuncie agora!
+                <h1 class="page-title-header" >Denuncie agora! </h1>
             </div>
             <div class="body" id="body">
                 <!-- This section will be dynamically inserted from JavaScript -->

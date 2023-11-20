@@ -620,7 +620,7 @@ html, body {
 	height: 100%;
 	width: 100%;
 	border-radius: 6px;
-	background: #F3F4F6;
+	background: #1c1c1c;
   }
   
   /* Style header section */
@@ -628,17 +628,16 @@ html, body {
 	width: 100%;
 	height: 10%;
 	border-radius: 5px 5px 0px 0px;
-	background: #100e34;
-	color: white;
+	background: #303030;
 	text-align: center;
-	font-size: 2rem;
+	font-size: 1.75rem;
   }
   
   /* Style body */
   #body {
 	width: 100%;
 	height: 75%;
-	background-color: #F3F4F6;
+	background-color: #1c1c1c;
 	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
@@ -676,7 +675,7 @@ html, body {
   /* Targeted styling for just bot messages */
   .bot-reply {
 	text-align: left;
-	background: #100e34;
+	background: #fa5019;
 	margin-top: 1rem;
 	float: left;
 	color: white;
