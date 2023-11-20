@@ -190,28 +190,33 @@ $(document).ready(function () {
 		});
 	}
 	function validarEmail(requestData) {
-		$.ajax({
-			url: "Boletim_controller/validar_email",
-			type: "POST",
-			data: { email_vitima: requestData.email_vitima },
-			success: function (response) {
-				var json = $.parseJSON(response);
-				if (json.tipo === "email-invalido") {
-					$("#emailDigitado").text(requestData.email_vitima);
-					$("#modalEmailInvalido").modal("show");
+		if (tipoDenuncia !== "anonima") {
+			$.ajax({
+				url: "Boletim_controller/validar_email",
+				type: "POST",
+				data: { email_vitima: requestData.email_vitima },
+				success: function (response) {
+					var json = $.parseJSON(response);
+					if (json.tipo === "email-invalido") {
+						$("#emailDigitado").text(requestData.email_vitima);
+						$("#modalEmailInvalido").modal("show");
 
-					$("#btnEnviarEmail").click(function () {
-						requestData.email_vitima = $("#email_atual_vitima").val();
-						validarEmail(requestData); // Continue validating the updated email
-					});
-				} else {
-					enviarDenuncia(requestData);
-				}
-			},
-			error: function (xhr, status, error) {
-				console.log(error); // Optional: Log the error, if any
-			},
-		});
+						$("#btnEnviarEmail").click(function () {
+							requestData.email_vitima = $("#email_atual_vitima").val();
+							validarEmail(requestData); // Continue validating the updated email
+						});
+					} else {
+						enviarDenuncia(requestData);
+					}
+				},
+				error: function (xhr, status, error) {
+					console.log(error); // Optional: Log the error, if any
+				},
+			});
+		} else {
+			enviarDenuncia(requestData);
+		}
+
 	}
 	function registrarDenuncia() {
 		var dataHoraAtual = new Date();
@@ -240,10 +245,14 @@ $(document).ready(function () {
 		var id_usuario = $("#id_usuario").val();
 		var id_denuncia = $("#id_denuncia").val();
 		var data_hora_envio = $("#data_hora_envio").val();
-		var nome_vitima = $("#nome_vitima").val();
+		if (tipoDenuncia === "anonima") {
+			var nome_vitima = "Anonimo";
+		} else { var nome_vitima = $("#nome_vitima").val(); }
 		var idade_vitima = $("#idade_vitima").val();
 		var contato_vitima = $("#contato_vitima").val();
-		var email_vitima = $("#email_vitima").val();
+		if (tipoDenuncia === "anonima") {
+			var email_vitima = "Anonimo";
+		} else { var email_vitima = $("#email_vitima").val(); }
 		var genero_vitima = $("#genero_vitima").val();
 		var etnia_vitima = $("#etnia_vitima").val();
 		var tipo_violencia = $("#tipo_violencia").val();
@@ -310,7 +319,9 @@ $(document).ready(function () {
 					window.setTimeout(function () {
 						$("btn-limpar").click();
 					}, 3000);
-					enviarEmail(data);
+					if(tipoDenuncia !== "anonima"){
+						enviarEmail(data);
+					}
 				}
 
 				$("html, body").animate({ scrollTop: 0 }, "slow");
@@ -350,22 +361,13 @@ $(document).ready(function () {
 		}
 	});
 
-	// Função para enviar todas as respostas para o backend
-	submitAnswersButton.on('click', function () {
-		// Enviar respostas para o backend
-		$.ajax({
-			type: 'POST',
-			url: '<?= base_url("boletim_controller/registrar_respostas"); ?>',
-			data: {
-				v1: v1,
-				v2: v2,
-				v3: v3
-			},
-			success: function (response) {
-				// Tratar resposta do backend, se necessário
-				console.log(response);
-			}
-		});
+	$('.body').on('click', '#btnEnviarDenuncia', function () {
+		$("#btnEnviarDenuncia").prop("disabled", true);
+		verificarCamposVazios();
+		registrarDenuncia();
+		window.setTimeout(function () {
+			$("#btnEnviarDenuncia").prop("disabled", false);
+		}, 6000);
 	});
 
 	$('#send').on('click', function () {
@@ -400,6 +402,9 @@ $(document).ready(function () {
 				var userMessage = $("#tipo_estabelecimento").val();
 			} else {
 				var userMessage = "Entendi";
+			}
+			if (userMessage === 14) {
+				$("#send").prop('disabled', true);
 			}
 			if (userMessage.trim() !== '') {
 				sendMessageToChatbot(userMessage, tipoDenuncia);
@@ -443,6 +448,9 @@ $(document).ready(function () {
 				var userMessage = $("#tipo_estabelecimento").val();
 			} else {
 				var userMessage = "Entendi";
+			}
+			if (userMessage === 18) {
+				$("#send").prop('disabled', true);
 			}
 			if (userMessage.trim() !== '') {
 				sendMessageToChatbot(userMessage, tipoDenuncia);
@@ -492,12 +500,24 @@ $(document).ready(function () {
 
 		messageNumber++;
 		// Limpar a caixa de entrada do usuário
-		userInput.val('');
+
+
 		if (tipoDenuncia === "anonima") {
-			fetchAnonMessages(messageNumber, tipoDenuncia);
+			if (messageNumber >= 8 && messageNumber <= 11) {
+				fetchAnonMessages(messageNumber, tipoDenuncia);
+			} else {
+				userInput.val('');
+				fetchAnonMessages(messageNumber, tipoDenuncia);
+			}
+
 		} else {
-			console.error(tipoDenuncia)
-			fetchComumMessages(messageNumber, tipoDenuncia);
+			if (messageNumber >= 12 && messageNumber <= 15) {
+				fetchComumMessages(messageNumber, tipoDenuncia);
+			} else {
+				userInput.val('');
+				fetchComumMessages(messageNumber, tipoDenuncia);
+			}
+
 		}
 
 	}
@@ -522,10 +542,13 @@ $(document).ready(function () {
 		sendMessageToChatbot(userMessage, tipoDenuncia);
 	});
 
+	$('.body').on('click', '#btnRecebeLocalizacao', preencherEnderecoComGeolocalizacao);
+
+
 	function exibirInput(tipoDenuncia) {
 		// Oculta todos os inputs com uma animação de fadeOut
 		if (messageNumber !== 1) {
-			$('.answerInput').fadeOut(300);
+			$('.answerInput').fadeOut(10);
 		}
 
 		if (tipoDenuncia === "anonima") {
@@ -565,8 +588,7 @@ $(document).ready(function () {
 				/* a cada clique dividir o código em novas funções que vão chamar perguntas específicas*/
 				//condicionais a serem feitas: testemunha ou vítima?
 				// arrumar values de inputs de seleção
-				
-				//Juntar funções do chat com a de enviar denuncia
+
 				//Adicionar animação e transição para mensagens do bot
 				//a cada nova mensagem abaixar a tela automatico
 				//Testes finais

@@ -64,11 +64,11 @@
                     placeholder="Descreva o que aconteceu"></input>
                 <button type="button" class=" answerInput btn btn-danger btn-sm btnRecebeLocalizacao" id="btnRecebeLocalizacao"><i
                         class="bi bi-geo-alt-fill"></i>Localização atual</button>
-                <input type="text" class="form-control answerInput" id="rua" name="rua" placeholder="Em que rua você estava?">
-                <input type="text" class="form-control answerInput" id="bairro" name="bairro" placeholder="Qual bairro?">
-                <input type="text" class="form-control answerInput" id="cidade" name="cidade" placeholder="Cidade em que ocorreu"
+                <input type="text" class="form-control answerInput" id="rua" name="rua" value=" " placeholder="Em que rua você estava?">
+                <input type="text" class="form-control answerInput" id="bairro" name="bairro" value=" " placeholder="Qual bairro?">
+                <input type="text" class="form-control answerInput" id="cidade" name="cidade" value=" " placeholder="Cidade em que ocorreu"
                     required>
-                <input type="text" class="form-control answerInput" id="estado" name="estado" placeholder="Estado em que ocorreu"
+                <input type="text" class="form-control answerInput" id="estado" name="estado" value=" " placeholder="Estado em que ocorreu"
                     required>
                 <select class="form-control answerInput" id="tipo_estabelecimento" name="tipo_estabelecimento">
                     <option value="Local público">Local Público</option>
