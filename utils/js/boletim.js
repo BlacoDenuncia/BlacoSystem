@@ -562,11 +562,10 @@ $(document).ready(function () {
 
 
 				// ex: se for denuncia anonima chamar função de denuncia anonima e no valor nome colocar anonimo as demais deixar vazio
-
 				/* a cada clique dividir o código em novas funções que vão chamar perguntas específicas*/
-
 				//condicionais a serem feitas: testemunha ou vítima?
 				// arrumar values de inputs de seleção
+				
 				//Juntar funções do chat com a de enviar denuncia
 				//Adicionar animação e transição para mensagens do bot
 				//a cada nova mensagem abaixar a tela automatico
