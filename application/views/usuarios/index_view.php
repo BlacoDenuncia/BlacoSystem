@@ -13,7 +13,7 @@
         <p class="page-title-text">Unidos contra o racismo: <span class="orange-text">denuncie, lute e
                 transforme!</span></p>
     </div>
-    <div class="row justify-content-center" style="margin-left: 0px; margin-right: 0px;">
+    <div class="row justify-content-center" style="margin-left: 0px; margin-right: 0px; margin-top: 50px;">
         <div class="col-md-6 medium-div" style="">
             <a href="Boletim_controller" class="text-white">
                 <div class="link-card-text">
@@ -21,16 +21,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-md-6 medium-div">
-            <a href="tel:197" class="text-white">
-                <div class="link-card-text">
-                    Ligar para policia
-                </div>
-            </a>
-        </div>
-    </div>
 
-    <div class="row justify-content-center " style="margin-left: 0px; margin-right: 0px;">
         <div class="col-md-6 medium-div">
             <a href="Mapa_controller" class="text-white">
                 <div class="link-card-text">
@@ -38,12 +29,21 @@
                 </div>
             </a>
         </div>
-        <div class="col-md-6 medium-div">
+    </div>
+
+    <div class="row justify-content-center short-links" style="margin-left: 0px; margin-right: 0px;">
+        <div class="short-link-item">
+        <i class="bi bi-journal-plus"></i>
             <a href="Conteudo_controller" class="text-white">
-                <div class="link-card-text">
-                    Aprenda mais
-                </div>
+                Aprenda mais
             </a>
         </div>
+        <div class="short-link-item">
+            <div class="phone-icon-container">
+            <i class="bi bi-telephone"></i>
+            </div>
+            <a href="tel:197" class="text-white">Ligar para policia</a>
+        </div>
     </div>
+
 </div>
