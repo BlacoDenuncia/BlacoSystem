@@ -1,20 +1,20 @@
-.tab-content{
+.tab-content {
 	margin-top: 10px;
 }
 .nav-link {
-	color: #ff470f; 
+	color: #ff470f;
 }
-.nav-link:hover{
-	color: #ff470f; 
+.nav-link:hover {
+	color: #ff470f;
 }
-.nav-item.active{
+.nav-item.active {
 	color: #fa5019;
 }
 
 body {
 	color: #ffffff;
 }
-#listaInstallModal{
+#listaInstallModal {
 	margin: 5px;
 }
 
@@ -219,9 +219,8 @@ body {
 }
 .page-title-text {
 	font-size: 20px;
-	font-family: "Montserrat", sans-serif;;
+	font-family: "Montserrat", sans-serif;
 	font-weight: 500;
-	
 }
 .racismReport {
 	padding: 10px;
@@ -314,6 +313,7 @@ body {
 	margin: 10px;
 	border-radius: 30px;
 	background-size: cover;
+	background-color: rgba(0,0,0, 0.1);
 	background-position: center;
 	box-shadow: 0 1px 2px #303030;
 	transition: transform 0.2s ease;
@@ -332,7 +332,7 @@ body {
 #intro-text {
 	font-size: 20px;
 	font-weight: 900;
-	font-family: "Montserrat", sans-serif;;
+	font-family: "Montserrat", sans-serif;
 	animation: unblur-text 2s ease forwards;
 }
 .blaco {
@@ -340,7 +340,7 @@ body {
 	flex-wrap: nowrap;
 	align-items: center;
 }
-#blaco-logo{
+#blaco-logo {
 	width: 50px;
 }
 .link-card-text {
@@ -452,27 +452,27 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	text-align:left;
+	text-align: left;
 	margin-top: 10px;
 }
-#editarDados{
+#editarDados {
 	margin-bottom: 10px;
 }
-#text-info{
+#text-info {
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 }
-.conta-links{
+.conta-links {
 	display: flex;
 	justify-content: space-between;
 }
-.conta-links .btn{
+.conta-links .btn {
 	width: 48%;
 }
 .modal {
 	color: #1c1c1c;
 }
-.planilhas-links{
+.planilhas-links {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
@@ -480,116 +480,116 @@ body {
 	align-items: center;
 	min-height: calc(100vh - 50px);
 }
-.planilhas-links .btn{
+.planilhas-links .btn {
 	width: 70%;
 }
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @-webkit-keyframes come-in {
-  0% {
-    -webkit-transform: translatey(100px);
-            transform: translatey(100px);
-    opacity: 0;
-  }
-  30% {
-    -webkit-transform: translateX(-50px) scale(0.4);
-            transform: translateX(-50px) scale(0.4);
-  }
-  70% {
-    -webkit-transform: translateX(0px) scale(1.2);
-            transform: translateX(0px) scale(1.2);
-  }
-  100% {
-    -webkit-transform: translatey(0px) scale(1);
-            transform: translatey(0px) scale(1);
-    opacity: 1;
-  }
+	0% {
+		-webkit-transform: translatey(100px);
+		transform: translatey(100px);
+		opacity: 0;
+	}
+	30% {
+		-webkit-transform: translateX(-50px) scale(0.4);
+		transform: translateX(-50px) scale(0.4);
+	}
+	70% {
+		-webkit-transform: translateX(0px) scale(1.2);
+		transform: translateX(0px) scale(1.2);
+	}
+	100% {
+		-webkit-transform: translatey(0px) scale(1);
+		transform: translatey(0px) scale(1);
+		opacity: 1;
+	}
 }
 @keyframes come-in {
-  0% {
-    -webkit-transform: translatey(100px);
-            transform: translatey(100px);
-    opacity: 0;
-  }
-  30% {
-    -webkit-transform: translateX(-50px) scale(0.4);
-            transform: translateX(-50px) scale(0.4);
-  }
-  70% {
-    -webkit-transform: translateX(0px) scale(1.2);
-            transform: translateX(0px) scale(1.2);
-  }
-  100% {
-    -webkit-transform: translatey(0px) scale(1);
-            transform: translatey(0px) scale(1);
-    opacity: 1;
-  }
+	0% {
+		-webkit-transform: translatey(100px);
+		transform: translatey(100px);
+		opacity: 0;
+	}
+	30% {
+		-webkit-transform: translateX(-50px) scale(0.4);
+		transform: translateX(-50px) scale(0.4);
+	}
+	70% {
+		-webkit-transform: translateX(0px) scale(1.2);
+		transform: translateX(0px) scale(1.2);
+	}
+	100% {
+		-webkit-transform: translatey(0px) scale(1);
+		transform: translatey(0px) scale(1);
+		opacity: 1;
+	}
 }
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
-html, body {
-  background: #eaedf2;
-  font-family: 'Roboto', sans-serif;
+html,
+body {
+	background: #eaedf2;
+	font-family: "Roboto", sans-serif;
 }
 
 .floating-container {
-  position: fixed;
-  width: 100px;
-  height: 100px;
-  bottom: 0;
-  left: 0;
-  margin: 35px 5px;
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	bottom: 0;
+	left: 0;
+	margin: 35px 5px;
 }
 
 .floating-container:hover .floating-button {
-  box-shadow: 0 10px 25px rgba(44, 179, 240, 0.6);
-  -webkit-transform: translatey(5px);
-          transform: translatey(5px);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+	box-shadow: 0 10px 25px rgba(44, 179, 240, 0.6);
+	-webkit-transform: translatey(5px);
+	transform: translatey(5px);
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
 }
 
 .floating-container .floating-button {
-  
-  width: 65px;
-  height: 65px;
-  background: #fa5019;
-  bottom: 0;
-  border-radius: 50%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  color: white;
-  line-height: 65px;
-  text-align: center;
-  font-size: 23px;
-  z-index: 100;
-  box-shadow: 0 10px 25px -5px rgba(240, 155, 44, 0.6);
-  cursor: pointer;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+	width: 65px;
+	height: 65px;
+	background: #fa5019;
+	bottom: 0;
+	border-radius: 50%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	color: white;
+	line-height: 65px;
+	text-align: center;
+	font-size: 23px;
+	z-index: 100;
+	box-shadow: 0 10px 25px -5px rgba(240, 155, 44, 0.6);
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
 }
 .floating-container .float-element {
-  position: relative;
-  display: block;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin: 15px auto;
-  color: white;
-  font-weight: 500;
-  text-align: center;
-  line-height: 50px;
-  z-index: 0;
-  opacity: 0;
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
+	position: relative;
+	display: block;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	margin: 15px auto;
+	color: white;
+	font-weight: 500;
+	text-align: center;
+	line-height: 50px;
+	z-index: 0;
+	opacity: 0;
+	-webkit-transform: translateY(100px);
+	transform: translateY(100px);
 }
 .floating-container .float-element .material-icons {
-  vertical-align: middle;
-  font-size: 16px;
+	vertical-align: middle;
+	font-size: 16px;
 }
 /* Estilos para a barra superior */
 #nearest-police {
@@ -605,21 +605,21 @@ html, body {
 }
 #nearest-police button {
 	background-color: #fff;
-	color: #007BFF;
+	color: #007bff;
 	border: none;
 	padding: 5px 10px;
 	border-radius: 5px;
 	cursor: pointer;
 }
-.report-form{
+.report-form {
 	color: #1c1c1c;
 }
-.content-nav{
+.content-nav {
 	font-size: 20px;
 	font-weight: 900;
 	font-family: "Montserrat", sans-serif;
 }
-.short-links{
+.short-links {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -631,7 +631,7 @@ html, body {
 	font-weight: 900;
 	font-family: "Montserrat", sans-serif;
 }
-.short-link-item{
+.short-link-item {
 	background-color: #ff6b3e;
 	border-radius: 50px;
 	max-width: 100vh;
@@ -641,7 +641,7 @@ html, body {
 	align-items: center;
 	gap: 5px;
 }
-.short-link-item:hover{
+.short-link-item:hover {
 	background-color: #303030;
 	transform: scale(1.02);
 	transition: all 0.3s;
@@ -650,8 +650,48 @@ html, body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 25px;
-	height: 25px;
+	width: 30px;
+	height: 30px;
 	border-radius: 50%;
 	background-color: green;
-  }
+}
+.danger-icon-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: red;
+}
+.map-icon-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #403d70;
+}
+.book-icon-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #fa5019
+}
+.background {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: url("https://media.geeksforgeeks.org/wp-content/uploads/20230213094052/download.jpg");
+	background-size: cover;
+	background-position: center;
+	filter: blur(5px);
+	-webkit-filter: blur(5px);
+	z-index: -1;
+	border-radius: 30px;
+	margin: 10px;
+}
