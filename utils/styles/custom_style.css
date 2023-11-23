@@ -218,9 +218,10 @@ body {
 	font-size: 2em;
 }
 .page-title-text {
-	font-family: "Open Sans", sans-serif;
-	font-weight: 400;
-	font-size: 1em;
+	font-size: 15px;
+	font-family: "Montserrat", sans-serif;;
+	font-weight: 600;
+	
 }
 .racismReport {
 	padding: 10px;
@@ -330,6 +331,8 @@ body {
 }
 #intro-text {
 	font-size: 20px;
+	font-weight: 900;
+	font-family: "Montserrat", sans-serif;;
 	animation: unblur-text 2s ease forwards;
 }
 .blaco {
@@ -356,7 +359,9 @@ body {
 }
 .orange-text {
 	color: #fa5019;
-	font-weight: 500;
+	font-weight: 600;
+	font-size: 15px;
+	font-family: "Montserrat", sans-serif;
 	animation: unblur-orange-text 2s ease forwards;
 }
 
