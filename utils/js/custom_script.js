@@ -38,7 +38,6 @@ $(document).ready(function () {
       var localSrc = $(this).attr('data-local-src'); // Obtenha o valor do atributo 'data-local-src'
 
       if (localSrc && !navigator.onLine) {
-        console.log("Come minha xota")
         $(this).attr('src', localSrc); // Se o atributo 'data-local-src' existir e o usuário estiver offline, substitua 'src' pelo valor local
       }
     });
@@ -47,12 +46,12 @@ $(document).ready(function () {
       var originalHref = $(this).attr('href');
       var localHref = $(this).attr('data-local-href');
       if (localHref && !navigator.onLine) {
-        console.log("A ppk tá molhadinha te esperando seu pauzudo")
         $(this).attr('href', localHref); // Se o atributo 'data-local-src' existir e o usuário estiver offline, substitua 'src' pelo valor local
       }
     });
   }
-
+  $('#myTabs li:first-child').addClass('active');
+  $('#myTabs li:first-child a').tab('show');
   $('#myTabs a[data-toggle="tab"]').on('click', function (e) {
     e.preventDefault();
 
@@ -94,7 +93,7 @@ $(document).ready(function () {
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () =>
-    /*navigator.serviceWorker.register('/sw.js')*/
+      /*navigator.serviceWorker.register('/sw.js')*/
       navigator.serviceWorker.register('/blaco/sw.js')
         .then(registration => console.log('Service Worker registered'))
         .catch(err => 'SW registration failed'));
