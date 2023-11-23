@@ -650,37 +650,41 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	border-radius: 50%;
 	background-color: green;
+	flex-shrink: 0;
 }
 .danger-icon-container{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	border-radius: 50%;
 	background-color: red;
+	flex-shrink: 0;
 }
 .map-icon-container{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	border-radius: 50%;
 	background-color: #403d70;
+	flex-shrink: 0;
 }
 .book-icon-container{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	border-radius: 50%;
-	background-color: #fa5019
+	background-color: #fa5019;
+	flex-shrink: 0;
 }
 .background {
 	position: absolute;
