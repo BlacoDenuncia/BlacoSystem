@@ -12,13 +12,13 @@
                <div id="tabConteudos" class="container">
                   <ul class="nav-tabs nav justify-content-center d-flex" id="myTabs">
                      <li class="nav-item">
-                        <a href="#tabA" data-toggle="tab" class="nav-link">O Que É ...</a>
+                        <a href="#tabA" data-toggle="tab" class="nav-link content-nav">O Que É ...</a>
                      </li>
                      <li class="nav-item">
-                        <a href="#tabB" data-toggle="tab" class="nav-link">Como Denunciar</a>
+                        <a href="#tabB" data-toggle="tab" class="nav-link content-nav">Como Denunciar</a>
                      </li>
                      <li class="nav-item">
-                        <a href="#tabC" data-toggle="tab" class="nav-link">Crime / Leis</a>
+                        <a href="#tabC" data-toggle="tab" class="nav-link content-nav">Crime / Leis</a>
                      </li>
                   </ul>
                   <div class="tab-content">

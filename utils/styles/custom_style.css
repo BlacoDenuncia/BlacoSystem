@@ -608,3 +608,8 @@ html, body {
 .report-form{
 	color: #1c1c1c;
 }
+.content-nav{
+	font-size: 20px;
+	font-weight: 900;
+	font-family: "Montserrat", sans-serif;;
+}
