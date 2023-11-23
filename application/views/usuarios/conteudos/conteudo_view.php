@@ -2,7 +2,7 @@
 <div class="didatic container-fluid">
    <div class="page-title container">
       <h1 class="page-title-header"> Página Didática </h1>
-      <p class="page-title-text">Nessa aba trouxemos conceitos, leis existentes no Código Penal e direitos garantidos na constituição que podem te ajudar!</p>
+      <p class="page-title-text">Aqui você tem acesso a conceitos e leis existentes no Código Penal, além de direitos para exercer sua cidadania conforme a constituição!</p>
    </div>
    <div class="faq">
       <div class="row">
