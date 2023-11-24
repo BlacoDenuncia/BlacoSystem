@@ -31,7 +31,7 @@ $(document).ready(function () {
                     }
 
                     // Criar um marcador para representar a localização do usuário
-                    const customMarkerIcon = '/blaco/utils/img/person-circle.svg';
+                    const customMarkerIcon = '/utils/img/person-circle.svg';
                     userMarker = new google.maps.Marker({
                         position: userLocation,
                         map: map,
