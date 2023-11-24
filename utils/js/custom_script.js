@@ -30,7 +30,6 @@ function checkInternetConnection() {
 $(document).ready(function () {
 
   if (!navigator.onLine) {
-    console.log("Ai que delícia")
     // Se estiver offline, atualize os atributos src/href
     // para apontar para os arquivos locais
     $('script').each(function () {
@@ -93,8 +92,8 @@ $(document).ready(function () {
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () =>
-      /*navigator.serviceWorker.register('/sw.js')*/
-      navigator.serviceWorker.register('/blaco/sw.js')
+      navigator.serviceWorker.register('/sw.js')
+      /*navigator.serviceWorker.register('/blaco/sw.js')*/
         .then(registration => console.log('Service Worker registered'))
         .catch(err => 'SW registration failed'));
   }
