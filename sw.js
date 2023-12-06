@@ -15,7 +15,10 @@ self.addEventListener('install', event => {
                     '/blaco/utils/js/bootstrap.bundle.min.js',
                     '/blaco/utils/js/bootstrap-datepicker.min.js',
                     '/blaco/utils/js/boletim.js',
-                    '/blaco/utils/js/admin.js',
+                    '/blaco/utils/styles/custom_style.css',
+                    '/blaco/utils/styles/bootstrap-datepicker.min.css',
+                    '/blaco/utils/styles/bootstrap.min.css',
+                    '/blaco/utils/styles/font-awesome.min.css',
                     '/blaco/conteudo_view.html',
                     /*'./',
                     '/utils/js/custom_script.js',
@@ -27,6 +30,10 @@ self.addEventListener('install', event => {
                     '/utils/js/bootstrap-datepicker.min.js',
                     '/utils/js/boletim.js',
                     '/utils/js/admin.js',
+                    '/utils/styles/custom_style.css',
+                    '/utils/styles/bootstrap-datepicker.min.css',
+                    '/utils/styles/bootstrap.min.css',
+                    '/utils/styles/font-awesome.min.css',
                     './conteudo_view.html',*/
                 ]);
             })
