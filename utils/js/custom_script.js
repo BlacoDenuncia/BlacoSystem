@@ -92,11 +92,26 @@ $(document).ready(function () {
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () =>
-      navigator.serviceWorker.register('/sw.js')
       /*navigator.serviceWorker.register('/blaco/sw.js')*/
+      navigator.serviceWorker.register('/sw.js')
         .then(registration => console.log('Service Worker registered'))
         .catch(err => 'SW registration failed'));
   }
+  if (localStorage.getItem("modalv0shown") == "1") {
+    $("#updateV0Modal").modal("hide");
+  } else {
+    $("#updateV0Modal").modal("show");
+  }
+
+  $("#fecharUpdateButton").click(function () {
+    localStorage.setItem("modalv0shown", "1");
+
+    //usar quando ouver mais de uma atualização para remover do localstorage as antigas.
+    //localStorage.removeItem("modalvxshown");
+
+    $("#updateV0Modal").modal("hide");
+  });
+
 
   /*$('#link-offline-conteudos').click(function() {
     console.log("aqui estou")

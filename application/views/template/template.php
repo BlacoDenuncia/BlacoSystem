@@ -73,6 +73,26 @@
             </div>
          </div>
       </div>
+      <div id="updateV0Modal" class="modal fade" tabindex="-1" role="dialog">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <i class="bi bi-arrow-clockwise"></i>
+                  <h5 class="modal-title">O BLACO atualizou!<span style="font-size: 20px;"class="emoji">&#128513;</span></h5>
+               </div>
+               <div class="modal-body">
+                  <p>Novas funcionalidades foram adicionadas:</p>
+                  <ul id="listaInstallModal">
+                     <li>Agora o app e o website sempre são atualizados em conjunto</li>
+                     <li>É possível fazer o download para ANDROID!</li>
+                  </ul>
+               </div>
+               <div class="modal-footer">
+                  <button id="fecharUpdateButton" type="button" class="btn btn-danger">Entendido!</button>
+               </div>
+            </div>
+         </div>
+      </div>
 
       <div id="modalEmailInvalido" class="modal fade" tabindex="-1" role="dialog">
          <div class="modal-dialog modal-dialog-centered" role="document">
