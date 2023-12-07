@@ -20,7 +20,7 @@ self.addEventListener('install', event => {
                     '/blaco/utils/styles/bootstrap.min.css',
                     '/blaco/utils/styles/font-awesome.min.css',
                     '/blaco/conteudo_view.html',*/
-                    './',
+                    '/',
                     '/utils/js/custom_script.js',
                     '/utils/js/moment.js',
                     '/utils/js/jquery.mask.min.js',
@@ -34,7 +34,7 @@ self.addEventListener('install', event => {
                     '/utils/styles/bootstrap-datepicker.min.css',
                     '/utils/styles/bootstrap.min.css',
                     '/utils/styles/font-awesome.min.css',
-                    './conteudo_view.html',
+                    '/conteudo_view.html',
                 ]);
             })
             .then(() => {
