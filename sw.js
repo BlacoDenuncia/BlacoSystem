@@ -6,7 +6,7 @@ self.addEventListener('install', event => {
             .then(cache => {
                 console.log('Cache opened successfully');
                 return cache.addAll([
-                    '/blaco/',
+                    /*'/blaco/',
                     '/blaco/utils/js/custom_script.js',
                     '/blaco/utils/js/moment.js',
                     '/blaco/utils/js/jquery.mask.min.js',
@@ -19,8 +19,8 @@ self.addEventListener('install', event => {
                     '/blaco/utils/styles/bootstrap-datepicker.min.css',
                     '/blaco/utils/styles/bootstrap.min.css',
                     '/blaco/utils/styles/font-awesome.min.css',
-                    '/blaco/conteudo_view.html',
-                    /*'./',
+                    '/blaco/conteudo_view.html',*/
+                    './',
                     '/utils/js/custom_script.js',
                     '/utils/js/moment.js',
                     '/utils/js/jquery.mask.min.js',
@@ -34,7 +34,7 @@ self.addEventListener('install', event => {
                     '/utils/styles/bootstrap-datepicker.min.css',
                     '/utils/styles/bootstrap.min.css',
                     '/utils/styles/font-awesome.min.css',
-                    './conteudo_view.html',*/
+                    './conteudo_view.html',
                 ]);
             })
             .then(() => {
@@ -91,6 +91,6 @@ async function networkFirst(request) {
         return networkResponse;
     } catch (err) {
         const cachedResponse = await dynamicCache.match(request);
-        return cachedResponse || await caches.match('/blaco/conteudo_view.html');
+        return cachedResponse || await caches.match('/conteudo_view.html');
     }
 }
