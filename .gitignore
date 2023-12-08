@@ -10,7 +10,7 @@ application/logs/*
 
 sw.js
 manifest.json
-application/config/
+application/config/*
 
 composer.lock
 tests/mocks/database/ci_test.sqlite
