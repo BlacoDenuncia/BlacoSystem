@@ -29,6 +29,7 @@ class Planilhas_controller extends CI_Controller
             $user_data = $this->session->userdata('logged_in');
 
             if ($user_data['perfil'] === 'admin') {
+                $this->template->write_view('header', 'header_view', $current_page, FALSE);
                 $this->template->write_view('content', 'admin/planilhas_view', $current_page, FALSE);
                 $this->template->write_view('menu', 'admin/admin_menu', $current_page, FALSE);
                 $this->template->render();

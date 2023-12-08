@@ -22,6 +22,7 @@
    <div class="container-fluid no-padding no-overlap">
       <div id="content" class="no-padding content container-fluid">
          <?php
+         echo $header;
          echo $content;
          ?>
       </div>
