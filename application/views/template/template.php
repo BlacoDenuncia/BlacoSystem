@@ -74,7 +74,7 @@
             </div>
          </div>
       </div>
-      <div id="updateV0Modal" class="modal fade" tabindex="-1" role="dialog">
+      <div id="updateV0.1Modal" class="modal fade" tabindex="-1" role="dialog">
          <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                <div class="modal-header">
@@ -82,10 +82,10 @@
                   <h5 class="modal-title">O BLACO atualizou!<span style="font-size: 20px;"class="emoji">&#128513;</span></h5>
                </div>
                <div class="modal-body">
-                  <p>Novas funcionalidades foram adicionadas:</p>
+                  <p>Aproveite a nova atualização!</p>
                   <ul id="listaInstallModal">
                      <li>Agora o app e o website sempre são atualizados em conjunto</li>
-                     <li>É possível fazer o download para ANDROID!</li>
+                     <li>Novos botões foram adicionados na aba do mapa para facilitar o acesso</li>
                   </ul>
                </div>
                <div class="modal-footer">
