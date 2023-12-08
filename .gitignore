@@ -9,8 +9,6 @@ application/logs/*
 !application/*/.htaccess
 
 composer.lock
-sw.js
-manifest.json
 application/config/
 tests/mocks/database/ci_test.sqlite
 
