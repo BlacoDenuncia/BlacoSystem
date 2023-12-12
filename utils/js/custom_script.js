@@ -183,4 +183,18 @@ $(document).ready(function () {
       .find(".conteudos-title i.bi-chevron-down")
       .removeClass("chevron-top");
   });
+
+  $('.chevron-case').on('click', function() {
+    // Seleciona a div blurred-text-content dentro do mesmo pai
+    var content = $(this).closest('.blurred-back-text').find('.blurred-text-content');
+    
+    // Toggle da exibição com animação específica para mostrar/ocultar
+    if (content.is(':visible')) {
+      content.slideUp('slow');
+      $("i.bi-chevron-down").toggleClass("chevron-top");
+    } else {
+      content.slideDown('slow');
+      $("i.bi-chevron-down").removeClass("chevron-top");
+    }
+  });
 });
