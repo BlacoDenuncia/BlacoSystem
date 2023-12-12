@@ -677,8 +677,9 @@ body {
 	border: 0.5px solid #303030;
 	border-radius: 5px;
 	padding: 10px;
-	min-width: 90%;
-	
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 }
 .content-post-header {
 	display: flex;
@@ -691,16 +692,16 @@ body {
 #content-post-title {
 	color: #e1e1e1;
 }
-.subtitulo-post{
+.subtitulo-post {
 	text-shadow: 2px 2px #e1e1e1;
 	font-weight: bolder;
 	color: #100e34;
 }
-.blurred-text-content p{
+.blurred-text-content p {
 	color: #000;
 }
-#background-content-1{
-	background-image: url('https://metalurgicos.org.br/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-23-at-12.22.17.jpeg');
+#background-content-1 {
+	background-image: url("https://metalurgicos.org.br/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-23-at-12.22.17.jpeg");
 	background-size: cover;
 }
 .content-background {
@@ -734,7 +735,7 @@ body {
 	border-radius: 50%;
 	background-color: #fa5019;
 }
-.chevron-case{
+.chevron-case {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -758,11 +759,12 @@ body {
 	transform: rotate(-180deg);
 	text-decoration: none;
 }
-#conceitos, #denunciar, #leis{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+#conceitos,
+#denunciar,
+#leis {
+	margin-left: auto;
+	margin-right: auto;
 }
-.post-content{
+.post-content {
 	margin-bottom: 10px;
 }
