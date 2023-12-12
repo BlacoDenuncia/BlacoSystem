@@ -313,7 +313,7 @@ body {
 	margin: 10px;
 	border-radius: 30px;
 	background-size: cover;
-	background-color: rgba(0,0,0, 0.1);
+	background-color: rgba(0, 0, 0, 0.1);
 	background-position: center;
 	box-shadow: 0 1px 2px #303030;
 	transition: transform 0.2s ease;
@@ -554,13 +554,13 @@ body {
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 }
-#centerButton{
+#centerButton {
 	background: #fa5019;
 }
-#denunciaButton{
+#denunciaButton {
 	background: red;
 }
-#homeButton{
+#homeButton {
 	background: #100e34;
 }
 .floating-container .floating-button {
@@ -639,7 +639,7 @@ body {
 	background-color: green;
 	flex-shrink: 0;
 }
-.danger-icon-container{
+.danger-icon-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -649,7 +649,7 @@ body {
 	background-color: red;
 	flex-shrink: 0;
 }
-.map-icon-container{
+.map-icon-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -659,7 +659,7 @@ body {
 	background-color: #403d70;
 	flex-shrink: 0;
 }
-.book-icon-container{
+.book-icon-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -669,7 +669,100 @@ body {
 	background-color: #fa5019;
 	flex-shrink: 0;
 }
-#myTabs{
+#myTabs {
 	display: flex;
 	flex-direction: column;
+}
+.content-post {
+	border: 0.5px solid #303030;
+	border-radius: 5px;
+	padding: 10px;
+	min-width: 90%;
+	
+}
+.content-post-header {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	text-align: left;
+	height: 30px;
+	margin-bottom: 10px;
+}
+#content-post-title {
+	color: #e1e1e1;
+}
+.subtitulo-post{
+	text-shadow: 2px 2px #e1e1e1;
+	font-weight: bolder;
+	color: #100e34;
+}
+.blurred-text-content p{
+	color: #000;
+}
+#background-content-1{
+	background-image: url('https://metalurgicos.org.br/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-23-at-12.22.17.jpeg');
+	background-size: cover;
+}
+.content-background {
+	position: relative;
+	height: 450px;
+	border-radius: 10px;
+}
+.blurred-back-text {
+	position: absolute;
+	bottom: 0;
+	width: 95%;
+	margin: 0 2.5% 2.5% 2.5%;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: rgb(255 255 255 / 0.3);
+	backdrop-filter: blur(10px);
+	display: flex;
+	flex-direction: column;
+}
+.blurred-text-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.logo-post-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #fa5019;
+}
+.chevron-case{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 25%;
+	background-color: #fa5019;
+	color: #e1e1e1;
+	font-weight: 500;
+	transition: font-size 0.3s ease;
+}
+.blurred-text-header .chevron-case:hover {
+	font-size: 20px;
+}
+.blurred-text-header .chevron-case i.bi-chevron-down {
+	transform: rotate(0);
+	transition: 0.4s;
+}
+
+.blurred-text-header .chevron-case i.bi-chevron-down.chevron-top {
+	transform: rotate(-180deg);
+	text-decoration: none;
+}
+#conceitos, #denunciar, #leis{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.post-content{
+	margin-bottom: 10px;
 }
