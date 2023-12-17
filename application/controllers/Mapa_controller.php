@@ -28,6 +28,10 @@ class Mapa_controller extends CI_Controller
 	}
 	public function index()
 	{
+		$dotenv = Dotenv\Dotenv::createImmutable(APPPATH);
+		$dotenv->load();
+		$mapsKey = $_ENV['MAPS_KEY'];
+
 		//configurações de página
 		$page = $this->determineCurrentPage();
 		$current_page = array(
