@@ -34,3 +34,4 @@ application/config/config.php
 application/config/database.php
 sw.js
 manifest.json
+.env
