@@ -19,6 +19,15 @@
 	</div>
 	<div class="bottom-nav-item">
 		<div class="bottom-nav-item-content">
+			<a class="<?php echo ($current_page === 'posts') ? 'active' : 'text-white'; ?> " id="criarPost"
+				href="Posts_controller">
+				<i class="bi bi-pencil-square"></i>
+				<p class="menu-text">Posts</p>
+			</a>
+		</div>
+	</div>
+	<div class="bottom-nav-item">
+		<div class="bottom-nav-item-content">
 			<a class="text-white" id="acessarApp">
 				<i class="bi bi-phone-fill"></i>
 				<p class="menu-text">Acessar o aplicativo</p>
