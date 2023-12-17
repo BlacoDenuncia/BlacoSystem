@@ -10,7 +10,9 @@ class Posts_controller extends CI_Controller
 
     public function index()
     {
-
+        $dotenv = Dotenv\Dotenv::createImmutable(APPPATH);
+		$dotenv->load();
+        
         $page = $this->determineCurrentPage();
         $current_page = array(
             'current_page' => $page

@@ -39,9 +39,8 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label class="form-label" for="post-content">Conteúdo do post:</label>
-                            <textarea rows="5" class="form-control" name="post-content" id="post-content"
-                                name="post-subtitle"
-                                placeholder="Digite aqui o conteúdo informativo do post"></textarea>
+                            <textarea class="form-control" name="post-content" id="post-content"
+                                name="post-subtitle"></textarea>
                         </div>
                     </div>
                     <br>
@@ -73,3 +72,8 @@
         </div>
     </div>
 </div>
+<?php
+    $tinyKey = $_ENV["TINY_KEY"];
+?>
+<script src="https://cdn.tiny.cloud/1/<?php echo $tinyKey;?>/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-jquery@2/dist/tinymce-jquery.min.js"></script>

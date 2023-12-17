@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    tinymce.init({
+        selector: 'textarea#post-content',
+        plugins: 'advlist autolink lists link image charmap print preview anchor',
+        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
+    });
     // Ajax request when the button is clicked
     $("#btnGerarPlanilhaGeral").click(function () {
         var downloadLink = $("<a style='display: none;'/>");
