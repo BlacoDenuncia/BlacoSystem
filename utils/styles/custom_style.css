@@ -222,7 +222,7 @@ body {
 	font-family: "Montserrat", sans-serif;
 	font-weight: 500;
 }
-.racismReport{
+.racismReport {
 	padding: 10px;
 	max-width: 100vw;
 	margin: 0 auto;
@@ -769,4 +769,26 @@ body {
 }
 .post-content {
 	margin-bottom: 10px;
+}
+.img-upload {
+	min-height: 200px;
+	border: 2px dotted blue;
+	border-radius: 10px;
+	background-color: #fff;
+}
+#img-upload-preview {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 5px;
+	padding: 10px;
+}
+.dz-details {
+	border: 1px solid #1c1c1c;
+	border-radius: 5px;
+	padding: 5px;
+}
+.dz-details img{
+	border: 1px solid #100e34;
 }

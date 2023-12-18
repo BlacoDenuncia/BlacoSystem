@@ -4,6 +4,36 @@ $(document).ready(function () {
         plugins: 'advlist autolink lists link image charmap print preview anchor',
         toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image',
     });
+
+    Dropzone.autoDiscover = false;
+
+    var meuDropzone = new Dropzone("#img-dropzone", {
+        url: base_url + "posts_controller/upload-image",
+        autoProcessQueue: false,
+        paramName: "file",
+        maxFilesize: 5, // Tamanho máximo do arquivo em MB
+        maxFiles: 1,    // Número máximo de arquivos
+        acceptedFiles: 'image/*',
+        previewTemplate: `
+        <div id="img-upload-preview" class="dz-preview dz-file-preview">
+            <div class="dz-details">
+                <div class="dz-filename"><span data-dz-name></span></div>
+                <div class="dz-size" data-dz-size></div>
+                <img data-dz-thumbnail />
+            </div>
+            <div class="dz-progress"> <span class="dz-upload" data-dz-uploadprogress></span></div >
+            <div class="dz-error-message"><span data-dz-errormessage></span></div>
+            <div class="dz-remove-button">
+                <button class="btn btn-danger btn-remove" data-dz-remove>
+                    Remover
+                </button>
+            </div>
+        </div>`,
+    });
+    $("#btn-limpar").click(function() {
+        meuDropzone.removeAllFiles();
+    });
+
     // Ajax request when the button is clicked
     $("#btnGerarPlanilhaGeral").click(function () {
         var downloadLink = $("<a style='display: none;'/>");
@@ -49,8 +79,8 @@ $(document).ready(function () {
             },
         });
     });
-    
-    $("#acessarApp").click(function(){
+
+    $("#acessarApp").click(function () {
         window.location.href = base_url + "index_controller";
     });
 });

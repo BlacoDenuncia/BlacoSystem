@@ -46,10 +46,8 @@
                     <br>
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label class="form-label" for="image-upload">Envie a imagem de fundo:</label>
-                            <input type="image" class="form-control" name="image-upload" id="image-upload"
-                                name="post-subtitle"
-                                placeholder="Enviar imagem"></textarea>
+                            <label class="form-label" for="img-dropzone">Envie a imagem de fundo:</label>
+                            <div id="img-dropzone" class="img-upload"><p style="text-align: center;">Arraste e jogue a imagem aqui</p></div>
                         </div>
                     </div>
 
@@ -77,3 +75,5 @@
 ?>
 <script src="https://cdn.tiny.cloud/1/<?php echo $tinyKey;?>/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-jquery@2/dist/tinymce-jquery.min.js"></script>
+<link rel="stylesheet" href="<?php echo base_url();?>vendor/enyo/dropzone/dist/min/dropzone.min.css">
+<script src="<?php echo base_url();?>vendor/enyo/dropzone/dist/min/dropzone.min.js"></script>
