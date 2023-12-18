@@ -34,6 +34,38 @@ $(document).ready(function () {
         meuDropzone.removeAllFiles();
     });
 
+    function verificarCamposVazios() {
+		var camposObrigatorios = [
+			"#post_title",
+			"#post_subtitle",
+			"#post-content",
+			"#img-dropzone",
+		];
+		camposObrigatorios.forEach(function (campo) {
+			var valorCampo = $(campo).val().trim();
+			$(campo).toggleClass("input-error", valorCampo === "");
+		});
+	}
+
+    $("#btnCriarPost").click(function(){
+        console.log("amigo estou aqui");
+        verificarCamposVazios();
+        var camposVazios = $(".input-error");
+		if (camposVazios.length > 0) {
+			$("#msg_erro").html(
+				"Por favor, preencha todos os campos, não se esqueça de adicionar uma imagm válida."
+			);
+			$("#erro").show("slow");
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+			window.setTimeout(function () {
+				$("#erro").hide(1000);
+			}, 3000);
+			return;
+		}
+
+        fazerUploadImagem();
+
+    })
     // Ajax request when the button is clicked
     $("#btnGerarPlanilhaGeral").click(function () {
         var downloadLink = $("<a style='display: none;'/>");
