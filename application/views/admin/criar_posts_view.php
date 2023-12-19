@@ -40,7 +40,7 @@
                         <div class="form-group col-md-12">
                             <label class="form-label" for="post-content">Conteúdo do post:</label>
                             <textarea class="form-control" name="post-content" id="post-content"
-                                name="post-subtitle"></textarea>
+                                name="post-content"></textarea>
                         </div>
                     </div>
                     <br>

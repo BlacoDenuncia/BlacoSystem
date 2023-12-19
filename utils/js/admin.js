@@ -6,14 +6,22 @@ $(document).ready(function () {
     });
 
     Dropzone.autoDiscover = false;
+    var upload_error = 0;
+    var image_path;
+
 
     var meuDropzone = new Dropzone("#img-dropzone", {
-        url: base_url + "posts_controller/upload-image",
+        url: base_url + "posts_controller/upload_image",
         autoProcessQueue: false,
         paramName: "file",
         maxFilesize: 5, // Tamanho máximo do arquivo em MB
         maxFiles: 1,    // Número máximo de arquivos
         acceptedFiles: 'image/*',
+        renameFile: function (file) {
+            var post_id = $("#post_title").val();
+            var novoNome = `${post_id}.${file.name.split(".").pop()}`;
+            return novoNome;
+        },
         previewTemplate: `
         <div id="img-upload-preview" class="dz-preview dz-file-preview">
             <div class="dz-details">
@@ -29,41 +37,164 @@ $(document).ready(function () {
                 </button>
             </div>
         </div>`,
+        init: function () {
+            this.on("success", function (file, response) {
+                var json = $.parseJSON(response);
+                // Aqui você pode fazer o que for necessário com a resposta JSON
+                if (json.success) {
+                    image_path = json.image_path;
+
+                    $("#msg_sucesso").html(
+                        "Imagem salva com sucesso."
+                    );
+                    $("#sucesso").show("slow");
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    window.setTimeout(function () {
+                        $("#sucesso").hide(1000);
+                    }, 3000);
+                } else {
+                    upload_error = 1;
+                    error_message = json.message;
+
+                    $("#msg_erro").html(
+                        `Ocorreu um erro ao salvar imagem<br> ${error_message}`
+                    );
+                    $("#erro").show("slow");
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    window.setTimeout(function () {
+                        $("#erro").hide(1000);
+                    }, 3000);
+                }
+            });
+            this.on("error", function (file, errorMessage) {
+                upload_error = 1;
+                console.error(errorMessage); // Log da mensagem de erro
+                $("#msg_erro").html(
+                    `${errorMessage}`
+                );
+                $("#erro").show("slow");
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                window.setTimeout(function () {
+                    $("#erro").hide(1000);
+                }, 3000);
+            });
+        }
     });
-    $("#btn-limpar").click(function() {
+    $("#btn-limpar").click(function () {
         meuDropzone.removeAllFiles();
     });
 
     function verificarCamposVazios() {
-		var camposObrigatorios = [
-			"#post_title",
-			"#post_subtitle",
-			"#post-content",
-			"#img-dropzone",
-		];
-		camposObrigatorios.forEach(function (campo) {
-			var valorCampo = $(campo).val().trim();
-			$(campo).toggleClass("input-error", valorCampo === "");
-		});
-	}
+        var camposObrigatorios = [
+            "#post_title",
+            "#post_subtitle",
+        ];
+        camposObrigatorios.forEach(function (campo) {
+            var valorCampo = $(campo).val().trim();
+            $(campo).toggleClass("input-error", valorCampo === "");
+        });
+    }
+    function fazerUploadImagem() {
 
-    $("#btnCriarPost").click(function(){
-        console.log("amigo estou aqui");
+        if (meuDropzone.files.length > 0) {
+
+            meuDropzone.processQueue();
+            if (upload_error) {
+                return "error";
+            } else {
+                return "sucess";
+            }
+
+        } else {
+            $("#msg_erro").html(
+                "Nenhum arquivo para enviar."
+            );
+            $("#erro").show("slow");
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            window.setTimeout(function () {
+                $("#erro").hide(1000);
+            }, 3000);
+            return "error";
+        }
+    }
+    function criarPost(){
+        var post_title = $("post_title").val();
+        var post_subtitle = $("#post_subtitle").val();
+        var post_data = {
+
+        } 
+        $.ajax({
+            url: "Posts_controller/criarPost",
+            type: "POST",
+            data: post_data,
+            beforeSend: function(){
+                $("#loading").show();
+            },
+            complete: function(){
+                $("#loading").hide();
+            },
+            success: function(response){
+                var json = $.parseJSON(response);
+				var mensagem = json.mensagem;
+				var tipo = json.tipo;
+
+                if (tipo === "error") {
+					$("#msg_erro").html(
+						"Ocorreu um erro ao criar o post"
+					);
+					$("#erro").show("slow");
+				} else {
+					$("#msg_sucesso").html(
+						"Post criado com sucesso!"
+					);
+					$("#sucesso").show("slow");
+					window.setTimeout(function () {
+						$("btn-limpar").click();
+					}, 3000);
+				}
+
+				$("html, body").animate({ scrollTop: 0 }, "slow");
+				window.setTimeout(function () {
+					$("#sucesso, #erro").hide(1000);
+					$("#btn-close").click();
+				}, 3000);
+            },
+            error: function(xhr, status, error) {
+				console.log(error);
+            }
+
+        });
+    }
+
+    $("#btnCriarPost").click(function () {
         verificarCamposVazios();
         var camposVazios = $(".input-error");
-		if (camposVazios.length > 0) {
-			$("#msg_erro").html(
-				"Por favor, preencha todos os campos, não se esqueça de adicionar uma imagm válida."
-			);
-			$("#erro").show("slow");
-			$("html, body").animate({ scrollTop: 0 }, "slow");
-			window.setTimeout(function () {
-				$("#erro").hide(1000);
-			}, 3000);
-			return;
-		}
+        if (camposVazios.length > 0) {
+            $("#msg_erro").html(
+                "Por favor, preencha todos os campos, não se esqueça de adicionar uma imagem válida."
+            );
+            $("#erro").show("slow");
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            window.setTimeout(function () {
+                $("#erro").hide(1000);
+            }, 3000);
+            return;
+        }
 
-        fazerUploadImagem();
+        var post_status = fazerUploadImagem();
+
+        if (post_status == "sucess") {
+            criarPost();
+        } else { //this is error
+            $("#msg_erro").html(
+                "Erro ao postar"
+            );
+            $("#erro").show("slow");
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            window.setTimeout(function () {
+                $("#erro").hide(1000);
+            }, 3000);
+        }
 
     })
     // Ajax request when the button is clicked
