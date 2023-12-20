@@ -52,6 +52,15 @@ $(document).ready(function () {
                     $("html, body").animate({ scrollTop: 0 }, "slow");
                     window.setTimeout(function () {
                         $("#sucesso").hide(1000);
+                        post_status = criarPost();
+                        if (post_status == "error") {
+                            //criar funçao que deleta imagem do server passando o titulo do post como parametro
+                            //a funcao confere o nome do arquivo que bate com o nome do post e faz um processo reverso
+                            console.log("post nao foi criado")
+                            upload_error = 1;
+                        } else {
+                            console.log("post foi criado")
+                        }
                     }, 3000);
                 } else {
                     upload_error = 1;
@@ -226,16 +235,12 @@ $(document).ready(function () {
         var post_status = fazerUploadImagem();
 
         if (post_status == "sucess") {
-
-            post_status = criarPost();
-            if (post_status == "error") {
-                //criar funçao que deleta imagem do server passando o titulo do post como parametro
-                //a funcao confere o nome do arquivo que bate com o nome do post e faz um processo reverso
-                console.log("post nao foi criado")
-            } else{
-                console.log("post foi criado")
-            }
-
+            $("#msg_sucesso").html("Postagem feita com sucesso, confira a ba de conteudos");
+            $("#sucesso").show("slow");
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            window.setTimeout(function () {
+                $("#sucesso").hide(1000);
+            }, 3000);
         }
         else { //this is error
             $("#msg_erro").html(
