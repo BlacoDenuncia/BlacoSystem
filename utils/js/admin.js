@@ -39,6 +39,7 @@ $(document).ready(function () {
         </div>`,
         init: function () {
             this.on("success", function (file, response) {
+                console.log("imagem foi salva")
                 var json = $.parseJSON(response);
                 // Aqui você pode fazer o que for necessário com a resposta JSON
                 if (json.success) {
@@ -67,6 +68,7 @@ $(document).ready(function () {
                 }
             });
             this.on("error", function (file, errorMessage) {
+                console.log("imagem nao foi salva")
                 upload_error = 1;
                 console.error(errorMessage); // Log da mensagem de erro
                 $("#msg_erro").html(
@@ -85,6 +87,7 @@ $(document).ready(function () {
     });
 
     function verificarCamposVazios() {
+        console.log("campos vazios")
         var camposObrigatorios = [
             "#post_title",
             "#post_subtitle",
@@ -95,7 +98,7 @@ $(document).ready(function () {
         });
     }
     function fazerUploadImagem() {
-
+        console.log("img upload")
         if (meuDropzone.files.length > 0) {
 
             meuDropzone.processQueue();
@@ -117,50 +120,89 @@ $(document).ready(function () {
             return "error";
         }
     }
-    function criarPost(){
-        var post_title = $("post_title").val();
+    function criarPost() {
+        console.log("criando post")
+        var post_title = $("#post_title").val();
         var post_subtitle = $("#post_subtitle").val();
-        var post_data = {
 
-        } 
+        var editor = tinymce.get('post-content');
+
+        // Verifica se o editor está inicializado
+        if (editor) {
+
+            var conteudo = editor.getContent();
+            if (conteudo == "") {
+                $("#msg_erro").html("O conteudo do post está vazio, por favor preencha corretamente!");
+                $("#erro").show("slow");
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                window.setTimeout(function () {
+                    $("#erro").hide(1000);
+                    return "error";
+                }, 3000);
+            }
+
+        } else {
+            $("#msg_erro").html(
+                "O editor de texto não está inicializado ou não foi encontrado."
+            );
+            $("#erro").show("slow");
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            window.setTimeout(function () {
+                $("#erro").hide(1000);
+            }, 3000);
+            return "error";
+        }
+        console.log(`${post_title} ${post_subtitle} ${conteudo} ${image_path}`)
+        var post_data = {
+            post_title_data: post_title,
+            post_subtitle_data: post_subtitle,
+            conteudo_data: conteudo,
+            image_path_data: image_path
+        }
         $.ajax({
             url: "Posts_controller/criarPost",
             type: "POST",
             data: post_data,
-            beforeSend: function(){
+            beforeSend: function () {
                 $("#loading").show();
             },
-            complete: function(){
+            complete: function () {
                 $("#loading").hide();
             },
-            success: function(response){
+            success: function (response) {
                 var json = $.parseJSON(response);
-				var mensagem = json.mensagem;
-				var tipo = json.tipo;
+                var mensagem = json.mensagem;
+                var tipo = json.tipo;
 
                 if (tipo === "error") {
-					$("#msg_erro").html(
-						"Ocorreu um erro ao criar o post"
-					);
-					$("#erro").show("slow");
-				} else {
-					$("#msg_sucesso").html(
-						"Post criado com sucesso!"
-					);
-					$("#sucesso").show("slow");
-					window.setTimeout(function () {
-						$("btn-limpar").click();
-					}, 3000);
-				}
+                    $("#msg_erro").html(
+                        "Ocorreu um erro ao criar o post"
+                    );
+                    $("#erro").show("slow");
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    window.setTimeout(function () {
+                        return "error";
+                    }, 3000);
+                } else {
+                    $("#msg_sucesso").html(
+                        "Post criado com sucesso!"
+                    );
+                    $("#sucesso").show("slow");
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    window.setTimeout(function () {
+                        $("btn-limpar").click();
+                        return "sucess";
+                    }, 3000);
+                }
 
-				$("html, body").animate({ scrollTop: 0 }, "slow");
-				window.setTimeout(function () {
-					$("#sucesso, #erro").hide(1000);
-					$("#btn-close").click();
-				}, 3000);
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                window.setTimeout(function () {
+                    $("#sucesso, #erro").hide(1000);
+                    $("#btn-close").click();
+                }, 3000);
             },
-            error: function(xhr, status, error) {
-				console.log(error);
+            error: function (xhr, status, error) {
+                console.log(error);
             }
 
         });
@@ -184,8 +226,18 @@ $(document).ready(function () {
         var post_status = fazerUploadImagem();
 
         if (post_status == "sucess") {
-            criarPost();
-        } else { //this is error
+
+            post_status = criarPost();
+            if (post_status == "error") {
+                //criar funçao que deleta imagem do server passando o titulo do post como parametro
+                //a funcao confere o nome do arquivo que bate com o nome do post e faz um processo reverso
+                console.log("post nao foi criado")
+            } else{
+                console.log("post foi criado")
+            }
+
+        }
+        else { //this is error
             $("#msg_erro").html(
                 "Erro ao postar"
             );

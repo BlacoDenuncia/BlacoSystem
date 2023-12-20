@@ -1,4 +1,4 @@
-<?php
+<?php 
 class Posts_controller extends CI_Controller
 {
 
@@ -74,6 +74,25 @@ class Posts_controller extends CI_Controller
                 'message' => 'Please select an image to upload.',
             );
             echo json_encode($response);
+        }
+    }
+
+    public function criarPost()
+    {
+        $post_title = $this->input->post('post_title_data');
+        $post_subtitle = $this->input->post('post_subtitle_data');
+        $conteudo = $this->input->post('conteudo_data');
+        $image_path = $this->input->post('image_path_data');
+
+        $this->load->model('posts_model');
+        $post_status = $this->posts_model->armazenarPost($post_title, $post_subtitle, $conteudo, $image_path);
+
+        if ($post_status) {
+            $mensagem = array('tipo' => 'sucess');
+            echo json_encode($mensagem);
+        } else {
+            $mensagem = array('tipo' => 'error');
+            echo json_encode($mensagem);
         }
     }
 }
