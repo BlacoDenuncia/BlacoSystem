@@ -34,6 +34,14 @@
                             <input type="text" class="form-control" id="post_subtitle" name="post_subtitle"
                                 placeholder="Digite o título completo">
                         </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="post_type">Selecione o tipo da postagem:</label>
+                            <select name="post_type" id="post_type">
+                                <option value="conceitos">Conceitos</option>
+                                <option value="denunciar">Denunciar</option>
+                                <option value="leis">Leis</option>
+                            </select>
+                        </div>
                     </div>
                     <br>
                     <div class="row">
@@ -47,7 +55,9 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label class="form-label" for="img-dropzone">Envie a imagem de fundo:</label>
-                            <div id="img-dropzone" class="img-upload"><p style="text-align: center;">Arraste e jogue a imagem aqui</p></div>
+                            <div id="img-dropzone" class="img-upload">
+                                <p style="text-align: center;">Arraste e jogue a imagem aqui</p>
+                            </div>
                         </div>
                     </div>
 
@@ -71,9 +81,9 @@
     </div>
 </div>
 <?php
-    $tinyKey = $_ENV["TINY_KEY"];
+$tinyKey = $_ENV["TINY_KEY"];
 ?>
-<script src="https://cdn.tiny.cloud/1/<?php echo $tinyKey;?>/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/<?php echo $tinyKey; ?>/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-jquery@2/dist/tinymce-jquery.min.js"></script>
-<link rel="stylesheet" href="<?php echo base_url();?>vendor/enyo/dropzone/dist/min/dropzone.min.css">
-<script src="<?php echo base_url();?>vendor/enyo/dropzone/dist/min/dropzone.min.js"></script>
+<link rel="stylesheet" href="<?php echo base_url(); ?>vendor/enyo/dropzone/dist/min/dropzone.min.css">
+<script src="<?php echo base_url(); ?>vendor/enyo/dropzone/dist/min/dropzone.min.js"></script>

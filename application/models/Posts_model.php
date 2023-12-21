@@ -8,11 +8,12 @@ class Posts_model extends CI_Model {
         parent::__construct();
     }
 
-    function armazenarPost($post_title, $post_subtitle, $conteudo, $image_path){
+    function armazenarPost($post_title, $post_subtitle, $post_type, $conteudo, $image_path){
         $arrayInsert = array(
             'post_id' => $post_title,
             'title' => $post_title,
             'subtitle' => $post_subtitle,
+            'post_type' => $post_type,
             'content' => $conteudo,
             'image_path' => $image_path
         );

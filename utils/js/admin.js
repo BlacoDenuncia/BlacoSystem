@@ -133,6 +133,7 @@ $(document).ready(function () {
         console.log("criando post")
         var post_title = $("#post_title").val();
         var post_subtitle = $("#post_subtitle").val();
+        var post_type = $("#post_type").val();
 
         var editor = tinymce.get('post-content');
 
@@ -165,6 +166,7 @@ $(document).ready(function () {
         var post_data = {
             post_title_data: post_title,
             post_subtitle_data: post_subtitle,
+            post_type_data: post_type,
             conteudo_data: conteudo,
             image_path_data: image_path
         }
