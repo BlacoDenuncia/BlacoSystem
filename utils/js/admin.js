@@ -39,7 +39,6 @@ $(document).ready(function () {
         </div>`,
         init: function () {
             this.on("success", function (file, response) {
-                console.log("imagem foi salva")
                 var json = $.parseJSON(response);
                 // Aqui você pode fazer o que for necessário com a resposta JSON
                 if (json.success) {
@@ -54,12 +53,10 @@ $(document).ready(function () {
                         $("#sucesso").hide(1000);
                         post_status = criarPost();
                         if (post_status == "error") {
-                            //criar funçao que deleta imagem do server passando o titulo do post como parametro
-                            //a funcao confere o nome do arquivo que bate com o nome do post e faz um processo reverso
-                            console.log("post nao foi criado")
+                            if (image_path) {
+                                excluirImagem(image_path);
+                            }
                             upload_error = 1;
-                        } else {
-                            console.log("post foi criado")
                         }
                     }, 3000);
                 } else {
@@ -77,7 +74,6 @@ $(document).ready(function () {
                 }
             });
             this.on("error", function (file, errorMessage) {
-                console.log("imagem nao foi salva")
                 upload_error = 1;
                 console.error(errorMessage); // Log da mensagem de erro
                 $("#msg_erro").html(
@@ -96,7 +92,6 @@ $(document).ready(function () {
     });
 
     function verificarCamposVazios() {
-        console.log("campos vazios")
         var camposObrigatorios = [
             "#post_title",
             "#post_subtitle",
@@ -106,8 +101,36 @@ $(document).ready(function () {
             $(campo).toggleClass("input-error", valorCampo === "");
         });
     }
+    function excluirImagem(imagePath) {
+        $.ajax({
+            url: base_url + "posts_controller/excluirImagem",
+            type: "POST",
+            data: { image_path: imagePath },
+            success: function (response) {
+                $("#msg_sucesso").html(
+                    "Imagem excluída com sucesso"
+                );
+                $("#sucesso").show("slow");
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                window.setTimeout(function () {
+                    $("#sucesso").hide(1000);
+                }, 3000);
+            },
+            error: function (xhr, status, error) {
+                console.error("", error);
+                $("#msg_erro").html(
+                    "Erro ao excluir imagem:"
+                );
+                $("#erro").show("slow");
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                window.setTimeout(function () {
+                    $("#erro").hide(1000);
+                }, 3000);
+            }
+        });
+    }
+
     function fazerUploadImagem() {
-        console.log("img upload")
         if (meuDropzone.files.length > 0) {
 
             meuDropzone.processQueue();
@@ -130,7 +153,6 @@ $(document).ready(function () {
         }
     }
     function criarPost() {
-        console.log("criando post")
         var post_title = $("#post_title").val();
         var post_subtitle = $("#post_subtitle").val();
         var post_type = $("#post_type").val();
@@ -162,7 +184,6 @@ $(document).ready(function () {
             }, 3000);
             return "error";
         }
-        console.log(`${post_title} ${post_subtitle} ${conteudo} ${image_path}`)
         var post_data = {
             post_title_data: post_title,
             post_subtitle_data: post_subtitle,
@@ -213,7 +234,11 @@ $(document).ready(function () {
                 }, 3000);
             },
             error: function (xhr, status, error) {
-                console.log(error);
+                console.log("Erro ao criar post:", error);
+                // Remover imagem se ocorrer um erro
+                if (image_path) {
+                    excluirImagem(image_path);
+                }
             }
 
         });

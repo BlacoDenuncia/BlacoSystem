@@ -1,4 +1,4 @@
-<?php 
+<?php
 class Posts_controller extends CI_Controller
 {
 
@@ -94,6 +94,30 @@ class Posts_controller extends CI_Controller
         } else {
             $mensagem = array('tipo' => 'error');
             echo json_encode($mensagem);
+        }
+    }
+    public function excluirImagem()
+    {
+        // Verifique se a solicitação é POST
+        if ($this->input->method(TRUE) == 'POST') {
+            // Obtenha o caminho da imagem a ser excluída
+            $image_path = $this->input->post('image_path');
+
+            $remove = unlink(FCPATH . $image_path);
+
+            if ($remove) {
+                // Envie uma resposta JSON indicando o sucesso ou falha
+                $response = array('success' => true);
+                echo json_encode($response);
+            } else {
+                // Envie uma resposta JSON indicando o sucesso ou falha
+                $response = array('success' => false);
+                echo json_encode($response);
+            }
+
+        } else {
+            // Se não for uma solicitação POST, retorne um erro
+            show_404();
         }
     }
 }
