@@ -28,6 +28,22 @@ function checkInternetConnection() {
 }
 
 $(document).ready(function () {
+  $.ajax({
+    url: 'Conteudo_controller/getPosts',
+    type: 'GET',
+    dataType: 'json',
+    success: function (response) {
+      console.log(response);
+      try {
+        addPostsToPage(response);
+      } catch (e) {
+        console.error('Erro ao fazer parse do JSON:', e);
+      }
+    },
+    error: function (error) {
+      console.error('Erro ao obter os posts:', error);
+    }
+  });
 
   if (!navigator.onLine) {
     // Se estiver offline, atualize os atributos src/href
@@ -184,10 +200,10 @@ $(document).ready(function () {
       .removeClass("chevron-top");
   });
 
-  $('.chevron-case').on('click', function() {
+  $('body').on('click', '.chevron-case', function () {
     // Seleciona a div blurred-text-content dentro do mesmo pai
     var content = $(this).closest('.blurred-back-text').find('.blurred-text-content');
-    
+
     // Toggle da exibição com animação específica para mostrar/ocultar
     if (content.is(':visible')) {
       content.slideUp('slow');
@@ -197,4 +213,136 @@ $(document).ready(function () {
       $("i.bi-chevron-down").removeClass("chevron-top");
     }
   });
+
 });
+
+function addPostsToPage(posts) {
+
+  $("#leis").empty();
+  $("#conceitos").empty();
+  $("#denunciar").empty();
+
+
+  posts.forEach(function (post) {
+    
+    if (post.post_type == "conceitos") {
+      var postHTML = `
+      <div id="${post.post_id}" class="content-post"><!--div geral do post-->
+        <div class="content-post-header"><!--div do cabeçalho com logo e titulo/tag-->
+          <div class="logo-post-header">
+              <img alt="logo-blaco" id="blaco-logo-post-header"
+                  src="utils/img/logo_blaco_white.svg">
+          </div>
+          <h3 id="content-post-title">${post.title}</h3>
+        </div>
+        <div class="post-content"><!--div que contem imagem e texto-->
+          <div id="background-content-${post.post_id}" style='background-image: url("${base_url}${post.image_path}");' class="content-background">
+              <!--div com imagem que preenche o quadrado-->
+              <div class="blurred-back-text">
+                  <div class="blurred-text-header">
+                      <h5 class=" subtitulo-post">${post.subtitle}</h5>
+                      <div class="chevron-case"><i class="bi bi-chevron-down"></i></div>
+                  </div>
+                  <div class="blurred-text-content">
+                      <p>
+                          ${post.content}
+                      </p>
+                  </div>
+              </div>
+              <!--div com texto e fundo borrado que pode ser escondida-->
+          </div>
+        </div>
+        <div class="post-actions">
+          <div class="send-action">
+              <i class="bi bi-send-fill"></i>
+          </div>
+        </div>
+
+      </div>
+      `;
+
+      // Adicionar o HTML do post ao contêiner
+      $("#conceitos").append(postHTML);
+    }
+    else if (post.post_type == "leis") {
+      var postHTML = `
+      <div id="${post.post_id}" class="content-post"><!--div geral do post-->
+        <div class="content-post-header"><!--div do cabeçalho com logo e titulo/tag-->
+            <div class="logo-post-header">
+                <img alt="logo-blaco" id="blaco-logo-post-header"
+                  src="utils/img/logo_blaco_white.svg">
+            </div>
+          <h3 id="content-post-title">${post.title}</h3>
+        </div>
+        <div class="post-content"><!--div que contem imagem e texto-->
+          <div id="background-content-${post.post_id}" style='background-image: url("${base_url}${post.image_path}");' class="content-background">
+              <!--div com imagem que preenche o quadrado-->
+              <div class="blurred-back-text">
+                  <div class="blurred-text-header">
+                      <h5 class=" subtitulo-post">${post.subtitle}</h5>
+                      <div class="chevron-case"><i class="bi bi-chevron-down"></i></div>
+                  </div>
+                  <div class="blurred-text-content">
+                      <p>
+                          ${post.content}
+                      </p>
+                  </div>
+              </div>
+              <!--div com texto e fundo borrado que pode ser escondida-->
+          </div>
+        </div>
+        <div class="post-actions">
+          <div class="send-action">
+              <i class="bi bi-send-fill"></i>
+          </div>
+        </div>
+
+      </div>
+      `;
+
+      // Adicionar o HTML do post ao contêiner
+      $("#leis").append(postHTML);
+    }
+    else if (post.post_type == "denunciar") {
+      var postHTML = `
+      <div id="${post.post_id}" class="content-post"><!--div geral do post-->
+      <div class="content-post-header"><!--div do cabeçalho com logo e titulo/tag-->
+          <div class="logo-post-header">
+              <img alt="logo-blaco" id="blaco-logo-post-header"
+                  src="utils/img/logo_blaco_white.svg">
+          </div>
+          <h3 id="content-post-title">${post.title}</h3>
+      </div>
+      <div class="post-content"><!--div que contem imagem e texto-->
+          <div id="background-content-${post.post_id}" style='background-image: url("${base_url}${post.image_path}");' class="content-background">
+              <!--div com imagem que preenche o quadrado-->
+              <div class="blurred-back-text">
+                  <div class="blurred-text-header">
+                      <h5 class=" subtitulo-post">${post.subtitle}</h5>
+                      <div class="chevron-case"><i class="bi bi-chevron-down"></i></div>
+                  </div>
+                  <div class="blurred-text-content">
+                      <p>
+                          ${post.content}
+                      </p>
+                  </div>
+              </div>
+              <!--div com texto e fundo borrado que pode ser escondida-->
+          </div>
+      </div>
+      <div class="post-actions">
+          <div class="send-action">
+              <i class="bi bi-send-fill"></i>
+          </div>
+      </div>
+
+  </div>
+    `;
+
+      // Adicionar o HTML do post ao contêiner
+      $("#denunciar").append(postHTML);
+    }
+
+  });
+
+}

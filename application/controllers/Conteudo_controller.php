@@ -33,4 +33,12 @@ class Conteudo_controller extends CI_Controller {
         $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
         $this->template->render();
 	}
+
+	public function getPosts()
+	{
+		
+		$this->load->model('conteudo_model');
+		$posts = $this->conteudo_model->getPostsFromDB();
+		echo json_encode($posts);
+	}
 }

@@ -702,14 +702,11 @@ body {
 .blurred-text-content p {
 	color: #000;
 }
-#background-content-1 {
-	background-image: url("https://metalurgicos.org.br/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-23-at-12.22.17.jpeg");
-	background-size: cover;
-}
 .content-background {
 	position: relative;
 	height: 450px;
 	border-radius: 10px;
+	background-size: cover;
 }
 .blurred-back-text {
 	position: absolute;
