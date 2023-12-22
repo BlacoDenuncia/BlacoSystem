@@ -27,10 +27,10 @@ class Posts_controller extends CI_Controller
                 $this->template->write_view('menu', 'admin/admin_menu', $current_page, FALSE);
                 $this->template->render();
             } else {
-                redirect(login_controller);
+                redirect('login_controller');
             }
         } else {
-            redirect(login_controller);
+            redirect('login_controller');
         }
 
     }
