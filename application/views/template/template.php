@@ -60,7 +60,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
-                  <p>Instalar o aplicativo na tela inicial só traz benefícios! 
+                  <p>Instalar o aplicativo só traz benefícios! 
                   </p>
                   <ul id="listaInstallModal">
                      <li>Execução mais rápida do aplicativo</li>
@@ -69,7 +69,8 @@
                   </ul>
                </div>
                <div class="modal-footer">
-                  <button id="installButton" type="button" class="btn btn-danger">Instalar na tela inicial</button>
+                  <button id="installButton" type="button" class="btn btn-danger">Adicionar na tela inicial</button>
+                  <button id="installApkButton" type="button" class="btn btn-success"><a id="android-download" href="https://github.com/BlacoDenuncia/BlacoSystem/releases/download/beta/BLACO.-.Tecnologia.Antirracista.apk"><i class="bi bi-android2"></i> Instalar app para android</a></button>
                </div>
             </div>
          </div>

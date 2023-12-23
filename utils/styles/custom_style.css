@@ -87,7 +87,7 @@ body {
 	margin-bottom: 1px;
 }
 
-.bottom-nav-item-content a {
+.bottom-nav-item-content a{
 	text-decoration: none;
 }
 
@@ -795,4 +795,8 @@ body {
 }
 .dz-details img {
 	border: 1px solid #100e34;
+}
+#android-download{
+	color: #fff;
+	text-decoration: none;
 }
