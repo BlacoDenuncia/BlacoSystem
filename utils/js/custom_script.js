@@ -104,7 +104,12 @@ $(document).ready(function () {
           $('#installModal').modal('hide');
         }*/
   }
+  var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 
+  if (isFirefox) {
+    $('#installModal').modal('show');
+    $('#installButton').hide();
+  }
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () =>
@@ -224,7 +229,7 @@ function addPostsToPage(posts) {
 
 
   posts.forEach(function (post) {
-    
+
     if (post.post_type == "conceitos") {
       var postHTML = `
       <div id="${post.post_id}" class="content-post"><!--div geral do post-->
