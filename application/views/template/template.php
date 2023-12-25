@@ -128,6 +128,24 @@
             </div>
          </div>
       </div>
+      <div id="cancelModal" class="modal fade" tabindex="-1" role="dialog">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header" style="color: red;">
+                  <i class="bi bi-x-circle-fill"></i>
+                  <h5 class="modal-title">QUER MESMO CANCELAR A DENUNCIA?</h5>
+               </div>
+               <div class="modal-body">
+                  <p>Você está a poucos passos de concluir! Se não estiver se sentindo confiante <strong>CANCELE A DENUNCIA E COMECE NOVAMENTE DE FORMA ANÔNIMA!</strong> Mesmo assim, se ainda não se sentir seguro(a) fique a vontade pra denunciar em outro momento &#128549; 
+                  </p>
+               </div>
+               <div class="modal-footer">
+                  <button id="cancelReportBtn" type="button" class="btn btn-danger">Desistir da denúncia</button>
+                  <button id="closeModalBtn" type="button" class="tn-close btn btn-success" data-bs-dismiss="modal" aria-label="Close">Continuar a denúncia</button>
+               </div>
+            </div>
+         </div>
+      </div>
    </div>
 
    <!--importa scripts após carregamento da página-->

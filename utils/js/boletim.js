@@ -354,11 +354,9 @@ $(document).ready(function () {
 	var submitAnswersButton = $('#submitAnswers');
 	var messageNumber = 1;
 	var tipoDenuncia;
-	// Variáveis para armazenar respostas
-	var v1, v2, v3;
 
 
-	// Função para permitir a pressionar a tecla Enter para enviar a mensagem
+	// permitir pressionar a tecla Enter para enviar a mensagem
 	userInput.keypress(function (event) {
 		if (event.which === 13) {
 			sendButton.click();
@@ -651,6 +649,16 @@ $(document).ready(function () {
 	}
 
 	// Inicializar o chatbot
+	$('.answerInput').hide();
 	fetchFirstMessage(messageNumber);
 
+	$("#cancelReport").on('click', function (){
+		$("#cancelModal").modal('show');
+	});
+	$("#cancelReportBtn").on('click', function (){
+		window.location.reload(true);
+	});
+
 });
+// botao fazer nova denuncia ( chama fetchFirstMessage )
+// botao cancelar Denuncia exibe um popout que pergunta se qeur mesmo cancelar, se clicar em cancelar dar um reload a pagina
