@@ -629,6 +629,8 @@ $(document).ready(function () {
 		$('.body').append('<div class="botSection">' + '<div class="messages bot-reply ">' + mensagem + '</div>' + '<div class="seperator"></div>' + '</div>');
 		exibirInput(tipoDenuncia);
 		if (messageNumber !== 1) { $('#send').prop('disabled', false); }
+		if (tipoDenuncia == 'comum' && messageNumber == 18) { $("#send").hide(); }
+		else if (tipoDenuncia == 'anonima' && messageNumber == 14){ $("#send").hide(); }
 	}
 
 	function fetchFirstMessage(messageNumber) {
