@@ -1,20 +1,20 @@
-.tab-content{
+.tab-content {
 	margin-top: 10px;
 }
 .nav-link {
-	color: #ff470f; 
+	color: #ff470f;
 }
-.nav-link:hover{
-	color: #ff470f; 
+.nav-link:hover {
+	color: #ff470f;
 }
-.nav-item.active{
+.nav-item.active {
 	color: #fa5019;
 }
 
 body {
 	color: #ffffff;
 }
-#listaInstallModal{
+#listaInstallModal {
 	margin: 5px;
 }
 
@@ -222,11 +222,6 @@ body {
 	font-weight: 400;
 	font-size: 1em;
 }
-.racismReport {
-	padding: 10px;
-	max-width: 100vw;
-	margin: 0 auto;
-}
 
 .form-footer,
 .modal-footer {
@@ -247,9 +242,7 @@ body {
 	margin-bottom: 5px;
 	max-width: 100vw;
 }
-.btnRecebeLocalizacao {
-	border-radius: 10px;
-}
+
 .card {
 	background-color: #e1e1e1;
 }
@@ -337,7 +330,7 @@ body {
 	flex-wrap: nowrap;
 	align-items: center;
 }
-#blaco-logo{
+#blaco-logo {
 	width: 50px;
 }
 .link-card-text {
@@ -446,27 +439,27 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	text-align:left;
+	text-align: left;
 	margin-top: 10px;
 }
-#editarDados{
+#editarDados {
 	margin-bottom: 10px;
 }
-#text-info{
+#text-info {
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 }
-.conta-links{
+.conta-links {
 	display: flex;
 	justify-content: space-between;
 }
-.conta-links .btn{
+.conta-links .btn {
 	width: 48%;
 }
 .modal {
 	color: #1c1c1c;
 }
-.planilhas-links{
+.planilhas-links {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
@@ -474,116 +467,116 @@ body {
 	align-items: center;
 	min-height: calc(100vh - 50px);
 }
-.planilhas-links .btn{
+.planilhas-links .btn {
 	width: 70%;
 }
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @-webkit-keyframes come-in {
-  0% {
-    -webkit-transform: translatey(100px);
-            transform: translatey(100px);
-    opacity: 0;
-  }
-  30% {
-    -webkit-transform: translateX(-50px) scale(0.4);
-            transform: translateX(-50px) scale(0.4);
-  }
-  70% {
-    -webkit-transform: translateX(0px) scale(1.2);
-            transform: translateX(0px) scale(1.2);
-  }
-  100% {
-    -webkit-transform: translatey(0px) scale(1);
-            transform: translatey(0px) scale(1);
-    opacity: 1;
-  }
+	0% {
+		-webkit-transform: translatey(100px);
+		transform: translatey(100px);
+		opacity: 0;
+	}
+	30% {
+		-webkit-transform: translateX(-50px) scale(0.4);
+		transform: translateX(-50px) scale(0.4);
+	}
+	70% {
+		-webkit-transform: translateX(0px) scale(1.2);
+		transform: translateX(0px) scale(1.2);
+	}
+	100% {
+		-webkit-transform: translatey(0px) scale(1);
+		transform: translatey(0px) scale(1);
+		opacity: 1;
+	}
 }
 @keyframes come-in {
-  0% {
-    -webkit-transform: translatey(100px);
-            transform: translatey(100px);
-    opacity: 0;
-  }
-  30% {
-    -webkit-transform: translateX(-50px) scale(0.4);
-            transform: translateX(-50px) scale(0.4);
-  }
-  70% {
-    -webkit-transform: translateX(0px) scale(1.2);
-            transform: translateX(0px) scale(1.2);
-  }
-  100% {
-    -webkit-transform: translatey(0px) scale(1);
-            transform: translatey(0px) scale(1);
-    opacity: 1;
-  }
+	0% {
+		-webkit-transform: translatey(100px);
+		transform: translatey(100px);
+		opacity: 0;
+	}
+	30% {
+		-webkit-transform: translateX(-50px) scale(0.4);
+		transform: translateX(-50px) scale(0.4);
+	}
+	70% {
+		-webkit-transform: translateX(0px) scale(1.2);
+		transform: translateX(0px) scale(1.2);
+	}
+	100% {
+		-webkit-transform: translatey(0px) scale(1);
+		transform: translatey(0px) scale(1);
+		opacity: 1;
+	}
 }
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
-html, body {
-  background: #eaedf2;
-  font-family: 'Roboto', sans-serif;
+html,
+body {
+	background: #eaedf2;
+	font-family: "Roboto", sans-serif;
 }
 
 .floating-container {
-  position: fixed;
-  width: 100px;
-  height: 100px;
-  bottom: 0;
-  left: 0;
-  margin: 35px 5px;
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	bottom: 0;
+	left: 0;
+	margin: 35px 5px;
 }
 
 .floating-container:hover .floating-button {
-  box-shadow: 0 10px 25px rgba(44, 179, 240, 0.6);
-  -webkit-transform: translatey(5px);
-          transform: translatey(5px);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+	box-shadow: 0 10px 25px rgba(44, 179, 240, 0.6);
+	-webkit-transform: translatey(5px);
+	transform: translatey(5px);
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
 }
 
 .floating-container .floating-button {
-  
-  width: 65px;
-  height: 65px;
-  background: #fa5019;
-  bottom: 0;
-  border-radius: 50%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  color: white;
-  line-height: 65px;
-  text-align: center;
-  font-size: 23px;
-  z-index: 100;
-  box-shadow: 0 10px 25px -5px rgba(240, 155, 44, 0.6);
-  cursor: pointer;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+	width: 65px;
+	height: 65px;
+	background: #fa5019;
+	bottom: 0;
+	border-radius: 50%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	color: white;
+	line-height: 65px;
+	text-align: center;
+	font-size: 23px;
+	z-index: 100;
+	box-shadow: 0 10px 25px -5px rgba(240, 155, 44, 0.6);
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
 }
 .floating-container .float-element {
-  position: relative;
-  display: block;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin: 15px auto;
-  color: white;
-  font-weight: 500;
-  text-align: center;
-  line-height: 50px;
-  z-index: 0;
-  opacity: 0;
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
+	position: relative;
+	display: block;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	margin: 15px auto;
+	color: white;
+	font-weight: 500;
+	text-align: center;
+	line-height: 50px;
+	z-index: 0;
+	opacity: 0;
+	-webkit-transform: translateY(100px);
+	transform: translateY(100px);
 }
 .floating-container .float-element .material-icons {
-  vertical-align: middle;
-  font-size: 16px;
+	vertical-align: middle;
+	font-size: 16px;
 }
 /* Estilos para a barra superior */
 #nearest-police {
@@ -599,130 +592,14 @@ html, body {
 }
 #nearest-police button {
 	background-color: #fff;
-	color: #007BFF;
+	color: #007bff;
 	border: none;
 	padding: 5px 10px;
 	border-radius: 5px;
 	cursor: pointer;
 }
-.report-form{
-	color: #1c1c1c;
-}
-#report-chat {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 20px;
-  }
-  
-  /* Make container slightly rounded. Set height and width to 90 percent of .bots' */
-  #container {
-	height: 100%;
-	width: 100%;
-	border-radius: 6px;
-	background: #1c1c1c;
-  }
-  
-  /* Style header section */
-  #header {
-	width: 100%;
-	height: 10%;
-	border-radius: 5px 5px 0px 0px;
-	background: #303030;
-	text-align: center;
-	font-size: 1.75rem;
-  }
-  
-  /* Style body */
-  #body {
-	width: 100%;
-	height: 75%;
-	background-color: #1c1c1c;
-	overflow-y: auto;
-	display: flex;
-	flex-direction: column;
-  }
-  
-  /* Style container for user messages */
-  .userSection {
-	width: 100%;
-  }
-  
-  /* Seperates user message from bot reply */
-  .seperator {
-	width: 100%;
-	height: 10px;
-  }
-  
-  /* General styling for all messages */
-  .messages {
-	max-width: 60%;
-	margin: .5rem;
-	font-size: 1.2rem;
-	padding: .5rem;
-	border-radius: 7px;
-	overflow-wrap: break-word;
-  }
-  
-  /* Targeted styling for just user messages */
-  .user-message {
-	margin-top: 1rem;
-	text-align: right;
-	background: #e1e1e1;
-	color: black;
-	float: right;
-  }
-  
-  /* Targeted styling for just bot messages */
-  .bot-reply {
-	text-align: left;
-	background: #fa5019;
-	margin-top: 1rem;
-	float: left;
-	color: white;
-	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Style the input area */
-  #inputArea {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 10px;
-	height: 10%;
-	padding: 1rem;
-	background: transparent;
-  }
-  
-  /* Style the text input */
-  #userInput {
-	height: 20px;
-	width: 80%;
-	background-color: white;
-	border-radius: 6px;
-	padding: 1rem;
-	font-size: 1rem;
-	border: none;
-	outline: none;
-	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Style send button */
-  #send {
-	font-size: 1rem;
-	text-align: center;
-	width: 20%;
-	color: white;
-	background: #ff470f;
-	cursor: pointer;
-	border: none;
-	border-radius: 6px;
-	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  #cancelReport{
-	width: 20%;
-  }
-  #seletores-mensagens{
+
+#seletores-mensagens {
 	height: 200px;
 	background-color: #100e34;
-  }
+}

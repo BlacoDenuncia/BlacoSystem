@@ -90,3 +90,4 @@
         </div>
     </div>
 </div>
+<link rel="stylesheet" href="<?php echo base_url();?>utils/styles/report_style.css">
