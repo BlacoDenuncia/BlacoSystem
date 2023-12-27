@@ -495,7 +495,7 @@ $(document).ready(function () {
 
 	function showUserMessage(message) {
 		$('.body').append('<div class="userSection">' + '<div class="messages user-message">' + message + '</div>' + '<div class="seperator"></div>' + '</div>');
-		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+		$("html, body").animate({ scrollTop: $(document).height() }, 100);
 	}
 
 	function sendMessageToChatbot(userMessage, tipoDenuncia) {
@@ -550,73 +550,71 @@ $(document).ready(function () {
 
 	function exibirInput(tipoDenuncia) {
 		// Oculta todos os inputs com uma animação de fadeOut
-		if (messageNumber !== 1) {
-			$('.answerInput').fadeOut(10);
-		}
+		$('.answerInput').prop('hidden', true)
 
 		if (tipoDenuncia === "anonima") {
 			if (messageNumber === 2) {
-				$('#genero_vitima').fadeIn(300);
+				$('#genero_vitima').prop('hidden', false);
 			} else if (messageNumber === 3) {
-				$('#etnia_vitima').fadeIn(300);
+				$('#etnia_vitima').prop('hidden', false);
 			} else if (messageNumber === 4) {
-				$('#tipo_violencia').fadeIn(300);
+				$('#tipo_violencia').prop('hidden', false);
 			} else if (messageNumber === 5) {
-				$('#descricao_agressor').fadeIn(300);
+				$('#descricao_agressor').prop('hidden', false);
 			} else if (messageNumber === 6) {
-				$('#descricao_caso').fadeIn(300);
+				$('#descricao_caso').prop('hidden', false);
 			} else if (messageNumber === 7) {
 				$('#send').text('Não usar');
-				$('#btnRecebeLocalizacao').fadeIn(300);
+				$('#btnRecebeLocalizacao').prop('hidden', false);
 			} else if (messageNumber === 8) {
 				$('#send').text('Enviar');
-				$('#rua').fadeIn(300);
+				$('#rua').prop('hidden', false);
 			} else if (messageNumber === 9) {
-				$('#bairro').fadeIn(300);
+				$('#bairro').prop('hidden', false);
 			} else if (messageNumber === 10) {
-				$('#cidade').fadeIn(300);
+				$('#cidade').prop('hidden', false);
 			} else if (messageNumber === 11) {
-				$('#estado').fadeIn(300);
+				$('#estado').prop('hidden', false);
 			} else if (messageNumber === 12) {
-				$('#tipo_estabelecimento').fadeIn(300);
+				$('#tipo_estabelecimento').prop('hidden', false);
 			} else {
-				$('.answerInput').fadeOut(300);
+				$('.answerInput').prop('hidden', true);
 			}
 		} else {
 			if (messageNumber === 2) {
-				$('#nome_vitima').fadeIn(300);
+				$('#nome_vitima').prop('hidden', false);
 			} else if (messageNumber === 3) {
-				$('#idade_vitima').fadeIn(300);
+				$('#idade_vitima').prop('hidden', false);
 			} else if (messageNumber === 4) {
-				$('#contato_vitima').fadeIn(300);
+				$('#contato_vitima').prop('hidden', false);
 			} else if (messageNumber === 5) {
-				$('#email_vitima').fadeIn(300);
+				$('#email_vitima').prop('hidden', false);
 			} else if (messageNumber === 6) {
-				$('#genero_vitima').fadeIn(300);
+				$('#genero_vitima').prop('hidden', false);
 			} else if (messageNumber === 7) {
-				$('#etnia_vitima').fadeIn(300);
+				$('#etnia_vitima').prop('hidden', false);
 			} else if (messageNumber === 8) {
-				$('#tipo_violencia').fadeIn(300);
+				$('#tipo_violencia').prop('hidden', false);
 			} else if (messageNumber === 9) {
-				$('#descricao_agressor').fadeIn(300);
+				$('#descricao_agressor').prop('hidden', false);
 			} else if (messageNumber === 10) {
-				$('#descricao_caso').fadeIn(300);
+				$('#descricao_caso').prop('hidden', false);
 			} else if (messageNumber === 11) {
 				$('#send').text('Não usar');
-				$('#btnRecebeLocalizacao').fadeIn(300);
+				$('#btnRecebeLocalizacao').prop('hidden', false);
 			} else if (messageNumber === 12) {
 				$('#send').text('Enviar');
-				$('#rua').fadeIn(300);
+				$('#rua').prop('hidden', false);
 			} else if (messageNumber === 13) {
-				$('#bairro').fadeIn(300);
+				$('#bairro').prop('hidden', false);
 			} else if (messageNumber === 14) {
-				$('#cidade').fadeIn(300);
+				$('#cidade').prop('hidden', false);
 			} else if (messageNumber === 15) {
-				$('#estado').fadeIn(300);
+				$('#estado').prop('hidden', false);
 			} else if (messageNumber === 16) {
-				$('#tipo_estabelecimento').fadeIn(300);
+				$('#tipo_estabelecimento').prop('hidden', false);
 			} else {
-				$('.answerInput').fadeOut(300);
+				$('.answerInput').prop('hidden', true);
 			}
 		}
 		// Mostra o input apropriado com uma animação de fadeIn
@@ -649,7 +647,6 @@ $(document).ready(function () {
 	}
 
 	// Inicializar o chatbot
-	$('.answerInput').hide();
 	fetchFirstMessage(messageNumber);
 
 	$("#cancelReport").on('click', function (){
@@ -660,5 +657,3 @@ $(document).ready(function () {
 	});
 
 });
-// botao fazer nova denuncia ( chama fetchFirstMessage )
-// botao cancelar Denuncia exibe um popout que pergunta se qeur mesmo cancelar, se clicar em cancelar dar um reload a pagina

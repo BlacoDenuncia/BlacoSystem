@@ -34,43 +34,43 @@
                 <input type="hidden" name="data_hora_envio" id="data_hora_envio" value="">
                 <input type="hidden" name="id_usuario" id="id_usuario" value="">
                 <input type="text" class="form-control answerInput" id="nome_vitima" name="nome_vitima"
-                    placeholder="Digite seu nome">
-                <input type="number" class="form-control answerInput" id="idade_vitima" name="idade_vitima">
+                    placeholder="Digite seu nome" hidden>
+                <input type="number" class="form-control answerInput" id="idade_vitima" name="idade_vitima" hidden>
                 <input type="text" class="form-control answerInput" id="contato_vitima" name="contato_vitima"
-                    placeholder="Digite o seu número">
+                    placeholder="Digite o seu número" hidden>
                 <input type="email" class="form-control answerInput" id="email_vitima" name="email_vitima"
-                    placeholder="Digite seu melhor email">
-                <select class="form-control answerInput" id="genero_vitima" name="genero_vitima">
+                    placeholder="Digite seu melhor email" hidden>
+                <select class="form-control answerInput" id="genero_vitima" name="genero_vitima" hidden>
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminino</option>
                     <option value="Outro">Outro</option>
                 </select>
-                <select class="form-control answerInput" id="etnia_vitima" name="etnia_vitima">
+                <select class="form-control answerInput" id="etnia_vitima" name="etnia_vitima" hidden>
                     <option value="Negro">Negro</option>
                     <option value="Branco">Branco</option>
                     <option value="Pardo">Pardo</option>
                     <option value="Indígena">Indígena</option>
                     <option value="Asiático">Asiático</option>
                 </select>
-                <select class="form-control answerInput" id="tipo_violencia" name="tipo_violencia">
+                <select class="form-control answerInput" id="tipo_violencia" name="tipo_violencia" hidden>
                     <option value="Xingamentos Ofensivos">Xingamentos Ofensivos</option>
                     <option value="Violência Física">Violência Física</option>
                     <option value="Discriminação">Discriminação</option>
                     <option value="Privação de direitos">Privação de direitos</option>
                 </select>
                 <input type="text" class="form-control answerInput" id="descricao_agressor" name="descricao_agressor"
-                    placeholder="Descreva com detalhes o agressor"></input>
+                    placeholder="Descreva com detalhes o agressor" hidden></input>
                 <input type="text" class="form-control answerInput" id="descricao_caso" name="descricao_caso"
-                    placeholder="Descreva o que aconteceu"></input>
-                <button type="button" class=" answerInput btn btn-danger btn-sm btnRecebeLocalizacao" id="btnRecebeLocalizacao"><i
+                    placeholder="Descreva o que aconteceu" hidden></input>
+                <button type="button" class=" answerInput btn btn-danger btn-sm btnRecebeLocalizacao" id="btnRecebeLocalizacao" hidden><i
                         class="bi bi-geo-alt-fill"></i>Localização atual</button>
-                <input type="text" class="form-control answerInput" id="rua" name="rua" value=" " placeholder="Em que rua você estava?">
-                <input type="text" class="form-control answerInput" id="bairro" name="bairro" value=" " placeholder="Qual bairro?">
+                <input type="text" class="form-control answerInput" id="rua" name="rua" value=" " placeholder="Em que rua você estava?" hidden>
+                <input type="text" class="form-control answerInput" id="bairro" name="bairro" value=" " placeholder="Qual bairro?" hidden>
                 <input type="text" class="form-control answerInput" id="cidade" name="cidade" value=" " placeholder="Cidade em que ocorreu"
-                    required>
+                    required hidden>
                 <input type="text" class="form-control answerInput" id="estado" name="estado" value=" " placeholder="Estado em que ocorreu"
-                    required>
-                <select class="form-control answerInput" id="tipo_estabelecimento" name="tipo_estabelecimento">
+                    required hidden>
+                <select class="form-control answerInput" id="tipo_estabelecimento" name="tipo_estabelecimento" hidden>
                     <option value="Local público">Local Público</option>
                     <option value="Empresa privada">Empresa privada</option>
                     <option value="Shopping">Shopping</option>
