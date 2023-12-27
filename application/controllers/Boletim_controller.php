@@ -89,8 +89,8 @@ class Boletim_controller extends CI_Controller
 
         $mensagens = [
             2 => 'Selecione o seu gênero:',
-            3 => 'Selecione a raça/cor que melhor te identifica:',
-            4 => 'Sobre a denúncia, qual o tipo de violência você considera ter sofrido? Selecione abaixo',
+            3 => 'Selecione a sua raça/cor:',
+            4 => 'Sobre a denúncia, qual o tipo de violência você considera ter sofrido? Selecione abaixo:',
             5 => 'Faça uma descrição das características do agressor:',
             6 => 'Descreva com o máximo de detalhes o que ocorreu:',
             7 => 'Informe a localização do ocorrido. Deseja preencher com a localização atual? ',
@@ -122,13 +122,13 @@ class Boletim_controller extends CI_Controller
         $mensagem_numero = $this->input->post('messageNumber');
 
         $mensagens = [
-            2 => 'Qual o seu nome completo?',
+            2 => 'Qual é o seu nome completo?',
             3 => 'Informe a sua idade:',
-            4 => 'Digite o numero do telefone de contato',
-            5 => 'Digite o email de contato: ( uma cópia da denuncia será enviada ao seu email )',
+            4 => 'Digite o número do telefone de contato:',
+            5 => 'Digite o email de contato: ( uma cópia da denúncia será enviada ao seu email )',
             6 => 'Selecione o seu gênero:',
-            7 => 'Selecione a raça/cor que melhor te identifica:',
-            8 => 'Sobre a denúncia, qual o tipo de violência você considera ter sofrido? Selecione abaixo',
+            7 => 'Selecione a sua raça/cor:',
+            8 => 'Sobre a denúncia, qual o tipo de violência você considera ter sofrido? Selecione abaixo:',
             9 => 'Faça uma descrição das características do agressor:',
             10 => 'Descreva com o máximo de detalhes o que ocorreu:',
             11 => 'Informe a localização do ocorrido. Deseja preencher com a localização atual? ',
