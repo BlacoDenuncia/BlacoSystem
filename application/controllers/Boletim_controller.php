@@ -41,6 +41,7 @@ class Boletim_controller extends CI_Controller
             $email = $user_data['email'];
             $telefone = $user_data['telefone'];
             $observacoes = $user_data['observacoes'];
+            $perf_image = $user_data['photo_path'];
 
             $data = array(
                 'idusuario' => $idusuario,
@@ -49,6 +50,7 @@ class Boletim_controller extends CI_Controller
                 'email' => $email,
                 'telefone' => $telefone,
                 'observacoes' => $observacoes,
+                'perf_image' => $perf_image,
                 'current_page' => $this->determineCurrentPage()
             );
 

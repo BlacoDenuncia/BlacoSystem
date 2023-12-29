@@ -495,7 +495,20 @@ $(document).ready(function () {
 	}
 
 	function showUserMessage(message) {
-		$('.body').append('<div class="userSection">' + '<div class="messages user-message">' + message + '</div>' + '<div class="seperator"></div>' + '</div>');
+		if (userData != null)
+		{
+			var perfImgPath = base_url + userData.photo_path;
+			if(perfImgPath == null)
+			{
+				perfImgPath = base_url + 'usersPhotos/default.jpg';
+				
+			}
+		}
+		else 
+		{
+			var perfImgPath = base_url + 'usersPhotos/default.jpg';
+		}
+		$('.body').append('<div class="userSection">' + '<div class="user-reply"> ' + '<div class="messages user-message">' + message + '</div>' + `<img class="user-perf-image" src="${perfImgPath}">`  + '</div>' + '<div class="seperator"></div>' + '</div>');
 		$("html, body").animate({ scrollTop: $(document).height() }, 100);
 	}
 
@@ -623,8 +636,8 @@ $(document).ready(function () {
 	}
 
 	function showBotReply(mensagem, tipoDenuncia) {
-		$('.body').append('<div class="botSection">' + '<div class="messages bot-reply ">' + mensagem + '</div>' + '<div class="seperator"></div>' + '</div>');
-		exibirInput(tipoDenuncia);
+		$('.body').append('<div class="botSection">' + '<div class="bot-message">' + `<div class="bot-image"><img src="${base_url}/utils/img/logo-blaco-branca.svg"> </div>` + '<div class="messages bot-reply ">' + mensagem + '</div>' + '</div>' + '<div class="seperator"></div>' + '</div>');
+		exibirInput(tipoDenuncia); 
 		if (messageNumber !== 1) { $('#send').prop('disabled', false); }
 		if (tipoDenuncia == 'comum' && messageNumber == 18) { $("#send").hide(); }
 		else if (tipoDenuncia == 'anonima' && messageNumber == 14){ $("#send").hide(); }

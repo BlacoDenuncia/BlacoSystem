@@ -67,7 +67,6 @@
 .bot-reply {
 	text-align: left;
 	background: #fa5019;
-	margin-top: 1rem;
 	float: left;
 	color: white;
 	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
@@ -96,7 +95,6 @@
 }
 
 #send {
-	font-size: 1rem;
 	text-align: center;
 	width: 20%;
 	color: white;
@@ -105,10 +103,18 @@
 	border: none;
 	border-radius: 6px;
 	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+	flex-shrink: 1;
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
 }
 
 #cancelReport {
 	width: 20%;
+	flex-shrink: 1;
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
 }
 
 .report-form {
@@ -159,4 +165,46 @@
 	to {
 		opacity: 1;
 	}
+}
+
+.bot-message {
+	display: flex;
+	margin-top: 1rem;
+}
+
+.bot-image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #303030;
+	height: 45px;
+	border: 1px solid #555;
+	border-radius: 60%;
+	margin-top: 12px;
+}
+
+.bot-image img {
+	width: 40px;
+}
+
+.user-reply {
+	display: flex;
+	margin-top: 1rem;
+	text-align: right;
+	justify-content: right;
+}
+
+.user-perf-image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #fa5019;
+	height: 45px;
+	border: 1px solid #e1e1e1;
+	border-radius: 60%;
+	margin-top: 12px;
+}
+
+.user-perf-image img {
+	width: 40px;
 }
