@@ -23,7 +23,8 @@
 #header {
 	width: 100%;
 	height: 10%;
-	border-radius: 5px 5px 0px 0px;
+	border-radius: 8px 8px 0px 0px;
+	border: 2px solid #e1e1e1;
 	background: #303030;
 	text-align: center;
 	font-size: 1.75rem;
@@ -59,16 +60,16 @@
 .user-message {
 	margin-top: 1rem;
 	text-align: right;
-	background: #e1e1e1;
-	color: black;
+	background: #fa5019;
+	color: white;
 	float: right;
 }
 
 .bot-reply {
 	text-align: left;
-	background: #fa5019;
+	background: #e1e1e1;
 	float: left;
-	color: white;
+	color: black;
 	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
 

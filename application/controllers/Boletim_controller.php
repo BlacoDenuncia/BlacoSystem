@@ -101,9 +101,9 @@ class Boletim_controller extends CI_Controller
             10 => 'Informe a cidade',
             11 => 'Informe o Estado',
             12 => 'Qual o tipo do estabelecimento?',
-            13 => 'Informações enviadas serão enviadas para um orgão de segurança e, dados não pessoais, utilizadas para fins estatísticos e de pesquisa. Elas não serão compartilhadas publicamente </br></br> <input type="checkbox" class="form-check-input" id="aceitaDadosCheck">
-            <label class="form-check-label" for="aceitaDadosCheck">Eu aceito a utilização dos dados da minha
-               denúncia</label>',
+            13 => 'Informações enviadas serão enviadas para um orgão de segurança e, dados não pessoais, utilizadas para fins estatísticos e de pesquisa. Elas não serão compartilhadas publicamente </br></br> 
+            <div class="container"><input type="checkbox" class="form-check-input" id="aceitaDadosCheck"><label class="form-check-label" for="aceitaDadosCheck">Eu aceito a utilização dos dados da minha
+               denúncia</label></div>',
             14 => 'Chegamos ao fim! Ao contribuir com essa denúncia, orgãos públicos e privados podem ajudar de forma mais eficiente nos combate a desigualdades e preconceitos. </br></br> Encaminharemos a denúncia e a ajuda necessária entrará em contato </br</br> <button type="button" class="btn btn-success btnEnviarDenuncia" id="btnEnviarDenuncia">
             <span class="bi bi-check" aria-hidden="true"></span> Enviar
          </button>',
