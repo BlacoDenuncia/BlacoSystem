@@ -81,9 +81,6 @@
                 </select>
 
 
-
-
-
                 <button id="send" class=" btn " value="Send" disabled>
                     <span class="popuptext" id="emptyPopup">Preencha todos os campos!</span>
                     <i class="bi bi-send-fill"></i> Enviar

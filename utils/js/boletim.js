@@ -1,9 +1,4 @@
-
-/* a cada clique dividir o código em novas funções que vão chamar perguntas específicas*/
-//condicionais a serem feitas: testemunha ou vítima?
-
 $(document).ready(function () {
-	// Função para preencher os campos de endereço com base na geolocalização
 	var btnLocal;
 
 	function preencherEnderecoComGeolocalizacao() {
