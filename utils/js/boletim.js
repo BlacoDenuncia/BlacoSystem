@@ -411,6 +411,9 @@ $(document).ready(function () {
 			if (userMessage.trim() !== '') {
 				sendMessageToChatbot(userMessage, tipoDenuncia);
 			}
+			else{
+				$("#emptyPopup").toggleClass("show");
+			}
 		} else {
 			if (messageNumber === 2) {
 				var userMessage = $("#nome_vitima").val();
@@ -456,6 +459,9 @@ $(document).ready(function () {
 			}
 			if (userMessage.trim() !== '') {
 				sendMessageToChatbot(userMessage, tipoDenuncia);
+			}
+			else{
+				$("#emptyPopup").toggleClass("show");
 			}
 		}
 

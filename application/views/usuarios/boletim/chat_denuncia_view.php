@@ -84,7 +84,10 @@
 
 
 
-                <button id="send" class=" btn " value="Send" disabled><i class="bi bi-send-fill"></i> Enviar</button>
+                <button id="send" class=" btn " value="Send" disabled>
+                    <span class="popuptext" id="emptyPopup">Preencha todos os campos!</span>
+                    <i class="bi bi-send-fill"></i> Enviar
+                </button>
                 <button id="cancelReport" class=" btn btn-danger " value="Cancel"><i class="bi bi-x-circle-fill"></i> Desistir</button>
             </div>
         </div>
