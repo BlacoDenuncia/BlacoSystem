@@ -1,16 +1,19 @@
+# BLACO
 <p align="center"><img align="center" width="200px" src="/utils/img/logo-blaco-branca.svg"/></p>
 <p align="center">
   <img src="https://skillicons.dev/icons?i=react,vite,ts" />
   <br/>
-  <a href="[https://discord.movie-web.app](https://github.com/BlacoDenuncia/BlacoSystem/releases/download/beta/BLACO.-.Tecnologia.Antirracista.apk)"><kbd>🔵 download</kbd></a> <a href="https://blaco.com.br"><kbd>🟢 website</kbd></a>
+  <a href="https://github.com/BlacoDenuncia/BlacoSystem/releases/download/beta/BLACO.-.Tecnologia.Antirracista.apk"><kbd>🔵 download</kbd></a> <a href="https://blaco.com.br"><kbd>🟢 website</kbd></a>
 </p>
-# BlacoSystem
+<br></br>
 
-Visão Geral:
+## :question: O que é o BLACO?
 
-Este aplicativo é uma plataforma de denúncia ao racismo, desenvolvida usando as linguagens JavaScript, PHP por meio dos frameworks jQuery e Codeigniter. O projeto é inicialmente um website convertido em uma Progressive Web App (PWA). Ele permite que os usuários relatem incidentes de racismo de forma rápida e fornece uma interface para a gestão de denúncias.
+Este aplicativo é uma plataforma de denúncia ao racismo, projetado para auxiliar vítimas inicialmente da região de Contagem. Você pode conferir o funcionamento em <a href="https://blaco.com.br"><kbd>blaco.com.br</kbd></a>
 
-Instalação:
+O nome da aplicação surgiu de nome anterior do projeto: Black Consciousness. Após recebermos alguns feedbacks, decidimos "abrasileirar" o nome, facilitando a pronuncia e dando nossa própria identidade ao projeto.
+
+##
 
 Requisitos:
 
