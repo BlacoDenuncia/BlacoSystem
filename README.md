@@ -1,7 +1,7 @@
 # BLACO
 <p align="center"><img align="center" width="200px" src="/utils/img/logo-blaco-branca.svg"/></p>
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=react,vite,ts" />
+  <img src="https://skillicons.dev/icons?i=php,js,jquery,bootstrap,html,css&perline=3" />
   <br/>
   <a href="https://github.com/BlacoDenuncia/BlacoSystem/releases/download/beta/BLACO.-.Tecnologia.Antirracista.apk"><kbd>🔵 download</kbd></a> <a href="https://blaco.com.br"><kbd>🟢 website</kbd></a>
 </p>
