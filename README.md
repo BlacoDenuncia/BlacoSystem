@@ -13,7 +13,7 @@ Este aplicativo é uma plataforma de denúncia ao racismo, projetado para auxili
 
 O nome da aplicação surgiu de nome anterior do projeto: Black Consciousness. Após recebermos alguns feedbacks, decidimos "abrasileirar" o nome, facilitando a pronuncia e dando nossa própria identidade ao projeto.
 
-## 🔥Funcionalidades
+## 🔥 Funcionalidades
 
 - Visualize todas as delegacias da região e saiba a mais próxima da sua localização atual
 - Possibilidade de login, preenchimento de dados previamente para reutilizar mais tarde e acesso a denúncias anteriores
@@ -37,7 +37,14 @@ O propósito do projeto é, acima de tudo, permitir que pessoas que se sintam in
 - As views são carregadas em cada controller utilizando a biblioteca Template, que as carrega a partir de uma página principal
 - Arquivos de imagem, scripts e estilos podem ser encontrados na pasta /utils
 
-- Servidor web com suporte ao PHP.
+## :grey_exclamation: Como rodar localmente
+
+### Avisos importantes: 
+- A aplicação utiliza as APIS do google maps e do tiny editor. As chaves de API estão armazenadas no servidor próprio e para usar as funcionalidades do mapa e de criação de posts, você deve configurar suas próprias chaves e inclui-las em um arquivo .env no diretório principal.
+  
+### Requisitos
+
+- Servidor web com suporte ao PHP 8 +.
 - Banco de dados MySQL.
 
 - Clone o repositório do aplicativo do GitHub:
@@ -46,25 +53,42 @@ O propósito do projeto é, acima de tudo, permitir que pessoas que se sintam in
 ```
 
 - Importe o arquivo SQL fornecido [(database.sql)] (https://drive.google.com/file/d/1v49QwXoZaxDWzsL65ROBhYXhFi5aLLjQ/view?usp=sharing) para criar o banco de dados.
-- Configure as credenciais do banco de dados no arquivo application/config/database.php.
+
+## Configurações
+### Configurando o ambiente CodeIgniter
+Faça as configurações de url base no arquivo /application/config/config.php. Atualize, por exemplo, para https://localhost/. Essa configuração é necessária para que os caminhos de arquivos funcionem adquadamente.
+
+Configure as credenciais de banco de dados para permitir acesso do PHP no arquivo /application/config/database.php incluindo nome do banco de dados, username e password. Em um servidor localhost padrão pode configurar como abaixo:
+```bash
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'database_name',
+```
+- A biblioteca template já está instalada e configurada nesse repositório.
+
+### Bibliotecas
+O projeto utiliza de bibliotecas PHP como PHPMailer, PHPOffice/phpspreadsheet, phpdotenv e dropzone.
+Faça a instalação local de cada uma delas. Recomendamos a instalação por meio do composer.
+Referências:
+- [(Como instalar o composer)] (https://getcomposer.org/download/)
+- [(Instalação PHPMailer)] (https://github.com/PHPMailer/PHPMailer)
+- [(Instalação PHPOffice)] (https://github.com/PHPOffice/PhpSpreadsheet)
+- [(Instalação phpdotenv)] (https://github.com/vlucas/phpdotenv/blob/master/README.md)
+- [(Instalação dropzone)] (https://docs.dropzone.dev/getting-started/installation/composer)
+
+### Progressive Web App (PWA):
+
+Este aplicativo também é uma PWA, o que significa que os usuários podem instalá-lo em seus dispositivos móveis e acessá-lo offline. Ele oferece uma experiência de aplicativo nativo com funcionalidades offline.
+
+O arquivo de configuração dos metadados da PWA localiza-se no diretório principal ( manifest.json ) e o arquivo de configurações, como de cache, na mesma pasta, chama-se sw.js
+
 
 Uso:
 
 - Acesse o aplicativo através do navegador. --> https://blaco.com.br/
 - Instale o app a partir da modal ou utilize apenas o website
-  
-Arquitetura:
 
-O aplicativo é construído usando o framework CodeIgniter, que segue uma arquitetura MVC (Model-View-Controller). As principais partes incluem:
-
-- Model: Lida com a lógica de negócios e interage com o banco de dados.
-- View: Responsável pela interface do usuário e apresentação dos dados.
-- Controller: Gerencia a comunicação entre a Model e a View.
-- Pasta utils: Contém arquivos JS e CSS que irão tratar do uso dos usuários
-
-Progressive Web App (PWA):
-
-Este aplicativo também é uma PWA, o que significa que os usuários podem instalá-lo em seus dispositivos móveis e acessá-lo offline. Ele oferece uma experiência de aplicativo nativo com funcionalidades offline.
 
 Contribuição:
 
