@@ -94,6 +94,12 @@ Dropzone.js
 
 - Utilizamos o conceito de PWA para permitir que o app seja instalado a partir do Chrome e possa ser colocado em lojas de aplicativos
 
+## ⏭️ Próximos Passos
+- Adicionar validações de cadastro
+- Implementar API de verificação de qualidade de senha
+- Desenvolver dashboards para administradores
+- Disponibilizar o projeto publicamente
+
 ## :bulb: Contribuição:
 Se desejar contribuir para o projeto:
 
