@@ -83,16 +83,23 @@ Este aplicativo também é uma PWA, o que significa que os usuários podem insta
 
 O arquivo de configuração dos metadados da PWA localiza-se no diretório principal ( manifest.json ) e o arquivo de configurações, como de cache, na mesma pasta, chama-se sw.js
 
+## :satellite: Tecnologias utilizadas
+CodeIgniter 3 
+Bootstrap 5 
+JQuery 3 
+PHP 8 
+Google Maps API 
+Tiny Editor API 
+Dropzone.js
 
-Uso:
+- Utilizamos o conceito de PWA para permitir que o app seja instalado a partir do Chrome e possa ser colocado em lojas de aplicativos
 
-- Acesse o aplicativo através do navegador. --> https://blaco.com.br/
-- Instale o app a partir da modal ou utilize apenas o website
+## :bulb: Contribuição:
+Se desejar contribuir para o projeto:
 
-
-Contribuição:
-
-*Se desejar contribuir para o projeto, siga as diretrizes de contribuição no arquivo CONTRIBUTING.md.*
+- Tenha em mente que precisará de acesso às suas próprias chaves de API para algumas das funcionalidades.
+- Faça um fork do projeto e abra um pull request detalhando as mudanças.
+- No caso de ter encontrado algum bug, tente abrir uma issue para correção dos desenvolvedores do aplicativo.
 
 Resolução de Problemas:
 
