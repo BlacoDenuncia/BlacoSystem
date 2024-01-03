@@ -164,10 +164,14 @@ $(document).ready(function () {
 					}, retryDelay);
 				} else {
 					if (retryCount == 0) {
-						$("#msg_erro").html(
-							"Ocorreu um erro da nossa parte ao enviar a denúncia para o seu email. Porém a sua denúncia FOI REGISTRADA"
-						);
-						$("#erro").show("slow");
+						// show modal if the user typed a wrong email
+						$("#emailDigitado").text(data.email_vitima);
+						$("#modalEmailInvalido").modal("show");
+
+						$("#btnEnviarEmail").click(function () {
+							data.email_vitima = $("#email_atual_vitima").val();
+							enviarEmail(data);
+						});
 					} else {
 						$("#msg_sucesso").html(
 							"Uma cópia da denuncia será enviada para seu email! Cheque seu email para mais informações"
