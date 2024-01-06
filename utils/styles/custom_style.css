@@ -666,3 +666,8 @@ body {
 	display: flex;
 	flex-direction: column;
 }
+.register-form{
+	color: #1c1c1c;
+	font-size: 17px;
+	font-family: "Roboto", sans-serif;
+}
