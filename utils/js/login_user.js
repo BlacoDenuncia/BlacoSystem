@@ -36,7 +36,7 @@ $(document).ready(function () {
                     $("html, body").animate({ scrollTop: 0 }, "slow");
                     $("#erro").show("slow");
 
-                    
+
                 } else {
                     $("#msg_sucesso").html(
                         "Logout Realizado com sucesso"
@@ -178,7 +178,7 @@ $(document).ready(function () {
         loginUser();
     });
 
-    function buscarCadastro(emailUsuario){
+    function buscarCadastro(emailUsuario) {
         $.ajax({
             type: "POST",
             url: "cadastro_controller/buscar_cadastro",
@@ -204,7 +204,21 @@ $(document).ready(function () {
         var senha = $("#senha").val();
 
         var usuExiste = buscarCadastro(email);
-        
+
+        if (!usuExiste) {
+            // validar cadastro
+        } else {
+            
+            $("#msg_erro").html("O email digitado já está cadastrado! Tente fazer LOGIN.");
+            $("#erro").show("slow");
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            
+            window.setTimeout(function() {
+                $("#erro").hide(1000);
+                window.location.href = `${base_url}login_controller`;
+            }, 3000);
+        }
+
         /* Impedir cadastro até implementação da verificação
         var data = {
             nome: nome,
