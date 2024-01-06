@@ -218,9 +218,9 @@ body {
 	font-size: 2em;
 }
 .page-title-text {
-	font-family: "Open Sans", sans-serif;
-	font-weight: 400;
-	font-size: 1em;
+	font-size: 20px;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
 }
 
 .form-footer,
@@ -306,6 +306,7 @@ body {
 	margin: 10px;
 	border-radius: 30px;
 	background-size: cover;
+	background-color: rgba(0,0,0, 0.1);
 	background-position: center;
 	box-shadow: 0 1px 2px #303030;
 	transition: transform 0.2s ease;
@@ -323,6 +324,8 @@ body {
 }
 #intro-text {
 	font-size: 20px;
+	font-weight: 900;
+	font-family: "Montserrat", sans-serif;
 	animation: unblur-text 2s ease forwards;
 }
 .blaco {
@@ -334,8 +337,9 @@ body {
 	width: 50px;
 }
 .link-card-text {
-	font-size: 18px;
-	font-weight: 500;
+	font-size: 20px;
+	font-weight: 600;
+	font-family: "Montserrat", sans-serif;
 }
 .medium-div a {
 	text-decoration: none;
@@ -349,7 +353,9 @@ body {
 }
 .orange-text {
 	color: #fa5019;
-	font-weight: 500;
+	font-weight: 600;
+	font-size: 20px;
+	font-family: "Montserrat", sans-serif;
 	animation: unblur-orange-text 2s ease forwards;
 }
 
@@ -528,7 +534,10 @@ body {
 	height: 100px;
 	bottom: 0;
 	left: 0;
-	margin: 35px 5px;
+	margin: 35px 5px 140px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 }
 
 .floating-container:hover .floating-button {
@@ -538,18 +547,25 @@ body {
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 }
-
-.floating-container .floating-button {
-	width: 65px;
-	height: 65px;
+#centerButton{
 	background: #fa5019;
+}
+#denunciaButton{
+	background: red;
+}
+#homeButton{
+	background: #100e34;
+}
+.floating-container .floating-button {
+	width: 50px;
+	height: 50px;
 	bottom: 0;
 	border-radius: 50%;
 	left: 0;
 	right: 0;
 	margin: auto;
 	color: white;
-	line-height: 65px;
+	line-height: 50px;
 	text-align: center;
 	font-size: 23px;
 	z-index: 100;
@@ -598,8 +614,55 @@ body {
 	border-radius: 5px;
 	cursor: pointer;
 }
-
-#seletores-mensagens {
-	height: 200px;
-	background-color: #100e34;
+.report-form {
+	color: #1c1c1c;
+}
+.content-nav {
+	font-size: 20px;
+	font-weight: 900;
+	font-family: "Montserrat", sans-serif;
+}
+.phone-icon-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background-color: green;
+	flex-shrink: 0;
+}
+.danger-icon-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background-color: red;
+	flex-shrink: 0;
+}
+.map-icon-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background-color: #403d70;
+	flex-shrink: 0;
+}
+.book-icon-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background-color: #fa5019;
+	flex-shrink: 0;
+}
+#myTabs{
+	display: flex;
+	flex-direction: column;
 }
