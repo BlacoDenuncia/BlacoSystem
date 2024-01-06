@@ -10,40 +10,54 @@ class Cadastro_controller extends CI_Controller
     {
         $page = $this->determineCurrentPage();
         $current_page = array(
-			'current_page' => $page
-		);
+            'current_page' => $page
+        );
         if ($this->session->userdata('logged_in')) {
-			
-			$user_data = $this->session->userdata('logged_in');
 
-			
-			$idusuario = $user_data['idusuario'];
-			$nome = $user_data['nome'];
-			$data_nascimento = $user_data['data_nascimento'];
-			$email = $user_data['email'];
-			$telefone = $user_data['telefone'];
-			$observacoes = $user_data['observacoes'];
+            $user_data = $this->session->userdata('logged_in');
 
-			$data = array(
-				'idusuario' => $idusuario,
-				'nome' => $nome,
-				'data_nascimento' => $data_nascimento,
-				'email' => $email,
-				'telefone' => $telefone,
-				'observacoes' => $observacoes,
-				'current_page' => $this->determineCurrentPage()
-			);
+
+            $idusuario = $user_data['idusuario'];
+            $nome = $user_data['nome'];
+            $data_nascimento = $user_data['data_nascimento'];
+            $email = $user_data['email'];
+            $telefone = $user_data['telefone'];
+            $observacoes = $user_data['observacoes'];
+
+            $data = array(
+                'idusuario' => $idusuario,
+                'nome' => $nome,
+                'data_nascimento' => $data_nascimento,
+                'email' => $email,
+                'telefone' => $telefone,
+                'observacoes' => $observacoes,
+                'current_page' => $this->determineCurrentPage()
+            );
 
             $this->template->write_view('header', 'header_view', $data, FALSE);
-			$this->template->write_view('content', 'usuarios/conta/perfil_view', $data, FALSE);
-			$this->template->write_view('menu', 'usuarios/menu_user', $data, FALSE);
-			$this->template->render();
-		}else{
+            $this->template->write_view('content', 'usuarios/conta/perfil_view', $data, FALSE);
+            $this->template->write_view('menu', 'usuarios/menu_user', $data, FALSE);
+            $this->template->render();
+        } else {
             $this->template->write_view('header', 'header_view', $current_page, FALSE);
-			$this->template->write_view('content', 'usuarios/conta/cadastro_view', $current_page, FALSE);
-			$this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
-			$this->template->render();
-		}
+            $this->template->write_view('content', 'usuarios/conta/cadastro_view', $current_page, FALSE);
+            $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
+            $this->template->render();
+        }
+    }
+    public function buscar_cadastro()
+    {
+        $emailUsuario = $this->input->post('email');
+
+        $this->load->model('login_model');
+        $encontrou = $this->login_model->buscar_usuario($emailUsuario);
+
+        if ($encontrou) {
+            $mensagem = array('tipo' => true);
+        } else {
+            $mensagem = array('tipo' => false);     
+        }
+        echo json_encode($mensagem);
     }
 
 

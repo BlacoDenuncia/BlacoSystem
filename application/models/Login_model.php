@@ -13,6 +13,19 @@ class Login_model extends CI_Model
         //ini_set('display_errors', 1);
     }
 
+    function buscar_usuario($emailUsuario)
+    {
+        $sql = " SELECT * FROM usuarios WHERE email LIKE '%$emailUsuario'";
+
+        $query = $this->db->query($sql);
+
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     function verifica_login($email, $senha)
     {
@@ -29,7 +42,7 @@ class Login_model extends CI_Model
         if ($this->db->affected_rows() > 0) {
             $result = $query->row();
             $senhaHashedBD = $result->senha_hashed;
-            
+
             if (password_verify($senha, $senhaHashedBD)) {
                 return $result;
             } else {

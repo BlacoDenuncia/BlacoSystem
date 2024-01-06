@@ -178,6 +178,23 @@ $(document).ready(function () {
         loginUser();
     });
 
+    function buscarCadastro(emailUsuario){
+        $.ajax({
+            type: "POST",
+            url: "cadastro_controller/buscar_cadastro",
+            data: emailUsuario,
+            success: function (response) {
+                var json = $.parseJSON(response);
+                var usuExiste = json.tipo;
+                return usuExiste;
+            },
+            error: function () {
+                $("#msg_erro").html("Ocorreu um erro ao processar o cadastro. Por favor tente novamente.");
+                $("#erro").show("slow");
+            }
+        })
+    }
+
     $("#btnCadastrarUsuario").click(function () {
 
         var nome = $("#nome").val();
@@ -186,6 +203,9 @@ $(document).ready(function () {
         var data_nascimento = $("#data_nascimento").val();
         var senha = $("#senha").val();
 
+        var usuExiste = buscarCadastro(email);
+        
+        /* Impedir cadastro até implementação da verificação
         var data = {
             nome: nome,
             email: email,
@@ -224,6 +244,6 @@ $(document).ready(function () {
             error: function () {
                 alert("An error occurred while processing your request. Please try again later.");
             }
-        });
+        });*/
     });
 });
