@@ -17,8 +17,7 @@ $(document).ready(function () {
                 downloadLink.remove();
             },
             error: function (xhr, status, error) {
-                console.error(error);
-                alert("Ocorreu um erro e não foi possivel gerar seu download. Tente novamente mais tarde");
+                exibirMensagem("erro", "Ocorreu um erro e não foi possivel gerar seu download. Tente novamente mais tarde");
             },
         });
     });
@@ -39,8 +38,7 @@ $(document).ready(function () {
                 downloadLink.remove();
             },
             error: function (xhr, status, error) {
-                console.error(error);
-                alert("Ocorreu um erro e não foi possivel gerar seu download. Tente novamente mais tarde");
+                exibirMensagem("erro", "Ocorreu um erro e não foi possivel gerar seu download. Tente novamente mais tarde");
             },
         });
     });

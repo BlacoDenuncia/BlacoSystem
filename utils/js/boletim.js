@@ -155,10 +155,8 @@ $(document).ready(function () {
 			success: function (response) {
 				var json = $.parseJSON(response);
 				if (json.tipo === "error" && retryCount > 0) {
-					$("#msg_erro").html(
-						"Ocorreu um erro do servidor ao enviar a denúncia para o seu email. Tentaremos de novo mais " + retryCount + " vezes "
-					);
-					$("#erro").show("slow");
+					exibirMensagem("erro", `Ocorreu um erro do servidor ao enviar a denúncia para o seu email. Tentaremos de novo mais ${retryCount} vezes `);
+					
 					setTimeout(function () {
 						enviarEmail(data, retryCount - 1, retryDelay);
 					}, retryDelay);
@@ -173,22 +171,15 @@ $(document).ready(function () {
 							enviarEmail(data);
 						});
 					} else {
-						$("#msg_sucesso").html(
-							"Uma cópia da denuncia será enviada para seu email! Cheque seu email para mais informações"
-						);
-						$("#sucesso").show("slow");
+						exibirMensagem("sucesso", "Uma cópia da denuncia será enviada para seu email! Cheque seu email para mais informações");
+						$("#btn-close").click();
 					}
 
 				}
 
-				$("html, body").animate({ scrollTop: 0 }, "slow");
-				window.setTimeout(function () {
-					$("#sucesso, #erro").hide(1000);
-					$("#btn-close, #btn-limpar").click();
-				}, 5000);
 			},
 			error: function (xhr, status, error) {
-				console.log(error); // Optional: Log the error, if any
+				console.error(error);
 			},
 		});
 	}
@@ -310,28 +301,13 @@ $(document).ready(function () {
 
 
 				if (tipo === "error") {
-					$("#msg_erro").html(
-						"Ocorreu um erro do servidor ao registrar sua denúncia"
-					);
-					$("#erro").show("slow");
+					exibirMensagem("erro", "Ocorreu um erro do servidor ao registrar sua denúncia")
 				} else {
-					$("#msg_sucesso").html(
-						"Denuncia registrada com sucesso. Uma cópia da denuncia será enviada para seu email!"
-					);
-					$("#sucesso").show("slow");
-					window.setTimeout(function () {
-						$("btn-limpar").click();
-					}, 3000);
 					if (tipoDenuncia !== "anonima") {
 						enviarEmail(data);
 					}
 				}
 
-				$("html, body").animate({ scrollTop: 0 }, "slow");
-				window.setTimeout(function () {
-					$("#sucesso, #erro").hide(1000);
-					$("#btn-close").click();
-				}, 3000);
 			},
 			error: function (xhr, status, error) {
 				console.log(error); // Optional: Log the error, if any

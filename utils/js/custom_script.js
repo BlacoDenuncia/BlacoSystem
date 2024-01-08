@@ -29,6 +29,24 @@ function checkInternetConnection() {
 
 $(document).ready(function () {
 
+  function exibirMensagem(tipo, mensagem) {
+
+    if (tipo === "erro") {
+        $("#msg_erro").html(`${mensagem}`);
+        $("#erro").show("slow");
+    }
+    else if (tipo === "sucesso") {
+        $("#msg_sucesso").html(`${mensagem}`);
+        $("#sucesso").show("slow");
+    }
+
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+
+    window.setTimeout(function () {
+        $("#erro, #sucesso").hide(1000);
+    }, 3000);
+}
+
   if (!navigator.onLine) {
     // Se estiver offline, atualize os atributos src/href
     // para apontar para os arquivos locais
@@ -73,11 +91,6 @@ $(document).ready(function () {
         deferredPrompt.prompt();
 
         deferredPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('A instalação foi aceita.');
-          } else {
-            console.log('A instalação foi recusada.');
-          }
           $('#installModal').modal('hide');
         });
       });
