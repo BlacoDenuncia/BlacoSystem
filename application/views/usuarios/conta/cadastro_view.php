@@ -71,3 +71,32 @@
         </div>
     </div>
 </main>
+
+<div id="verificationModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="bi bi-patch-check-fill"></i>
+                <h5 class="modal-title">Verifique seu email</h5>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-success" id="sucesso" role="alert" style="display:none;">
+                    <span id="msg_sucesso">Sucesso!</span>
+                </div>
+                <div class="alert alert-danger" id="erro" role="alert" style="display:none;">
+                    <span id="msg_erro">Erro!</span>
+                </div>
+                <p> Enviamos um código no seu email. Por favor digite corretamente abaixo para finalizar seu cadastro. O
+                    código será válido por 10 minutos
+                </p>
+                <div class="form-group col-md-12">
+                    <input type="text" class="form-control" id="codigo_verificar" name="email_atual_vitima"
+                        placeholder="Digite o código enviado no email">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="verifyBtn" type="button" class="btn btn-success">Verificar código</button>
+            </div>
+        </div>
+    </div>
+</div>

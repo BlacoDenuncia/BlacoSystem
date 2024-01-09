@@ -68,7 +68,7 @@ $(document).ready(function () {
                     exibirMensagem("erro", "Ocorreu um erro ao atualizar os dados");
                 } else {
                     exibirMensagem("sucesso", "Dados atualizados com sucesso");
-                    
+
                     window.location.href = base_url + "conta_controller";
                 }
             },
@@ -95,7 +95,7 @@ $(document).ready(function () {
             success: function (response) {
                 if (response.success) {
                     exibirMensagem("sucesso", response.message);
-                    
+
                     window.location.reload();
                 } else {
                     exibirMensagem("erro", response.message);
@@ -156,7 +156,44 @@ $(document).ready(function () {
                 return usuExiste;
             },
             error: function () {
-                exibirMensagem("erro", "Ocorreu um erro ao processar o cadastro. Por favor tente novamente.");
+                exibirMensagem("erro", "Ocorreu um erro ao procurar o cadastro. Por favor tente novamente.");
+            }
+        })
+    }
+    var timer;
+
+    function validarCadastro(email) {
+        $.ajax({
+            type: "POST",
+            url: "cadastro_controller/validar_cadastro",
+            data: email,
+            success: function (response) {
+                var json = $.parseJSON(response);
+
+                if (json.tipo == "sucess") {
+                    var ramdomCode = json.code;
+                    $("#verificationModal").modal("show");
+
+                    var codigoDigitado;
+                    $("#verifyBtn").on("click", function () {
+                        codigoDigitado = $("#codigo_verificar").val();
+
+                        if (codigoDigitado != ramdomCode) {
+                            exibirMensagem("erro", "O código digitado está incorreto!");
+
+                            timer = setTimeout(function () {
+                                $("#verificationModal").modal("hide");
+                                return false;
+                            }, 10 * 60 * 1000);
+                        } else {
+                            clearTimeout(timer);
+                            return true;
+                        }
+                    })
+                } else {
+                    exibirMensagem("erro", "O email de verificação não pode ser enviado. Verifique se digitou corretamente");
+                    return false;
+                }
             }
         })
     }
@@ -173,6 +210,9 @@ $(document).ready(function () {
 
         if (!usuExiste) {
             // validar cadastro
+            let cadValido = validarCadastro(email);
+
+
         } else {
             exibirMensagem("erro", "O email digitado já está cadastrado! Tente fazer login.");
             window.location.href = `${base_url}login_controller`;
