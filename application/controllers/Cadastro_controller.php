@@ -45,6 +45,63 @@ class Cadastro_controller extends CI_Controller
             $this->template->render();
         }
     }
+
+    public function enviarEmail($emailUsuario, $randomCode)
+    {
+        $this->load->library('phpmailer_lib');
+
+        $mail = $this->phpmailer_lib->load();
+
+        $mail->isSMTP();
+        $mail->Host = 'smtp.hostinger.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'suporte@blaco.com.br';
+        $mail->Password = 'BLACO.252863.suporte';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+
+        $mail->setFrom('suporte@blaco.com.br', 'BLACO Suporte');
+        $mail->setAddress($emailUsuario);
+
+        $mail->isHTML(TRUE);
+        $mail->Subject = 'Validação de cadastro BLACO';
+
+        $emailTemplate = '<html> 
+        <body> 
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+        <h1> Seu código de verificação </h1> 
+        <br> 
+
+        <p> Obrigado por confiar em nosso serviço! Use o código abaixo para finalizar seu cadastro </p>
+        <br>
+        <div style="display: flex; justify-content: center; align-items: center; background-color: #fa5019; color: #fff; width: 100px; border-radius: 10px;">
+        <p style="padding: 10px;"> ' . $randomCode . ' </p>
+        </div>
+        </div>
+        </body> 
+        </html>';
+
+        $mail->Body = $emailTemplate;
+
+        $enviou = $mail->send() ? true : false;
+        return $enviou;
+
+    }
+    public function validar_cadastro()
+    {
+        $emailUsuario = $this->input->post('email');
+        $randomCode = rand(100000, 999999);
+
+        $enviouEmail = enviarEmail($emailUsuario, $randomCode);
+
+        if ($enviouEmail) {
+            $mensagem = array('tipo' => 'sucess', 'code' => $randomCode);
+        } else {
+            $mensagem = array('tipo' => 'error', 'code' => NULL);
+        }
+
+        echo json_encode($mensagem);
+    }
     public function buscar_cadastro()
     {
         $emailUsuario = $this->input->post('email');
@@ -55,7 +112,7 @@ class Cadastro_controller extends CI_Controller
         if ($encontrou) {
             $mensagem = array('tipo' => true);
         } else {
-            $mensagem = array('tipo' => false);     
+            $mensagem = array('tipo' => false);
         }
         echo json_encode($mensagem);
     }
