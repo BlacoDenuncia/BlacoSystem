@@ -29,24 +29,6 @@ function checkInternetConnection() {
 
 $(document).ready(function () {
 
-  function exibirMensagem(tipo, mensagem) {
-
-    if (tipo === "erro") {
-        $("#msg_erro").html(`${mensagem}`);
-        $("#erro").show("slow");
-    }
-    else if (tipo === "sucesso") {
-        $("#msg_sucesso").html(`${mensagem}`);
-        $("#sucesso").show("slow");
-    }
-
-    $("html, body").animate({ scrollTop: 0 }, "slow");
-
-    window.setTimeout(function () {
-        $("#erro, #sucesso").hide(1000);
-    }, 3000);
-}
-
   if (!navigator.onLine) {
     // Se estiver offline, atualize os atributos src/href
     // para apontar para os arquivos locais
