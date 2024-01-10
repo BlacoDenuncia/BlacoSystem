@@ -146,9 +146,10 @@ $(document).ready(function () {
     });
 
     function buscarCadastro(emailUsuario) {
+        console.log("buscando...")
         $.ajax({
             type: "POST",
-            url: "cadastro_controller/buscar_cadastro",
+            url: base_url + "cadastro_controller/buscar_cadastro",
             data: emailUsuario,
             success: function (response) {
                 var json = $.parseJSON(response);
@@ -163,9 +164,10 @@ $(document).ready(function () {
     var timer;
 
     function validarCadastro(email) {
+        console.log("validando...")
         $.ajax({
             type: "POST",
-            url: "cadastro_controller/validar_cadastro",
+            url: base_url + "cadastro_controller/validar_cadastro",
             data: email,
             success: function (response) {
                 var json = $.parseJSON(response);
@@ -208,42 +210,46 @@ $(document).ready(function () {
 
         var usuExiste = buscarCadastro(email);
 
-        if (!usuExiste) {
+        if (usuExiste == false) {
             // validar cadastro
             let cadValido = validarCadastro(email);
+            console.log(cadValido)
 
+            if (cadValido) {
+                var data = {
+                    nome: nome,
+                    email: email,
+                    telefone: telefone,
+                    data_nascimento: data_nascimento,
+                    senha: senha
+                };
+
+                $.ajax({
+                    type: "POST",
+                    data: data,
+                    url: base_url + "cadastro_controller/cadastrar_usuario",
+                    success: function (response) {
+                        var json = $.parseJSON(response);
+                        var tipo = json.tipo;
+                        if (tipo === "error") {
+                            exibirMensagem("erro", "Ocorreu um erro ao cadastrar o usuario");
+                        } else {
+                            exibirMensagem("sucesso", "Novo usuario cadastrado!");
+                        }
+                        $("#btn-close").click();
+                    },
+                    error: function () {
+                        exibirMensagem("erro", "An error occurred while processing your request. Please try again later.");
+                    }
+                });
+            } else {
+                exibirMensagem("erro", "O código expirou, tente novamente.");
+                window.location.href = `${base_url}cadastro_controller`;
+            }
 
         } else {
             exibirMensagem("erro", "O email digitado já está cadastrado! Tente fazer login.");
             window.location.href = `${base_url}login_controller`;
         }
-
-        /* Impedir cadastro até implementação da verificação
-        var data = {
-            nome: nome,
-            email: email,
-            telefone: telefone,
-            data_nascimento: data_nascimento,
-            senha: senha
-        };
-
-        $.ajax({
-            type: "POST",
-            url: "cadastro_controller/cadastrar_usuario",
-            data: data,
-            success: function (response) {
-                var json = $.parseJSON(response);
-                var tipo = json.tipo;
-                if (tipo === "error") {
-                    exibirMensagem("erro", "Ocorreu um erro ao cadastrar o usuario");
-                } else {
-                    exibirMensagem("sucesso", "Novo usuario cadastrado!");
-                }
-                $("#btn-close").click();
-            },
-            error: function () {
-               exibirMensagem("erro", "An error occurred while processing your request. Please try again later.");
-            }
-        });*/
     });
 });
