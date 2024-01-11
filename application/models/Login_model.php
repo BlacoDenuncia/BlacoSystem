@@ -15,13 +15,15 @@ class Login_model extends CI_Model
 
     function buscar_usuario($emailUsuario)
     {
-        $sql = " SELECT * FROM usuarios WHERE email LIKE '%$emailUsuario'";
+        $sql = " SELECT * FROM usuarios WHERE email = ?";
 
-        $query = $this->db->query($sql);
+        $query = $this->db->query($sql, array("%$emailUsuario%"));
 
-        if ($this->db->affected_rows() > 0) {
+        if ($query->num_rows() > 0) {
+            echo "Batata";
             return true;
         } else {
+            echo "beterraba";
             return false;
         }
     }
