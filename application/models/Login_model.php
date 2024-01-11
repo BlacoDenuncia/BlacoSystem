@@ -20,10 +20,8 @@ class Login_model extends CI_Model
         $query = $this->db->query($sql, array("%$emailUsuario%"));
 
         if ($query->num_rows() > 0) {
-            echo "Batata";
             return true;
         } else {
-            echo "beterraba";
             return false;
         }
     }
