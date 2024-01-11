@@ -61,7 +61,7 @@ class Cadastro_controller extends CI_Controller
         $mail->Port = 465;
 
         $mail->setFrom('suporte@blaco.com.br', 'BLACO Suporte');
-        $mail->setAddress($emailUsuario);
+        $mail->addAddress($emailUsuario);
 
         $mail->isHTML(TRUE);
         $mail->Subject = 'Validação de cadastro BLACO';
@@ -92,7 +92,7 @@ class Cadastro_controller extends CI_Controller
         $emailUsuario = $this->input->post('email');
         $randomCode = rand(100000, 999999);
 
-        $enviouEmail = enviarEmail($emailUsuario, $randomCode);
+        $enviouEmail = $this->enviarEmail($emailUsuario, $randomCode);
 
         if ($enviouEmail) {
             $mensagem = array('tipo' => 'sucess', 'code' => $randomCode);
