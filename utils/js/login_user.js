@@ -192,6 +192,7 @@ $(document).ready(function () {
                                 }, 10 * 60 * 1000);
                             } else {
                                 clearTimeout(timer);
+                                $("#verificationModal").modal("hide");
                                 resolve(true);
                             }
                         })
