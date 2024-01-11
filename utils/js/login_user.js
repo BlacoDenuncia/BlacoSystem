@@ -146,58 +146,66 @@ $(document).ready(function () {
     });
 
     function buscarCadastro(emailUsuario) {
-        console.log("buscando...")
-        $.ajax({
-            type: "POST",
-            url: base_url + "cadastro_controller/buscar_cadastro",
-            data: emailUsuario,
-            success: function (response) {
-                var json = $.parseJSON(response);
-                var usuExiste = json.tipo;
-                return usuExiste;
-            },
-            error: function () {
-                exibirMensagem("erro", "Ocorreu um erro ao procurar o cadastro. Por favor tente novamente.");
-            }
-        })
+        return new Promise(function (resolve, reject) {
+            console.log("buscando...")
+            $.ajax({
+                type: "POST",
+                url: base_url + "cadastro_controller/buscar_cadastro",
+                data: emailUsuario,
+                success: function (response) {
+                    var json = $.parseJSON(response);
+                    var usuExiste = json.tipo;
+                    resolve(usuExiste);
+                },
+                error: function () {
+                    reject("Ocorreu um erro ao procurar o cadastro. Por favor tente novamente.");
+                }
+            });
+        });
     }
     var timer;
 
     function validarCadastro(email) {
-        console.log("validando...")
-        $.ajax({
-            type: "POST",
-            url: base_url + "cadastro_controller/validar_cadastro",
-            data: email,
-            success: function (response) {
-                var json = $.parseJSON(response);
+        return new Promise(function (resolve, reject) {
+            console.log("validando...")
+            $.ajax({
+                type: "POST",
+                url: base_url + "cadastro_controller/validar_cadastro",
+                data: { email: email },
+                success: function (response) {
+                    var json = $.parseJSON(response);
 
-                if (json.tipo == "sucess") {
-                    var ramdomCode = json.code;
-                    $("#verificationModal").modal("show");
+                    if (json.tipo == "sucess") {
+                        var ramdomCode = json.code;
+                        $("#verificationModal").modal("show");
 
-                    var codigoDigitado;
-                    $("#verifyBtn").on("click", function () {
-                        codigoDigitado = $("#codigo_verificar").val();
+                        var codigoDigitado;
+                        $("#verifyBtn").on("click", function () {
+                            codigoDigitado = $("#codigo_verificar").val();
 
-                        if (codigoDigitado != ramdomCode) {
-                            exibirMensagem("erro", "O código digitado está incorreto!");
+                            if (codigoDigitado != ramdomCode) {
+                                exibirMensagem("erro", "O código digitado está incorreto!");
 
-                            timer = setTimeout(function () {
-                                $("#verificationModal").modal("hide");
-                                return false;
-                            }, 10 * 60 * 1000);
-                        } else {
-                            clearTimeout(timer);
-                            return true;
-                        }
-                    })
-                } else {
-                    exibirMensagem("erro", "O email de verificação não pode ser enviado. Verifique se digitou corretamente");
-                    return false;
+                                timer = setTimeout(function () {
+                                    $("#verificationModal").modal("hide");
+                                    resolve(false);
+                                }, 10 * 60 * 1000);
+                            } else {
+                                clearTimeout(timer);
+                                resolve(true);
+                            }
+                        })
+                    } else {
+                        exibirMensagem("erro", "O email de verificação não pode ser enviado. Verifique se digitou corretamente");
+                        resolve(false);
+                    }
+                },
+                error: function () {
+                    reject("Ocorreu um erro ao validar o cadastro. Por favor tente novamente.");
                 }
-            }
-        })
+            });
+        });
+
     }
 
     $("#btnCadastrarUsuario").click(function () {
@@ -208,48 +216,60 @@ $(document).ready(function () {
         var data_nascimento = $("#data_nascimento").val();
         var senha = $("#senha").val();
 
-        var usuExiste = buscarCadastro(email);
+        buscarCadastro(email).then(function (usuExiste) {
+            if (!usuExiste) {
+                // validar cadastro
+                validarCadastro(email).then(function (cadValido) {
+                    console.log(cadValido)
 
-        if (usuExiste == false) {
-            // validar cadastro
-            let cadValido = validarCadastro(email);
-            console.log(cadValido)
+                    if (cadValido) {
+                        var data = {
+                            nome: nome,
+                            email: email,
+                            telefone: telefone,
+                            data_nascimento: data_nascimento,
+                            senha: senha
+                        };
 
-            if (cadValido) {
-                var data = {
-                    nome: nome,
-                    email: email,
-                    telefone: telefone,
-                    data_nascimento: data_nascimento,
-                    senha: senha
-                };
-
-                $.ajax({
-                    type: "POST",
-                    data: data,
-                    url: base_url + "cadastro_controller/cadastrar_usuario",
-                    success: function (response) {
-                        var json = $.parseJSON(response);
-                        var tipo = json.tipo;
-                        if (tipo === "error") {
-                            exibirMensagem("erro", "Ocorreu um erro ao cadastrar o usuario");
-                        } else {
-                            exibirMensagem("sucesso", "Novo usuario cadastrado!");
-                        }
-                        $("#btn-close").click();
-                    },
-                    error: function () {
-                        exibirMensagem("erro", "An error occurred while processing your request. Please try again later.");
+                        $.ajax({
+                            type: "POST",
+                            data: data,
+                            url: base_url + "cadastro_controller/cadastrar_usuario",
+                            success: function (response) {
+                                var json = $.parseJSON(response);
+                                var tipo = json.tipo;
+                                if (tipo === "error") {
+                                    exibirMensagem("erro", "Ocorreu um erro ao cadastrar o usuario");
+                                } else {
+                                    exibirMensagem("sucesso", "Novo usuario cadastrado!");
+                                }
+                                $("#btn-close").click();
+                            },
+                            error: function () {
+                                exibirMensagem("erro", "An error occurred while processing your request. Please try again later.");
+                            }
+                        });
+                    } else {
+                        exibirMensagem("erro", "O código expirou, tente novamente.");
+                        /*window.setTimeout( function() {
+                            window.location.href = `${base_url}cadastro_controller`;
+                        }, 5000);
+                        */
                     }
+                }).catch(function (error) {
+                    exibirMensagem("erro", error);
                 });
-            } else {
-                exibirMensagem("erro", "O código expirou, tente novamente.");
-                window.location.href = `${base_url}cadastro_controller`;
-            }
 
-        } else {
-            exibirMensagem("erro", "O email digitado já está cadastrado! Tente fazer login.");
-            window.location.href = `${base_url}login_controller`;
-        }
+            } else {
+                exibirMensagem("erro", "O email digitado já está cadastrado! Tente fazer login.");
+                /*window.setTimeout( function() {
+                    window.location.href = `${base_url}login_controller`;
+                }, 5000);*/
+            }
+        }).catch(function (error){
+            exibirMensagem("erro", error);
+        })
+
+
     });
 });
