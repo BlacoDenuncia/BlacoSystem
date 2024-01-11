@@ -243,6 +243,9 @@ $(document).ready(function () {
                                     exibirMensagem("erro", "Ocorreu um erro ao cadastrar o usuario");
                                 } else {
                                     exibirMensagem("sucesso", "Novo usuario cadastrado!");
+                                    window.setTimeout( function() {
+                                        window.location.href = `${base_url}conta_controller`;
+                                    }, 5000);
                                 }
                                 $("#btn-close").click();
                             },
@@ -252,10 +255,9 @@ $(document).ready(function () {
                         });
                     } else {
                         exibirMensagem("erro", "O código expirou, tente novamente.");
-                        /*window.setTimeout( function() {
+                        window.setTimeout( function() {
                             window.location.href = `${base_url}cadastro_controller`;
                         }, 5000);
-                        */
                     }
                 }).catch(function (error) {
                     exibirMensagem("erro", error);
@@ -263,9 +265,9 @@ $(document).ready(function () {
 
             } else {
                 exibirMensagem("erro", "O email digitado já está cadastrado! Tente fazer login.");
-                /*window.setTimeout( function() {
+                window.setTimeout( function() {
                     window.location.href = `${base_url}login_controller`;
-                }, 5000);*/
+                }, 5000);
             }
         }).catch(function (error){
             exibirMensagem("erro", error);
