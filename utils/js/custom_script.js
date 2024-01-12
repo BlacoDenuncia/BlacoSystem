@@ -92,19 +92,19 @@ $(document).ready(function () {
         .then(registration => console.log('Service Worker registered'))
         .catch(err => 'SW registration failed'));
   }
-  if (localStorage.getItem("modalv0.1shown") == "1") {
-    $("#updateV0.1Modal").modal("hide");
+  if (localStorage.getItem("modalv0.2shown") == "1") {
+    $("#updateV0.2Modal").modal("hide");
   } else {
-    $("#updateV0.1Modal").modal("show");
+    $("#updateV0.2Modal").modal("show");
   }
 
   $("#fecharUpdateButton").click(function () {
-    localStorage.setItem("modalv0.1shown", "1");
+    localStorage.setItem("modalv0.2shown", "1");
 
     //usar quando ouver mais de uma atualização para remover do localstorage as antigas.
-    localStorage.removeItem("modalv0shown");
+    localStorage.removeItem("modalv0.1shown");
 
-    $("#updateV0.1Modal").modal("hide");
+    $("#updateV0.2Modal").modal("hide");
   });
 
 

@@ -92,7 +92,7 @@
             </div>
          </div>
       </div>
-      <div id="updateV0.1Modal" class="modal fade" tabindex="-1" role="dialog">
+      <div id="updateV0.2Modal" class="modal fade" tabindex="-1" role="dialog">
          <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                <div class="modal-header">
@@ -102,8 +102,8 @@
                <div class="modal-body">
                   <p>Aproveite a nova atualização!</p>
                   <ul id="listaInstallModal">
-                     <li>Agora o app e o website sempre são atualizados em conjunto</li>
-                     <li>Novos botões foram adicionados na aba do mapa para facilitar o acesso</li>
+                     <li>Uma nova aba de chat para denuncia irá substituir o antigo formulário. Isso permite que as denúncias sejam feitas de forma mais dinâmica</li>
+                     <li>Agora os novos cadastros serão válidados por email antes de registrar o novo usuário</li>
                   </ul>
                </div>
                <div class="modal-footer">
