@@ -241,6 +241,8 @@ class Boletim_controller extends CI_Controller
         $mail->addAddress($email_vitima, $nome_vitima);
 
         $mail->isHTML(TRUE);
+        $mail->CharSet = 'UTF-8';
+        
         $mail->Subject = 'Denúncia Registrada';
 
         $emailBody = '<html><body>';
