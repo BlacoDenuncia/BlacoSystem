@@ -22,6 +22,7 @@
    <div class="container-fluid no-padding no-overlap">
       <div id="content" class="no-padding content container-fluid">
          <?php
+         echo $header;
          echo $content;
          ?>
       </div>
@@ -69,6 +70,26 @@
                </div>
                <div class="modal-footer">
                   <button id="installButton" type="button" class="btn btn-danger">Instalar na tela inicial</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="updateV0.1Modal" class="modal fade" tabindex="-1" role="dialog">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <i class="bi bi-arrow-clockwise"></i>
+                  <h5 class="modal-title">O BLACO atualizou!<span style="font-size: 20px;"class="emoji">&#128513;</span></h5>
+               </div>
+               <div class="modal-body">
+                  <p>Aproveite a nova atualização!</p>
+                  <ul id="listaInstallModal">
+                     <li>Agora o app e o website sempre são atualizados em conjunto</li>
+                     <li>Novos botões foram adicionados na aba do mapa para facilitar o acesso</li>
+                  </ul>
+               </div>
+               <div class="modal-footer">
+                  <button id="fecharUpdateButton" type="button" class="btn btn-danger">Entendido!</button>
                </div>
             </div>
          </div>

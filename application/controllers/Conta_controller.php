@@ -47,11 +47,13 @@ class Conta_controller extends CI_Controller
                     'current_page' => $this->determineCurrentPage()
                 );
 
+                $this->template->write_view('header', 'header_view', $data, FALSE);
                 $this->template->write_view('content', 'usuarios/conta/perfil_view', $data, FALSE);
                 $this->template->write_view('menu', 'usuarios/menu_user', $data, FALSE);
                 $this->template->render();
             }
         } else {
+            $this->template->write_view('header', 'header_view', $current_page, FALSE);
             $this->template->write_view('content', 'usuarios/conta/login_view', $current_page, FALSE, );
             $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
             $this->template->render();
