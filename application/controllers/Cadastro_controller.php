@@ -64,6 +64,8 @@ class Cadastro_controller extends CI_Controller
         $mail->addAddress($emailUsuario);
 
         $mail->isHTML(TRUE);
+        $mail->CharSet = 'UTF-8';
+        
         $mail->Subject = 'Validação de cadastro BLACO';
 
         $emailTemplate = '<html> 
