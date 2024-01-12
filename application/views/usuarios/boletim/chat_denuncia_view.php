@@ -90,4 +90,26 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="fillModal" tabindex="-1" role="dialog" aria-labelledby="fillModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="fillModalLabel">Você é a vítima?</h5>
+         </div>
+         <div class="modal-body">
+            <p>Notamos que está logado. Caso seja a vítima, você deseja preencher antecipadamente alguns campos com seus dados de login?</p>
+         </div>
+         <div class="modal-footer">
+            <div class="row">
+               <div class="form-group form-button col-md-6"> <button type="button" class="btn btn-secondary"
+                     id="btnDismissFill" data-dismiss="modal">Não,
+                     obrigado!</button></div>
+               <div class="form-group form-button col-md-6"> <button type="button" class="btn btn-primary"
+                     id="btnFillForm">Preencher formulário</button></div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 <link rel="stylesheet" href="<?php echo base_url();?>utils/styles/report_style.css">

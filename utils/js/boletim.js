@@ -478,7 +478,7 @@ $(document).ready(function () {
 		if (userData != null)
 		{
 			var perfImgPath = base_url + userData.photo_path;
-			if(perfImgPath == null)
+			if(perfImgPath == null || perfImgPath == base_url + "null")
 			{
 				perfImgPath = base_url + 'usersPhotos/default.jpg';
 				

@@ -614,6 +614,11 @@ body {
 	border-radius: 5px;
 	cursor: pointer;
 }
+
+#seletores-mensagens {
+	height: 200px;
+	background-color: #100e34;
+}
 .report-form {
 	color: #1c1c1c;
 }

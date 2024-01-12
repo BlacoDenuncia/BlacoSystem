@@ -55,12 +55,12 @@ class Boletim_controller extends CI_Controller
             );
 
             $this->template->write_view('header', 'header_view', $data, FALSE);
-            $this->template->write_view('content', 'usuarios/boletim/boletim_view', $data, FALSE);
+            $this->template->write_view('content', 'usuarios/boletim/chat_denuncia_view', $data, FALSE);
             $this->template->write_view('menu', 'usuarios/menu_user', $data, FALSE);
             $this->template->render();
         } else {
             $this->template->write_view('header', 'header_view', $current_page, FALSE);
-            $this->template->write_view('content', 'usuarios/boletim/boletim_view', $current_page, FALSE);
+            $this->template->write_view('content', 'usuarios/boletim/chat_denuncia_view', $current_page, FALSE);
             $this->template->write_view('menu', 'usuarios/menu_user', $current_page, FALSE);
             $this->template->render();
         }
@@ -243,6 +243,8 @@ class Boletim_controller extends CI_Controller
         $mail->addAddress($email_vitima, $nome_vitima);
 
         $mail->isHTML(TRUE);
+        $mail->CharSet = 'UTF-8';
+        
         $mail->Subject = 'Denúncia Registrada';
 
         $emailBody = '<html><body>';
