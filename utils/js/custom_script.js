@@ -73,11 +73,6 @@ $(document).ready(function () {
         deferredPrompt.prompt();
 
         deferredPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('A instalação foi aceita.');
-          } else {
-            console.log('A instalação foi recusada.');
-          }
           $('#installModal').modal('hide');
         });
       });

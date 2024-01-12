@@ -13,7 +13,25 @@
    
    <script>
       var base_url = "<?php echo base_url(); ?>"; 
+
+      function exibirMensagem(tipo, mensagem) {
+
+         if (tipo === "erro") {
+            $("#msg_erro").html(`${mensagem}`);
+            $("#erro").show("slow");
+         }
+         else if (tipo === "sucesso") {
+            $("#msg_sucesso").html(`${mensagem}`);
+            $("#sucesso").show("slow");
+         }
+         $("html, body").animate({ scrollTop: 0 }, "slow");
+
+         window.setTimeout(function () {
+            $("#erro, #sucesso").hide(1000);
+         }, 3000);
+      }
    </script>
+   
    <title>Blaco - Denuncie</title>
 </head>
 

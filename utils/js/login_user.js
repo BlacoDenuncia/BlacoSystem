@@ -30,27 +30,15 @@ $(document).ready(function () {
                 var json = $.parseJSON(response);
                 var tipo = json.tipo;
                 if (tipo === "error") {
-                    $("#msg_erro").html(
-                        "Ocorreu um erro ao sair da conta"
-                    );
-                    $("html, body").animate({ scrollTop: 0 }, "slow");
-                    $("#erro").show("slow");
-
-                    
+                    exibirMensagem("erro", "Ocorreu um erro ao sair da conta");
                 } else {
-                    $("#msg_sucesso").html(
-                        "Logout Realizado com sucesso"
-                    );
-                    $("#sucesso").show();
-                    $("html, body").animate({ scrollTop: 0 }, "slow");
-                    window.setTimeout(function () {
-                        $("#sucesso, #erro").hide(1000);
-                        window.location.href = base_url + "login_controller";
-                    }, 1000);
+                    exibirMensagem("sucesso", "Logout Realizado com sucesso");
+
+                    window.location.href = base_url + "login_controller";
                 }
             },
             error: function (xhr, status, error) {
-                alert("An error occurred while processing the logout request. Please try again later.");
+                exibirMensagem("erro", "An error occurred while processing the logout request. Please try again later.");
             }
         });
     }
@@ -77,28 +65,15 @@ $(document).ready(function () {
                 var json = $.parseJSON(response);
                 var tipo = json.tipo;
                 if (tipo === "error") {
-                    $("#msg_erro").html(
-                        "Ocorreu um erro ao atualizar os dados"
-                    );
-                    $("#erro").show("slow");
-
-
+                    exibirMensagem("erro", "Ocorreu um erro ao atualizar os dados");
                 } else {
-                    $("#msg_sucesso").html(
-                        "Dados atualizados com sucesso"
-                    );
-                    $("#sucesso").show("slow");
-                    window.setTimeout(function () {
-                        $("#sucesso, #erro").hide(1000);
-                        $('#editarDadosModal').modal('hide');
-                        window.location.href = base_url + "conta_controller";
-                    }, 2000);
+                    exibirMensagem("sucesso", "Dados atualizados com sucesso");
 
-
+                    window.location.href = base_url + "conta_controller";
                 }
             },
             error: function (xhr, status, error) {
-                alert("An error occurred while updating the data. Please try again later.");
+                exibirMensagem("erro", "An error occurred while updating the data. Please try again later.");
             }
         });
     });
@@ -119,15 +94,15 @@ $(document).ready(function () {
             processData: false,
             success: function (response) {
                 if (response.success) {
-                    alert(response.message);
-                    // Refresh the page to display the uploaded photo
+                    exibirMensagem("sucesso", response.message);
+
                     window.location.reload();
                 } else {
-                    alert(response.message);
+                    exibirMensagem("erro", response.message);
                 }
             },
             error: function (xhr, status, error) {
-                alert("An error occurred while uploading the photo. Please try again later.");
+                exibirMensagem("erro", "An error occurred while uploading the photo. Please try again later.");
             }
         });
     }
@@ -152,22 +127,14 @@ $(document).ready(function () {
 
 
                 if (tipo === "error") {
-                    $("#msg_erro").html(
-                        "Falha ao fazer login"
-                    );
-                    $("#erro").show("slow");
+                    exibirMensagem("erro", "Falha ao fazer login")
                 } else {
                     window.location.href = base_url + "conta_controller";
                 }
-
-                $("html, body").animate({ scrollTop: 0 }, "slow");
-                window.setTimeout(function () {
-                    $("#sucesso, #erro").hide(1000);
-                }, 3000);
             },
             error: function () {
 
-                alert("An error occurred while processing your request. Please try again later.");
+                exibirMensagem("erro", "An error occurred while processing your request. Please try again later.");
             }
         });
     }
@@ -178,6 +145,70 @@ $(document).ready(function () {
         loginUser();
     });
 
+    function buscarCadastro(emailUsuario) {
+        return new Promise(function (resolve, reject) {
+            console.log("buscando...")
+            $.ajax({
+                type: "POST",
+                url: base_url + "cadastro_controller/buscar_cadastro",
+                data: emailUsuario,
+                success: function (response) {
+                    var json = $.parseJSON(response);
+                    var usuExiste = json.tipo;
+                    resolve(usuExiste);
+                },
+                error: function () {
+                    reject("Ocorreu um erro ao procurar o cadastro. Por favor tente novamente.");
+                }
+            });
+        });
+    }
+    var timer;
+
+    function validarCadastro(email) {
+        return new Promise(function (resolve, reject) {
+            console.log("validando...")
+            $.ajax({
+                type: "POST",
+                url: base_url + "cadastro_controller/validar_cadastro",
+                data: { email: email },
+                success: function (response) {
+                    var json = $.parseJSON(response);
+
+                    if (json.tipo == "sucess") {
+                        var ramdomCode = json.code;
+                        $("#verificationModal").modal("show");
+
+                        var codigoDigitado;
+                        $("#verifyBtn").on("click", function () {
+                            codigoDigitado = $("#codigo_verificar").val();
+
+                            if (codigoDigitado != ramdomCode) {
+                                exibirMensagem("erro", "O código digitado está incorreto!");
+
+                                timer = setTimeout(function () {
+                                    $("#verificationModal").modal("hide");
+                                    resolve(false);
+                                }, 10 * 60 * 1000);
+                            } else {
+                                clearTimeout(timer);
+                                $("#verificationModal").modal("hide");
+                                resolve(true);
+                            }
+                        })
+                    } else {
+                        exibirMensagem("erro", "O email de verificação não pode ser enviado. Verifique se digitou corretamente");
+                        resolve(false);
+                    }
+                },
+                error: function () {
+                    reject("Ocorreu um erro ao validar o cadastro. Por favor tente novamente.");
+                }
+            });
+        });
+
+    }
+
     $("#btnCadastrarUsuario").click(function () {
 
         var nome = $("#nome").val();
@@ -186,44 +217,62 @@ $(document).ready(function () {
         var data_nascimento = $("#data_nascimento").val();
         var senha = $("#senha").val();
 
-        var data = {
-            nome: nome,
-            email: email,
-            telefone: telefone,
-            data_nascimento: data_nascimento,
-            senha: senha
-        };
+        buscarCadastro(email).then(function (usuExiste) {
+            if (!usuExiste) {
+                // validar cadastro
+                validarCadastro(email).then(function (cadValido) {
+                    console.log(cadValido)
 
-        $.ajax({
-            type: "POST",
-            url: "cadastro_controller/cadastrar_usuario",
-            data: data,
-            success: function (response) {
-                var json = $.parseJSON(response);
-                var tipo = json.tipo;
-                if (tipo === "error") {
-                    $("#msg_erro").html(
-                        "Ocorreu um erro ao cadastrar o usuario"
-                    );
-                    $("#erro").show("slow");
+                    if (cadValido) {
+                        var data = {
+                            nome: nome,
+                            email: email,
+                            telefone: telefone,
+                            data_nascimento: data_nascimento,
+                            senha: senha
+                        };
 
+                        $.ajax({
+                            type: "POST",
+                            data: data,
+                            url: base_url + "cadastro_controller/cadastrar_usuario",
+                            success: function (response) {
+                                var json = $.parseJSON(response);
+                                var tipo = json.tipo;
+                                if (tipo === "error") {
+                                    exibirMensagem("erro", "Ocorreu um erro ao cadastrar o usuario");
+                                } else {
+                                    exibirMensagem("sucesso", "Novo usuario cadastrado!");
+                                    window.setTimeout( function() {
+                                        window.location.href = `${base_url}conta_controller`;
+                                    }, 5000);
+                                }
+                                $("#btn-close").click();
+                            },
+                            error: function () {
+                                exibirMensagem("erro", "An error occurred while processing your request. Please try again later.");
+                            }
+                        });
+                    } else {
+                        exibirMensagem("erro", "O código expirou, tente novamente.");
+                        window.setTimeout( function() {
+                            window.location.href = `${base_url}cadastro_controller`;
+                        }, 5000);
+                    }
+                }).catch(function (error) {
+                    exibirMensagem("erro", error);
+                });
 
-                } else {
-                    $("#msg_sucesso").html(
-                        "Novo usuario cadastrado!"
-                    );
-                    $("#sucesso").show("slow");
-
-                }
-                $("html, body").animate({ scrollTop: 0 }, "slow");
-                window.setTimeout(function () {
-                    $("#sucesso, #erro").hide(1000);
-                    $("#btn-close").click();
-                }, 3000);
-            },
-            error: function () {
-                alert("An error occurred while processing your request. Please try again later.");
+            } else {
+                exibirMensagem("erro", "O email digitado já está cadastrado! Tente fazer login.");
+                window.setTimeout( function() {
+                    window.location.href = `${base_url}login_controller`;
+                }, 5000);
             }
-        });
+        }).catch(function (error){
+            exibirMensagem("erro", error);
+        })
+
+
     });
 });

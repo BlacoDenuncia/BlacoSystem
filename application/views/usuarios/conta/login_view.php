@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="m-sm-3">
-                                <form>
+                                <form class="register-form">
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
                                         <input class="form-control form-control" type="email" id="email" name="email"
